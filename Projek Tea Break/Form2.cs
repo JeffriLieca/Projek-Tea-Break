@@ -17,56 +17,112 @@ namespace Projek_Tea_Break
             InitializeComponent();
         }
 
-        private void daftarMenuToolStripMenuItem_Click(object sender, EventArgs e)
+        private void FormOrder_Load(object sender, EventArgs e)
         {
-            FormPilihan FormPilihan = new FormPilihan();
-            FormPilihan.Show();
+            buttonEditMenu.BackColor = Color.Transparent;
+            buttonAdmin.BackColor = Color.Transparent;
+            buttonCashier.BackColor = Color.ForestGreen;
+            InvisText();
+            buttonCashier.Text = "Cashier";
         }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-            
-        }
-
         private void buttonCashier_Click(object sender, EventArgs e)
         {
+            buttonEditMenu.BackColor = Color.Transparent;
+            buttonAdmin.BackColor = Color.Transparent;
             buttonCashier.BackColor = Color.ForestGreen;
-            buttonEdit.BackColor = Color.White;
-            pictureBoxEdit.BackColor = Color.White;
-            pictureBoxCashier.BackColor = Color.ForestGreen;
-            labelEdit.BackColor = Color.White;
-            labelEdit.ForeColor = Color.White;
-            labelCashier.ForeColor = Color.White;
-            labelCashier.BackColor = Color.ForestGreen;
+            InvisText();
+            buttonCashier.Text = "Cashier";
         }
 
-        private void buttonEdit_Click(object sender, EventArgs e)
+
+        private void buttonEditMenu_Click(object sender, EventArgs e)
         {
-            buttonCashier.BackColor = Color.White;
-            buttonEdit.BackColor = Color.ForestGreen;
-            pictureBoxCashier.BackColor = Color.White;
-            pictureBoxEdit.BackColor = Color.ForestGreen;
-            labelCashier.BackColor = Color.White;
-            labelCashier.ForeColor = Color.White;
-            labelEdit.BackColor = Color.ForestGreen;
-            labelEdit.ForeColor = Color.White;
+            buttonCashier.BackColor = Color.Transparent;
+            buttonAdmin.BackColor = Color.Transparent;
+            buttonEditMenu.BackColor = Color.ForestGreen;
+            InvisText();
+            buttonEditMenu.Text = "Edit Menu";
         }
 
-        private void buttonAdmin_Click(object sender, EventArgs e)
+        private void buttonAdmin_Click_1(object sender, EventArgs e)
         {
-            buttonCashier.BackColor = Color.White;
+            buttonCashier.BackColor = Color.Transparent;
+            buttonEditMenu.BackColor = Color.Transparent;
             buttonAdmin.BackColor = Color.ForestGreen;
-            pictureBoxCashier.BackColor = Color.White;
-            pictureBoxEdit.BackColor = Color.White;
-            labelCashier.BackColor = Color.White;
-            labelCashier.ForeColor = Color.White;
-            labelEdit.BackColor = Color.White;
-            labelEdit.ForeColor = Color.White;
+            InvisText();
+            buttonAdmin.Text = "Admin";
+        }
+
+        public void InvisText()
+        {
+            buttonCashier.Text = " ";
+            buttonEditMenu.Text = " ";
+            buttonAdmin.Text = " ";
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            buttonCashier.Name = "testnama";
+            label4.Text = buttonCashier.Name;
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+           
+        }
+
+
+        public static int posisiX = 0;
+        public static int posisiY = 0;
+        private void buttonAdd_Click(object sender, EventArgs e)
+        {
+            for (int j = 0; j < 3; j++)
+            {
+                for (int i = 0; i < 3; i++)
+                {
+                    Button buttonhu = new Button();
+                    panel3.Controls.Add(buttonhu);
+                    buttonhu.Size = new Size(110, 140);
+                    buttonhu.Location = new Point(posisiX, posisiY);
+                    buttonhu.Name = "buttonBaru";
+                    buttonhu.Text = posisiX.ToString();
+                    buttonhu.Visible = true;
+                    buttonhu.BringToFront();
+                    buttonhu.ImageList = imageList1;
+                    buttonhu.ImageIndex = 1;
+                    buttonhu.TextImageRelation = TextImageRelation.ImageAboveText;
+                    buttonhu.TextAlign = ContentAlignment.MiddleRight;
+                    buttonhu.ImageAlign = ContentAlignment.MiddleCenter;
+                    buttonhu.Click += Buttonhu_Click;
+                    buttonhu.ForeColor = Color.Black;
+                    posisiX += 120;
+                    if (posisiX > 300)
+                    {
+                        posisiX = 0;
+                    }
+                }
+                posisiY += 150;
+            }
+        }
+
+        private void Buttonhu_Click(object sender, EventArgs e)
+        {
+            Button buttonhu = (sender as Button);
+            MessageBox.Show(buttonhu.Location.ToString());
+        }
+
+        private void panel3_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
         }
     }
 }

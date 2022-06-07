@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Projek_Tea_Break
 {
-    public partial class FormPilihan : Form
+    public partial class Form4 : Form
     {
-        public FormPilihan()
+        public Form4()
         {
             InitializeComponent();
         }
