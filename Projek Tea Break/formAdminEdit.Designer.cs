@@ -1,7 +1,7 @@
 ﻿
 namespace Projek_Tea_Break
 {
-    partial class FormOrder
+    partial class formAdmin
     {
         /// <summary>
         /// Required designer variable.

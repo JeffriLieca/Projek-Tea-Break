@@ -11,9 +11,9 @@ using MySql.Data.MySqlClient;
 
 namespace Projek_Tea_Break
 {
-    public partial class FormOrder : Form
+    public partial class formAdmin : Form
     {
-        public FormOrder()
+        public formAdmin()
         {
             InitializeComponent();
         }
