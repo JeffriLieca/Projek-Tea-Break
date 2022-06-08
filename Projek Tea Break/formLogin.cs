@@ -52,19 +52,6 @@ namespace Projek_Tea_Break
             sqlConnect.Close();
         }
 
-        private void cbShow_CheckedChanged(object sender, EventArgs e)
-        {
-            if (cbShow.Checked == true)
-            {
-                textBoxPassword.UseSystemPasswordChar = false;
-            }
-            else
-            {
-                textBoxPassword.UseSystemPasswordChar = true;
-            }
-
-        }
-
         private void buttonLogin_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (char)Keys.Enter)
@@ -95,7 +82,7 @@ namespace Projek_Tea_Break
             }
         }
 
-        private void textBoxUsername_KeyPress(object sender, KeyPressEventArgs e)
+        private void textBoxPassword_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (char)Keys.Enter)
             {
@@ -125,7 +112,19 @@ namespace Projek_Tea_Break
             }
         }
 
-        private void textBoxPassword_KeyPress(object sender, KeyPressEventArgs e)
+        private void cbShow_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbShow.Checked == true)
+            {
+                textBoxPassword.UseSystemPasswordChar = false;
+            }
+            else
+            {
+                textBoxPassword.UseSystemPasswordChar = true;
+            }
+        }
+
+        private void textBoxUsername_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (char)Keys.Enter)
             {

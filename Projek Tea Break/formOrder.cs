@@ -27,12 +27,13 @@ namespace Projek_Tea_Break
         public static int nomorMinuman;
         private void FormOrder_Load(object sender, EventArgs e)
         {
-            sqlConnect.Open();
+            //sqlConnect.Open();
             buttonEditMenu.BackColor = Color.Transparent;
             buttonAdmin.BackColor = Color.Transparent;
             buttonCashier.BackColor = Color.ForestGreen;
             InvisText();
             buttonCashier.Text = "Cashier";
+            //sqlConnect.Close();
 
             sqlConnect.Open();
             sqlQuery = "select id_pegawai as 'id', NAMA_PEGAWAI as 'pegawai', level_jabatan as 'jabatan' from PEGAWAI where STATUS_DELETE = 0 and LEVEL_JABATAN = 2 and id_pegawai ='" + FormLogin.saveID + "';";
@@ -55,6 +56,7 @@ namespace Projek_Tea_Break
             }
             sqlConnect.Close();
 
+            //sqlConnect.Open();
             LoadMinuman();
 
             buttonA.FlatAppearance.BorderSize = 0;
@@ -62,38 +64,39 @@ namespace Projek_Tea_Break
             buttonF.FlatAppearance.BorderSize = 0;
             buttonT.FlatAppearance.BorderSize = 0;
 
-            sqlQuery = "select right(n.ID_NOTA,2) as urut,left(n.ID_NOTA,6) as tanggal from NOTA_SEMENTARA_JI n where left(n.ID_NOTA,6)= date_format(now(),\"%y%m%d\") order by 1 desc;";
-            sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
-            sqlAdapter = new MySqlDataAdapter(sqlCommand);
-            DataTable dtidNota = new DataTable();
-            sqlAdapter.Fill(dtidNota);
-            string idNota="";
-            string nomorNota = "";
-            if (dtidNota.Rows.Count == 0)
-            {
+            //sqlQuery = "select right(n.ID_NOTA,2) as urut,left(n.ID_NOTA,6) as tanggal from NOTA_SEMENTARA_JI n where left(n.ID_NOTA,6)= date_format(now(),\"%y%m%d\") order by 1 desc;";
+            //sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
+            //sqlAdapter = new MySqlDataAdapter(sqlCommand);
+            //DataTable dtidNota = new DataTable();
+            //sqlAdapter.Fill(dtidNota);
+            //string idNota="";
+            //string nomorNota = "";
+            //if (dtidNota.Rows.Count == 0)
+            //{
 
-                sqlInsert = "insert into NOTA_SEMENTARA_JI (ID_NOTA,ID_CUST,ID_PEGAWAI,ID_PROMO,TGL_NOTA,NAMA_CUST,TOTAL_HARGA,URUTAN,STATUS_DELETE) values (concat(date_format(now(),\"%y%m%d\"),'0001'),'CUSTO','PEGA','PROMO',now(),'Jeffri',50000,1,0);";
-                sqlCommand = new MySqlCommand(sqlInsert, sqlConnect);
-                sqlCommand.ExecuteNonQuery();
+            //    sqlInsert = "insert into NOTA_SEMENTARA_JI (ID_NOTA,ID_CUST,ID_PEGAWAI,ID_PROMO,TGL_NOTA,NAMA_CUST,TOTAL_HARGA,URUTAN,STATUS_DELETE) values (concat(date_format(now(),\"%y%m%d\"),'0001'),'CUSTO','PEGA','PROMO',now(),'Jeffri',50000,1,0);";
+            //    sqlCommand = new MySqlCommand(sqlInsert, sqlConnect);
+            //    sqlCommand.ExecuteNonQuery();
 
-                sqlInsert = "insert into DETAIL_MINUMAN_SEMENTARA_JI (ID_NOTA,ID_MINUMAN,QTY_MINUMAN,HARGA_MINUMAN,SUBTOTAL_MINUMAN,SUGAR_LEVEL,ICE_LEVEL,STATUS_DELETE) values (concat(date_format(now(),\"%y%m%d\"),'01'),'F002',2,10000,20000,'N','N',0);";
-                sqlCommand = new MySqlCommand(sqlInsert, sqlConnect);
-                sqlCommand.ExecuteNonQuery();
-            }
-            else
-            {
-                nomorNota = (Convert.ToInt32(dtidNota.Rows[0][0].ToString()) + 1).ToString();
-                for (int i = 0; i < nomorNota.Length; i++)
-                {
-                    nomorNota="0"+nomorNota;
-                }
-                idNota = dtidNota.Rows[0][1].ToString() + nomorNota;
+            //    sqlInsert = "insert into DETAIL_MINUMAN_SEMENTARA_JI (ID_NOTA,ID_MINUMAN,QTY_MINUMAN,HARGA_MINUMAN,SUBTOTAL_MINUMAN,SUGAR_LEVEL,ICE_LEVEL,STATUS_DELETE) values (concat(date_format(now(),\"%y%m%d\"),'01'),'F002',2,10000,20000,'N','N',0);";
+            //    sqlCommand = new MySqlCommand(sqlInsert, sqlConnect);
+            //    sqlCommand.ExecuteNonQuery();
+            //}
+            //else
+            //{
+            //    nomorNota = (Convert.ToInt32(dtidNota.Rows[0][0].ToString()) + 1).ToString();
+            //    for (int i = 0; i < nomorNota.Length; i++)
+            //    {
+            //        nomorNota="0"+nomorNota;
+            //    }
+            //    idNota = dtidNota.Rows[0][1].ToString() + nomorNota;
 
-                sqlInsert = "insert into DETAIL_MINUMAN_SEMENTARA_JI (ID_NOTA,ID_MINUMAN,QTY_MINUMAN,HARGA_MINUMAN,SUBTOTAL_MINUMAN,SUGAR_LEVEL,ICE_LEVEL,STATUS_DELETE) values ('" + idNota + "','F002',2,10000,20000,'N','N',0);";
-                sqlCommand = new MySqlCommand(sqlInsert, sqlConnect);
-                sqlCommand.ExecuteNonQuery();
-            }
-            labelIDNota.Text = idNota;
+            //    sqlInsert = "insert into DETAIL_MINUMAN_SEMENTARA_JI (ID_NOTA,ID_MINUMAN,QTY_MINUMAN,HARGA_MINUMAN,SUBTOTAL_MINUMAN,SUGAR_LEVEL,ICE_LEVEL,STATUS_DELETE) values ('" + idNota + "','F002',2,10000,20000,'N','N',0);";
+            //    sqlCommand = new MySqlCommand(sqlInsert, sqlConnect);
+            //    sqlCommand.ExecuteNonQuery();
+            //}
+            //labelIDNota.Text = idNota;
+           // sqlConnect.Close();
         }
         private void buttonCashier_Click(object sender, EventArgs e)
         {
