@@ -100,6 +100,7 @@ namespace Projek_Tea_Break
             buttonAdmin.BackColor = Color.ForestGreen;
             InvisText();
             buttonAdmin.Text = "Admin";
+            
         }
 
         public void InvisText()

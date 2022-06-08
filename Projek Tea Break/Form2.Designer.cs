@@ -36,6 +36,8 @@ namespace Projek_Tea_Break
             this.buttonEditMenu = new System.Windows.Forms.Button();
             this.buttonCashier = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.labelIDNota = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.buttonOrderNow = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.imageListMinuman = new System.Windows.Forms.ImageList(this.components);
@@ -47,8 +49,6 @@ namespace Projek_Tea_Break
             this.buttonT = new System.Windows.Forms.Button();
             this.buttonF = new System.Windows.Forms.Button();
             this.buttonS = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
-            this.labelIDNota = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -128,6 +128,24 @@ namespace Projek_Tea_Break
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(345, 645);
             this.panel1.TabIndex = 8;
+            // 
+            // labelIDNota
+            // 
+            this.labelIDNota.AutoSize = true;
+            this.labelIDNota.Location = new System.Drawing.Point(88, 115);
+            this.labelIDNota.Name = "labelIDNota";
+            this.labelIDNota.Size = new System.Drawing.Size(56, 17);
+            this.labelIDNota.TabIndex = 3;
+            this.labelIDNota.Text = "220608";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(23, 115);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(59, 17);
+            this.label4.TabIndex = 2;
+            this.label4.Text = "ID Nota:";
             // 
             // buttonOrderNow
             // 
@@ -256,24 +274,6 @@ namespace Projek_Tea_Break
             this.buttonS.Size = new System.Drawing.Size(80, 80);
             this.buttonS.TabIndex = 10;
             this.buttonS.UseVisualStyleBackColor = false;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(23, 115);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(59, 17);
-            this.label4.TabIndex = 2;
-            this.label4.Text = "ID Nota:";
-            // 
-            // labelIDNota
-            // 
-            this.labelIDNota.AutoSize = true;
-            this.labelIDNota.Location = new System.Drawing.Point(88, 115);
-            this.labelIDNota.Name = "labelIDNota";
-            this.labelIDNota.Size = new System.Drawing.Size(56, 17);
-            this.labelIDNota.TabIndex = 3;
-            this.labelIDNota.Text = "220608";
             // 
             // FormOrder
             // 

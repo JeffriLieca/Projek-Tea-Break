@@ -36,38 +36,38 @@ namespace Projek_Tea_Break
         private void FormAddMinuman_Load(object sender, EventArgs e)
         {
             LoadKetMinuman();
-            
 
-   //         //string fileFoto = @"C: \Users\ASUS\source\repos\Projek Tea Break\assets\29 - love - me2.jpg";
-   //         LoadTopping();
-   //         //imageListMinuman.Images.Add(fromfi)
-   //         //[] GalleryArray = System.IO.Directory.GetFiles();
-   //         OpenFileDialog open = new OpenFileDialog();
-   //         //Image img = Image.FromFile("29 - love - me2.jpg");
-   //         //pictureBox1.Image = img;
-   //         //imageListMinuman.Images.Add(img);
-   //         button3.ImageIndex = 0;
-   //         pictureBox1.Image = imageListMinuman.Images[PassingIndex];
-            
-            
-   ////         pictureBox1.Image = Image.FromFile
-   ////(System.Environment.GetFolderPath
-   ////(System.Environment.SpecialFolder.MyPictures)
-   ////+ @"C: \Users\ASUS\source\repos\Projek Tea Break\assets\29 - love - me2.jpg.txt");
-   //         // image filters  
-   //         open.Filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp)|*.jpg; *.jpeg; *.gif; *.bmp";
-   //         if (open.ShowDialog() == DialogResult.OK)
-   //         {
-   //             // display image in picture box  
-   //             pictureBox1.Image = new Bitmap(open.FileName);
-   //             //pictureBox2.Image = new Bitmap(@"C: \Users\ASUS\source\repos\Projek Tea Break\assets\29 - love - me2.jpg");
-   //             Image img = new Bitmap(open.FileName);
-   //             imageListMinuman.Images.Add(img);
-   //             string path=Path.GetFullPath(open.FileName);
-   //             label1.Text = path;
-   //             pictureBox2.Image = Image.FromFile(path);
-   //             // image file path  
-   //             textBox1.Text = open.FileName;
+
+            string fileFoto = @"C:\Users\ASUS\source\repos\Projek Tea Break\assets\29 - love - me2.jpg";
+            //         LoadTopping();
+            //         //imageListMinuman.Images.Add(fromfi)
+            //         //[] GalleryArray = System.IO.Directory.GetFiles();
+            //         OpenFileDialog open = new OpenFileDialog();
+            //         //Image img = Image.FromFile("29 - love - me2.jpg");
+            //         //pictureBox1.Image = img;
+            //         //imageListMinuman.Images.Add(img);
+            //         button3.ImageIndex = 0;
+            //         pictureBox1.Image = imageListMinuman.Images[PassingIndex];
+
+
+            ////         pictureBox1.Image = Image.FromFile
+            ////(System.Environment.GetFolderPath
+            ////(System.Environment.SpecialFolder.MyPictures)
+            ////+ @"C: \Users\ASUS\source\repos\Projek Tea Break\assets\29 - love - me2.jpg.txt");
+            //         // image filters  
+            //         open.Filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp)|*.jpg; *.jpeg; *.gif; *.bmp";
+            //         if (open.ShowDialog() == DialogResult.OK)
+            //         {
+            //             // display image in picture box  
+            //             pictureBox1.Image = new Bitmap(open.FileName);
+            //             //pictureBox2.Image = new Bitmap(@"C: \Users\ASUS\source\repos\Projek Tea Break\assets\29 - love - me2.jpg");
+            //             Image img = new Bitmap(open.FileName);
+            //             imageListMinuman.Images.Add(img);
+            //             string path=Path.GetFullPath(open.FileName);
+            //             label1.Text = path;
+            //             pictureBox2.Image = Image.FromFile(path);
+            //             // image file path  
+            //             textBox1.Text = open.FileName;
             //}
         }
 
@@ -84,6 +84,44 @@ namespace Projek_Tea_Break
             labelMinuman.Location = new Point(340, buttonGambar.Height+5);
 
         }
+
+        public void LoadTopping()
+        {
+            DataTable dtTopping = new DataTable();
+            sqlQuery = "select t.ID_TOPPING as id, t.NAMA_TOPPING as nama, concat('Rp. ',t.HARGA_TOPPING) as harga from TOPPING t;";
+            sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
+            sqlAdapter = new MySqlDataAdapter(sqlCommand);
+            sqlAdapter.Fill(dtTopping);
+
+            TextBox[] txtbox = new TextBox[dtTopping.Rows.Count];
+
+            foreach(TextBox box in txtbox)
+            {
+                int posisiY = 20;
+                int counter = 0;
+                box.Text = "aaaaaaaaaaaa" + counter;
+                box.Tag = counter;
+                counter++;
+                box.Location = new Point(20, posisiY);
+                posisiY += 30;
+            }
+
+            Button[] btn = new Button[dtTopping.Rows.Count];
+            foreach (Button bt in btn)
+            {
+                int posisiY = 20;
+                int counter = 0;
+                bt.Text = "+";
+                bt.Tag = counter;
+                counter++;
+                bt.Location = new Point(100, posisiY);
+                posisiY += 30;
+            }
+
+
+
+        }
+
         ////////public void LoadTopping()
         ////////{
         ////////    DataTable dtTopping = new DataTable();
