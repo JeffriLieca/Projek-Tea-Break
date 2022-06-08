@@ -34,6 +34,27 @@ namespace Projek_Tea_Break
             InvisText();
             buttonCashier.Text = "Cashier";
 
+            sqlConnect.Open();
+            sqlQuery = "select id_pegawai as 'id', NAMA_PEGAWAI as 'pegawai', level_jabatan as 'jabatan' from PEGAWAI where STATUS_DELETE = 0 and LEVEL_JABATAN = 2 and id_pegawai ='" + FormLogin.saveID + "';";
+            sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
+            MySqlDataReader sqlReader = sqlCommand.ExecuteReader();
+            if (sqlReader.Read())
+            {
+                buttonAdmin.Enabled = false;
+            }
+            sqlConnect.Close();
+
+            sqlConnect.Open();
+            sqlQuery = "select id_pegawai as 'id', NAMA_PEGAWAI as 'pegawai', level_jabatan as 'jabatan' from PEGAWAI where STATUS_DELETE = 0 and LEVEL_JABATAN = 1 and id_pegawai ='" + FormLogin.saveID + "';";
+            sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
+            sqlReader = sqlCommand.ExecuteReader();
+            if (sqlReader.Read())
+            {
+                buttonEditMenu.Enabled = false;
+                buttonAdmin.Enabled = false;
+            }
+            sqlConnect.Close();
+
             LoadMinuman();
 
             buttonA.FlatAppearance.BorderSize = 0;
