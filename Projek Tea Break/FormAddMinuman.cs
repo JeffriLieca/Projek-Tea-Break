@@ -81,46 +81,49 @@ namespace Projek_Tea_Break
             labelMinuman.Text = dtKetMinuman.Rows[0][1].ToString();
             buttonGambar.BackgroundImage = PassingImageList.Images[PassingIndex];
             buttonGambar.Location = new Point(300, 0);
-            labelMinuman.Location = new Point(340, buttonGambar.Height+5);
+            labelMinuman.Location = new Point(340, buttonGambar.Height + 5);
 
         }
 
-        public void LoadTopping()
-        {
-            DataTable dtTopping = new DataTable();
-            sqlQuery = "select t.ID_TOPPING as id, t.NAMA_TOPPING as nama, concat('Rp. ',t.HARGA_TOPPING) as harga from TOPPING t;";
-            sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
-            sqlAdapter = new MySqlDataAdapter(sqlCommand);
-            sqlAdapter.Fill(dtTopping);
+        //public void LoadTopping()
+        //{
+        //    DataTable dtTopping = new DataTable();
+        //    sqlQuery = "select t.ID_TOPPING as id, t.NAMA_TOPPING as nama, concat('Rp. ',t.HARGA_TOPPING) as harga from TOPPING t;";
+        //    sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
+        //    sqlAdapter = new MySqlDataAdapter(sqlCommand);
+        //    sqlAdapter.Fill(dtTopping);
 
-            TextBox[] txtbox = new TextBox[dtTopping.Rows.Count];
+        //    TextBox[] txtbox = new TextBox[dtTopping.Rows.Count];
 
-            foreach(TextBox box in txtbox)
-            {
-                int posisiY = 20;
-                int counter = 0;
-                box.Text = "aaaaaaaaaaaa" + counter;
-                box.Tag = counter;
-                counter++;
-                box.Location = new Point(20, posisiY);
-                posisiY += 30;
-            }
+        //    foreach (TextBox box in txtbox)
+        //    {
+        //        int posisiY = 20;
+        //        int counter = 0;
+        //        box.Text = "aaaaaaaaaaaa" + counter;
+        //        box.Tag = counter;
+        //        counter++;
+        //        box.Location = new Point(20, posisiY);
+        //        posisiY += 30;
+        //    }
 
-            Button[] btn = new Button[dtTopping.Rows.Count];
-            foreach (Button bt in btn)
-            {
-                int posisiY = 20;
-                int counter = 0;
-                bt.Text = "+";
-                bt.Tag = counter;
-                counter++;
-                bt.Location = new Point(100, posisiY);
-                posisiY += 30;
-            }
+        //    Button[] btn = new Button[dtTopping.Rows.Count];
+        //    foreach (Button bt in btn)
+        //    {
+        //        int posisiY = 20;
+        //        int counter = 0;
+        //        bt.Text = "+";
+        //        bt.Tag = counter;
+        //        counter++;
+        //        bt.Location = new Point(100, posisiY);
+        //        posisiY += 30;
+        //    }
 
 
 
-        }
+        //}
+
+
+
 
         ////////public void LoadTopping()
         ////////{
@@ -240,135 +243,7 @@ namespace Projek_Tea_Break
         ////////    newButtonPlus.Parent.Text = (Convert.ToInt32(newButtonPlus.Parent.Text) + 1).ToString();
         ////////}
 
-        private void buttonMinBub_Click(object sender, EventArgs e)
-        {
-            if (Convert.ToInt32(textBoxBub.Text) > 0)
-            {
-                textBoxBub.Text = (Convert.ToInt32(textBoxBub.Text) - 1).ToString();
-            }
-        }
-
-        private void buttonPlusBub_Click(object sender, EventArgs e)
-        {
-            textBoxBub.Text = (Convert.ToInt32(textBoxBub.Text) + 1).ToString();
-        }
-
-        private void buttonMinGras_Click(object sender, EventArgs e)
-        {
-            if (Convert.ToInt32(textBoxGra.Text) > 0)
-            {
-                textBoxGra.Text = (Convert.ToInt32(textBoxGra.Text) - 1).ToString();
-            }
-        }
-
-        private void butttonPlusGra_Click(object sender, EventArgs e)
-        {
-            textBoxGra.Text = (Convert.ToInt32(textBoxGra.Text) + 1).ToString();
-        }
-
-        private void buttonMinBro_Click(object sender, EventArgs e)
-        {
-            if (Convert.ToInt32(textBoxBro.Text) > 0)
-            {
-                textBoxBro.Text = (Convert.ToInt32(textBoxBro.Text) - 1).ToString();
-            }
-        }
-
-        private void buttonPlusBro_Click(object sender, EventArgs e)
-        {
-            textBoxBro.Text = (Convert.ToInt32(textBoxBro.Text) + 1).ToString();
-        }
-
-        private void buttonMinPud_Click(object sender, EventArgs e)
-        {
-            if (Convert.ToInt32(textBoxPud.Text) > 0)
-            {
-                textBoxPud.Text = (Convert.ToInt32(textBoxPud.Text) - 1).ToString();
-            }
-        }
-
-        private void buttonPlusPud_Click(object sender, EventArgs e)
-        {
-        textBoxPud.Text = (Convert.ToInt32(textBoxPud.Text) + 1).ToString();
-        }
-
-        private void buttonMinChe_Click(object sender, EventArgs e)
-        {
-            if (Convert.ToInt32(textBoxChe.Text) > 0)
-            {
-                textBoxChe.Text = (Convert.ToInt32(textBoxChe.Text) - 1).ToString();
-            }
-        }
-
-        private void buttonPlusChe_Click(object sender, EventArgs e)
-        {
-            textBoxChe.Text = (Convert.ToInt32(textBoxChe.Text) + 1).ToString();
-        }
-
-        private void buttonMinRai_Click(object sender, EventArgs e)
-        {
-            if (Convert.ToInt32(textBoxRai.Text) > 0)
-            {
-                textBoxRai.Text = (Convert.ToInt32(textBoxRai.Text) - 1).ToString();
-            }
-        }
-
-        private void buttonPlusRai_Click(object sender, EventArgs e)
-        {
-        textBoxRai.Text = (Convert.ToInt32(textBoxRai.Text) + 1).ToString();
-        }
-
-        private void buttonMinPL_Click(object sender, EventArgs e)
-        {
-            if (Convert.ToInt32(textBoxPL.Text) > 0)
-            {
-                textBoxPL.Text = (Convert.ToInt32(textBoxPL.Text) - 1).ToString();
-            }
-        }
-
-        private void buttonPlusPL_Click(object sender, EventArgs e)
-        {
-            textBoxPL.Text = (Convert.ToInt32(textBoxPL.Text) + 1).ToString();
-        }
-
-        private void buttonMinPM_Click(object sender, EventArgs e)
-        {
-            if (Convert.ToInt32(textBoxPM.Text) > 0)
-            {
-                textBoxPM.Text = (Convert.ToInt32(textBoxPM.Text) - 1).ToString();
-            }
-        }
-
-        private void buttonPlusPM_Click(object sender, EventArgs e)
-        {
-            textBoxPM.Text = (Convert.ToInt32(textBoxPM.Text) + 1).ToString();
-        }
-
-        private void buttonMinPS_Click(object sender, EventArgs e)
-        {
-            if (Convert.ToInt32(textBoxPS.Text) > 0)
-            {
-                textBoxPS.Text = (Convert.ToInt32(textBoxPS.Text) - 1).ToString();
-            }
-        }
-
-        private void buttonPlusPS_Click(object sender, EventArgs e)
-        {
-            textBoxPS.Text = (Convert.ToInt32(textBoxPS.Text) + 1).ToString();
-        }
-
-        private void buttonMinQty_Click(object sender, EventArgs e)
-        {
-            if (Convert.ToInt32(textBoxQty.Text) > 1)
-            {
-                textBoxQty.Text = (Convert.ToInt32(textBoxQty.Text) - 1).ToString();
-            }
-        }
-
-        private void buttonPlusQty_Click(object sender, EventArgs e)
-        {
-            textBoxQty.Text = (Convert.ToInt32(textBoxQty.Text) + 1).ToString();
-        }
+       
 
         private void buttonOk_Click(object sender, EventArgs e)
         {
@@ -404,5 +279,78 @@ namespace Projek_Tea_Break
         {
             this.Close();
         }
+
+        TextBox[] txtbox = new TextBox[9];
+        Button[] btn = new Button[9];
+        public void LoadTopping()
+        {
+
+
+
+
+            //for (int i = 0; i < 9; i++)
+            //{
+            //    int posisiY = 20;
+            //    //int counter = 0;
+            //    //txtbox[i].Text = counter.ToString();
+            //    //txtbox[i].Tag = counter;
+            //    //counter++;
+            //    txtbox[i].Location = new Point(20, posisiY);
+            //    posisiY += 30;
+            //}
+            int posisiY = 20;
+            for (int i = 0; i < 9; i++)
+            {
+                txtbox[i] = new System.Windows.Forms.TextBox();
+                this.Controls.Add(txtbox[i]);
+                txtbox[i].Location = new Point(20, posisiY);
+                txtbox[i].Text = "0";
+                txtbox[i].Tag = i;
+                posisiY += 50;
+            }
+
+
+
+
+            posisiY = 20;
+            for (int i = 0; i < 9; i++)
+            {
+                btn[i] = new System.Windows.Forms.Button();
+                string namaButton = "btn" + i.ToString();
+                btn[i].Name = namaButton;
+                this.Controls.Add(btn[i]);
+
+                btn[i].Location = new Point(200, posisiY);
+                btn[i].Size = new Size(30, 30);
+                btn[i].Text = "+";
+                btn[i].Tag = i;
+                posisiY += 50;
+                btn[i].Click += new EventHandler(button_plus);
+            }
+
+            //Button[] btn = new Button[9];
+            //foreach (Button bt in btn)
+            //{
+            //    int posisiY = 20;
+            //    int counter = 0;
+            //    bt.Text = "+";
+            //    bt.Tag = counter;
+            //    counter++;
+            //    bt.Location = new Point(100, posisiY);
+            //    posisiY += 30;
+            //}
+
+
+
+        }
+
+
+
+        private void button_plus(object sender, EventArgs e)
+        {
+            Button bts = (Button)sender;
+            int posisiTekan = Convert.ToInt32(bts.Tag);
+            txtbox[posisiTekan].Text = (Convert.ToInt32(txtbox[posisiTekan].Text) + 1).ToString();
+        } 
+        }
     }
-}

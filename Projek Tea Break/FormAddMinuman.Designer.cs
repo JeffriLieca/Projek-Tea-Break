@@ -253,7 +253,6 @@ namespace Projek_Tea_Break
             this.butttonPlusGra.Text = "+";
             this.butttonPlusGra.UseCompatibleTextRendering = true;
             this.butttonPlusGra.UseVisualStyleBackColor = true;
-            this.butttonPlusGra.Click += new System.EventHandler(this.butttonPlusGra_Click);
             // 
             // buttonPlusBub
             // 
@@ -264,7 +263,6 @@ namespace Projek_Tea_Break
             this.buttonPlusBub.Text = "+";
             this.buttonPlusBub.UseCompatibleTextRendering = true;
             this.buttonPlusBub.UseVisualStyleBackColor = true;
-            this.buttonPlusBub.Click += new System.EventHandler(this.buttonPlusBub_Click);
             // 
             // buttonPlusBro
             // 
@@ -275,7 +273,6 @@ namespace Projek_Tea_Break
             this.buttonPlusBro.Text = "+";
             this.buttonPlusBro.UseCompatibleTextRendering = true;
             this.buttonPlusBro.UseVisualStyleBackColor = true;
-            this.buttonPlusBro.Click += new System.EventHandler(this.buttonPlusBro_Click);
             // 
             // buttonPlusPud
             // 
@@ -286,7 +283,6 @@ namespace Projek_Tea_Break
             this.buttonPlusPud.Text = "+";
             this.buttonPlusPud.UseCompatibleTextRendering = true;
             this.buttonPlusPud.UseVisualStyleBackColor = true;
-            this.buttonPlusPud.Click += new System.EventHandler(this.buttonPlusPud_Click);
             // 
             // buttonPlusChe
             // 
@@ -297,7 +293,6 @@ namespace Projek_Tea_Break
             this.buttonPlusChe.Text = "+";
             this.buttonPlusChe.UseCompatibleTextRendering = true;
             this.buttonPlusChe.UseVisualStyleBackColor = true;
-            this.buttonPlusChe.Click += new System.EventHandler(this.buttonPlusChe_Click);
             // 
             // buttonPlusRai
             // 
@@ -308,7 +303,6 @@ namespace Projek_Tea_Break
             this.buttonPlusRai.Text = "+";
             this.buttonPlusRai.UseCompatibleTextRendering = true;
             this.buttonPlusRai.UseVisualStyleBackColor = true;
-            this.buttonPlusRai.Click += new System.EventHandler(this.buttonPlusRai_Click);
             // 
             // buttonMinBub
             // 
@@ -319,7 +313,6 @@ namespace Projek_Tea_Break
             this.buttonMinBub.Text = "-";
             this.buttonMinBub.UseCompatibleTextRendering = true;
             this.buttonMinBub.UseVisualStyleBackColor = true;
-            this.buttonMinBub.Click += new System.EventHandler(this.buttonMinBub_Click);
             // 
             // buttonMinGras
             // 
@@ -330,7 +323,6 @@ namespace Projek_Tea_Break
             this.buttonMinGras.Text = "-";
             this.buttonMinGras.UseCompatibleTextRendering = true;
             this.buttonMinGras.UseVisualStyleBackColor = true;
-            this.buttonMinGras.Click += new System.EventHandler(this.buttonMinGras_Click);
             // 
             // buttonMinBro
             // 
@@ -341,7 +333,6 @@ namespace Projek_Tea_Break
             this.buttonMinBro.Text = "-";
             this.buttonMinBro.UseCompatibleTextRendering = true;
             this.buttonMinBro.UseVisualStyleBackColor = true;
-            this.buttonMinBro.Click += new System.EventHandler(this.buttonMinBro_Click);
             // 
             // buttonMinPud
             // 
@@ -352,7 +343,6 @@ namespace Projek_Tea_Break
             this.buttonMinPud.Text = "-";
             this.buttonMinPud.UseCompatibleTextRendering = true;
             this.buttonMinPud.UseVisualStyleBackColor = true;
-            this.buttonMinPud.Click += new System.EventHandler(this.buttonMinPud_Click);
             // 
             // buttonMinChe
             // 
@@ -363,7 +353,6 @@ namespace Projek_Tea_Break
             this.buttonMinChe.Text = "-";
             this.buttonMinChe.UseCompatibleTextRendering = true;
             this.buttonMinChe.UseVisualStyleBackColor = true;
-            this.buttonMinChe.Click += new System.EventHandler(this.buttonMinChe_Click);
             // 
             // buttonMinRai
             // 
@@ -374,7 +363,6 @@ namespace Projek_Tea_Break
             this.buttonMinRai.Text = "-";
             this.buttonMinRai.UseCompatibleTextRendering = true;
             this.buttonMinRai.UseVisualStyleBackColor = true;
-            this.buttonMinRai.Click += new System.EventHandler(this.buttonMinRai_Click);
             // 
             // buttonMinPL
             // 
@@ -385,7 +373,6 @@ namespace Projek_Tea_Break
             this.buttonMinPL.Text = "-";
             this.buttonMinPL.UseCompatibleTextRendering = true;
             this.buttonMinPL.UseVisualStyleBackColor = true;
-            this.buttonMinPL.Click += new System.EventHandler(this.buttonMinPL_Click);
             // 
             // buttonMinPM
             // 
@@ -396,7 +383,6 @@ namespace Projek_Tea_Break
             this.buttonMinPM.Text = "-";
             this.buttonMinPM.UseCompatibleTextRendering = true;
             this.buttonMinPM.UseVisualStyleBackColor = true;
-            this.buttonMinPM.Click += new System.EventHandler(this.buttonMinPM_Click);
             // 
             // textBoxPS
             // 
@@ -416,7 +402,6 @@ namespace Projek_Tea_Break
             this.buttonPlusPL.Text = "+";
             this.buttonPlusPL.UseCompatibleTextRendering = true;
             this.buttonPlusPL.UseVisualStyleBackColor = true;
-            this.buttonPlusPL.Click += new System.EventHandler(this.buttonPlusPL_Click);
             // 
             // buttonPlusPM
             // 
@@ -427,7 +412,6 @@ namespace Projek_Tea_Break
             this.buttonPlusPM.Text = "+";
             this.buttonPlusPM.UseCompatibleTextRendering = true;
             this.buttonPlusPM.UseVisualStyleBackColor = true;
-            this.buttonPlusPM.Click += new System.EventHandler(this.buttonPlusPM_Click);
             // 
             // buttonPlusPS
             // 
@@ -438,7 +422,6 @@ namespace Projek_Tea_Break
             this.buttonPlusPS.Text = "+";
             this.buttonPlusPS.UseCompatibleTextRendering = true;
             this.buttonPlusPS.UseVisualStyleBackColor = true;
-            this.buttonPlusPS.Click += new System.EventHandler(this.buttonPlusPS_Click);
             // 
             // buttonMinPS
             // 
@@ -449,7 +432,6 @@ namespace Projek_Tea_Break
             this.buttonMinPS.Text = "-";
             this.buttonMinPS.UseCompatibleTextRendering = true;
             this.buttonMinPS.UseVisualStyleBackColor = true;
-            this.buttonMinPS.Click += new System.EventHandler(this.buttonMinPS_Click);
             // 
             // label11
             // 
@@ -586,7 +568,6 @@ namespace Projek_Tea_Break
             this.buttonPlusQty.Text = "+";
             this.buttonPlusQty.UseCompatibleTextRendering = true;
             this.buttonPlusQty.UseVisualStyleBackColor = true;
-            this.buttonPlusQty.Click += new System.EventHandler(this.buttonPlusQty_Click);
             // 
             // buttonMinQty
             // 
@@ -597,7 +578,6 @@ namespace Projek_Tea_Break
             this.buttonMinQty.Text = "-";
             this.buttonMinQty.UseCompatibleTextRendering = true;
             this.buttonMinQty.UseVisualStyleBackColor = true;
-            this.buttonMinQty.Click += new System.EventHandler(this.buttonMinQty_Click);
             // 
             // textBoxQty
             // 

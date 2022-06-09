@@ -44,11 +44,12 @@ namespace Projek_Tea_Break
             this.tboxNama = new System.Windows.Forms.TextBox();
             this.tboxHarga = new System.Windows.Forms.TextBox();
             this.btnEdit = new System.Windows.Forms.Button();
-            this.btnSave = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.pictureBoxAdd = new System.Windows.Forms.PictureBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.buttonAddImage = new System.Windows.Forms.Button();
+            this.btnAdd = new System.Windows.Forms.Button();
+            this.btnSave = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMenu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAdd)).BeginInit();
@@ -193,7 +194,7 @@ namespace Projek_Tea_Break
             // 
             // btnEdit
             // 
-            this.btnEdit.Location = new System.Drawing.Point(321, 368);
+            this.btnEdit.Location = new System.Drawing.Point(322, 339);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(81, 32);
             this.btnEdit.TabIndex = 11;
@@ -201,19 +202,9 @@ namespace Projek_Tea_Break
             this.btnEdit.UseVisualStyleBackColor = true;
             this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
-            // btnSave
-            // 
-            this.btnSave.Location = new System.Drawing.Point(457, 368);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(87, 32);
-            this.btnSave.TabIndex = 12;
-            this.btnSave.Text = "Save";
-            this.btnSave.UseVisualStyleBackColor = true;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
-            // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(609, 368);
+            this.btnDelete.Location = new System.Drawing.Point(610, 339);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(97, 32);
             this.btnDelete.TabIndex = 13;
@@ -245,17 +236,38 @@ namespace Projek_Tea_Break
             this.buttonAddImage.Text = "Add Image";
             this.buttonAddImage.UseVisualStyleBackColor = true;
             // 
+            // btnAdd
+            // 
+            this.btnAdd.Location = new System.Drawing.Point(446, 339);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(107, 32);
+            this.btnAdd.TabIndex = 17;
+            this.btnAdd.Text = "Add";
+            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnadd_Click);
+            // 
+            // btnSave
+            // 
+            this.btnSave.Location = new System.Drawing.Point(398, 405);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(75, 23);
+            this.btnSave.TabIndex = 18;
+            this.btnSave.Text = "SAVE";
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
             // formEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLight;
             this.ClientSize = new System.Drawing.Size(1043, 635);
+            this.Controls.Add(this.btnSave);
+            this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.buttonAddImage);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.pictureBoxAdd);
             this.Controls.Add(this.btnDelete);
-            this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.tboxHarga);
             this.Controls.Add(this.tboxNama);
@@ -291,10 +303,11 @@ namespace Projek_Tea_Break
         private System.Windows.Forms.TextBox tboxNama;
         private System.Windows.Forms.TextBox tboxHarga;
         private System.Windows.Forms.Button btnEdit;
-        private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.PictureBox pictureBoxAdd;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button buttonAddImage;
+        private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.Button btnSave;
     }
 }

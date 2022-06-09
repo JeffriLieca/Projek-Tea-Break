@@ -26,18 +26,29 @@ namespace Projek_Tea_Break
         public static string sqlQuery;
         public static string saveID = "";
 
+       
+
         private void buttonLogin_Click(object sender, EventArgs e)
         {
             sqlConnect.Open();
-            sqlQuery = "select nama_pegawai as 'Nama',  id_pegawai as 'Pass' from PEGAWAI where nama_pegawai = '" + textBoxUsername.Text + "' and id_pegawai = '" + textBoxPassword.Text + "' and status_delete = 0;";
+            DataTable dtLogin = new DataTable();
+            sqlQuery = "select id_pegawai as 'id', nama_pegawai as 'nama', level_jabatan as 'jabatan' from PEGAWAI where id_pegawai = '" + textBoxPassword.Text + "' and nama_pegawai = '" + textBoxUsername.Text + "' and status_delete = 0;";
             sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
-            MySqlDataReader sqlReader = sqlCommand.ExecuteReader();
-            if (sqlReader.Read())
+            sqlAdapter = new MySqlDataAdapter(sqlCommand);
+            sqlAdapter.Fill(dtLogin);
+            if (dtLogin.Rows.Count > 0)
             {
-                saveID = textBoxPassword.Text;
-                FormOrder FormOrder = new FormOrder();
-                FormOrder.Show();
-                this.Hide();
+                saveID = dtLogin.Rows[0]["jabatan"].ToString();
+                if (saveID == "1")
+                {
+                    MessageBox.Show("Username / Password tidak terdaftar");
+                }
+                else
+                {
+                    FormOrder FormOrder = new FormOrder();
+                    FormOrder.Show();
+                    this.Hide();
+                }                
             }
             else if (textBoxPassword.Text == "" || textBoxUsername.Text == "")
             {
@@ -57,19 +68,27 @@ namespace Projek_Tea_Break
             if (e.KeyChar == (char)Keys.Enter)
             {
                 sqlConnect.Open();
-                sqlQuery = "select nama_pegawai as 'Nama',  id_pegawai as 'Pass' from PEGAWAI where nama_pegawai = '" + textBoxUsername.Text + "' and id_pegawai = '" + textBoxPassword.Text + "' and status_delete = 0;";
+                DataTable dtLogin = new DataTable();
+                sqlQuery = "select id_pegawai as 'id', nama_pegawai as 'nama', level_jabatan as 'jabatan' from PEGAWAI where id_pegawai = '" + textBoxPassword.Text + "' and nama_pegawai = '" + textBoxUsername.Text + "' and status_delete = 0;";
                 sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
-                MySqlDataReader sqlReader = sqlCommand.ExecuteReader();
-                if (sqlReader.Read())
+                sqlAdapter = new MySqlDataAdapter(sqlCommand);
+                sqlAdapter.Fill(dtLogin);
+                if (dtLogin.Rows.Count > 0)
                 {
-                    saveID = textBoxPassword.Text;
-                    FormOrder FormOrder = new FormOrder();
-                    FormOrder.Show();
-                    this.Hide();
+                    saveID = dtLogin.Rows[0]["jabatan"].ToString();
+                    if (saveID == "1")
+                    {
+                        MessageBox.Show("Username / Password tidak terdaftar");
+                    }
+                    else
+                    {
+                        FormOrder FormOrder = new FormOrder();
+                        FormOrder.Show();
+                        this.Close();
+                    }
                 }
                 else if (textBoxPassword.Text == "" || textBoxUsername.Text == "")
                 {
-                    SystemSounds.Exclamation.Play();
                     MessageBox.Show("Username / Password masih kosong");
                 }
                 else
@@ -87,16 +106,24 @@ namespace Projek_Tea_Break
             if (e.KeyChar == (char)Keys.Enter)
             {
                 sqlConnect.Open();
-                sqlQuery = "select nama_pegawai as 'Nama',  id_pegawai as 'Pass' from PEGAWAI where nama_pegawai = '" + textBoxUsername.Text + "' and id_pegawai = '" + textBoxPassword.Text + "' and status_delete = 0;";
+                DataTable dtLogin = new DataTable();
+                sqlQuery = "select id_pegawai as 'id', nama_pegawai as 'nama', level_jabatan as 'jabatan' from PEGAWAI where id_pegawai = '" + textBoxPassword.Text + "' and nama_pegawai = '" + textBoxUsername.Text + "' and status_delete = 0;";
                 sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
-                MySqlDataReader sqlReader = sqlCommand.ExecuteReader();
-                if (sqlReader.Read())
+                sqlAdapter = new MySqlDataAdapter(sqlCommand);
+                sqlAdapter.Fill(dtLogin);
+                if (dtLogin.Rows.Count > 0)
                 {
-                    e.Handled = true;
-                    saveID = textBoxPassword.Text;
-                    FormOrder FormOrder = new FormOrder();
-                    FormOrder.Show();
-                    this.Hide();
+                    saveID = dtLogin.Rows[0]["jabatan"].ToString();
+                    if (saveID == "1")
+                    {
+                        MessageBox.Show("Username / Password tidak terdaftar");
+                    }
+                    else
+                    {
+                        FormOrder FormOrder = new FormOrder();
+                        FormOrder.Show();
+                        this.Hide();
+                    }
                 }
                 else if (textBoxPassword.Text == "" || textBoxUsername.Text == "")
                 {
@@ -129,16 +156,24 @@ namespace Projek_Tea_Break
             if (e.KeyChar == (char)Keys.Enter)
             {
                 sqlConnect.Open();
-                sqlQuery = "select nama_pegawai as 'Nama',  id_pegawai as 'Pass' from PEGAWAI where nama_pegawai = '" + textBoxUsername.Text + "' and id_pegawai = '" + textBoxPassword.Text + "' and status_delete = 0;";
+                DataTable dtLogin = new DataTable();
+                sqlQuery = "select id_pegawai as 'id', nama_pegawai as 'nama', level_jabatan as 'jabatan' from PEGAWAI where id_pegawai = '" + textBoxPassword.Text + "' and nama_pegawai = '" + textBoxUsername.Text + "' and status_delete = 0;";
                 sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
-                MySqlDataReader sqlReader = sqlCommand.ExecuteReader();
-                if (sqlReader.Read())
+                sqlAdapter = new MySqlDataAdapter(sqlCommand);
+                sqlAdapter.Fill(dtLogin);
+                if (dtLogin.Rows.Count > 0)
                 {
-                    e.Handled = true;
-                    saveID = textBoxPassword.Text;
-                    FormOrder FormOrder = new FormOrder();
-                    FormOrder.Show();
-                    this.Hide();
+                    saveID = dtLogin.Rows[0]["jabatan"].ToString();
+                    if (saveID == "1")
+                    {
+                        MessageBox.Show("Username / Password tidak terdaftar");
+                    }
+                    else
+                    {
+                        FormOrder FormOrder = new FormOrder();
+                        FormOrder.Show();
+                        this.Hide();
+                    }
                 }
                 else if (textBoxPassword.Text == "" || textBoxUsername.Text == "")
                 {
@@ -152,6 +187,7 @@ namespace Projek_Tea_Break
                 }
                 sqlConnect.Close();
             }
+
         }
     }
 }

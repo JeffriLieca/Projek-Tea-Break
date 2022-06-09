@@ -32,6 +32,7 @@ namespace Projek_Tea_Break
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormOrder));
             this.panel2 = new System.Windows.Forms.Panel();
+            this.pbProfil = new System.Windows.Forms.PictureBox();
             this.buttonAdmin = new System.Windows.Forms.Button();
             this.buttonEditMenu = new System.Windows.Forms.Button();
             this.buttonCashier = new System.Windows.Forms.Button();
@@ -49,13 +50,20 @@ namespace Projek_Tea_Break
             this.buttonT = new System.Windows.Forms.Button();
             this.buttonF = new System.Windows.Forms.Button();
             this.buttonS = new System.Windows.Forms.Button();
+            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbProfil)).BeginInit();
             this.panel1.SuspendLayout();
+            this.panelMinuman.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.White;
+            this.panel2.Controls.Add(this.pbProfil);
             this.panel2.Controls.Add(this.buttonAdmin);
             this.panel2.Controls.Add(this.buttonEditMenu);
             this.panel2.Controls.Add(this.buttonCashier);
@@ -64,6 +72,17 @@ namespace Projek_Tea_Break
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(121, 645);
             this.panel2.TabIndex = 7;
+            // 
+            // pbProfil
+            // 
+            this.pbProfil.Location = new System.Drawing.Point(10, 0);
+            this.pbProfil.Name = "pbProfil";
+            this.pbProfil.Size = new System.Drawing.Size(108, 75);
+            this.pbProfil.TabIndex = 6;
+            this.pbProfil.TabStop = false;
+            this.pbProfil.MouseEnter += new System.EventHandler(this.pbProfil_MouseEnter);
+            this.pbProfil.MouseLeave += new System.EventHandler(this.pbProfil_MouseLeave);
+            this.pbProfil.MouseHover += new System.EventHandler(this.pbProfil_MouseHover);
             // 
             // buttonAdmin
             // 
@@ -209,6 +228,7 @@ namespace Projek_Tea_Break
             // panelMinuman
             // 
             this.panelMinuman.AutoScroll = true;
+            this.panelMinuman.Controls.Add(this.dataGridView1);
             this.panelMinuman.Location = new System.Drawing.Point(146, 234);
             this.panelMinuman.Margin = new System.Windows.Forms.Padding(4);
             this.panelMinuman.Name = "panelMinuman";
@@ -228,16 +248,17 @@ namespace Projek_Tea_Break
             this.buttonA.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonA.BackgroundImage")));
             this.buttonA.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.buttonA.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonA.Location = new System.Drawing.Point(561, 70);
+            this.buttonA.Location = new System.Drawing.Point(568, 70);
             this.buttonA.Margin = new System.Windows.Forms.Padding(4);
             this.buttonA.Name = "buttonA";
             this.buttonA.Size = new System.Drawing.Size(80, 80);
             this.buttonA.TabIndex = 17;
             this.buttonA.UseVisualStyleBackColor = true;
+            this.buttonA.Click += new System.EventHandler(this.buttonA_Click);
             // 
             // buttonT
             // 
-            this.buttonT.BackColor = System.Drawing.Color.Transparent;
+            this.buttonT.BackColor = System.Drawing.SystemColors.ControlLight;
             this.buttonT.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonT.BackgroundImage")));
             this.buttonT.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.buttonT.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -247,10 +268,11 @@ namespace Projek_Tea_Break
             this.buttonT.Size = new System.Drawing.Size(80, 80);
             this.buttonT.TabIndex = 16;
             this.buttonT.UseVisualStyleBackColor = false;
+            this.buttonT.Click += new System.EventHandler(this.buttonT_Click);
             // 
             // buttonF
             // 
-            this.buttonF.BackColor = System.Drawing.Color.Transparent;
+            this.buttonF.BackColor = System.Drawing.SystemColors.ControlLight;
             this.buttonF.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonF.BackgroundImage")));
             this.buttonF.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.buttonF.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -260,20 +282,32 @@ namespace Projek_Tea_Break
             this.buttonF.Size = new System.Drawing.Size(80, 80);
             this.buttonF.TabIndex = 15;
             this.buttonF.UseVisualStyleBackColor = false;
+            this.buttonF.Click += new System.EventHandler(this.buttonF_Click);
             // 
             // buttonS
             // 
-            this.buttonS.BackColor = System.Drawing.Color.Transparent;
+            this.buttonS.BackColor = System.Drawing.SystemColors.ControlLight;
             this.buttonS.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonS.BackgroundImage")));
             this.buttonS.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.buttonS.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonS.ForeColor = System.Drawing.Color.Black;
+            this.buttonS.ForeColor = System.Drawing.SystemColors.ControlText;
             this.buttonS.Location = new System.Drawing.Point(176, 70);
             this.buttonS.Margin = new System.Windows.Forms.Padding(4);
             this.buttonS.Name = "buttonS";
             this.buttonS.Size = new System.Drawing.Size(80, 80);
             this.buttonS.TabIndex = 10;
             this.buttonS.UseVisualStyleBackColor = false;
+            this.buttonS.Click += new System.EventHandler(this.buttonS_Click);
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(52, 21);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersWidth = 51;
+            this.dataGridView1.RowTemplate.Height = 24;
+            this.dataGridView1.Size = new System.Drawing.Size(240, 150);
+            this.dataGridView1.TabIndex = 0;
             // 
             // FormOrder
             // 
@@ -296,8 +330,12 @@ namespace Projek_Tea_Break
             this.Text = "Order";
             this.Load += new System.EventHandler(this.FormOrder_Load);
             this.panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pbProfil)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.panelMinuman.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -322,5 +360,8 @@ namespace Projek_Tea_Break
         private System.Windows.Forms.Button buttonA;
         private System.Windows.Forms.Label labelIDNota;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.PictureBox pbProfil;
+        private System.Windows.Forms.BindingSource bindingSource1;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }

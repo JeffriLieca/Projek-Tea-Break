@@ -25,38 +25,27 @@ namespace Projek_Tea_Break
         public static string sqlQuery;
         public static string sqlInsert;
         public static int nomorMinuman;
+        public static string Kategori="";
+
         private void FormOrder_Load(object sender, EventArgs e)
         {
+            
             //sqlConnect.Open();
             buttonEditMenu.BackColor = Color.Transparent;
             buttonAdmin.BackColor = Color.Transparent;
-            buttonCashier.BackColor = Color.ForestGreen;
+            buttonCashier.BackColor = Color.ForestGreen;           
             InvisText();
             buttonCashier.Text = "Cashier";
             //sqlConnect.Close();
 
-            sqlConnect.Open();
-            sqlQuery = "select id_pegawai as 'id', NAMA_PEGAWAI as 'pegawai', level_jabatan as 'jabatan' from PEGAWAI where STATUS_DELETE = 0 and LEVEL_JABATAN = 2 and id_pegawai ='" + FormLogin.saveID + "';";
-            sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
-            MySqlDataReader sqlReader = sqlCommand.ExecuteReader();
-            if (sqlReader.Read())
+          if (FormLogin.saveID == "2")
             {
                 buttonAdmin.Enabled = false;
-            }
-            sqlConnect.Close();
-
-            sqlConnect.Open();
-            sqlQuery = "select id_pegawai as 'id', NAMA_PEGAWAI as 'pegawai', level_jabatan as 'jabatan' from PEGAWAI where STATUS_DELETE = 0 and LEVEL_JABATAN = 1 and id_pegawai ='" + FormLogin.saveID + "';";
-            sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
-            sqlReader = sqlCommand.ExecuteReader();
-            if (sqlReader.Read())
-            {
                 buttonEditMenu.Enabled = false;
-                buttonAdmin.Enabled = false;
             }
-            sqlConnect.Close();
+           
 
-            //sqlConnect.Open();
+            sqlConnect.Open();
             LoadMinuman();
 
             buttonA.FlatAppearance.BorderSize = 0;
@@ -148,22 +137,28 @@ namespace Projek_Tea_Break
             DataTable dtMinuman = new DataTable();
             try
             {
-                sqlQuery = "select m.ID_MINUMAN as id, m.NAMA_MINUMAN as nama, concat('Rp. ',m.HARGA_MINUMAN) as harga, m.INDEX_GAMBAR as 'index' from MINUMAN m where m.NAMA_MINUMAN like '%"+textBoxCariMinuman.Text+"%';";
+                sqlQuery = "select m.ID_MINUMAN as id, m.NAMA_MINUMAN as nama, concat('Rp. ',m.HARGA_MINUMAN) as harga, m.PATH_GAMBAR as 'index' from MINUMAN m where m.NAMA_MINUMAN like '%"+textBoxCariMinuman.Text+"%' and ID_MINUMAN='%"+Kategori+"%';";
                 sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
                 sqlAdapter = new MySqlDataAdapter(sqlCommand);
                 sqlAdapter.Fill(dtMinuman);
+                dataGridView1.DataSource = dtMinuman;
             }
             catch (Exception)
             {
 
             }
             nomorMinuman = 0;
+            imageListMinuman.Images.Clear();
             for (int j = 0; j < dtMinuman.Rows.Count / 3 + 1; j++)
             {
                 for (int i = 0; i < 3; i++)
                 {
                     if (nomorMinuman < dtMinuman.Rows.Count)
                     {
+                        string path = dtMinuman.Rows[nomorMinuman][3].ToString();
+                        imageListMinuman.Images.Add(Image.FromFile(@path));
+                        
+
                         Button buttonhu = new Button();
                         panelMinuman.Controls.Add(buttonhu);
                         buttonhu.Size = new Size(110, 140);
@@ -173,7 +168,7 @@ namespace Projek_Tea_Break
                         buttonhu.BringToFront();
                         buttonhu.Tag = dtMinuman.Rows[nomorMinuman][0].ToString();
                         buttonhu.ImageList = imageListMinuman;
-                        buttonhu.ImageIndex = Convert.ToInt16(dtMinuman.Rows[nomorMinuman][3]);
+                        buttonhu.ImageIndex = nomorMinuman;
                         buttonhu.TextImageRelation = TextImageRelation.ImageAboveText;
                         buttonhu.TextAlign = ContentAlignment.MiddleRight;
                         buttonhu.ImageAlign = ContentAlignment.MiddleCenter;
@@ -192,6 +187,7 @@ namespace Projek_Tea_Break
             }
             posisiX = 0;
             posisiY = 0;
+
         }
 
         private void Buttonhu_Click(object sender, EventArgs e)
@@ -214,6 +210,60 @@ namespace Projek_Tea_Break
         {
             FormAddMinuman formadd = new FormAddMinuman();
             formadd.Show();
+        }
+
+        private void buttonS_Click(object sender, EventArgs e)
+        {
+            Kategori = "S";
+            LoadMinuman();
+        }
+
+
+        private void buttonLogout_Click(object sender, EventArgs e)
+        {
+            
+            FormLogin formLogin = new FormLogin();
+            formLogin.Show();
+            this.Hide();
+        }
+
+        private void buttonF_Click(object sender, EventArgs e)
+        {
+            Kategori = "F";
+            LoadMinuman();
+        }
+
+        private void buttonT_Click(object sender, EventArgs e)
+        {
+            Kategori = "T";
+            LoadMinuman();
+        }
+
+        private void buttonA_Click(object sender, EventArgs e)
+        {
+            Kategori = "";
+            LoadMinuman();
+        }
+
+        private void pbProfil_MouseEnter(object sender, EventArgs e)
+        {
+        }
+
+        private void pbProfil_MouseLeave(object sender, EventArgs e)
+        {
+            //panelProfil.Visible = false;
+        }
+
+        private void pbProfil_MouseHover(object sender, EventArgs e)
+        {
+        }
+
+        private void panelProfil_MouseLeave(object sender, EventArgs e)
+        {
+        }
+
+        private void buttonLogout_MouseEnter(object sender, EventArgs e)
+        {
         }
     }
 }

@@ -48,18 +48,18 @@ namespace Projek_Tea_Break
             dgvMenu.DataSource = menu;
 
 
-            OpenFileDialog open = new OpenFileDialog();
+            //OpenFileDialog open = new OpenFileDialog();
 
-            open.Filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp)|*.jpg; *.jpeg; *.gif; *.bmp";
-            if (open.ShowDialog() == DialogResult.OK)
-            {
-                //display image in picture box
-                pictureBoxAdd.Image = new Bitmap(open.FileName);
+            //open.Filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp)|*.jpg; *.jpeg; *.gif; *.bmp";
+            //if (open.ShowDialog() == DialogResult.OK)
+            //{
+            //    //display image in picture box
+            //    pictureBoxAdd.Image = new Bitmap(open.FileName);
 
 
-                //image file path
-                textBox1.Text = open.FileName;
-            }
+            //    //image file path
+            //    textBox1.Text = open.FileName;
+            //}
 
 
         }
@@ -91,16 +91,10 @@ namespace Projek_Tea_Break
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void btnSave_Click(object sender, EventArgs e)
-        {
-            sqlQuery = "update MINUMAN(ID_MINUMAN,NAMA_MINUMAN,HARGA_MINUMAN) set ID_MINUMAN = '" + tboxID.Text + "', NAMA_MINUMAN = '" + tboxNama.Text + "' , HARGA_MINUMAN = '" + tboxHarga.Text + "'";
-            sqlConnect.Open();
-            sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
-            sqlCommand.ExecuteNonQuery();
-            sqlConnect.Close();
+            btnSave.Visible = true;
+            btnEdit.Visible = false;
+            btnDelete.Visible = false;
+            btnAdd.Visible = false;
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -115,16 +109,17 @@ namespace Projek_Tea_Break
 
         private void dgvMenu_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            int row = Convert.ToInt32(dgvMenu.SelectedRows[Convert.ToInt32(dgvMenu.SelectedCells)]);
-            int column = Convert.ToInt32(dgvMenu.SelectedColumns[Convert.ToInt32(dgvMenu.SelectedCells)]);
-            tboxID.Text = dgvMenu[row,0].ToString();
-            IDMinumanLama = tboxID.Text;
-            tboxNama.Text = dgvMenu[row, 1].ToString();
-            tboxHarga.Text = dgvMenu[row, 2].ToString();
+            int index = e.RowIndex;
+            DataGridViewRow selectedRow = dgvMenu.Rows[index];
+            tboxID.Text = selectedRow.Cells[0].Value.ToString();
+            tboxNama.Text = selectedRow.Cells[1].Value.ToString();
+            tboxHarga.Text = selectedRow.Cells[2].Value.ToString();
 
 
 
-            OpenFileDialog open = new OpenFileDialog();
+
+
+            /*OpenFileDialog open = new OpenFileDialog();
 
             open.Filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp)|*.jpg; *.jpeg; *.gif; *.bmp";
             if (open.ShowDialog() == DialogResult.OK)
@@ -132,7 +127,25 @@ namespace Projek_Tea_Break
                 //display image in picture box
                 pictureBoxAdd.Image = new Bitmap(open.FileName);
                 //pictureBoxAdd.BackgroundImage = new Bitmap();
-            }
+            } */
+        }
+
+        private void btnadd_Click(object sender, EventArgs e)
+        {
+            sqlQuery = "INSERT INTO MINUMAN(ID_MINUMAN,NAMA_MINUMAN,HARGA_MINUMAN) set ID_MINUMAN = '" + tboxID.Text + "', NAMA_MINUMAN = '" + tboxNama.Text + "' , HARGA_MINUMAN = '" + tboxHarga.Text + "'";
+            btnSave.Visible = true;
+            btnEdit.Visible = false;
+            btnDelete.Visible = false;
+            btnAdd.Visible = false;
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            sqlQuery = "update MINUMAN(ID_MINUMAN,NAMA_MINUMAN,HARGA_MINUMAN) set ID_MINUMAN = '" + tboxID.Text + "', NAMA_MINUMAN = '" + tboxNama.Text + "' , HARGA_MINUMAN = '" + tboxHarga.Text + "'";
+            sqlConnect.Open();
+            sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
+            sqlCommand.ExecuteNonQuery();
+            sqlConnect.Close();
         }
     }
     }
