@@ -33,9 +33,11 @@ namespace Projek_Tea_Break
         public static string SugarLevel = "N";
         public static string IceLevel = "N";
 
+
         private void FormAddMinuman_Load(object sender, EventArgs e)
         {
             LoadKetMinuman();
+            LoadTopping();
 
 
             string fileFoto = @"C:\Users\ASUS\source\repos\Projek Tea Break\assets\29 - love - me2.jpg";
@@ -74,7 +76,7 @@ namespace Projek_Tea_Break
         public void LoadKetMinuman()
         {
             DataTable dtKetMinuman = new DataTable();
-            sqlQuery = "select m.ID_MINUMAN as id, m.NAMA_MINUMAN as nama, concat('Rp. ',m.HARGA_MINUMAN) as harga, m.INDEX_GAMBAR as 'index' from MINUMAN m where m.ID_MINUMAN = '" + PassingData + "';";
+            sqlQuery = "select m.ID_MINUMAN as id, m.NAMA_MINUMAN as nama, concat('Rp. ',m.HARGA_MINUMAN) as harga, m.PATH_GAMBAR as path from MINUMAN m where m.ID_MINUMAN = '" + PassingData + "';";
             sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
             sqlAdapter = new MySqlDataAdapter(sqlCommand);
             sqlAdapter.Fill(dtKetMinuman);
@@ -243,7 +245,7 @@ namespace Projek_Tea_Break
         ////////    newButtonPlus.Parent.Text = (Convert.ToInt32(newButtonPlus.Parent.Text) + 1).ToString();
         ////////}
 
-       
+
 
         private void buttonOk_Click(object sender, EventArgs e)
         {
@@ -279,54 +281,84 @@ namespace Projek_Tea_Break
         {
             this.Close();
         }
+        Label[] lbl = new Label[100];
+        Button[] btnMin = new Button[100];
+        TextBox[] txtbox = new TextBox[100];
+        Button[] btnPlus = new Button[100];
 
-        TextBox[] txtbox = new TextBox[9];
-        Button[] btn = new Button[9];
         public void LoadTopping()
         {
 
 
+            DataTable dtTopping = new DataTable();
+            sqlQuery = "select t.ID_TOPPING as id, t.NAMA_TOPPING as nama, concat('Rp. ',t.HARGA_TOPPING) as harga from TOPPING t;";
+            sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
+            sqlAdapter = new MySqlDataAdapter(sqlCommand);
+            sqlAdapter.Fill(dtTopping);
 
+            Label[] lbl = new Label[dtTopping.Rows.Count];
 
-            //for (int i = 0; i < 9; i++)
-            //{
-            //    int posisiY = 20;
-            //    //int counter = 0;
-            //    //txtbox[i].Text = counter.ToString();
-            //    //txtbox[i].Tag = counter;
-            //    //counter++;
-            //    txtbox[i].Location = new Point(20, posisiY);
-            //    posisiY += 30;
-            //}
             int posisiY = 20;
-            for (int i = 0; i < 9; i++)
+            for (int i = 0; i < dtTopping.Rows.Count; i++)
             {
-                txtbox[i] = new System.Windows.Forms.TextBox();
-                this.Controls.Add(txtbox[i]);
-                txtbox[i].Location = new Point(20, posisiY);
+                // label
+                lbl[i] = new System.Windows.Forms.Label();
+                panelTopping.Controls.Add(lbl[i]);
+                lbl[i].Location = new Point(20, posisiY);
+                lbl[i].Text = dtTopping.Rows[i][1].ToString();
+                lbl[i].Tag = i;
+
+                // btn Min
+                btnMin[i] = new System.Windows.Forms.Button();
+                panelTopping.Controls.Add(btnMin[i]);
+                btnMin[i].Location = new Point(200, posisiY);
+                btnMin[i].Size = new Size(20, 20);
+                btnMin[i].Text = "-";
+                btnMin[i].Tag = i;
+                btnMin[i].TextAlign = ContentAlignment.MiddleCenter;
+                btnMin[i].UseCompatibleTextRendering = true;
+                btnMin[i].Click += new EventHandler(button_min);
+
+                // txt box
+                txtbox[i]= new System.Windows.Forms.TextBox();
+                panelTopping.Controls.Add(txtbox[i]);
+                txtbox[i].Location = new Point(225, posisiY);
+                txtbox[i].Size = new Size(20, 20);
                 txtbox[i].Text = "0";
                 txtbox[i].Tag = i;
-                posisiY += 50;
+                txtbox[i].TextAlign = HorizontalAlignment.Center;
+
+                // btn Plus
+                btnPlus[i] = new System.Windows.Forms.Button();
+                panelTopping.Controls.Add(btnPlus[i]);
+                btnPlus[i].Location = new Point(250, posisiY);
+                btnPlus[i].Size = new Size(20, 20);
+                btnPlus[i].Text = "+";
+                btnPlus[i].Tag = i;
+                btnPlus[i].TextAlign = ContentAlignment.MiddleCenter;
+                btnPlus[i].UseCompatibleTextRendering = true;
+                btnPlus[i].Click += new EventHandler(button_plus);
+
+                posisiY += 25;
+
+
             }
 
 
 
 
-            posisiY = 20;
-            for (int i = 0; i < 9; i++)
-            {
-                btn[i] = new System.Windows.Forms.Button();
-                string namaButton = "btn" + i.ToString();
-                btn[i].Name = namaButton;
-                this.Controls.Add(btn[i]);
-
-                btn[i].Location = new Point(200, posisiY);
-                btn[i].Size = new Size(30, 30);
-                btn[i].Text = "+";
-                btn[i].Tag = i;
-                posisiY += 50;
-                btn[i].Click += new EventHandler(button_plus);
-            }
+            //Button newButtonPlus = new Button();
+            //newButtonPlus.Text = "+";
+            //newButtonPlus.TextAlign = ContentAlignment.MiddleCenter;
+            //newButtonPlus.Tag = "tb" + i;
+            //newButtonPlus.Size = new Size(20, 20);
+            //newButtonPlus.Location = new Point(posisiX, posisiY);
+            //newButtonPlus.FlatStyle = FlatStyle.Flat;
+            //newButtonPlus.ForeColor = Color.Black;
+            //newButtonPlus.UseCompatibleTextRendering = true;
+            //newButtonPlus.Parent = newTextBox;
+            //panelTopping.Controls.Add(newButtonPlus);
+            //newButtonPlus.Click += NewButtonPlus_Click;
 
             //Button[] btn = new Button[9];
             //foreach (Button bt in btn)
@@ -345,12 +377,35 @@ namespace Projek_Tea_Break
         }
 
 
-
         private void button_plus(object sender, EventArgs e)
         {
             Button bts = (Button)sender;
             int posisiTekan = Convert.ToInt32(bts.Tag);
             txtbox[posisiTekan].Text = (Convert.ToInt32(txtbox[posisiTekan].Text) + 1).ToString();
-        } 
+        }
+
+        private void button_min(object sender, EventArgs e)
+        {
+            
+            Button bts = (Button)sender;
+            int posisiTekan = Convert.ToInt32(bts.Tag);
+            if (Convert.ToInt32(txtbox[posisiTekan].Text )> 0)
+            {
+                txtbox[posisiTekan].Text = (Convert.ToInt32(txtbox[posisiTekan].Text) - 1).ToString();
+            }
+        }
+
+        private void buttonPlusQty_Click(object sender, EventArgs e)
+        {
+            textBoxQty.Text = (Convert.ToInt32(textBoxQty.Text) + 1).ToString();
+        }
+
+        private void buttonMinQty_Click(object sender, EventArgs e)
+        {
+            if (Convert.ToInt32(textBoxQty.Text) > 1)
+            {
+                textBoxQty.Text = (Convert.ToInt32(textBoxQty.Text) - 1).ToString();
+            }
         }
     }
+}

@@ -137,11 +137,17 @@ namespace Projek_Tea_Break
             DataTable dtMinuman = new DataTable();
             try
             {
-                sqlQuery = "select m.ID_MINUMAN as id, m.NAMA_MINUMAN as nama, concat('Rp. ',m.HARGA_MINUMAN) as harga, m.PATH_GAMBAR as 'index' from MINUMAN m where m.NAMA_MINUMAN like '%"+textBoxCariMinuman.Text+"%' and ID_MINUMAN='%"+Kategori+"%';";
+                if (Kategori == "")
+                {
+                    sqlQuery = "select m.ID_MINUMAN as id, m.NAMA_MINUMAN as nama, concat('Rp. ',m.HARGA_MINUMAN) as harga, m.PATH_GAMBAR as 'index' from MINUMAN m where m.NAMA_MINUMAN like '%" + textBoxCariMinuman.Text + "%'";
+                }
+                else
+                {
+                    sqlQuery = "select m.ID_MINUMAN as id, m.NAMA_MINUMAN as nama, concat('Rp. ',m.HARGA_MINUMAN) as harga, m.PATH_GAMBAR as 'index' from MINUMAN m where m.NAMA_MINUMAN like '%" + textBoxCariMinuman.Text + "%' and left(ID_MINUMAN,1)='" + Kategori + "';";
+                }
                 sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
                 sqlAdapter = new MySqlDataAdapter(sqlCommand);
                 sqlAdapter.Fill(dtMinuman);
-                dataGridView1.DataSource = dtMinuman;
             }
             catch (Exception)
             {
@@ -212,11 +218,6 @@ namespace Projek_Tea_Break
             formadd.Show();
         }
 
-        private void buttonS_Click(object sender, EventArgs e)
-        {
-            Kategori = "S";
-            LoadMinuman();
-        }
 
 
         private void buttonLogout_Click(object sender, EventArgs e)
@@ -227,22 +228,44 @@ namespace Projek_Tea_Break
             this.Hide();
         }
 
+        private void buttonS_Click(object sender, EventArgs e)
+        {
+            Kategori = "S";
+            LoadMinuman();
+            buttonA.BackColor = Color.Transparent;
+            buttonS.BackColor = Color.LightGreen;
+            buttonF.BackColor = Color.Transparent;
+            buttonT.BackColor = Color.Transparent;
+        }
+
         private void buttonF_Click(object sender, EventArgs e)
         {
             Kategori = "F";
             LoadMinuman();
+            buttonA.BackColor = Color.Transparent;
+            buttonS.BackColor = Color.Transparent;
+            buttonF.BackColor = Color.LightGreen;
+            buttonT.BackColor = Color.Transparent;
         }
 
         private void buttonT_Click(object sender, EventArgs e)
         {
             Kategori = "T";
             LoadMinuman();
+            buttonA.BackColor = Color.Transparent;
+            buttonS.BackColor = Color.Transparent;
+            buttonF.BackColor = Color.Transparent;
+            buttonT.BackColor = Color.LightGreen;
         }
 
         private void buttonA_Click(object sender, EventArgs e)
         {
             Kategori = "";
             LoadMinuman();
+            buttonA.BackColor = Color.LightGreen;
+            buttonS.BackColor = Color.Transparent;
+            buttonF.BackColor = Color.Transparent;
+            buttonT.BackColor = Color.Transparent;
         }
 
         private void pbProfil_MouseEnter(object sender, EventArgs e)
