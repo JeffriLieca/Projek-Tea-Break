@@ -47,6 +47,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="formEditAdmin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formEditAdmin.Designer.cs">
+      <DependentUpon>formEditAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="formProfile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formProfile.Designer.cs">
+      <DependentUpon>formProfile.cs</DependentUpon>
+    </Compile>
     <Compile Include="formLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -73,6 +85,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="formEditAdmin.resx">
+      <DependentUpon>formEditAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formProfile.resx">
+      <DependentUpon>formProfile.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="formLogin.resx">
       <DependentUpon>formLogin.cs</DependentUpon>
     </EmbeddedResource>
