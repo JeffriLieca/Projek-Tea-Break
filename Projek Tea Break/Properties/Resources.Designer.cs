@@ -63,6 +63,16 @@ namespace Projek_Tea_Break.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _19_fresh_tea2 {
+            get {
+                object obj = ResourceManager.GetObject("19-fresh-tea2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Screenshot_2021_08_20_192200 {
             get {
                 object obj = ResourceManager.GetObject("Screenshot 2021-08-20 192200", resourceCulture);

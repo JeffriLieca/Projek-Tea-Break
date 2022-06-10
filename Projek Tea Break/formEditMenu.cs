@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using System.Resources;
+using System.IO;
 
 namespace Projek_Tea_Break
 {
@@ -48,6 +50,16 @@ namespace Projek_Tea_Break
             dgvMenu.DataSource = menu;
 
 
+            sqlQuery = "select NAMA, IMAGE from COBA_MINUMAN ;";
+            sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
+            sqlAdapter = new MySqlDataAdapter(sqlCommand);
+            DataTable dtCoba = new DataTable();
+            sqlAdapter.Fill(dtCoba);
+            dgvMenu.DataSource = dtCoba;
+
+            sqlConnect.Close();
+
+
             //OpenFileDialog open = new OpenFileDialog();
 
             //open.Filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp)|*.jpg; *.jpeg; *.gif; *.bmp";
@@ -86,7 +98,7 @@ namespace Projek_Tea_Break
             buttonEditMenu.BackColor = Color.Transparent;
             buttonAdmin.BackColor = Color.ForestGreen;
             buttonAdmin.Text = "Admin";
-            
+
         }
 
         private void btnEdit_Click(object sender, EventArgs e)
@@ -113,13 +125,13 @@ namespace Projek_Tea_Break
             DataGridViewRow selectedRow = dgvMenu.Rows[index];
             tboxID.Text = selectedRow.Cells[0].Value.ToString();
             tboxNama.Text = selectedRow.Cells[1].Value.ToString();
-            tboxHarga.Text = selectedRow.Cells[2].Value.ToString();
+            DtboxHarga.Text = selectedRow.Cells[2].Value.ToString();
 
 
 
 
 
-            
+
         }
 
         private void btnadd_Click(object sender, EventArgs e)
@@ -140,18 +152,75 @@ namespace Projek_Tea_Break
             sqlConnect.Close();
         }
 
+        string imgLocation = "";
         private void buttonAddImage_Click(object sender, EventArgs e)
         {
-
             OpenFileDialog open = new OpenFileDialog();
 
             open.Filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp)|*.jpg; *.jpeg; *.gif; *.bmp";
             if (open.ShowDialog() == DialogResult.OK)
             {
                 //display image in picture box
-                pictureBoxAdd.Image = new Bitmap(open.FileName);
-                //pictureBoxAdd.BackgroundImage = new Bitmap();
+                imgLocation = open.FileName.ToString();
+                pictureBoxAdd.ImageLocation = imgLocation;
             }
         }
+
+        private void buttonSave_Click(object sender, EventArgs e)
+        {
+            byte[] images = null;
+            FileStream stream = new FileStream(imgLocation,FileMode.Open,FileAccess.Read);
+            BinaryReader brs = new BinaryReader(stream);
+            images = brs.ReadBytes((int)stream.Length);
+
+            sqlConnect.Open();
+            sqlQuery = "insert into COBA_MINUMAN values ('"+textBoxIDgambar.Text+"','"+textBoxNamagambar.Text+"',@images)";
+            sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
+            sqlCommand.Parameters.Add(new MySqlParameter("@images",images));
+            int N = sqlCommand.ExecuteNonQuery();
+            MessageBox.Show(N.ToString()+" Data Saved Succesfully");
+            sqlConnect.Close();
+        }
+
+        private void buttonView_Click(object sender, EventArgs e)
+        {
+            sqlConnect.Open();
+            sqlQuery = "select NAMA, IMAGE from COBA_MINUMAN where ID_COBA='"+textBoxIDgambar.Text+"';";
+            sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
+            //sqlAdapter = new MySqlDataAdapter(sqlCommand);
+            //DataTable dtCoba = new DataTable();
+            //sqlAdapter.Fill(dtCoba);
+            //byte[] images = ((byte[])dtCoba.Rows[0][1]);
+            //MemoryStream mstream = new MemoryStream(images);
+            //pictureBoxAdd.Image = Image.FromStream(mstream);
+
+            //pictureBoxAdd.Image = dtCoba.Rows[0][1];
+
+
+            //MySqlDataReader DataRead = sqlCommand.ExecuteReader();
+            //DataRead.Read();
+
+            //if (DataRead.HasRows)
+            //{
+            //    textBoxNamagambar.Text = DataRead[0].ToString();
+            //    byte[] images = ((byte[])DataRead[1]);
+            //    if (images == null)
+            //    {
+            //        pictureBoxAdd.Image = null;
+            //    }
+            //    else
+            //    {
+            //        MemoryStream mstream = new MemoryStream(images);
+            //        pictureBoxAdd.Image = Image.FromStream(mstream);
+            //    }
+
+            //}
+            //else
+            //{
+            //    MessageBox.Show("This Data Not Available");
+            //}
+            sqlConnect.Close();
+        }
     }
-    }
+}
+

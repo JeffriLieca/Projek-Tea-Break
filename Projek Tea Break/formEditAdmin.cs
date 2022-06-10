@@ -27,21 +27,21 @@ namespace Projek_Tea_Break
 
         private void FormOrder_Load(object sender, EventArgs e)
         {            
-            sqlQuery = "select id_pegawai as 'ID', nama_pegawai as 'Nama', tgl_lahir_pegawai as 'Tanggal', alamat_pegawai as 'Alamat', no_hp_pegawai as 'HP', if(level_jabatan = 1,'Staff',if(level_jabatan = 2,'Cashier',if(level_jabatan = 3,'Manager',''))) as `Jabatan` from PEGAWAI;";
+            sqlQuery = "select id_pegawai as 'ID', nama_pegawai as 'Nama', tgl_lahir_pegawai as 'Tanggal', alamat_pegawai as 'Alamat', no_hp_pegawai as 'HP', if(level_jabatan = 1,'Staff',if(level_jabatan = 2,'Cashier',if(level_jabatan = 3,'Manager',''))) as `Jabatan` from PEGAWAI where status_delete = '0';";
             sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
             sqlAdapter = new MySqlDataAdapter(sqlCommand);
             sqlAdapter.Fill(dtPegawai);
             dgvPegawai.DataSource = dtPegawai;
 
-            sqlQuery = "select distinct if( level_jabatan = 1,'Staff',if(level_jabatan = 2,'Cashier',if(level_jabatan = 3,'Manager',''))) as 'Jabatan' from PEGAWAI;";
+            sqlQuery = "select distinct leveljabatan as 'level',if( level_jabatan = 1,'Staff',if(level_jabatan = 2,'Cashier',if(level_jabatan = 3,'Manager',''))) as 'Jabatan' from PEGAWAI where status_delete = '0';";
             sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
             sqlAdapter = new MySqlDataAdapter(sqlCommand);
             sqlAdapter.Fill(dtJabatan);
             cbJabatan.DataSource = dtJabatan;
             cbJabatan.DisplayMember = "Jabatan";
-            cbJabatan.Text = "";            
-
-            //System.Resources.ResXResourceWriter.
+            cbJabatan.ValueMember = "level";
+            cbJabatan.Text = "";
+            dtpTanggalLahir.Text = "";
 
             rbView.Checked = true;
             tbID.Enabled = false;
@@ -50,6 +50,8 @@ namespace Projek_Tea_Break
             tbAlamat.Enabled = false;
             tbHP.Enabled = false;
             cbJabatan.Enabled = false;
+
+
             btnSave.Visible = false;
             btnAdd.Visible = false;
             btnDelete.Visible = false;
@@ -99,10 +101,17 @@ namespace Projek_Tea_Break
             {
                 sqlQuery = "update PEGAWAI set STATUS_DELETE = 1 where ID_PEGAWAI = '" + tbID.Text + "'";
                 MessageBox.Show(sqlQuery);
-                //sqlConnect.Open();
-                //sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
-                //sqlCommand.ExecuteNonQuery();
-                //sqlConnect.Close();
+                sqlConnect.Open();
+                sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
+                sqlCommand.ExecuteNonQuery();
+                sqlConnect.Close();
+
+                DataTable dtPegawai = new DataTable();
+                sqlQuery = "select id_pegawai as 'ID', nama_pegawai as 'Nama', tgl_lahir_pegawai as 'Tanggal', alamat_pegawai as 'Alamat', no_hp_pegawai as 'HP', if(level_jabatan = 1,'Staff',if(level_jabatan = 2,'Cashier',if(level_jabatan = 3,'Manager',''))) as `Jabatan` from PEGAWAI where status_delete = '0';";
+                sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
+                sqlAdapter = new MySqlDataAdapter(sqlCommand);
+                sqlAdapter.Fill(dtPegawai);
+                dgvPegawai.DataSource = dtPegawai;
             }
         }
 
@@ -123,26 +132,39 @@ namespace Projek_Tea_Break
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            sqlQuery = "insert into PEGAWAI values('tbID.Text','tbNama.Text',)";
+            sqlQuery = "insert into PEGAWAI values('"+tbID.Text+"', '"+tbNama.Text+"', '"+dtpTanggalLahir.Value.ToString("yyyyMMdd")+"', '"+tbAlamat.Text+"', '"+tbHP.Text+"', '"+cbJabatan.SelectedValue+"', '0');";
             MessageBox.Show(sqlQuery);
-            //sqlConnect.Open();
-            //sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
-            //sqlCommand.ExecuteNonQuery();
-            //sqlConnect.Close();
-            // insert into Pegawai values('tbID.Text', 'tbNama.Text', 'dtpTanggal', 'tbAlamat.Text', 'tbHP', 'cbJabatan', '0');
+            sqlConnect.Open();
+            sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
+            sqlCommand.ExecuteNonQuery();
+            sqlConnect.Close();
+
+            DataTable dtPegawai = new DataTable();
+            sqlQuery = "select id_pegawai as 'ID', nama_pegawai as 'Nama', tgl_lahir_pegawai as 'Tanggal', alamat_pegawai as 'Alamat', no_hp_pegawai as 'HP', if(level_jabatan = 1,'Staff',if(level_jabatan = 2,'Cashier',if(level_jabatan = 3,'Manager',''))) as `Jabatan` from PEGAWAI where status_delete = '0';";
+            sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
+            sqlAdapter = new MySqlDataAdapter(sqlCommand);
+            sqlAdapter.Fill(dtPegawai);
+            dgvPegawai.DataSource = dtPegawai;
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            sqlQuery = "update ";
+            sqlQuery = "UPDATE PEGAWAI SET NAMA_PEGAWAI = '"+tbNama.Text+"', TGL_LAHIR_PEGAWAI = '"+dtpTanggalLahir.Value.ToString("yyyyMMdd")+"', alamat_pegawai = '"+tbAlamat.Text+"',no_hp_pegawai = '"+tbHP.Text+"',level_jabatan ='"+cbJabatan.SelectedValue+"' WHERE id_pegawai = '"+tbID.Text+"';";
             MessageBox.Show(sqlQuery);
-            //sqlConnect.Open();
-            //sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
-            //sqlCommand.ExecuteNonQuery();
-            //sqlConnect.Close();
+            sqlConnect.Open();
+            sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
+            sqlCommand.ExecuteNonQuery();
+            sqlConnect.Close();
+
+            DataTable dtPegawai = new DataTable();
+            sqlQuery = "select id_pegawai as 'ID', nama_pegawai as 'Nama', tgl_lahir_pegawai as 'Tanggal', alamat_pegawai as 'Alamat', no_hp_pegawai as 'HP', if(level_jabatan = 1,'Staff',if(level_jabatan = 2,'Cashier',if(level_jabatan = 3,'Manager',''))) as `Jabatan` from PEGAWAI where status_delete = '0';";
+            sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
+            sqlAdapter = new MySqlDataAdapter(sqlCommand);
+            sqlAdapter.Fill(dtPegawai);
+            dgvPegawai.DataSource = dtPegawai;
         }
 
-        private void rbEdit_CheckedChanged(object sender, EventArgs e)
+        private void rbEdit_CheckedChanged(object sender, EventArgs e)// kurang posisi"
         {
             if (rbEdit.Checked == true)
             {
@@ -152,6 +174,10 @@ namespace Projek_Tea_Break
                 tbAlamat.Enabled = true;
                 tbHP.Enabled = true;
                 cbJabatan.Enabled = true;
+
+                btnSave.Visible = true;
+                btnAdd.Visible = false;
+                btnDelete.Visible = true;
             }
             else if (rbAdd.Checked == true)
             {
@@ -161,6 +187,10 @@ namespace Projek_Tea_Break
                 tbAlamat.Enabled = true;
                 tbHP.Enabled = true;
                 cbJabatan.Enabled = true;
+
+                btnSave.Visible = false;
+                btnAdd.Visible = true;
+                btnDelete.Visible = false;
             }
             else
             {
@@ -170,6 +200,10 @@ namespace Projek_Tea_Break
                 tbAlamat.Enabled = false;
                 tbHP.Enabled = false;
                 cbJabatan.Enabled = false;
+                btnSave.Visible = false;
+                btnAdd.Visible = false;
+                btnDelete.Visible = false;
+
                 btnSave.Visible = false;
                 btnAdd.Visible = false;
                 btnDelete.Visible = false;
@@ -186,6 +220,10 @@ namespace Projek_Tea_Break
                 tbAlamat.Enabled = true;
                 tbHP.Enabled = true;
                 cbJabatan.Enabled = true;
+
+                btnSave.Visible = true;
+                btnAdd.Visible = false;
+                btnDelete.Visible = true;
             }
             else if (rbAdd.Checked == true)
             {
@@ -195,6 +233,10 @@ namespace Projek_Tea_Break
                 tbAlamat.Enabled = true;
                 tbHP.Enabled = true;
                 cbJabatan.Enabled = true;
+
+                btnSave.Visible = false;
+                btnAdd.Visible = true;
+                btnDelete.Visible = false;
             }
             else
             {
@@ -204,6 +246,10 @@ namespace Projek_Tea_Break
                 tbAlamat.Enabled = false;
                 tbHP.Enabled = false;
                 cbJabatan.Enabled = false;
+                btnSave.Visible = false;
+                btnAdd.Visible = false;
+                btnDelete.Visible = false;
+
                 btnSave.Visible = false;
                 btnAdd.Visible = false;
                 btnDelete.Visible = false;
@@ -220,6 +266,10 @@ namespace Projek_Tea_Break
                 tbAlamat.Enabled = true;
                 tbHP.Enabled = true;
                 cbJabatan.Enabled = true;
+
+                btnSave.Visible = true;
+                btnAdd.Visible = false;
+                btnDelete.Visible = true;
             }
             else if (rbAdd.Checked == true)
             {
@@ -229,6 +279,10 @@ namespace Projek_Tea_Break
                 tbAlamat.Enabled = true;
                 tbHP.Enabled = true;
                 cbJabatan.Enabled = true;
+
+                btnSave.Visible = false;
+                btnAdd.Visible = true;
+                btnDelete.Visible = false;
             }
             else
             {
@@ -238,6 +292,10 @@ namespace Projek_Tea_Break
                 tbAlamat.Enabled = false;
                 tbHP.Enabled = false;
                 cbJabatan.Enabled = false;
+                btnSave.Visible = false;
+                btnAdd.Visible = false;
+                btnDelete.Visible = false;
+
                 btnSave.Visible = false;
                 btnAdd.Visible = false;
                 btnDelete.Visible = false;

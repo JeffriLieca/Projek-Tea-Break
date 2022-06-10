@@ -53,6 +53,12 @@
     <Compile Include="formEditAdmin.Designer.cs">
       <DependentUpon>formEditAdmin.cs</DependentUpon>
     </Compile>
+    <Compile Include="formEditTopping.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formEditTopping.Designer.cs">
+      <DependentUpon>formEditTopping.cs</DependentUpon>
+    </Compile>
     <Compile Include="formProfile.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -87,6 +93,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="formEditAdmin.resx">
       <DependentUpon>formEditAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formEditTopping.resx">
+      <DependentUpon>formEditTopping.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="formProfile.resx">
       <DependentUpon>formProfile.cs</DependentUpon>
@@ -131,6 +140,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\shop_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\19-fresh-tea2.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

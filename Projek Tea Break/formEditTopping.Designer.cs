@@ -1,7 +1,7 @@
 ﻿
 namespace Projek_Tea_Break
 {
-    partial class formEdit
+    partial class formEditTopping
     {
         /// <summary>
         /// Required designer variable.
@@ -50,12 +50,6 @@ namespace Projek_Tea_Break
             this.buttonAddImage = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
-            this.buttonSave = new System.Windows.Forms.Button();
-            this.textBoxIDgambar = new System.Windows.Forms.TextBox();
-            this.textBoxNamagambar = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.buttonView = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMenu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAdd)).BeginInit();
@@ -276,70 +270,12 @@ namespace Projek_Tea_Break
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
-            // buttonSave
-            // 
-            this.buttonSave.Location = new System.Drawing.Point(462, 481);
-            this.buttonSave.Name = "buttonSave";
-            this.buttonSave.Size = new System.Drawing.Size(75, 23);
-            this.buttonSave.TabIndex = 19;
-            this.buttonSave.Text = "Save";
-            this.buttonSave.UseVisualStyleBackColor = true;
-            this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
-            // 
-            // textBoxIDgambar
-            // 
-            this.textBoxIDgambar.Location = new System.Drawing.Point(307, 482);
-            this.textBoxIDgambar.Name = "textBoxIDgambar";
-            this.textBoxIDgambar.Size = new System.Drawing.Size(100, 22);
-            this.textBoxIDgambar.TabIndex = 20;
-            // 
-            // textBoxNamagambar
-            // 
-            this.textBoxNamagambar.Location = new System.Drawing.Point(307, 510);
-            this.textBoxNamagambar.Name = "textBoxNamagambar";
-            this.textBoxNamagambar.Size = new System.Drawing.Size(100, 22);
-            this.textBoxNamagambar.TabIndex = 21;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(206, 515);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(95, 17);
-            this.label4.TabIndex = 22;
-            this.label4.Text = "nama gambar";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(228, 487);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(73, 17);
-            this.label5.TabIndex = 23;
-            this.label5.Text = "ID gambar";
-            // 
-            // buttonView
-            // 
-            this.buttonView.Location = new System.Drawing.Point(462, 510);
-            this.buttonView.Name = "buttonView";
-            this.buttonView.Size = new System.Drawing.Size(75, 23);
-            this.buttonView.TabIndex = 24;
-            this.buttonView.Text = "View";
-            this.buttonView.UseVisualStyleBackColor = true;
-            this.buttonView.Click += new System.EventHandler(this.buttonView_Click);
-            // 
             // formEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLight;
             this.ClientSize = new System.Drawing.Size(1043, 635);
-            this.Controls.Add(this.buttonView);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.textBoxNamagambar);
-            this.Controls.Add(this.textBoxIDgambar);
-            this.Controls.Add(this.buttonSave);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.buttonAddImage);
@@ -388,11 +324,5 @@ namespace Projek_Tea_Break
         private System.Windows.Forms.Button buttonAddImage;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button btnSave;
-        private System.Windows.Forms.Button buttonSave;
-        private System.Windows.Forms.TextBox textBoxIDgambar;
-        private System.Windows.Forms.TextBox textBoxNamagambar;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button buttonView;
     }
 }
