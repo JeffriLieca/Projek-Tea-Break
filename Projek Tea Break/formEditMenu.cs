@@ -119,15 +119,7 @@ namespace Projek_Tea_Break
 
 
 
-            /*OpenFileDialog open = new OpenFileDialog();
-
-            open.Filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp)|*.jpg; *.jpeg; *.gif; *.bmp";
-            if (open.ShowDialog() == DialogResult.OK)
-            {
-                //display image in picture box
-                pictureBoxAdd.Image = new Bitmap(open.FileName);
-                //pictureBoxAdd.BackgroundImage = new Bitmap();
-            } */
+            
         }
 
         private void btnadd_Click(object sender, EventArgs e)
@@ -146,6 +138,20 @@ namespace Projek_Tea_Break
             sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
             sqlCommand.ExecuteNonQuery();
             sqlConnect.Close();
+        }
+
+        private void buttonAddImage_Click(object sender, EventArgs e)
+        {
+
+            OpenFileDialog open = new OpenFileDialog();
+
+            open.Filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp)|*.jpg; *.jpeg; *.gif; *.bmp";
+            if (open.ShowDialog() == DialogResult.OK)
+            {
+                //display image in picture box
+                pictureBoxAdd.Image = new Bitmap(open.FileName);
+                //pictureBoxAdd.BackgroundImage = new Bitmap();
+            }
         }
     }
     }

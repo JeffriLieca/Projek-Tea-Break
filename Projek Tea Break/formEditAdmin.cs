@@ -39,14 +39,20 @@ namespace Projek_Tea_Break
             sqlAdapter.Fill(dtJabatan);
             cbJabatan.DataSource = dtJabatan;
             cbJabatan.DisplayMember = "Jabatan";
-            cbJabatan.Text = "";
+            cbJabatan.Text = "";            
 
+            //System.Resources.ResXResourceWriter.
+
+            rbView.Checked = true;
             tbID.Enabled = false;
-            tbNama.ReadOnly = true;
+            tbNama.Enabled = false;
             dtpTanggalLahir.Enabled = false;
             tbAlamat.Enabled = false;
             tbHP.Enabled = false;
             cbJabatan.Enabled = false;
+            btnSave.Visible = false;
+            btnAdd.Visible = false;
+            btnDelete.Visible = false;
         }
         private void buttonCashier_Click(object sender, EventArgs e)
         {
@@ -117,17 +123,18 @@ namespace Projek_Tea_Break
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            sqlQuery = "insert";
+            sqlQuery = "insert into PEGAWAI values('tbID.Text','tbNama.Text',)";
             MessageBox.Show(sqlQuery);
             //sqlConnect.Open();
             //sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
             //sqlCommand.ExecuteNonQuery();
             //sqlConnect.Close();
+            // insert into Pegawai values('tbID.Text', 'tbNama.Text', 'dtpTanggal', 'tbAlamat.Text', 'tbHP', 'cbJabatan', '0');
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            sqlQuery = "update";
+            sqlQuery = "update ";
             MessageBox.Show(sqlQuery);
             //sqlConnect.Open();
             //sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
@@ -140,7 +147,7 @@ namespace Projek_Tea_Break
             if (rbEdit.Checked == true)
             {
                 tbID.Enabled = true;
-                tbNama.ReadOnly = false;
+                tbNama.Enabled = true;
                 dtpTanggalLahir.Enabled = true;
                 tbAlamat.Enabled = true;
                 tbHP.Enabled = true;
@@ -149,7 +156,7 @@ namespace Projek_Tea_Break
             else if (rbAdd.Checked == true)
             {
                 tbID.Enabled = true;
-                tbNama.ReadOnly = false;
+                tbNama.Enabled = true;
                 dtpTanggalLahir.Enabled = true;
                 tbAlamat.Enabled = true;
                 tbHP.Enabled = true;
@@ -158,11 +165,14 @@ namespace Projek_Tea_Break
             else
             {
                 tbID.Enabled = false;
-                tbNama.ReadOnly = true;
+                tbNama.Enabled = false;
                 dtpTanggalLahir.Enabled = false;
                 tbAlamat.Enabled = false;
                 tbHP.Enabled = false;
                 cbJabatan.Enabled = false;
+                btnSave.Visible = false;
+                btnAdd.Visible = false;
+                btnDelete.Visible = false;
             }
         }
 
@@ -171,7 +181,7 @@ namespace Projek_Tea_Break
             if (rbEdit.Checked == true)
             {
                 tbID.Enabled = true;
-                tbNama.ReadOnly = false;
+                tbNama.Enabled = true;
                 dtpTanggalLahir.Enabled = true;
                 tbAlamat.Enabled = true;
                 tbHP.Enabled = true;
@@ -180,7 +190,7 @@ namespace Projek_Tea_Break
             else if (rbAdd.Checked == true)
             {
                 tbID.Enabled = true;
-                tbNama.ReadOnly = false;
+                tbNama.Enabled = true;
                 dtpTanggalLahir.Enabled = true;
                 tbAlamat.Enabled = true;
                 tbHP.Enabled = true;
@@ -189,11 +199,14 @@ namespace Projek_Tea_Break
             else
             {
                 tbID.Enabled = false;
-                tbNama.ReadOnly = true;
+                tbNama.Enabled = false;
                 dtpTanggalLahir.Enabled = false;
                 tbAlamat.Enabled = false;
                 tbHP.Enabled = false;
                 cbJabatan.Enabled = false;
+                btnSave.Visible = false;
+                btnAdd.Visible = false;
+                btnDelete.Visible = false;
             }
         } // copas dari rbEdit
 
@@ -202,7 +215,7 @@ namespace Projek_Tea_Break
             if (rbEdit.Checked == true)
             {
                 tbID.Enabled = true;
-                tbNama.ReadOnly = false;
+                tbNama.Enabled = true;
                 dtpTanggalLahir.Enabled = true;
                 tbAlamat.Enabled = true;
                 tbHP.Enabled = true;
@@ -211,7 +224,7 @@ namespace Projek_Tea_Break
             else if (rbAdd.Checked == true)
             {
                 tbID.Enabled = true;
-                tbNama.ReadOnly = false;
+                tbNama.Enabled = true;
                 dtpTanggalLahir.Enabled = true;
                 tbAlamat.Enabled = true;
                 tbHP.Enabled = true;
@@ -220,11 +233,14 @@ namespace Projek_Tea_Break
             else
             {
                 tbID.Enabled = false;
-                tbNama.ReadOnly = true;
+                tbNama.Enabled = false;
                 dtpTanggalLahir.Enabled = false;
                 tbAlamat.Enabled = false;
                 tbHP.Enabled = false;
                 cbJabatan.Enabled = false;
+                btnSave.Visible = false;
+                btnAdd.Visible = false;
+                btnDelete.Visible = false;
             }
         }// copas dari rbEdit
     }
