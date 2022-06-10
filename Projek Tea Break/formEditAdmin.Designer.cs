@@ -48,7 +48,6 @@ namespace Projek_Tea_Break
             this.btnSave = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
-            this.btnEdit = new System.Windows.Forms.Button();
             this.tbNama = new System.Windows.Forms.TextBox();
             this.tbID = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -70,7 +69,7 @@ namespace Projek_Tea_Break
             this.panel2.Location = new System.Drawing.Point(-1, 0);
             this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(142, 524);
+            this.panel2.Size = new System.Drawing.Size(134, 524);
             this.panel2.TabIndex = 7;
             // 
             // buttonAdmin
@@ -80,10 +79,10 @@ namespace Projek_Tea_Break
             this.buttonAdmin.ForeColor = System.Drawing.Color.White;
             this.buttonAdmin.Image = ((System.Drawing.Image)(resources.GetObject("buttonAdmin.Image")));
             this.buttonAdmin.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.buttonAdmin.Location = new System.Drawing.Point(12, 299);
+            this.buttonAdmin.Location = new System.Drawing.Point(32, 295);
             this.buttonAdmin.Margin = new System.Windows.Forms.Padding(2);
             this.buttonAdmin.Name = "buttonAdmin";
-            this.buttonAdmin.Size = new System.Drawing.Size(89, 77);
+            this.buttonAdmin.Size = new System.Drawing.Size(69, 77);
             this.buttonAdmin.TabIndex = 5;
             this.buttonAdmin.Text = "Admin";
             this.buttonAdmin.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
@@ -97,12 +96,12 @@ namespace Projek_Tea_Break
             this.buttonEditMenu.ForeColor = System.Drawing.Color.White;
             this.buttonEditMenu.Image = ((System.Drawing.Image)(resources.GetObject("buttonEditMenu.Image")));
             this.buttonEditMenu.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.buttonEditMenu.Location = new System.Drawing.Point(12, 202);
+            this.buttonEditMenu.Location = new System.Drawing.Point(32, 202);
             this.buttonEditMenu.Margin = new System.Windows.Forms.Padding(2);
             this.buttonEditMenu.Name = "buttonEditMenu";
-            this.buttonEditMenu.Size = new System.Drawing.Size(89, 77);
+            this.buttonEditMenu.Size = new System.Drawing.Size(69, 77);
             this.buttonEditMenu.TabIndex = 4;
-            this.buttonEditMenu.Text = "Edit Menu";
+            this.buttonEditMenu.Text = "Edit";
             this.buttonEditMenu.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.buttonEditMenu.UseVisualStyleBackColor = false;
             this.buttonEditMenu.Click += new System.EventHandler(this.buttonEditMenu_Click);
@@ -114,10 +113,10 @@ namespace Projek_Tea_Break
             this.buttonCashier.ForeColor = System.Drawing.Color.White;
             this.buttonCashier.Image = global::Projek_Tea_Break.Properties.Resources.shop_icon;
             this.buttonCashier.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.buttonCashier.Location = new System.Drawing.Point(12, 105);
+            this.buttonCashier.Location = new System.Drawing.Point(32, 105);
             this.buttonCashier.Margin = new System.Windows.Forms.Padding(2);
             this.buttonCashier.Name = "buttonCashier";
-            this.buttonCashier.Size = new System.Drawing.Size(89, 77);
+            this.buttonCashier.Size = new System.Drawing.Size(69, 77);
             this.buttonCashier.TabIndex = 1;
             this.buttonCashier.Text = "Cashier";
             this.buttonCashier.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
@@ -130,7 +129,7 @@ namespace Projek_Tea_Break
             this.pbProfil.Image = ((System.Drawing.Image)(resources.GetObject("pbProfil.Image")));
             this.pbProfil.Location = new System.Drawing.Point(3, 20);
             this.pbProfil.Name = "pbProfil";
-            this.pbProfil.Size = new System.Drawing.Size(136, 80);
+            this.pbProfil.Size = new System.Drawing.Size(128, 80);
             this.pbProfil.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbProfil.TabIndex = 6;
             this.pbProfil.TabStop = false;
@@ -171,7 +170,7 @@ namespace Projek_Tea_Break
             this.tbHP.Location = new System.Drawing.Point(302, 319);
             this.tbHP.Margin = new System.Windows.Forms.Padding(2);
             this.tbHP.Name = "tbHP";
-            this.tbHP.Size = new System.Drawing.Size(144, 21);
+            this.tbHP.Size = new System.Drawing.Size(187, 21);
             this.tbHP.TabIndex = 44;
             // 
             // tbAlamat
@@ -180,7 +179,7 @@ namespace Projek_Tea_Break
             this.tbAlamat.Location = new System.Drawing.Point(302, 292);
             this.tbAlamat.Margin = new System.Windows.Forms.Padding(2);
             this.tbAlamat.Name = "tbAlamat";
-            this.tbAlamat.Size = new System.Drawing.Size(144, 21);
+            this.tbAlamat.Size = new System.Drawing.Size(187, 21);
             this.tbAlamat.TabIndex = 43;
             // 
             // label6
@@ -223,7 +222,7 @@ namespace Projek_Tea_Break
             this.dtpTanggalLahir.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpTanggalLahir.Location = new System.Drawing.Point(302, 264);
             this.dtpTanggalLahir.Name = "dtpTanggalLahir";
-            this.dtpTanggalLahir.Size = new System.Drawing.Size(200, 21);
+            this.dtpTanggalLahir.Size = new System.Drawing.Size(187, 21);
             this.dtpTanggalLahir.TabIndex = 39;
             // 
             // rbAdd
@@ -253,7 +252,7 @@ namespace Projek_Tea_Break
             // btnSave
             // 
             this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSave.Location = new System.Drawing.Point(382, 407);
+            this.btnSave.Location = new System.Drawing.Point(422, 407);
             this.btnSave.Margin = new System.Windows.Forms.Padding(2);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(80, 26);
@@ -265,7 +264,7 @@ namespace Projek_Tea_Break
             // btnAdd
             // 
             this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAdd.Location = new System.Drawing.Point(258, 407);
+            this.btnAdd.Location = new System.Drawing.Point(448, 453);
             this.btnAdd.Margin = new System.Windows.Forms.Padding(2);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(80, 26);
@@ -277,7 +276,7 @@ namespace Projek_Tea_Break
             // btnDelete
             // 
             this.btnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDelete.Location = new System.Drawing.Point(579, 407);
+            this.btnDelete.Location = new System.Drawing.Point(301, 407);
             this.btnDelete.Margin = new System.Windows.Forms.Padding(2);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(80, 26);
@@ -285,18 +284,6 @@ namespace Projek_Tea_Break
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = true;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
-            // 
-            // btnEdit
-            // 
-            this.btnEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEdit.Location = new System.Drawing.Point(495, 407);
-            this.btnEdit.Margin = new System.Windows.Forms.Padding(2);
-            this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(80, 26);
-            this.btnEdit.TabIndex = 33;
-            this.btnEdit.Text = "Edit";
-            this.btnEdit.UseVisualStyleBackColor = true;
-            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // tbNama
             // 
@@ -380,7 +367,6 @@ namespace Projek_Tea_Break
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.btnDelete);
-            this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.tbNama);
             this.Controls.Add(this.tbID);
             this.Controls.Add(this.label3);
@@ -419,7 +405,6 @@ namespace Projek_Tea_Break
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button btnDelete;
-        private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.TextBox tbNama;
         private System.Windows.Forms.TextBox tbID;
         private System.Windows.Forms.Label label3;

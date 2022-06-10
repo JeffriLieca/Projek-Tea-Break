@@ -24,24 +24,42 @@ namespace Projek_Tea_Break
         public MySqlCommand sqlCommand;
         public MySqlDataAdapter sqlAdapter;
         public static string sqlQuery;
+        public static string cekID = "";
 
         DataTable dtTopping = new DataTable();
 
-        private void FormOrder_Load(object sender, EventArgs e)
+        private void Refresh()
         {
-            sqlConnect.Open();
+            DataTable dtTopping = new DataTable();
             sqlQuery = "select id_topping as 'ID', nama_topping as 'Nama', harga_topping as 'Harga' from TOPPING where STATUS_DELETE = '0';";
             sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
             sqlAdapter = new MySqlDataAdapter(sqlCommand);
             sqlAdapter.Fill(dtTopping);
-            dgvMenu.DataSource = dtTopping;
-            sqlConnect.Close();
+            dgvTopping.DataSource = dtTopping;
+        }
+        private void InvisText()
+        {
+            buttonCashier.Text = " ";
+            buttonEditMenu.Text = " ";
+            buttonAdmin.Text = " ";
+        }
+        private void FormOrder_Load(object sender, EventArgs e)
+        {
+            buttonEditMenu.BackColor = Color.Transparent;
+            buttonAdmin.BackColor = Color.Transparent;
+            buttonCashier.BackColor = Color.ForestGreen;
+            InvisText();
+            buttonCashier.Text = "Cashier";
+
+            Refresh();
+            
         }
         private void buttonCashier_Click(object sender, EventArgs e)
         {
             buttonEditMenu.BackColor = Color.Transparent;
             buttonAdmin.BackColor = Color.Transparent;
             buttonCashier.BackColor = Color.ForestGreen;
+            InvisText();
             buttonCashier.Text = "Cashier";
         }
 
@@ -51,6 +69,7 @@ namespace Projek_Tea_Break
             buttonCashier.BackColor = Color.Transparent;
             buttonAdmin.BackColor = Color.Transparent;
             buttonEditMenu.BackColor = Color.ForestGreen;
+            InvisText();
             buttonEditMenu.Text = "Edit Menu";
         }
 
@@ -59,8 +78,8 @@ namespace Projek_Tea_Break
             buttonCashier.BackColor = Color.Transparent;
             buttonEditMenu.BackColor = Color.Transparent;
             buttonAdmin.BackColor = Color.ForestGreen;
+            InvisText();
             buttonAdmin.Text = "Admin";
-
         }
 
         private void btnEdit_Click(object sender, EventArgs e)
@@ -79,34 +98,38 @@ namespace Projek_Tea_Break
             sqlCommand.ExecuteNonQuery();
             sqlConnect.Close();
 
+            Refresh();
         }
 
-        private void dgvMenu_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void dgvTopping_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            tboxID.Text = dgvMenu.Rows[e.RowIndex].Cells[0].Value.ToString();
-            tboxNama.Text = dgvMenu.Rows[e.RowIndex].Cells[1].Value.ToString();
-            tboxHarga.Text = dgvMenu.Rows[e.RowIndex].Cells[2].Value.ToString();
-
+            tboxID.Text = dgvTopping.Rows[e.RowIndex].Cells[0].Value.ToString();
+            tboxNama.Text = dgvTopping.Rows[e.RowIndex].Cells[1].Value.ToString();
+            tboxHarga.Text = dgvTopping.Rows[e.RowIndex].Cells[2].Value.ToString();
+            cekID = dgvTopping.Rows[e.RowIndex].Cells["ID"].Value.ToString();
         }
 
         private void btnadd_Click(object sender, EventArgs e)
         {
             sqlQuery = "INSERT INTO TOPPING VALUES('" + tboxID.Text + "', '" + tboxNama.Text + "' , '" + tboxHarga.Text + "', '0');";
-            btnSave.Visible = true;
-            btnEdit.Visible = false;
-            btnDelete.Visible = false;
-            btnAdd.Visible = false;
+            sqlConnect.Open();
+            sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
+            sqlCommand.ExecuteNonQuery();
+            sqlConnect.Close();
+            MessageBox.Show("Berhasil ditambah");
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if (tboxID.Text != dgvMenu.Rows[e.RowIndex].Cells[0].Value.ToString())
+            if (tboxID.Text != dgvTopping.CurrentRow.Cells["ID"].Value.ToString())
             {
-                sqlQuery = "update TOPPING set id_topping = '" + tboxID.Text + "', nama_topping = '" + tboxNama.Text + "' , harga_topping = '" + tboxHarga.Text + "' where id_topping = '" + tboxID.Text + "';";
+                sqlQuery = "update TOPPING set id_topping = '" + tboxID.Text + "', nama_topping = '" + tboxNama.Text + "' , harga_topping = '" + tboxHarga.Text + "' where id_topping = '" + cekID + "';";
                 sqlConnect.Open();
                 sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
                 sqlCommand.ExecuteNonQuery();
                 sqlConnect.Close();
+                MessageBox.Show("Berhasil diubah");
+                Refresh();
             }
             else
             {
@@ -115,12 +138,9 @@ namespace Projek_Tea_Break
                 sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
                 sqlCommand.ExecuteNonQuery();
                 sqlConnect.Close();
+                MessageBox.Show("Berhasil diubah");
+                Refresh();
             }
-        }
-
-        private void buttonAddImage_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

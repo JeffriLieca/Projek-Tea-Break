@@ -125,7 +125,7 @@ namespace Projek_Tea_Break
             DataGridViewRow selectedRow = dgvMenu.Rows[index];
             tboxID.Text = selectedRow.Cells[0].Value.ToString();
             tboxNama.Text = selectedRow.Cells[1].Value.ToString();
-            DtboxHarga.Text = selectedRow.Cells[2].Value.ToString();
+            tboxHarga.Text = selectedRow.Cells[2].Value.ToString();
 
 
 

@@ -25,15 +25,36 @@ namespace Projek_Tea_Break
         DataTable dtPegawai = new DataTable();
         DataTable dtJabatan = new DataTable();
 
+        private void Refresh()
+        {
+            DataTable dtPegawai = new DataTable();
+            sqlQuery = "select id_pegawai as 'ID', nama_pegawai as 'Nama', tgl_lahir_pegawai as 'Tanggal', alamat_pegawai as 'Alamat', no_hp_pegawai as 'HP', if(level_jabatan = 1,'Staff',if(level_jabatan = 2,'Cashier',if(level_jabatan = 3,'Manager',''))) as `Jabatan` from PEGAWAI where status_delete = '0';";
+            sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
+            sqlAdapter = new MySqlDataAdapter(sqlCommand);
+            sqlAdapter.Fill(dtPegawai);
+            dgvPegawai.DataSource = dtPegawai;
+        }
+        private void InvisText()
+        {
+            buttonCashier.Text = " ";
+            buttonEditMenu.Text = " ";
+            buttonAdmin.Text = " ";
+        }
         private void FormOrder_Load(object sender, EventArgs e)
-        {            
+        {
+            buttonEditMenu.BackColor = Color.Transparent;
+            buttonAdmin.BackColor = Color.Transparent;
+            buttonCashier.BackColor = Color.ForestGreen;
+            InvisText();
+            buttonCashier.Text = "Cashier";
+
             sqlQuery = "select id_pegawai as 'ID', nama_pegawai as 'Nama', tgl_lahir_pegawai as 'Tanggal', alamat_pegawai as 'Alamat', no_hp_pegawai as 'HP', if(level_jabatan = 1,'Staff',if(level_jabatan = 2,'Cashier',if(level_jabatan = 3,'Manager',''))) as `Jabatan` from PEGAWAI where status_delete = '0';";
             sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
             sqlAdapter = new MySqlDataAdapter(sqlCommand);
             sqlAdapter.Fill(dtPegawai);
             dgvPegawai.DataSource = dtPegawai;
 
-            sqlQuery = "select distinct leveljabatan as 'level',if( level_jabatan = 1,'Staff',if(level_jabatan = 2,'Cashier',if(level_jabatan = 3,'Manager',''))) as 'Jabatan' from PEGAWAI where status_delete = '0';";
+            sqlQuery = "select distinct level_jabatan as 'level',if( level_jabatan = 1,'Staff',if(level_jabatan = 2,'Cashier',if(level_jabatan = 3,'Manager',''))) as 'Jabatan' from PEGAWAI where status_delete = '0';";
             sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
             sqlAdapter = new MySqlDataAdapter(sqlCommand);
             sqlAdapter.Fill(dtJabatan);
@@ -61,6 +82,7 @@ namespace Projek_Tea_Break
             buttonEditMenu.BackColor = Color.Transparent;
             buttonAdmin.BackColor = Color.Transparent;
             buttonCashier.BackColor = Color.ForestGreen;
+            InvisText();
             buttonCashier.Text = "Cashier";
         }
 
@@ -70,6 +92,7 @@ namespace Projek_Tea_Break
             buttonCashier.BackColor = Color.Transparent;
             buttonAdmin.BackColor = Color.Transparent;
             buttonEditMenu.BackColor = Color.ForestGreen;
+            InvisText();
             buttonEditMenu.Text = "Edit Menu";
         }
 
@@ -78,6 +101,7 @@ namespace Projek_Tea_Break
             buttonCashier.BackColor = Color.Transparent;
             buttonEditMenu.BackColor = Color.Transparent;
             buttonAdmin.BackColor = Color.ForestGreen;
+            InvisText();
             buttonAdmin.Text = "Admin";
 
         }
@@ -106,12 +130,7 @@ namespace Projek_Tea_Break
                 sqlCommand.ExecuteNonQuery();
                 sqlConnect.Close();
 
-                DataTable dtPegawai = new DataTable();
-                sqlQuery = "select id_pegawai as 'ID', nama_pegawai as 'Nama', tgl_lahir_pegawai as 'Tanggal', alamat_pegawai as 'Alamat', no_hp_pegawai as 'HP', if(level_jabatan = 1,'Staff',if(level_jabatan = 2,'Cashier',if(level_jabatan = 3,'Manager',''))) as `Jabatan` from PEGAWAI where status_delete = '0';";
-                sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
-                sqlAdapter = new MySqlDataAdapter(sqlCommand);
-                sqlAdapter.Fill(dtPegawai);
-                dgvPegawai.DataSource = dtPegawai;
+                Refresh();
             }
         }
 
@@ -120,14 +139,6 @@ namespace Projek_Tea_Break
             formProfile formProfil = new formProfile();
             formProfil.ShowDialog(); 
             this.Close();
-        }
-
-        private void btnEdit_Click(object sender, EventArgs e)
-        {
-            btnSave.Visible = true;
-            btnEdit.Visible = false;
-            btnDelete.Visible = false;
-            btnAdd.Visible = false;
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -139,29 +150,33 @@ namespace Projek_Tea_Break
             sqlCommand.ExecuteNonQuery();
             sqlConnect.Close();
 
-            DataTable dtPegawai = new DataTable();
-            sqlQuery = "select id_pegawai as 'ID', nama_pegawai as 'Nama', tgl_lahir_pegawai as 'Tanggal', alamat_pegawai as 'Alamat', no_hp_pegawai as 'HP', if(level_jabatan = 1,'Staff',if(level_jabatan = 2,'Cashier',if(level_jabatan = 3,'Manager',''))) as `Jabatan` from PEGAWAI where status_delete = '0';";
-            sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
-            sqlAdapter = new MySqlDataAdapter(sqlCommand);
-            sqlAdapter.Fill(dtPegawai);
-            dgvPegawai.DataSource = dtPegawai;
+            Refresh();
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            sqlQuery = "UPDATE PEGAWAI SET NAMA_PEGAWAI = '"+tbNama.Text+"', TGL_LAHIR_PEGAWAI = '"+dtpTanggalLahir.Value.ToString("yyyyMMdd")+"', alamat_pegawai = '"+tbAlamat.Text+"',no_hp_pegawai = '"+tbHP.Text+"',level_jabatan ='"+cbJabatan.SelectedValue+"' WHERE id_pegawai = '"+tbID.Text+"';";
-            MessageBox.Show(sqlQuery);
-            sqlConnect.Open();
-            sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
-            sqlCommand.ExecuteNonQuery();
-            sqlConnect.Close();
+            if (tbID.Text != dgvPegawai.CurrentRow.Cells["ID"].Value.ToString())
+            {
+                sqlQuery = "UPDATE PEGAWAI SET ID_PEGAWAI = '"+tbID.Text+"', NAMA_PEGAWAI = '" + tbNama.Text + "', TGL_LAHIR_PEGAWAI = '" + dtpTanggalLahir.Value.ToString("yyyyMMdd") + "', alamat_pegawai = '" + tbAlamat.Text + "',no_hp_pegawai = '" + tbHP.Text + "',level_jabatan ='" + cbJabatan.SelectedValue + "' WHERE id_pegawai = '" + tbID.Text + "';";
+                MessageBox.Show(sqlQuery);
+                sqlConnect.Open();
+                sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
+                sqlCommand.ExecuteNonQuery();
+                sqlConnect.Close();
 
-            DataTable dtPegawai = new DataTable();
-            sqlQuery = "select id_pegawai as 'ID', nama_pegawai as 'Nama', tgl_lahir_pegawai as 'Tanggal', alamat_pegawai as 'Alamat', no_hp_pegawai as 'HP', if(level_jabatan = 1,'Staff',if(level_jabatan = 2,'Cashier',if(level_jabatan = 3,'Manager',''))) as `Jabatan` from PEGAWAI where status_delete = '0';";
-            sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
-            sqlAdapter = new MySqlDataAdapter(sqlCommand);
-            sqlAdapter.Fill(dtPegawai);
-            dgvPegawai.DataSource = dtPegawai;
+                Refresh();
+            }
+            else
+            {
+                sqlQuery = "UPDATE PEGAWAI SET NAMA_PEGAWAI = '" + tbNama.Text + "', TGL_LAHIR_PEGAWAI = '" + dtpTanggalLahir.Value.ToString("yyyyMMdd") + "', alamat_pegawai = '" + tbAlamat.Text + "',no_hp_pegawai = '" + tbHP.Text + "',level_jabatan ='" + cbJabatan.SelectedValue + "' WHERE id_pegawai = '" + tbID.Text + "';";
+                MessageBox.Show(sqlQuery);
+                sqlConnect.Open();
+                sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
+                sqlCommand.ExecuteNonQuery();
+                sqlConnect.Close();
+
+                Refresh();
+            }                      
         }
 
         private void rbEdit_CheckedChanged(object sender, EventArgs e)// kurang posisi"
@@ -178,6 +193,9 @@ namespace Projek_Tea_Break
                 btnSave.Visible = true;
                 btnAdd.Visible = false;
                 btnDelete.Visible = true;
+
+                btnSave.Location = new Point(301, 407);
+                btnDelete.Location = new Point(422, 407);
             }
             else if (rbAdd.Checked == true)
             {
@@ -191,6 +209,8 @@ namespace Projek_Tea_Break
                 btnSave.Visible = false;
                 btnAdd.Visible = true;
                 btnDelete.Visible = false;
+                
+                btnAdd.Location = new Point(301, 407);
             }
             else
             {
@@ -224,6 +244,9 @@ namespace Projek_Tea_Break
                 btnSave.Visible = true;
                 btnAdd.Visible = false;
                 btnDelete.Visible = true;
+
+                btnSave.Location = new Point(301, 407);
+                btnDelete.Location = new Point(422, 407);
             }
             else if (rbAdd.Checked == true)
             {
@@ -237,6 +260,8 @@ namespace Projek_Tea_Break
                 btnSave.Visible = false;
                 btnAdd.Visible = true;
                 btnDelete.Visible = false;
+
+                btnAdd.Location = new Point(301, 407);
             }
             else
             {
@@ -270,6 +295,9 @@ namespace Projek_Tea_Break
                 btnSave.Visible = true;
                 btnAdd.Visible = false;
                 btnDelete.Visible = true;
+
+                btnSave.Location = new Point(301, 407);
+                btnDelete.Location = new Point(422, 407);
             }
             else if (rbAdd.Checked == true)
             {
@@ -283,6 +311,8 @@ namespace Projek_Tea_Break
                 btnSave.Visible = false;
                 btnAdd.Visible = true;
                 btnDelete.Visible = false;
+
+                btnAdd.Location = new Point(301, 407);
             }
             else
             {
