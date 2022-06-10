@@ -47,6 +47,7 @@ namespace Projek_Tea_Break
 
             sqlConnect.Open();
             LoadMinuman();
+            LoadOrderMenu();
 
             buttonA.FlatAppearance.BorderSize = 0;
             buttonS.FlatAppearance.BorderSize = 0;
@@ -288,5 +289,42 @@ namespace Projek_Tea_Break
         private void buttonLogout_MouseEnter(object sender, EventArgs e)
         {
         }
+
+        public void LoadOrderMenu()
+        {
+            
+            DataTable dtDetail = new DataTable();
+            string sqlQueryDetail = "select DM.INDEX_MINUMAN AS `INDEX`, DM.ID_MINUMAN AS ID, DM.QTY_MINUMAN AS QTY, DM.HARGA_MINUMAN AS HARGA, DM.SUBTOTAL_MINUMAN AS SUBTOTAL, DM.NOTE_MINUMAN AS NOTE, DM.SUGAR_LEVEL AS SUGAR, ICE_LEVEL AS ICE from DETAIL_MINUMAN DM where DM.ID_NOTA='2206020002'; ";
+            sqlCommand = new MySqlCommand(sqlQueryDetail, sqlConnect);
+            sqlAdapter = new MySqlDataAdapter(sqlCommand);
+            sqlAdapter.Fill(dtDetail);
+
+
+            Label[] labelMinuman = new Label[dtDetail.Rows.Count];
+
+            int posisiY = 200;
+            for(int i = 0; i < dtDetail.Rows.Count; i++)
+            {
+                string[] detailTopping = dtDetail.Rows[i][5].ToString().Split(',');
+                labelMinuman[i] = new System.Windows.Forms.Label();
+                panelOrderMenu.Controls.Add(labelMinuman[i]);
+                labelMinuman[i].Text = dtDetail.Rows[i][1].ToString();
+                labelMinuman[i].Location = new Point(50, posisiY);
+                Label[] labelTopping = new Label[detailTopping.Length];
+                posisiY += 27;
+                for (int j = 0; j < detailTopping.Length; j++)
+                {
+                    labelTopping[j] = new System.Windows.Forms.Label();
+                    panelOrderMenu.Controls.Add(labelTopping[j]);
+                    labelTopping[j].Text = detailTopping[j];
+                    labelTopping[j].Location = new Point(70, posisiY);
+                    posisiY += 21;
+                }
+                posisiY += 15;
+            }
+
+
+        }
+    
     }
 }
