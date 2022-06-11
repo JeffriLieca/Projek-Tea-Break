@@ -28,6 +28,8 @@ namespace Projek_Tea_Break
         public static int nomorMinuman;
         public static string Kategori = "";
 
+        public int IndexMinuman { get; set; }
+
         private void FormOrder_Load(object sender, EventArgs e)
         {
 
@@ -205,29 +207,6 @@ namespace Projek_Tea_Break
             }
             posisiX = 0;
             posisiY = 0;
-
-            //PictureBox[] pb = new PictureBox[dtMinuman.Rows.Count];
-
-            //using (MySqlDataReader dr = sqlCommand.ExecuteReader())
-            //{
-            //    int i = 0;
-
-            //    while (dr.Read())
-            //    {
-            //        using (MemoryStream stream = new MemoryStream())
-            //        {
-            //            if (dr[i] != DBNull.Value)
-            //            {
-            //                byte[] image = (byte[])dtMinuman.Rows[i][3];
-            //                stream.Write(image, 0, image.Length);
-            //                Bitmap bitmap = new Bitmap(stream);
-            //                pb[i].Image = bitmap;
-            //            }
-            //        }
-
-            //        i++;
-            //    }
-            //}
 
         }
 
