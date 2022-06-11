@@ -24,130 +24,21 @@ namespace Projek_Tea_Break
         public MySqlCommand sqlCommand;
         public MySqlDataAdapter sqlAdapter;
         public static string sqlQuery;
-        public static string saveID = "";
 
-       
+
 
         private void buttonLogout_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            SystemSounds.Beep.Play();
             FormLogin formLogin = new FormLogin();
             formLogin.ShowDialog();
+            this.Close();
         }
 
-        private void buttonLogout_KeyPress(object sender, KeyPressEventArgs e)
+        private void formProfile_Load(object sender, EventArgs e)
         {
-            if (e.KeyChar == (char)Keys.Enter)
-            {
-                sqlConnect.Open();
-                DataTable dtLogin = new DataTable();
-                sqlQuery = "select id_pegawai as 'id', nama_pegawai as 'nama', level_jabatan as 'jabatan' from PEGAWAI where id_pegawai = '" + textBoxPassword.Text + "' and nama_pegawai = '" + textBoxUsername.Text + "' and status_delete = 0;";
-                sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
-                sqlAdapter = new MySqlDataAdapter(sqlCommand);
-                sqlAdapter.Fill(dtLogin);
-                if (dtLogin.Rows.Count > 0)
-                {
-                    saveID = dtLogin.Rows[0]["jabatan"].ToString();
-                    if (saveID == "1")
-                    {
-                        MessageBox.Show("Username / Password tidak terdaftar");
-                    }
-                    else
-                    {
-                        FormOrder FormOrder = new FormOrder();
-                        FormOrder.Show();
-                        this.Close();
-                    }
-                }
-                else if (textBoxPassword.Text == "" || textBoxUsername.Text == "")
-                {
-                    MessageBox.Show("Username / Password masih kosong");
-                }
-                else
-                {
-                    MessageBox.Show("Username / Password yang dimasukkan salah");
-                    textBoxUsername.Clear();
-                    textBoxPassword.Clear();
-                }
-                sqlConnect.Close();
-            }
-        }
-
-        private void textBoxPassword_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == (char)Keys.Enter)
-            {
-                sqlConnect.Open();
-                DataTable dtLogin = new DataTable();
-                sqlQuery = "select id_pegawai as 'id', nama_pegawai as 'nama', level_jabatan as 'jabatan' from PEGAWAI where id_pegawai = '" + textBoxPassword.Text + "' and nama_pegawai = '" + textBoxUsername.Text + "' and status_delete = 0;";
-                sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
-                sqlAdapter = new MySqlDataAdapter(sqlCommand);
-                sqlAdapter.Fill(dtLogin);
-                if (dtLogin.Rows.Count > 0)
-                {
-                    saveID = dtLogin.Rows[0]["jabatan"].ToString();
-                    if (saveID == "1")
-                    {
-                        MessageBox.Show("Username / Password tidak terdaftar");
-                    }
-                    else
-                    {
-                        FormOrder FormOrder = new FormOrder();
-                        FormOrder.Show();
-                        this.Hide();
-                    }
-                }
-                else if (textBoxPassword.Text == "" || textBoxUsername.Text == "")
-                {
-                    MessageBox.Show("Username / Password masih kosong");
-                }
-                else
-                {
-                    MessageBox.Show("Username / Password yang dimasukkan salah");
-                    textBoxUsername.Clear();
-                    textBoxPassword.Clear();
-                }
-                sqlConnect.Close();
-            }
-        }
-
-        private void textBoxUsername_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == (char)Keys.Enter)
-            {
-                sqlConnect.Open();
-                DataTable dtLogin = new DataTable();
-                sqlQuery = "select id_pegawai as 'id', nama_pegawai as 'nama', level_jabatan as 'jabatan' from PEGAWAI where id_pegawai = '" + textBoxPassword.Text + "' and nama_pegawai = '" + textBoxUsername.Text + "' and status_delete = 0;";
-                sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
-                sqlAdapter = new MySqlDataAdapter(sqlCommand);
-                sqlAdapter.Fill(dtLogin);
-                if (dtLogin.Rows.Count > 0)
-                {
-                    saveID = dtLogin.Rows[0]["jabatan"].ToString();
-                    if (saveID == "1")
-                    {
-                        MessageBox.Show("Username / Password tidak terdaftar");
-                    }
-                    else
-                    {
-                        FormOrder FormOrder = new FormOrder();
-                        FormOrder.Show();
-                        this.Hide();
-                    }
-                }
-                else if (textBoxPassword.Text == "" || textBoxUsername.Text == "")
-                {
-                    MessageBox.Show("Username / Password masih kosong");
-                }
-                else
-                {
-                    MessageBox.Show("Username / Password yang dimasukkan salah");
-                    textBoxUsername.Clear();
-                    textBoxPassword.Clear();
-                }
-                sqlConnect.Close();
-            }
-
+            lbNama.Text = FormLogin.saveNama;
+            lbJabatan.Text = FormLogin.saveJabatan;
         }
     }
 }

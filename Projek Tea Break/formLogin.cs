@@ -25,29 +25,33 @@ namespace Projek_Tea_Break
         public MySqlDataAdapter sqlAdapter;
         public static string sqlQuery;
         public static string saveID = "";
-
+        public static string saveNama = "";
+        public static string saveJabatan = "";
        
 
         private void buttonLogin_Click(object sender, EventArgs e)
         {
             sqlConnect.Open();
             DataTable dtLogin = new DataTable();
-            sqlQuery = "select id_pegawai as 'id', nama_pegawai as 'nama', level_jabatan as 'jabatan' from PEGAWAI where id_pegawai = '" + textBoxPassword.Text + "' and nama_pegawai = '" + textBoxUsername.Text + "' and status_delete = 0;";
+            sqlQuery = "select id_pegawai as 'id', nama_pegawai as 'nama', level_jabatan as 'jabatan', if( level_jabatan = 1,'Staff',if(level_jabatan = 2,'Cashier',if(level_jabatan = 3,'Manager',''))) as 'saveJabatan' from PEGAWAI where id_pegawai = '" + textBoxPassword.Text + "' and nama_pegawai = '" + textBoxUsername.Text + "' and status_delete = 0;";
             sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
             sqlAdapter = new MySqlDataAdapter(sqlCommand);
             sqlAdapter.Fill(dtLogin);
             if (dtLogin.Rows.Count > 0)
             {
                 saveID = dtLogin.Rows[0]["jabatan"].ToString();
+                saveNama = dtLogin.Rows[0]["nama"].ToString();
+                saveJabatan = dtLogin.Rows[0]["saveJabatan"].ToString();
                 if (saveID == "1")
                 {
                     MessageBox.Show("Username / Password tidak terdaftar");
                 }
                 else
                 {
-                    FormOrder FormOrder = new FormOrder();
-                    FormOrder.Show();
                     this.Hide();
+                    FormOrder FormOrder = new FormOrder();
+                    FormOrder.ShowDialog();
+                    this.Close();
                 }                
             }
             else if (textBoxPassword.Text == "" || textBoxUsername.Text == "")

@@ -142,6 +142,13 @@ namespace Projek_Tea_Break
                 Refresh();
             }
         }
+
+        private void pbProfil_Click(object sender, EventArgs e)
+        {
+            formProfile formProfil = new formProfile();
+            formProfil.ShowDialog();
+            this.Close();
+        }
     }
 }
 

@@ -47,13 +47,16 @@ namespace Projek_Tea_Break
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
+            this.pbProfil = new System.Windows.Forms.PictureBox();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTopping)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbProfil)).BeginInit();
             this.SuspendLayout();
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.White;
+            this.panel2.Controls.Add(this.pbProfil);
             this.panel2.Controls.Add(this.buttonAdmin);
             this.panel2.Controls.Add(this.buttonEditMenu);
             this.panel2.Controls.Add(this.buttonCashier);
@@ -247,6 +250,18 @@ namespace Projek_Tea_Break
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
+            // pbProfil
+            // 
+            this.pbProfil.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbProfil.Image = ((System.Drawing.Image)(resources.GetObject("pbProfil.Image")));
+            this.pbProfil.Location = new System.Drawing.Point(3, 20);
+            this.pbProfil.Name = "pbProfil";
+            this.pbProfil.Size = new System.Drawing.Size(128, 80);
+            this.pbProfil.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbProfil.TabIndex = 19;
+            this.pbProfil.TabStop = false;
+            this.pbProfil.Click += new System.EventHandler(this.pbProfil_Click);
+            // 
             // formEditTopping
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -272,6 +287,7 @@ namespace Projek_Tea_Break
             this.Load += new System.EventHandler(this.FormOrder_Load);
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvTopping)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbProfil)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -294,5 +310,6 @@ namespace Projek_Tea_Break
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.PictureBox pbProfil;
     }
 }

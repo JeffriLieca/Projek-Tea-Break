@@ -114,7 +114,11 @@ namespace Projek_Tea_Break
             buttonAdmin.BackColor = Color.ForestGreen;
             InvisText();
             buttonAdmin.Text = "Admin";
-            
+
+            this.Hide();
+            formAdmin formAdmin = new formAdmin();
+            formAdmin.ShowDialog();
+            this.Close();
         }
 
         public void InvisText()
@@ -268,28 +272,6 @@ namespace Projek_Tea_Break
             buttonF.BackColor = Color.Transparent;
             buttonT.BackColor = Color.Transparent;
         }
-
-        private void pbProfil_MouseEnter(object sender, EventArgs e)
-        {
-        }
-
-        private void pbProfil_MouseLeave(object sender, EventArgs e)
-        {
-            //panelProfil.Visible = false;
-        }
-
-        private void pbProfil_MouseHover(object sender, EventArgs e)
-        {
-        }
-
-        private void panelProfil_MouseLeave(object sender, EventArgs e)
-        {
-        }
-
-        private void buttonLogout_MouseEnter(object sender, EventArgs e)
-        {
-        }
-
         public void LoadOrderMenu()
         {
             
@@ -325,6 +307,12 @@ namespace Projek_Tea_Break
 
 
         }
-    
+
+        private void pbProfil_Click(object sender, EventArgs e)
+        {
+            formProfile formProfil = new formProfile();
+            formProfil.ShowDialog();
+            this.Close();
+        }
     }
 }

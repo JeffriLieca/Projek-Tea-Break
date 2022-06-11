@@ -19,7 +19,7 @@ namespace Projek_Tea_Break
         public MySqlDataAdapter sqlAdapter;
 
         public static string sqlQuery;
-        public static string sqlInsert;
+        public static string cekID;
         public static int nomorMinuman;
 
         DataTable dtPegawai = new DataTable();
@@ -116,6 +116,7 @@ namespace Projek_Tea_Break
             tbAlamat.Text = selectedRow.Cells[3].Value.ToString();
             tbHP.Text = selectedRow.Cells[4].Value.ToString();
             cbJabatan.Text = selectedRow.Cells[5].Value.ToString();
+            cekID = selectedRow.Cells["ID"].Value.ToString();
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -157,7 +158,7 @@ namespace Projek_Tea_Break
         {
             if (tbID.Text != dgvPegawai.CurrentRow.Cells["ID"].Value.ToString())
             {
-                sqlQuery = "UPDATE PEGAWAI SET ID_PEGAWAI = '"+tbID.Text+"', NAMA_PEGAWAI = '" + tbNama.Text + "', TGL_LAHIR_PEGAWAI = '" + dtpTanggalLahir.Value.ToString("yyyyMMdd") + "', alamat_pegawai = '" + tbAlamat.Text + "',no_hp_pegawai = '" + tbHP.Text + "',level_jabatan ='" + cbJabatan.SelectedValue + "' WHERE id_pegawai = '" + tbID.Text + "';";
+                sqlQuery = "UPDATE PEGAWAI SET ID_PEGAWAI = '"+tbID.Text+"', NAMA_PEGAWAI = '" + tbNama.Text + "', TGL_LAHIR_PEGAWAI = '" + dtpTanggalLahir.Value.ToString("yyyyMMdd") + "', alamat_pegawai = '" + tbAlamat.Text + "',no_hp_pegawai = '" + tbHP.Text + "',level_jabatan ='" + cbJabatan.SelectedValue + "' WHERE id_pegawai = '" + cekID + "';";
                 MessageBox.Show(sqlQuery);
                 sqlConnect.Open();
                 sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
@@ -211,6 +212,13 @@ namespace Projek_Tea_Break
                 btnDelete.Visible = false;
                 
                 btnAdd.Location = new Point(301, 407);
+
+                tbID.Text = "";
+                tbNama.Text = "";
+                dtpTanggalLahir.Text = "";
+                tbAlamat.Text = "";
+                tbHP.Text = "";
+                cbJabatan.Text = "";
             }
             else
             {
@@ -262,6 +270,13 @@ namespace Projek_Tea_Break
                 btnDelete.Visible = false;
 
                 btnAdd.Location = new Point(301, 407);
+
+                tbID.Text = "";
+                tbNama.Text = "";
+                dtpTanggalLahir.Text = "";
+                tbAlamat.Text = "";
+                tbHP.Text = "";
+                cbJabatan.Text = "";
             }
             else
             {
@@ -313,6 +328,13 @@ namespace Projek_Tea_Break
                 btnDelete.Visible = false;
 
                 btnAdd.Location = new Point(301, 407);
+
+                tbID.Text = "";
+                tbNama.Text = "";
+                dtpTanggalLahir.Text = "";
+                tbAlamat.Text = "";
+                tbHP.Text = "";
+                cbJabatan.Text = "";
             }
             else
             {
