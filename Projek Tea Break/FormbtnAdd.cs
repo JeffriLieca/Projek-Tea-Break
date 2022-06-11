@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using System.IO;
 
 namespace Projek_Tea_Break
 {
@@ -51,9 +52,17 @@ namespace Projek_Tea_Break
 
         private void btnSaveAdd_Click(object sender, EventArgs e)
         {
+            // Gambar
+            byte[] images = null;
+            FileStream stream = new FileStream(imgLocation, FileMode.Open, FileAccess.Read);
+            BinaryReader brs = new BinaryReader(stream);
+            images = brs.ReadBytes((int)stream.Length);
+
+
             sqlConnect.Open();
-            sqlQuery = "INSERT INTO `MINUMAN`VALUES('" + tboxID.Text + "','" + tboxNama.Text + "','" + tboxHarga.Text + "','0','" + '0'+"')";
+            sqlQuery = "INSERT INTO `MINUMAN`VALUES('" + tboxID.Text + "','" + tboxNama.Text + "','" + tboxHarga.Text + "',@images,'" + '0' + "')";
             sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
+            sqlCommand.Parameters.Add(new MySqlParameter("@images", images));
             sqlCommand.ExecuteNonQuery();
             sqlConnect.Close();
             MessageBox.Show("Berhasil Disimpan");
@@ -66,6 +75,22 @@ namespace Projek_Tea_Break
             formEdit Fmain = new formEdit();
             Fmain.Show();
             this.Hide();
+        }
+
+
+        string imgLocation = "";
+        private void buttonAddImage_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog open = new OpenFileDialog();
+
+            open.Filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp)|*.jpg; *.jpeg; *.gif; *.bmp";
+            if (open.ShowDialog() == DialogResult.OK)
+            {
+                //display image in picture box
+                imgLocation = open.FileName.ToString();
+                pictureBoxAdd.ImageLocation = imgLocation;
+            }
+
         }
     }
 }

@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using System.IO;
 
 namespace Projek_Tea_Break
 {
@@ -69,18 +70,6 @@ namespace Projek_Tea_Break
             dgvMenu.DataSource = menu;
         }
 
-        //OpenFileDialog open = new OpenFileDialog();
-
-        //open.Filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp)|*.jpg; *.jpeg; *.gif; *.bmp";
-        //if (open.ShowDialog() == DialogResult.OK)
-        //{
-        //    //display image in picture box
-        //    pictureBoxAdd.Image = new Bitmap(open.FileName);
-
-
-        //    //image file path
-        //    textBox1.Text = open.FileName;
-        //}
 
         private void dgvMenu_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -90,19 +79,6 @@ namespace Projek_Tea_Break
             tboxNama.Text = selectedRow.Cells[1].Value.ToString();
             tboxHarga.Text = selectedRow.Cells[2].Value.ToString();
 
-
-
-
-
-            /*OpenFileDialog open = new OpenFileDialog();
-
-            open.Filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp)|*.jpg; *.jpeg; *.gif; *.bmp";
-            if (open.ShowDialog() == DialogResult.OK)
-            {
-                //display image in picture box
-                pictureBoxAdd.Image = new Bitmap(open.FileName);
-                //pictureBoxAdd.BackgroundImage = new Bitmap();
-            } */
         }
 
         private void buttonCashier_Click(object sender, EventArgs e)
@@ -162,6 +138,48 @@ namespace Projek_Tea_Break
             formProfile formProfil = new formProfile();
             formProfil.ShowDialog();
             this.Close();
+        }
+
+
+        // Jeffri
+        string imgLocation = "";
+        private void buttonAddImage_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog open = new OpenFileDialog();
+
+            open.Filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp)|*.jpg; *.jpeg; *.gif; *.bmp";
+            if (open.ShowDialog() == DialogResult.OK)
+            {
+                //display image in picture box
+                imgLocation = open.FileName.ToString();
+                pictureBoxAdd.ImageLocation = imgLocation;
+            }
+        }
+
+        public void SaveGambar()
+        {
+            byte[] images = null;
+            FileStream stream = new FileStream(imgLocation, FileMode.Open, FileAccess.Read);
+            BinaryReader brs = new BinaryReader(stream);
+            images = brs.ReadBytes((int)stream.Length);
+
+            sqlConnect.Open();
+            sqlQuery = "insert into MINUMAN(GAMBAR) values (@images)";
+            sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
+            sqlCommand.Parameters.Add(new MySqlParameter("@images", images));
+            int N = sqlCommand.ExecuteNonQuery();
+            MessageBox.Show(N.ToString() + " Data Saved Succesfully");
+            sqlConnect.Close();
+        }
+
+        private void pictureBoxAdd_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
     }

@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using System.IO;
 
 
 namespace Projek_Tea_Break
@@ -39,6 +40,7 @@ namespace Projek_Tea_Break
             tboxID.Text = dt.Rows[0][0].ToString();
             tboxNama.Text = dt.Rows[0][1].ToString();
             tboxHarga.Text = dt.Rows[0][2].ToString();
+            LoadGambar();
 
             sqlQuery = "select `ID_MINUMAN` as 'ID',`NAMA_MINUMAN`,`HARGA_MINUMAN` from MINUMAN";
             sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
@@ -55,6 +57,8 @@ namespace Projek_Tea_Break
             tboxNama.Text = selectedRow.Cells[1].Value.ToString();
             tboxHarga.Text = selectedRow.Cells[2].Value.ToString();
             saveID = selectedRow.Cells[2].Value.ToString();
+
+            LoadGambar();
         }
 
         private void btnCancelEdit_Click(object sender, EventArgs e)
@@ -66,6 +70,22 @@ namespace Projek_Tea_Break
 
         private void btnSaveEdit_Click(object sender, EventArgs e)
         {
+            // Gambar
+            byte[] images = null;
+            FileStream stream = new FileStream(imgLocation, FileMode.Open, FileAccess.Read);
+            BinaryReader brs = new BinaryReader(stream);
+            images = brs.ReadBytes((int)stream.Length);
+
+            if (imgLocation != "")
+            {
+                sqlConnect.Open();
+                sqlQuery = "update MINUMAN set GAMBAR=@images where ID_MINUMAN='"+tboxID.Text+"'";
+                sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
+                sqlCommand.Parameters.Add(new MySqlParameter("@images", images));
+                sqlConnect.Close();
+            }
+
+
             if (tboxID.Text != dgvMenu.CurrentRow.Cells["ID"].Value.ToString())
             {
                 sqlConnect.Open();
@@ -102,6 +122,39 @@ namespace Projek_Tea_Break
                 Fmain.Show();
                 this.Hide();
             }
+        }
+
+
+        // Jeffri
+        string imgLocation = "";
+        private void buttonAddImage_Click(object sender, EventArgs e)
+        {
+
+            OpenFileDialog open = new OpenFileDialog();
+
+            open.Filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp)|*.jpg; *.jpeg; *.gif; *.bmp";
+            if (open.ShowDialog() == DialogResult.OK)
+            {
+                //display image in picture box
+                imgLocation = open.FileName.ToString();
+                pictureBoxAdd.ImageLocation = imgLocation;
+            }
+
+
+        }
+         public void LoadGambar()
+        {
+            imgLocation = "";
+            sqlConnect.Open();
+            sqlQuery = "select GAMBAR from MINUMAN where ID_MINUMAN='" + tboxID.Text + "';";
+            sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
+            sqlAdapter = new MySqlDataAdapter(sqlCommand);
+            DataTable dtCoba = new DataTable();
+            sqlAdapter.Fill(dtCoba);
+            byte[] images = ((byte[])dtCoba.Rows[0][0]);
+            MemoryStream mstream = new MemoryStream(images);
+            pictureBoxAdd.Image = Image.FromStream(mstream);
+            sqlConnect.Close();
         }
     }
 }

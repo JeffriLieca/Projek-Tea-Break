@@ -187,12 +187,12 @@ namespace Projek_Tea_Break
             sqlConnect.Open();
             sqlQuery = "select NAMA, IMAGE from COBA_MINUMAN where ID_COBA='"+textBoxIDgambar.Text+"';";
             sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
-            //sqlAdapter = new MySqlDataAdapter(sqlCommand);
-            //DataTable dtCoba = new DataTable();
-            //sqlAdapter.Fill(dtCoba);
-            //byte[] images = ((byte[])dtCoba.Rows[0][1]);
-            //MemoryStream mstream = new MemoryStream(images);
-            //pictureBoxAdd.Image = Image.FromStream(mstream);
+            sqlAdapter = new MySqlDataAdapter(sqlCommand);
+            DataTable dtCoba = new DataTable();
+            sqlAdapter.Fill(dtCoba);
+            byte[] images = ((byte[])dtCoba.Rows[0][1]);
+            MemoryStream mstream = new MemoryStream(images);
+            pictureBoxAdd.Image = Image.FromStream(mstream);
 
             //pictureBoxAdd.Image = dtCoba.Rows[0][1];
 
