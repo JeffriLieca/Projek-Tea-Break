@@ -50,12 +50,7 @@ namespace Projek_Tea_Break
             dgvMenu.DataSource = menu;
 
 
-            sqlQuery = "select NAMA, IMAGE from COBA_MINUMAN ;";
-            sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
-            sqlAdapter = new MySqlDataAdapter(sqlCommand);
-            DataTable dtCoba = new DataTable();
-            sqlAdapter.Fill(dtCoba);
-            dgvMenu.DataSource = dtCoba;
+            
 
             sqlConnect.Close();
 
@@ -125,7 +120,7 @@ namespace Projek_Tea_Break
             DataGridViewRow selectedRow = dgvMenu.Rows[index];
             tboxID.Text = selectedRow.Cells[0].Value.ToString();
             tboxNama.Text = selectedRow.Cells[1].Value.ToString();
-            DtboxHarga.Text = selectedRow.Cells[2].Value.ToString();
+            //DtboxHarga.Text = selectedRow.Cells[2].Value.ToString();
 
 
 
@@ -174,7 +169,7 @@ namespace Projek_Tea_Break
             images = brs.ReadBytes((int)stream.Length);
 
             sqlConnect.Open();
-            sqlQuery = "insert into COBA_MINUMAN values ('"+textBoxIDgambar.Text+"','"+textBoxNamagambar.Text+"',@images)";
+            sqlQuery = "UPDATE MINUMAN set GAMBAR=@images where ID_MINUMAN='"+tboxID.Text+"'";
             sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
             sqlCommand.Parameters.Add(new MySqlParameter("@images",images));
             int N = sqlCommand.ExecuteNonQuery();
@@ -187,12 +182,12 @@ namespace Projek_Tea_Break
             sqlConnect.Open();
             sqlQuery = "select NAMA, IMAGE from COBA_MINUMAN where ID_COBA='"+textBoxIDgambar.Text+"';";
             sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
-            //sqlAdapter = new MySqlDataAdapter(sqlCommand);
-            //DataTable dtCoba = new DataTable();
-            //sqlAdapter.Fill(dtCoba);
-            //byte[] images = ((byte[])dtCoba.Rows[0][1]);
-            //MemoryStream mstream = new MemoryStream(images);
-            //pictureBoxAdd.Image = Image.FromStream(mstream);
+            sqlAdapter = new MySqlDataAdapter(sqlCommand);
+            DataTable dtCoba = new DataTable();
+            sqlAdapter.Fill(dtCoba);
+            byte[] images = ((byte[])dtCoba.Rows[0][1]);
+            MemoryStream mstream = new MemoryStream(images);
+            pictureBoxAdd.Image = Image.FromStream(mstream);
 
             //pictureBoxAdd.Image = dtCoba.Rows[0][1];
 

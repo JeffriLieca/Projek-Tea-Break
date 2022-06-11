@@ -100,22 +100,22 @@ namespace Projek_Tea_Break
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if (tboxID.Text != dgvMenu.Rows[e.RowIndex].Cells[0].Value.ToString())
-            {
-                sqlQuery = "update TOPPING set id_topping = '" + tboxID.Text + "', nama_topping = '" + tboxNama.Text + "' , harga_topping = '" + tboxHarga.Text + "' where id_topping = '" + tboxID.Text + "';";
-                sqlConnect.Open();
-                sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
-                sqlCommand.ExecuteNonQuery();
-                sqlConnect.Close();
-            }
-            else
-            {
-                sqlQuery = "update TOPPING set nama_topping = '" + tboxNama.Text + "' , harga_topping = '" + tboxHarga.Text + "' where id_topping = '" + tboxID.Text + "';";
-                sqlConnect.Open();
-                sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
-                sqlCommand.ExecuteNonQuery();
-                sqlConnect.Close();
-            }
+            //if (tboxID.Text != dgvMenu.Rows[e.RowIndex].Cells[0].Value.ToString())
+            //{
+            //    sqlQuery = "update TOPPING set id_topping = '" + tboxID.Text + "', nama_topping = '" + tboxNama.Text + "' , harga_topping = '" + tboxHarga.Text + "' where id_topping = '" + tboxID.Text + "';";
+            //    sqlConnect.Open();
+            //    sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
+            //    sqlCommand.ExecuteNonQuery();
+            //    sqlConnect.Close();
+            //}
+            //else
+            //{
+            //    sqlQuery = "update TOPPING set nama_topping = '" + tboxNama.Text + "' , harga_topping = '" + tboxHarga.Text + "' where id_topping = '" + tboxID.Text + "';";
+            //    sqlConnect.Open();
+            //    sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
+            //    sqlCommand.ExecuteNonQuery();
+            //    sqlConnect.Close();
+            //}
         }
 
         private void buttonAddImage_Click(object sender, EventArgs e)

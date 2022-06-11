@@ -76,7 +76,7 @@ namespace Projek_Tea_Break
         public void LoadKetMinuman()
         {
             DataTable dtKetMinuman = new DataTable();
-            sqlQuery = "select m.ID_MINUMAN as id, m.NAMA_MINUMAN as nama, concat('Rp. ',m.HARGA_MINUMAN) as harga, m.PATH_GAMBAR as path from MINUMAN m where m.ID_MINUMAN = '" + PassingData + "';";
+            sqlQuery = "select m.ID_MINUMAN as id, m.NAMA_MINUMAN as nama, concat('Rp. ',m.HARGA_MINUMAN) as harga, m.GAMBAR as path from MINUMAN m where m.ID_MINUMAN = '" + PassingData + "';";
             sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
             sqlAdapter = new MySqlDataAdapter(sqlCommand);
             sqlAdapter.Fill(dtKetMinuman);

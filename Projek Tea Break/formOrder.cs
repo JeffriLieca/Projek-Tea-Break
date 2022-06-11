@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using System.IO;
 
 namespace Projek_Tea_Break
 {
@@ -86,7 +87,10 @@ namespace Projek_Tea_Break
             //    sqlCommand.ExecuteNonQuery();
             //}
             //labelIDNota.Text = idNota;
-           // sqlConnect.Close();
+            // sqlConnect.Close();
+
+
+
         }
         private void buttonCashier_Click(object sender, EventArgs e)
         {
@@ -140,11 +144,11 @@ namespace Projek_Tea_Break
             {
                 if (Kategori == "")
                 {
-                    sqlQuery = "select m.ID_MINUMAN as id, m.NAMA_MINUMAN as nama, concat('Rp. ',m.HARGA_MINUMAN) as harga, m.PATH_GAMBAR as 'index' from MINUMAN m where m.NAMA_MINUMAN like '%" + textBoxCariMinuman.Text + "%' and m.STATUS_DELETE='0'";
+                    sqlQuery = "select m.ID_MINUMAN as id, m.NAMA_MINUMAN as nama, concat('Rp. ',m.HARGA_MINUMAN) as harga, m.GAMBAR as image from MINUMAN m where m.NAMA_MINUMAN like '%" + textBoxCariMinuman.Text + "%' and m.STATUS_DELETE='0'";
                 }
                 else
                 {
-                    sqlQuery = "select m.ID_MINUMAN as id, m.NAMA_MINUMAN as nama, concat('Rp. ',m.HARGA_MINUMAN) as harga, m.PATH_GAMBAR as 'index' from MINUMAN m where m.NAMA_MINUMAN like '%" + textBoxCariMinuman.Text + "%' and left(ID_MINUMAN,1)='" + Kategori + "' and m.STATUS_DELETE='0'; ";
+                    sqlQuery = "select m.ID_MINUMAN as id, m.NAMA_MINUMAN as nama, concat('Rp. ',m.HARGA_MINUMAN) as harga, m.GAMBAR as image from MINUMAN m where m.NAMA_MINUMAN like '%" + textBoxCariMinuman.Text + "%' and left(ID_MINUMAN,1)='" + Kategori + "' and m.STATUS_DELETE='0'; ";
                 }
                 sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
                 sqlAdapter = new MySqlDataAdapter(sqlCommand);
@@ -162,9 +166,15 @@ namespace Projek_Tea_Break
                 {
                     if (nomorMinuman < dtMinuman.Rows.Count)
                     {
+
+
+                        byte[] images = (byte[])dtMinuman.Rows[nomorMinuman][3];
+                        MemoryStream mstream = new MemoryStream(images);
+                        //Array.Clear(images,0, Convert.ToInt32(dtMinuman.Rows[i][3]));
+                        //pictureBoxAdd.Image = Image.FromStream(mstream);
+
                         string path = dtMinuman.Rows[nomorMinuman][3].ToString();
-                        imageListMinuman.Images.Add(Image.FromFile(@path));
-                        
+                        imageListMinuman.Images.Add(Image.FromStream(mstream));
 
                         Button buttonhu = new Button();
                         panelMinuman.Controls.Add(buttonhu);
@@ -174,6 +184,7 @@ namespace Projek_Tea_Break
                         buttonhu.Visible = true;
                         buttonhu.BringToFront();
                         buttonhu.Tag = dtMinuman.Rows[nomorMinuman][0].ToString();
+                        //buttonhu.Image = Image.FromStream(mstream);
                         buttonhu.ImageList = imageListMinuman;
                         buttonhu.ImageIndex = nomorMinuman;
                         buttonhu.TextImageRelation = TextImageRelation.ImageAboveText;
@@ -194,6 +205,29 @@ namespace Projek_Tea_Break
             }
             posisiX = 0;
             posisiY = 0;
+
+            //PictureBox[] pb = new PictureBox[dtMinuman.Rows.Count];
+
+            //using (MySqlDataReader dr = sqlCommand.ExecuteReader())
+            //{
+            //    int i = 0;
+
+            //    while (dr.Read())
+            //    {
+            //        using (MemoryStream stream = new MemoryStream())
+            //        {
+            //            if (dr[i] != DBNull.Value)
+            //            {
+            //                byte[] image = (byte[])dtMinuman.Rows[i][3];
+            //                stream.Write(image, 0, image.Length);
+            //                Bitmap bitmap = new Bitmap(stream);
+            //                pb[i].Image = bitmap;
+            //            }
+            //        }
+
+            //        i++;
+            //    }
+            //}
 
         }
 
