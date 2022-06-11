@@ -42,13 +42,18 @@ namespace Projek_Tea_Break
             tboxID.Text = "";
             tboxNama.Text = "";
             tboxHarga.Text = "";
-            dgvMenu.ReadOnly = true;
-            tboxID.Visible = false;
-            tboxNama.Visible = false;
-            tboxHarga.Visible = false;
-            labelID.Visible = false;
-            labelNama.Visible = false;
-            labelHarga.Visible = false;
+            //dgvMenu.ReadOnly = true;
+            //tboxID.Visible = false;
+            //tboxNama.Visible = false;
+            //tboxHarga.Visible = false;
+            //labelID.Visible = false;
+            //labelNama.Visible = false;
+            //labelHarga.Visible = false;
+
+
+            tboxID.Enabled = false;
+            tboxNama.Enabled = false;
+            tboxHarga.Enabled = false;
         }
 
         public void LoadData()
@@ -78,6 +83,8 @@ namespace Projek_Tea_Break
             tboxID.Text = selectedRow.Cells[0].Value.ToString();
             tboxNama.Text = selectedRow.Cells[1].Value.ToString();
             tboxHarga.Text = selectedRow.Cells[2].Value.ToString();
+
+            LoadGambar();
 
         }
 
@@ -172,14 +179,20 @@ namespace Projek_Tea_Break
             sqlConnect.Close();
         }
 
-        private void pictureBoxAdd_Click(object sender, EventArgs e)
+
+        public void LoadGambar()
         {
-
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
+            imgLocation = "";
+            sqlConnect.Open();
+            sqlQuery = "select GAMBAR from MINUMAN where ID_MINUMAN='" + tboxID.Text + "';";
+            sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
+            sqlAdapter = new MySqlDataAdapter(sqlCommand);
+            DataTable dtCoba = new DataTable();
+            sqlAdapter.Fill(dtCoba);
+            byte[] images = ((byte[])dtCoba.Rows[0][0]);
+            MemoryStream mstream = new MemoryStream(images);
+            pictureBoxAdd.Image = Image.FromStream(mstream);
+            sqlConnect.Close();
         }
     }
     }

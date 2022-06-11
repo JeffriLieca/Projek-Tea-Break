@@ -40,7 +40,6 @@ namespace Projek_Tea_Break
             this.dgvMenu = new System.Windows.Forms.DataGridView();
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
-            this.buttonAddImage = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.tboxHarga = new System.Windows.Forms.TextBox();
             this.tboxNama = new System.Windows.Forms.TextBox();
@@ -49,7 +48,6 @@ namespace Projek_Tea_Break
             this.labelNama = new System.Windows.Forms.Label();
             this.labelID = new System.Windows.Forms.Label();
             this.fileSystemWatcher1 = new System.IO.FileSystemWatcher();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBoxAdd = new System.Windows.Forms.PictureBox();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbProfil)).BeginInit();
@@ -195,17 +193,6 @@ namespace Projek_Tea_Break
             this.btnDelete.UseVisualStyleBackColor = false;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
-            // buttonAddImage
-            // 
-            this.buttonAddImage.Location = new System.Drawing.Point(819, 422);
-            this.buttonAddImage.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.buttonAddImage.Name = "buttonAddImage";
-            this.buttonAddImage.Size = new System.Drawing.Size(133, 42);
-            this.buttonAddImage.TabIndex = 16;
-            this.buttonAddImage.Text = "Add Image";
-            this.buttonAddImage.UseVisualStyleBackColor = true;
-            this.buttonAddImage.Click += new System.EventHandler(this.buttonAddImage_Click);
-            // 
             // btnAdd
             // 
             this.btnAdd.BackColor = System.Drawing.Color.ForestGreen;
@@ -279,25 +266,15 @@ namespace Projek_Tea_Break
             this.fileSystemWatcher1.EnableRaisingEvents = true;
             this.fileSystemWatcher1.SynchronizingObject = this;
             // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.Silver;
-            this.panel1.Location = new System.Drawing.Point(748, 198);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(267, 294);
-            this.panel1.TabIndex = 27;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
-            // 
             // pictureBoxAdd
             // 
-            this.pictureBoxAdd.Location = new System.Drawing.Point(783, 217);
+            this.pictureBoxAdd.Location = new System.Drawing.Point(761, 303);
             this.pictureBoxAdd.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pictureBoxAdd.Name = "pictureBoxAdd";
             this.pictureBoxAdd.Size = new System.Drawing.Size(200, 199);
+            this.pictureBoxAdd.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxAdd.TabIndex = 14;
             this.pictureBoxAdd.TabStop = false;
-            this.pictureBoxAdd.Click += new System.EventHandler(this.pictureBoxAdd_Click);
             // 
             // formEdit
             // 
@@ -305,6 +282,7 @@ namespace Projek_Tea_Break
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLight;
             this.ClientSize = new System.Drawing.Size(1043, 635);
+            this.Controls.Add(this.pictureBoxAdd);
             this.Controls.Add(this.tboxHarga);
             this.Controls.Add(this.tboxNama);
             this.Controls.Add(this.tboxID);
@@ -312,13 +290,10 @@ namespace Projek_Tea_Break
             this.Controls.Add(this.labelNama);
             this.Controls.Add(this.labelID);
             this.Controls.Add(this.btnAdd);
-            this.Controls.Add(this.buttonAddImage);
-            this.Controls.Add(this.pictureBoxAdd);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.dgvMenu);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel1);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "formEdit";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -344,7 +319,6 @@ namespace Projek_Tea_Break
         private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.PictureBox pictureBoxAdd;
-        private System.Windows.Forms.Button buttonAddImage;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.TextBox tboxHarga;
         private System.Windows.Forms.TextBox tboxNama;
@@ -354,6 +328,5 @@ namespace Projek_Tea_Break
         private System.Windows.Forms.Label labelID;
         private System.IO.FileSystemWatcher fileSystemWatcher1;
         private System.Windows.Forms.PictureBox pbProfil;
-        private System.Windows.Forms.Panel panel1;
     }
 }
