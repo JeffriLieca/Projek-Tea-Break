@@ -104,7 +104,7 @@ namespace Projek_Tea_Break
             buttonAdmin.BackColor = Color.Transparent;
             buttonEditMenu.BackColor = Color.ForestGreen;
             InvisText();
-            buttonEditMenu.Text = "Edit Menu";
+            buttonEditMenu.Text = "Edit";
         }
 
         private void buttonAdmin_Click_1(object sender, EventArgs e)

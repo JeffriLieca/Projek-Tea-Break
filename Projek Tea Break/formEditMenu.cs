@@ -8,8 +8,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
-using System.Resources;
-using System.IO;
 
 namespace Projek_Tea_Break
 {
@@ -20,20 +18,41 @@ namespace Projek_Tea_Break
             InitializeComponent();
         }
 
-        public static string sqlConnection = "server=139.255.11.84;uid=student;pwd=isbmantap;database=DBD_11_TEABREAK";
-        public MySqlConnection sqlConnect = new MySqlConnection(sqlConnection);
-        public MySqlCommand sqlCommand;
-        public MySqlDataAdapter sqlAdapter;
-
+        MySqlConnection sqlConnect = new MySqlConnection("server=139.255.11.84;uid=student;pwd=isbmantap;database=DBD_11_TEABREAK");
+        MySqlCommand sqlCommand;
+        MySqlDataAdapter sqlAdapter;
         public static string sqlQuery;
         public static string sqlInsert;
         public static int nomorMinuman;
-
         public static string IDMinumanLama;
+        private void InvisText()
+        {
+
+        }
         private void FormOrder_Load(object sender, EventArgs e)
         {
-            sqlConnect.Open();
-            sqlQuery = "select `ID_MINUMAN`,`NAMA_MINUMAN`,`HARGA_MINUMAN` from MINUMAN";
+            buttonEditMenu.BackColor = Color.ForestGreen;
+            buttonAdmin.BackColor = Color.Transparent;
+            buttonCashier.BackColor = Color.Transparent;
+            InvisText();
+            buttonEditMenu.Text = "Edit";
+
+            LoadData();
+            tboxID.Text = "";
+            tboxNama.Text = "";
+            tboxHarga.Text = "";
+            dgvMenu.ReadOnly = true;
+            tboxID.Visible = false;
+            tboxNama.Visible = false;
+            tboxHarga.Visible = false;
+            labelID.Visible = false;
+            labelNama.Visible = false;
+            labelHarga.Visible = false;
+        }
+
+        public void LoadData()
+        {
+            sqlQuery = "select `ID_MINUMAN`,`NAMA_MINUMAN`,`HARGA_MINUMAN` from MINUMAN WHERE STATUS_DELETE = '0'";
             sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
             sqlAdapter = new MySqlDataAdapter(sqlCommand);
             DataTable dt = new DataTable();
@@ -42,82 +61,26 @@ namespace Projek_Tea_Break
             tboxNama.Text = dt.Rows[0][1].ToString();
             tboxHarga.Text = dt.Rows[0][2].ToString();
 
-            sqlQuery = "select `ID_MINUMAN`,`NAMA_MINUMAN`,`HARGA_MINUMAN` from MINUMAN";
+            sqlQuery = "select `ID_MINUMAN`,`NAMA_MINUMAN`,`HARGA_MINUMAN` from MINUMAN WHERE STATUS_DELETE = '0'";
             sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
             sqlAdapter = new MySqlDataAdapter(sqlCommand);
             DataTable menu = new DataTable();
             sqlAdapter.Fill(menu);
             dgvMenu.DataSource = menu;
-
-
-            sqlQuery = "select NAMA, IMAGE from COBA_MINUMAN ;";
-            sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
-            sqlAdapter = new MySqlDataAdapter(sqlCommand);
-            DataTable dtCoba = new DataTable();
-            sqlAdapter.Fill(dtCoba);
-            dgvMenu.DataSource = dtCoba;
-
-            sqlConnect.Close();
-
-
-            //OpenFileDialog open = new OpenFileDialog();
-
-            //open.Filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp)|*.jpg; *.jpeg; *.gif; *.bmp";
-            //if (open.ShowDialog() == DialogResult.OK)
-            //{
-            //    //display image in picture box
-            //    pictureBoxAdd.Image = new Bitmap(open.FileName);
-
-
-            //    //image file path
-            //    textBox1.Text = open.FileName;
-            //}
-
-
-        }
-        private void buttonCashier_Click(object sender, EventArgs e)
-        {
-            buttonEditMenu.BackColor = Color.Transparent;
-            buttonAdmin.BackColor = Color.Transparent;
-            buttonCashier.BackColor = Color.ForestGreen;
-            buttonCashier.Text = "Cashier";
         }
 
+        //OpenFileDialog open = new OpenFileDialog();
 
-        private void buttonEditMenu_Click(object sender, EventArgs e)
-        {
-            buttonCashier.BackColor = Color.Transparent;
-            buttonAdmin.BackColor = Color.Transparent;
-            buttonEditMenu.BackColor = Color.ForestGreen;
-            buttonEditMenu.Text = "Edit Menu";
-        }
+        //open.Filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp)|*.jpg; *.jpeg; *.gif; *.bmp";
+        //if (open.ShowDialog() == DialogResult.OK)
+        //{
+        //    //display image in picture box
+        //    pictureBoxAdd.Image = new Bitmap(open.FileName);
 
-        private void buttonAdmin_Click_1(object sender, EventArgs e)
-        {
-            buttonCashier.BackColor = Color.Transparent;
-            buttonEditMenu.BackColor = Color.Transparent;
-            buttonAdmin.BackColor = Color.ForestGreen;
-            buttonAdmin.Text = "Admin";
 
-        }
-
-        private void btnEdit_Click(object sender, EventArgs e)
-        {
-            btnSave.Visible = true;
-            btnEdit.Visible = false;
-            btnDelete.Visible = false;
-            btnAdd.Visible = false;
-        }
-
-        private void btnDelete_Click(object sender, EventArgs e)
-        {
-            sqlQuery = "update MINUMAN set STATUS_DELETE = 1 where ID_MINUMAN = '" + tboxID.Text + "' ";
-            sqlConnect.Open();
-            sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
-            sqlCommand.ExecuteNonQuery();
-            sqlConnect.Close();
-
-        }
+        //    //image file path
+        //    textBox1.Text = open.FileName;
+        //}
 
         private void dgvMenu_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -131,96 +94,74 @@ namespace Projek_Tea_Break
 
 
 
-
-        }
-
-        private void btnadd_Click(object sender, EventArgs e)
-        {
-            sqlQuery = "INSERT INTO MINUMAN(ID_MINUMAN,NAMA_MINUMAN,HARGA_MINUMAN) set ID_MINUMAN = '" + tboxID.Text + "', NAMA_MINUMAN = '" + tboxNama.Text + "' , HARGA_MINUMAN = '" + tboxHarga.Text + "'";
-            btnSave.Visible = true;
-            btnEdit.Visible = false;
-            btnDelete.Visible = false;
-            btnAdd.Visible = false;
-        }
-
-        private void btnSave_Click(object sender, EventArgs e)
-        {
-            sqlQuery = "update MINUMAN(ID_MINUMAN,NAMA_MINUMAN,HARGA_MINUMAN) set ID_MINUMAN = '" + tboxID.Text + "', NAMA_MINUMAN = '" + tboxNama.Text + "' , HARGA_MINUMAN = '" + tboxHarga.Text + "'";
-            sqlConnect.Open();
-            sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
-            sqlCommand.ExecuteNonQuery();
-            sqlConnect.Close();
-        }
-
-        string imgLocation = "";
-        private void buttonAddImage_Click(object sender, EventArgs e)
-        {
-            OpenFileDialog open = new OpenFileDialog();
+            /*OpenFileDialog open = new OpenFileDialog();
 
             open.Filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp)|*.jpg; *.jpeg; *.gif; *.bmp";
             if (open.ShowDialog() == DialogResult.OK)
             {
                 //display image in picture box
-                imgLocation = open.FileName.ToString();
-                pictureBoxAdd.ImageLocation = imgLocation;
-            }
+                pictureBoxAdd.Image = new Bitmap(open.FileName);
+                //pictureBoxAdd.BackgroundImage = new Bitmap();
+            } */
         }
 
-        private void buttonSave_Click(object sender, EventArgs e)
+        private void buttonCashier_Click(object sender, EventArgs e)
         {
-            byte[] images = null;
-            FileStream stream = new FileStream(imgLocation,FileMode.Open,FileAccess.Read);
-            BinaryReader brs = new BinaryReader(stream);
-            images = brs.ReadBytes((int)stream.Length);
-
-            sqlConnect.Open();
-            sqlQuery = "insert into COBA_MINUMAN values ('"+textBoxIDgambar.Text+"','"+textBoxNamagambar.Text+"',@images)";
-            sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
-            sqlCommand.Parameters.Add(new MySqlParameter("@images",images));
-            int N = sqlCommand.ExecuteNonQuery();
-            MessageBox.Show(N.ToString()+" Data Saved Succesfully");
-            sqlConnect.Close();
+            buttonEditMenu.BackColor = Color.Transparent;
+            buttonAdmin.BackColor = Color.Transparent;
+            buttonCashier.BackColor = Color.ForestGreen;
+            InvisText();
+            buttonCashier.Text = "Cashier";
         }
 
-        private void buttonView_Click(object sender, EventArgs e)
+
+        private void buttonEditMenu_Click(object sender, EventArgs e)
+        {
+            buttonCashier.BackColor = Color.Transparent;
+            buttonAdmin.BackColor = Color.Transparent;
+            buttonEditMenu.BackColor = Color.ForestGreen;
+            InvisText();
+            buttonEditMenu.Text = "Edit";
+        }
+
+        private void buttonAdmin_Click_1(object sender, EventArgs e)
+        {
+            buttonCashier.BackColor = Color.Transparent;
+            buttonEditMenu.BackColor = Color.Transparent;
+            buttonAdmin.BackColor = Color.ForestGreen;
+            InvisText();
+            buttonAdmin.Text = "Admin";
+
+        }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            FormbtnEdit F1 = new FormbtnEdit();
+            F1.Show();
+            this.Hide();
+        }
+        private void btnadd_Click(object sender, EventArgs e)
+        {
+            FormbtnAdd F2 = new FormbtnAdd();
+            F2.Show();
+            this.Hide();
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
         {
             sqlConnect.Open();
-            sqlQuery = "select NAMA, IMAGE from COBA_MINUMAN where ID_COBA='"+textBoxIDgambar.Text+"';";
+            sqlQuery = "update MINUMAN set STATUS_DELETE = '1' where ID_MINUMAN = '" + tboxID.Text + "' ";
             sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
-            //sqlAdapter = new MySqlDataAdapter(sqlCommand);
-            //DataTable dtCoba = new DataTable();
-            //sqlAdapter.Fill(dtCoba);
-            //byte[] images = ((byte[])dtCoba.Rows[0][1]);
-            //MemoryStream mstream = new MemoryStream(images);
-            //pictureBoxAdd.Image = Image.FromStream(mstream);
-
-            //pictureBoxAdd.Image = dtCoba.Rows[0][1];
-
-
-            //MySqlDataReader DataRead = sqlCommand.ExecuteReader();
-            //DataRead.Read();
-
-            //if (DataRead.HasRows)
-            //{
-            //    textBoxNamagambar.Text = DataRead[0].ToString();
-            //    byte[] images = ((byte[])DataRead[1]);
-            //    if (images == null)
-            //    {
-            //        pictureBoxAdd.Image = null;
-            //    }
-            //    else
-            //    {
-            //        MemoryStream mstream = new MemoryStream(images);
-            //        pictureBoxAdd.Image = Image.FromStream(mstream);
-            //    }
-
-            //}
-            //else
-            //{
-            //    MessageBox.Show("This Data Not Available");
-            //}
+            sqlCommand.ExecuteNonQuery();
             sqlConnect.Close();
+            LoadData();
+        }
+
+        private void pbProfil_Click(object sender, EventArgs e)
+        {
+            formProfile formProfil = new formProfile();
+            formProfil.ShowDialog();
+            this.Close();
         }
     }
-}
-
+    }

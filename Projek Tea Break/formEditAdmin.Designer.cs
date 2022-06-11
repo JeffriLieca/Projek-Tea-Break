@@ -79,7 +79,7 @@ namespace Projek_Tea_Break
             this.buttonAdmin.ForeColor = System.Drawing.Color.White;
             this.buttonAdmin.Image = ((System.Drawing.Image)(resources.GetObject("buttonAdmin.Image")));
             this.buttonAdmin.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.buttonAdmin.Location = new System.Drawing.Point(32, 295);
+            this.buttonAdmin.Location = new System.Drawing.Point(32, 299);
             this.buttonAdmin.Margin = new System.Windows.Forms.Padding(2);
             this.buttonAdmin.Name = "buttonAdmin";
             this.buttonAdmin.Size = new System.Drawing.Size(69, 77);
@@ -126,10 +126,10 @@ namespace Projek_Tea_Break
             // pbProfil
             // 
             this.pbProfil.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbProfil.Image = ((System.Drawing.Image)(resources.GetObject("pbProfil.Image")));
-            this.pbProfil.Location = new System.Drawing.Point(3, 20);
+            this.pbProfil.Image = global::Projek_Tea_Break.Properties.Resources.logo;
+            this.pbProfil.Location = new System.Drawing.Point(7, 37);
             this.pbProfil.Name = "pbProfil";
-            this.pbProfil.Size = new System.Drawing.Size(128, 80);
+            this.pbProfil.Size = new System.Drawing.Size(124, 41);
             this.pbProfil.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbProfil.TabIndex = 6;
             this.pbProfil.TabStop = false;

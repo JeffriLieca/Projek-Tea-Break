@@ -77,10 +77,10 @@ namespace Projek_Tea_Break
             // pbProfil
             // 
             this.pbProfil.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbProfil.Image = ((System.Drawing.Image)(resources.GetObject("pbProfil.Image")));
-            this.pbProfil.Location = new System.Drawing.Point(3, 12);
+            this.pbProfil.Image = global::Projek_Tea_Break.Properties.Resources.logo;
+            this.pbProfil.Location = new System.Drawing.Point(0, 22);
             this.pbProfil.Name = "pbProfil";
-            this.pbProfil.Size = new System.Drawing.Size(99, 60);
+            this.pbProfil.Size = new System.Drawing.Size(100, 32);
             this.pbProfil.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbProfil.TabIndex = 20;
             this.pbProfil.TabStop = false;

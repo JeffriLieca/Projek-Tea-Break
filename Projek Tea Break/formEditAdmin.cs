@@ -43,10 +43,10 @@ namespace Projek_Tea_Break
         private void FormOrder_Load(object sender, EventArgs e)
         {
             buttonEditMenu.BackColor = Color.Transparent;
-            buttonAdmin.BackColor = Color.Transparent;
-            buttonCashier.BackColor = Color.ForestGreen;
+            buttonAdmin.BackColor = Color.ForestGreen;
+            buttonCashier.BackColor = Color.Transparent;
             InvisText();
-            buttonCashier.Text = "Cashier";
+            buttonAdmin.Text = "Admin";
 
             sqlQuery = "select id_pegawai as 'ID', nama_pegawai as 'Nama', tgl_lahir_pegawai as 'Tanggal', alamat_pegawai as 'Alamat', no_hp_pegawai as 'HP', if(level_jabatan = 1,'Staff',if(level_jabatan = 2,'Cashier',if(level_jabatan = 3,'Manager',''))) as `Jabatan` from PEGAWAI where status_delete = '0';";
             sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
