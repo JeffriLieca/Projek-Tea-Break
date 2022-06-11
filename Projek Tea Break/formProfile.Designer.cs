@@ -66,11 +66,12 @@ namespace Projek_Tea_Break
             // 
             this.lbNama.AutoSize = true;
             this.lbNama.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbNama.Location = new System.Drawing.Point(180, 113);
+            this.lbNama.Location = new System.Drawing.Point(168, 113);
             this.lbNama.Name = "lbNama";
             this.lbNama.Size = new System.Drawing.Size(44, 16);
             this.lbNama.TabIndex = 13;
             this.lbNama.Text = "Nama";
+            this.lbNama.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lbJabatan
             // 
@@ -81,6 +82,7 @@ namespace Projek_Tea_Break
             this.lbJabatan.Size = new System.Drawing.Size(56, 16);
             this.lbJabatan.TabIndex = 14;
             this.lbJabatan.Text = "Jabatan";
+            this.lbJabatan.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pictureBox1
             // 

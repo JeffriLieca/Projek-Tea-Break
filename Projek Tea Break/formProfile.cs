@@ -30,6 +30,7 @@ namespace Projek_Tea_Break
         private void buttonLogout_Click(object sender, EventArgs e)
         {
             SystemSounds.Beep.Play();
+            this.Hide();
             FormLogin formLogin = new FormLogin();
             formLogin.ShowDialog();
             this.Close();

@@ -1,6 +1,6 @@
 ﻿namespace Projek_Tea_Break
 {
-    partial class FormbtnAdd
+    partial class formMinumanInsert
     {
         /// <summary>
         /// Required designer variable.
@@ -50,26 +50,29 @@
             // 
             this.labelAdd.AutoSize = true;
             this.labelAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelAdd.Location = new System.Drawing.Point(299, 18);
+            this.labelAdd.Location = new System.Drawing.Point(224, 15);
+            this.labelAdd.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelAdd.Name = "labelAdd";
-            this.labelAdd.Size = new System.Drawing.Size(78, 36);
+            this.labelAdd.Size = new System.Drawing.Size(62, 29);
             this.labelAdd.TabIndex = 46;
             this.labelAdd.Text = "ADD";
             // 
             // dgvMenu
             // 
+            this.dgvMenu.AllowUserToAddRows = false;
+            this.dgvMenu.AllowUserToDeleteRows = false;
             this.dgvMenu.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvMenu.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvMenu.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvMenu.Location = new System.Drawing.Point(40, 71);
-            this.dgvMenu.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.dgvMenu.Location = new System.Drawing.Point(30, 58);
+            this.dgvMenu.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.dgvMenu.MultiSelect = false;
             this.dgvMenu.Name = "dgvMenu";
             this.dgvMenu.ReadOnly = true;
             this.dgvMenu.RowHeadersWidth = 51;
             this.dgvMenu.RowTemplate.Height = 24;
             this.dgvMenu.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvMenu.Size = new System.Drawing.Size(627, 150);
+            this.dgvMenu.Size = new System.Drawing.Size(470, 122);
             this.dgvMenu.TabIndex = 45;
             // 
             // btnCancelAdd
@@ -78,10 +81,10 @@
             this.btnCancelAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancelAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelAdd.ForeColor = System.Drawing.Color.White;
-            this.btnCancelAdd.Location = new System.Drawing.Point(279, 410);
-            this.btnCancelAdd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnCancelAdd.Location = new System.Drawing.Point(209, 333);
+            this.btnCancelAdd.Margin = new System.Windows.Forms.Padding(2);
             this.btnCancelAdd.Name = "btnCancelAdd";
-            this.btnCancelAdd.Size = new System.Drawing.Size(112, 42);
+            this.btnCancelAdd.Size = new System.Drawing.Size(84, 34);
             this.btnCancelAdd.TabIndex = 44;
             this.btnCancelAdd.Text = "Cancel";
             this.btnCancelAdd.UseVisualStyleBackColor = false;
@@ -93,10 +96,10 @@
             this.btnSaveAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSaveAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSaveAdd.ForeColor = System.Drawing.Color.White;
-            this.btnSaveAdd.Location = new System.Drawing.Point(65, 410);
-            this.btnSaveAdd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnSaveAdd.Location = new System.Drawing.Point(49, 333);
+            this.btnSaveAdd.Margin = new System.Windows.Forms.Padding(2);
             this.btnSaveAdd.Name = "btnSaveAdd";
-            this.btnSaveAdd.Size = new System.Drawing.Size(104, 42);
+            this.btnSaveAdd.Size = new System.Drawing.Size(78, 34);
             this.btnSaveAdd.TabIndex = 43;
             this.btnSaveAdd.Text = "SAVE";
             this.btnSaveAdd.UseVisualStyleBackColor = false;
@@ -104,35 +107,36 @@
             // 
             // tboxHarga
             // 
-            this.tboxHarga.Location = new System.Drawing.Point(202, 346);
-            this.tboxHarga.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tboxHarga.Location = new System.Drawing.Point(152, 281);
+            this.tboxHarga.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.tboxHarga.Name = "tboxHarga";
-            this.tboxHarga.Size = new System.Drawing.Size(191, 22);
+            this.tboxHarga.Size = new System.Drawing.Size(144, 20);
             this.tboxHarga.TabIndex = 3;
             // 
             // tboxNama
             // 
-            this.tboxNama.Location = new System.Drawing.Point(202, 307);
-            this.tboxNama.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tboxNama.Location = new System.Drawing.Point(152, 249);
+            this.tboxNama.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.tboxNama.Name = "tboxNama";
-            this.tboxNama.Size = new System.Drawing.Size(191, 22);
+            this.tboxNama.Size = new System.Drawing.Size(144, 20);
             this.tboxNama.TabIndex = 2;
             // 
             // tboxID
             // 
-            this.tboxID.Location = new System.Drawing.Point(202, 262);
-            this.tboxID.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tboxID.Location = new System.Drawing.Point(152, 213);
+            this.tboxID.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.tboxID.Name = "tboxID";
-            this.tboxID.Size = new System.Drawing.Size(191, 22);
+            this.tboxID.Size = new System.Drawing.Size(144, 20);
             this.tboxID.TabIndex = 1;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(37, 346);
+            this.label3.Location = new System.Drawing.Point(28, 281);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(121, 17);
+            this.label3.Size = new System.Drawing.Size(94, 13);
             this.label3.TabIndex = 37;
             this.label3.Text = "Harga minuman";
             // 
@@ -140,9 +144,10 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(37, 307);
+            this.label2.Location = new System.Drawing.Point(28, 249);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(118, 17);
+            this.label2.Size = new System.Drawing.Size(92, 13);
             this.label2.TabIndex = 38;
             this.label2.Text = "Nama minuman";
             // 
@@ -150,9 +155,10 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(61, 262);
+            this.label1.Location = new System.Drawing.Point(46, 213);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(92, 17);
+            this.label1.Size = new System.Drawing.Size(73, 13);
             this.label1.TabIndex = 39;
             this.label1.Text = "ID minuman";
             // 
@@ -161,18 +167,17 @@
             this.panel1.BackColor = System.Drawing.Color.Silver;
             this.panel1.Controls.Add(this.buttonAddImage);
             this.panel1.Controls.Add(this.pictureBoxAdd);
-            this.panel1.Location = new System.Drawing.Point(427, 229);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4);
+            this.panel1.Location = new System.Drawing.Point(320, 186);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(267, 294);
+            this.panel1.Size = new System.Drawing.Size(200, 239);
             this.panel1.TabIndex = 47;
             // 
             // buttonAddImage
             // 
-            this.buttonAddImage.Location = new System.Drawing.Point(71, 224);
-            this.buttonAddImage.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.buttonAddImage.Location = new System.Drawing.Point(53, 182);
+            this.buttonAddImage.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.buttonAddImage.Name = "buttonAddImage";
-            this.buttonAddImage.Size = new System.Drawing.Size(133, 42);
+            this.buttonAddImage.Size = new System.Drawing.Size(100, 34);
             this.buttonAddImage.TabIndex = 38;
             this.buttonAddImage.Text = "Add Image";
             this.buttonAddImage.UseVisualStyleBackColor = true;
@@ -180,19 +185,19 @@
             // 
             // pictureBoxAdd
             // 
-            this.pictureBoxAdd.Location = new System.Drawing.Point(36, 17);
-            this.pictureBoxAdd.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.pictureBoxAdd.Location = new System.Drawing.Point(27, 14);
+            this.pictureBoxAdd.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.pictureBoxAdd.Name = "pictureBoxAdd";
-            this.pictureBoxAdd.Size = new System.Drawing.Size(200, 199);
+            this.pictureBoxAdd.Size = new System.Drawing.Size(150, 162);
             this.pictureBoxAdd.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxAdd.TabIndex = 37;
             this.pictureBoxAdd.TabStop = false;
             // 
-            // FormbtnAdd
+            // formMinumanInsert
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(707, 535);
+            this.ClientSize = new System.Drawing.Size(530, 435);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.labelAdd);
             this.Controls.Add(this.dgvMenu);
@@ -204,8 +209,9 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Name = "FormbtnAdd";
+            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Name = "formMinumanInsert";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormbtnAdd";
             this.Load += new System.EventHandler(this.FormbtnAdd_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvMenu)).EndInit();

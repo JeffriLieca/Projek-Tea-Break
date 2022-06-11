@@ -13,9 +13,9 @@ using System.IO;
 
 namespace Projek_Tea_Break
 {
-    public partial class FormbtnEdit : Form
+    public partial class formMinumanUpdate : Form
     {
-        public FormbtnEdit()
+        public formMinumanUpdate()
         {
             InitializeComponent();
         }
@@ -63,7 +63,7 @@ namespace Projek_Tea_Break
 
         private void btnCancelEdit_Click(object sender, EventArgs e)
         {
-            formEdit Fmain = new formEdit();
+            formMinuman Fmain = new formMinuman();
             Fmain.Show();
             this.Close();
         }
@@ -100,7 +100,7 @@ namespace Projek_Tea_Break
                 DataTable menu = new DataTable();
                 sqlAdapter.Fill(menu);
                 dgvMenu.DataSource = menu;
-                formEdit Fmain = new formEdit();
+                formMinuman Fmain = new formMinuman();
                 Fmain.Show();
                 this.Hide();
             }
@@ -118,7 +118,7 @@ namespace Projek_Tea_Break
                 DataTable menu = new DataTable();
                 sqlAdapter.Fill(menu);
                 dgvMenu.DataSource = menu;
-                formEdit Fmain = new formEdit();
+                formMinuman Fmain = new formMinuman();
                 Fmain.Show();
                 this.Hide();
             }

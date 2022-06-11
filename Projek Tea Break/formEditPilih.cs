@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using MySql.Data.MySqlClient;
 
 namespace Projek_Tea_Break
 {
@@ -18,13 +17,6 @@ namespace Projek_Tea_Break
             InitializeComponent();
         }
 
-        MySqlConnection sqlConnect = new MySqlConnection("server=139.255.11.84;uid=student;pwd=isbmantap;database=DBD_11_TEABREAK");
-        MySqlCommand sqlCommand;
-        MySqlDataAdapter sqlAdapter;
-        public static string sqlQuery;
-        public static string sqlInsert;
-        public static int nomorMinuman;
-        public static string IDMinumanLama;
         private void InvisText()
         {
             buttonCashier.Text = " ";
@@ -48,6 +40,11 @@ namespace Projek_Tea_Break
             buttonCashier.BackColor = Color.ForestGreen;
             InvisText();
             buttonCashier.Text = "Cashier";
+
+            this.Hide();
+            FormOrder formOrder = new FormOrder();
+            formOrder.ShowDialog();
+            this.Close();
         }
 
 
@@ -68,12 +65,17 @@ namespace Projek_Tea_Break
             InvisText();
             buttonAdmin.Text = "Admin";
 
+            this.Hide();
+            formAdmin formAdmin = new formAdmin();
+            formAdmin.ShowDialog();
+            this.Close();
+
         }
 
         private void btnMinuman_Click(object sender, EventArgs e)
         {
             this.Hide();
-            formEdit formMinuman = new formEdit();
+            formMinuman formMinuman = new formMinuman();
             formMinuman.ShowDialog();
             this.Close();
         }
@@ -81,17 +83,17 @@ namespace Projek_Tea_Break
         private void btnTopping_Click(object sender, EventArgs e)
         {
             this.Hide();
-            formEditTopping formTopping = new formEditTopping();
+            formTopping formTopping = new formTopping();
             formTopping.ShowDialog();
             this.Close();
         }
 
         private void btnPromo_Click(object sender, EventArgs e)
         {
-            //this.Hide();
-            //formEdit formMinuman = new formEdit();
-            //formMinuman.ShowDialog();
-            //this.Close();
+            this.Hide();
+            formPromo formMinuman = new formPromo();
+            formMinuman.ShowDialog();
+            this.Close();
         }
     }
  }

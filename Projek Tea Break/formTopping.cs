@@ -12,9 +12,9 @@ using System.Resources;
 
 namespace Projek_Tea_Break
 {
-    public partial class formEditTopping : Form
+    public partial class formTopping : Form
     {
-        public formEditTopping()
+        public formTopping()
         {
             InitializeComponent();
         }
@@ -45,11 +45,11 @@ namespace Projek_Tea_Break
         }
         private void FormOrder_Load(object sender, EventArgs e)
         {
-            buttonEditMenu.BackColor = Color.Transparent;
+            buttonEditMenu.BackColor = Color.ForestGreen;
             buttonAdmin.BackColor = Color.Transparent;
-            buttonCashier.BackColor = Color.ForestGreen;
+            buttonCashier.BackColor = Color.Transparent;
             InvisText();
-            buttonCashier.Text = "Cashier";
+            buttonEditMenu.Text = "Edit";
 
             Refresh();
             
@@ -61,6 +61,11 @@ namespace Projek_Tea_Break
             buttonCashier.BackColor = Color.ForestGreen;
             InvisText();
             buttonCashier.Text = "Cashier";
+
+            this.Hide();
+            FormOrder formOrder = new FormOrder();
+            formOrder.ShowDialog();
+            this.Close();
         }
 
 
@@ -70,7 +75,12 @@ namespace Projek_Tea_Break
             buttonAdmin.BackColor = Color.Transparent;
             buttonEditMenu.BackColor = Color.ForestGreen;
             InvisText();
-            buttonEditMenu.Text = "Edit Menu";
+            buttonEditMenu.Text = "Edit";
+
+            this.Hide();
+            formEditPilih formPilih = new formEditPilih();
+            formPilih.ShowDialog();
+            this.Close();
         }
 
         private void buttonAdmin_Click_1(object sender, EventArgs e)
@@ -80,6 +90,11 @@ namespace Projek_Tea_Break
             buttonAdmin.BackColor = Color.ForestGreen;
             InvisText();
             buttonAdmin.Text = "Admin";
+
+            this.Hide();
+            formAdmin formAdmin = new formAdmin();
+            formAdmin.ShowDialog();
+            this.Close();
         }
 
         private void btnEdit_Click(object sender, EventArgs e)

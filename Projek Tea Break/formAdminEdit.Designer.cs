@@ -159,7 +159,7 @@ namespace Projek_Tea_Break
             // 
             this.cbJabatan.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbJabatan.FormattingEnabled = true;
-            this.cbJabatan.Location = new System.Drawing.Point(302, 348);
+            this.cbJabatan.Location = new System.Drawing.Point(302, 354);
             this.cbJabatan.Name = "cbJabatan";
             this.cbJabatan.Size = new System.Drawing.Size(121, 23);
             this.cbJabatan.TabIndex = 45;
@@ -167,7 +167,7 @@ namespace Projek_Tea_Break
             // tbHP
             // 
             this.tbHP.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbHP.Location = new System.Drawing.Point(302, 319);
+            this.tbHP.Location = new System.Drawing.Point(302, 325);
             this.tbHP.Margin = new System.Windows.Forms.Padding(2);
             this.tbHP.Name = "tbHP";
             this.tbHP.Size = new System.Drawing.Size(187, 21);
@@ -176,7 +176,7 @@ namespace Projek_Tea_Break
             // tbAlamat
             // 
             this.tbAlamat.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbAlamat.Location = new System.Drawing.Point(302, 292);
+            this.tbAlamat.Location = new System.Drawing.Point(302, 298);
             this.tbAlamat.Margin = new System.Windows.Forms.Padding(2);
             this.tbAlamat.Name = "tbAlamat";
             this.tbAlamat.Size = new System.Drawing.Size(187, 21);
@@ -186,7 +186,7 @@ namespace Projek_Tea_Break
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(234, 351);
+            this.label6.Location = new System.Drawing.Point(234, 357);
             this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(57, 15);
@@ -197,7 +197,7 @@ namespace Projek_Tea_Break
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(243, 322);
+            this.label5.Location = new System.Drawing.Point(243, 328);
             this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(48, 15);
@@ -208,7 +208,7 @@ namespace Projek_Tea_Break
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(240, 295);
+            this.label4.Location = new System.Drawing.Point(240, 301);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(51, 15);
@@ -220,7 +220,7 @@ namespace Projek_Tea_Break
             this.dtpTanggalLahir.CustomFormat = "dd MMMM yyyy";
             this.dtpTanggalLahir.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpTanggalLahir.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpTanggalLahir.Location = new System.Drawing.Point(302, 264);
+            this.dtpTanggalLahir.Location = new System.Drawing.Point(302, 270);
             this.dtpTanggalLahir.Name = "dtpTanggalLahir";
             this.dtpTanggalLahir.Size = new System.Drawing.Size(187, 21);
             this.dtpTanggalLahir.TabIndex = 39;
@@ -251,6 +251,7 @@ namespace Projek_Tea_Break
             // 
             // btnSave
             // 
+            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave.Location = new System.Drawing.Point(422, 407);
             this.btnSave.Margin = new System.Windows.Forms.Padding(2);
@@ -263,6 +264,7 @@ namespace Projek_Tea_Break
             // 
             // btnAdd
             // 
+            this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdd.Location = new System.Drawing.Point(448, 453);
             this.btnAdd.Margin = new System.Windows.Forms.Padding(2);
@@ -275,6 +277,8 @@ namespace Projek_Tea_Break
             // 
             // btnDelete
             // 
+            this.btnDelete.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDelete.Location = new System.Drawing.Point(301, 407);
             this.btnDelete.Margin = new System.Windows.Forms.Padding(2);
@@ -282,13 +286,13 @@ namespace Projek_Tea_Break
             this.btnDelete.Size = new System.Drawing.Size(80, 26);
             this.btnDelete.TabIndex = 34;
             this.btnDelete.Text = "Delete";
-            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.UseVisualStyleBackColor = false;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // tbNama
             // 
             this.tbNama.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbNama.Location = new System.Drawing.Point(301, 233);
+            this.tbNama.Location = new System.Drawing.Point(301, 239);
             this.tbNama.Margin = new System.Windows.Forms.Padding(2);
             this.tbNama.Name = "tbNama";
             this.tbNama.Size = new System.Drawing.Size(336, 21);
@@ -297,7 +301,7 @@ namespace Projek_Tea_Break
             // tbID
             // 
             this.tbID.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbID.Location = new System.Drawing.Point(301, 202);
+            this.tbID.Location = new System.Drawing.Point(301, 208);
             this.tbID.Margin = new System.Windows.Forms.Padding(2);
             this.tbID.Name = "tbID";
             this.tbID.Size = new System.Drawing.Size(335, 21);
@@ -307,7 +311,7 @@ namespace Projek_Tea_Break
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(202, 266);
+            this.label3.Location = new System.Drawing.Point(202, 272);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(89, 15);
@@ -318,7 +322,7 @@ namespace Projek_Tea_Break
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(193, 235);
+            this.label2.Location = new System.Drawing.Point(193, 241);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(98, 15);
@@ -329,7 +333,7 @@ namespace Projek_Tea_Break
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(215, 205);
+            this.label1.Location = new System.Drawing.Point(215, 211);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(76, 15);

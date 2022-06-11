@@ -111,6 +111,11 @@ namespace Projek_Tea_Break
             buttonEditMenu.BackColor = Color.ForestGreen;
             InvisText();
             buttonEditMenu.Text = "Edit Menu";
+
+            this.Hide();
+            formEditPilih formPilih = new formEditPilih();
+            formPilih.ShowDialog();
+            this.Close();
         }
 
         private void buttonAdmin_Click_1(object sender, EventArgs e)
@@ -121,6 +126,10 @@ namespace Projek_Tea_Break
             InvisText();
             buttonAdmin.Text = "Admin";
 
+            this.Hide();
+            formAdmin formAdmin = new formAdmin();
+            formAdmin.ShowDialog();
+            this.Close();
         }
 
         public void InvisText()
@@ -232,16 +241,6 @@ namespace Projek_Tea_Break
             formadd.Show();
         }
 
-
-
-        private void buttonLogout_Click(object sender, EventArgs e)
-        {
-
-            FormLogin formLogin = new FormLogin();
-            formLogin.Show();
-            this.Hide();
-        }
-
         private void buttonS_Click(object sender, EventArgs e)
         {
             Kategori = "S";
@@ -281,28 +280,6 @@ namespace Projek_Tea_Break
             buttonF.BackColor = Color.Transparent;
             buttonT.BackColor = Color.Transparent;
         }
-
-        private void pbProfil_MouseEnter(object sender, EventArgs e)
-        {
-        }
-
-        private void pbProfil_MouseLeave(object sender, EventArgs e)
-        {
-            //panelProfil.Visible = false;
-        }
-
-        private void pbProfil_MouseHover(object sender, EventArgs e)
-        {
-        }
-
-        private void panelProfil_MouseLeave(object sender, EventArgs e)
-        {
-        }
-
-        private void buttonLogout_MouseEnter(object sender, EventArgs e)
-        {
-        }
-
         public void LoadOrderMenu()
         {
 
@@ -342,7 +319,6 @@ namespace Projek_Tea_Break
         {
             formProfile formProfil = new formProfile();
             formProfil.ShowDialog();
-            this.Close();
         }
     }
 }

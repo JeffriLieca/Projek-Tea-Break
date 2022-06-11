@@ -93,7 +93,7 @@ namespace Projek_Tea_Break
             this.buttonAdmin.ForeColor = System.Drawing.Color.White;
             this.buttonAdmin.Image = ((System.Drawing.Image)(resources.GetObject("buttonAdmin.Image")));
             this.buttonAdmin.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.buttonAdmin.Location = new System.Drawing.Point(17, 275);
+            this.buttonAdmin.Location = new System.Drawing.Point(20, 299);
             this.buttonAdmin.Margin = new System.Windows.Forms.Padding(2);
             this.buttonAdmin.Name = "buttonAdmin";
             this.buttonAdmin.Size = new System.Drawing.Size(69, 77);
@@ -110,7 +110,7 @@ namespace Projek_Tea_Break
             this.buttonEditMenu.ForeColor = System.Drawing.Color.White;
             this.buttonEditMenu.Image = ((System.Drawing.Image)(resources.GetObject("buttonEditMenu.Image")));
             this.buttonEditMenu.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.buttonEditMenu.Location = new System.Drawing.Point(17, 176);
+            this.buttonEditMenu.Location = new System.Drawing.Point(20, 202);
             this.buttonEditMenu.Margin = new System.Windows.Forms.Padding(2);
             this.buttonEditMenu.Name = "buttonEditMenu";
             this.buttonEditMenu.Size = new System.Drawing.Size(69, 77);
@@ -127,7 +127,7 @@ namespace Projek_Tea_Break
             this.buttonCashier.ForeColor = System.Drawing.Color.White;
             this.buttonCashier.Image = global::Projek_Tea_Break.Properties.Resources.shop_icon;
             this.buttonCashier.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.buttonCashier.Location = new System.Drawing.Point(17, 77);
+            this.buttonCashier.Location = new System.Drawing.Point(20, 105);
             this.buttonCashier.Margin = new System.Windows.Forms.Padding(2);
             this.buttonCashier.Name = "buttonCashier";
             this.buttonCashier.Size = new System.Drawing.Size(69, 77);

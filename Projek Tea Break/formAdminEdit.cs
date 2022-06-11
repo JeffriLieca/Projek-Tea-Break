@@ -84,6 +84,11 @@ namespace Projek_Tea_Break
             buttonCashier.BackColor = Color.ForestGreen;
             InvisText();
             buttonCashier.Text = "Cashier";
+
+            this.Hide();
+            FormOrder formOrder = new FormOrder();
+            formOrder.ShowDialog();
+            this.Close();
         }
 
 
@@ -94,6 +99,11 @@ namespace Projek_Tea_Break
             buttonEditMenu.BackColor = Color.ForestGreen;
             InvisText();
             buttonEditMenu.Text = "Edit Menu";
+
+            this.Hide();
+            formEditPilih formPilih = new formEditPilih();
+            formPilih.ShowDialog();
+            this.Close();
         }
 
         private void buttonAdmin_Click(object sender, EventArgs e)

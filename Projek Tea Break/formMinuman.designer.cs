@@ -1,7 +1,7 @@
 ﻿
 namespace Projek_Tea_Break
 {
-    partial class formEdit
+    partial class formMinuman
     {
         /// <summary>
         /// Required designer variable.
@@ -30,7 +30,7 @@ namespace Projek_Tea_Break
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formEdit));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formMinuman));
             this.panel2 = new System.Windows.Forms.Panel();
             this.pbProfil = new System.Windows.Forms.PictureBox();
             this.buttonAdmin = new System.Windows.Forms.Button();
@@ -64,19 +64,19 @@ namespace Projek_Tea_Break
             this.panel2.Controls.Add(this.buttonEditMenu);
             this.panel2.Controls.Add(this.buttonCashier);
             this.panel2.Location = new System.Drawing.Point(-1, 0);
-            this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(179, 645);
+            this.panel2.Size = new System.Drawing.Size(134, 524);
             this.panel2.TabIndex = 7;
             // 
             // pbProfil
             // 
             this.pbProfil.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pbProfil.Image = global::Projek_Tea_Break.Properties.Resources.logo;
-            this.pbProfil.Location = new System.Drawing.Point(9, 46);
-            this.pbProfil.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pbProfil.Location = new System.Drawing.Point(7, 37);
+            this.pbProfil.Margin = new System.Windows.Forms.Padding(2);
             this.pbProfil.Name = "pbProfil";
-            this.pbProfil.Size = new System.Drawing.Size(165, 50);
+            this.pbProfil.Size = new System.Drawing.Size(124, 41);
             this.pbProfil.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbProfil.TabIndex = 6;
             this.pbProfil.TabStop = false;
@@ -89,10 +89,10 @@ namespace Projek_Tea_Break
             this.buttonAdmin.ForeColor = System.Drawing.Color.White;
             this.buttonAdmin.Image = ((System.Drawing.Image)(resources.GetObject("buttonAdmin.Image")));
             this.buttonAdmin.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.buttonAdmin.Location = new System.Drawing.Point(43, 368);
-            this.buttonAdmin.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonAdmin.Location = new System.Drawing.Point(32, 299);
+            this.buttonAdmin.Margin = new System.Windows.Forms.Padding(2);
             this.buttonAdmin.Name = "buttonAdmin";
-            this.buttonAdmin.Size = new System.Drawing.Size(92, 95);
+            this.buttonAdmin.Size = new System.Drawing.Size(69, 77);
             this.buttonAdmin.TabIndex = 5;
             this.buttonAdmin.Text = "Admin";
             this.buttonAdmin.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
@@ -106,10 +106,10 @@ namespace Projek_Tea_Break
             this.buttonEditMenu.ForeColor = System.Drawing.Color.White;
             this.buttonEditMenu.Image = ((System.Drawing.Image)(resources.GetObject("buttonEditMenu.Image")));
             this.buttonEditMenu.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.buttonEditMenu.Location = new System.Drawing.Point(43, 249);
-            this.buttonEditMenu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonEditMenu.Location = new System.Drawing.Point(32, 202);
+            this.buttonEditMenu.Margin = new System.Windows.Forms.Padding(2);
             this.buttonEditMenu.Name = "buttonEditMenu";
-            this.buttonEditMenu.Size = new System.Drawing.Size(92, 95);
+            this.buttonEditMenu.Size = new System.Drawing.Size(69, 77);
             this.buttonEditMenu.TabIndex = 4;
             this.buttonEditMenu.Text = "Edit";
             this.buttonEditMenu.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
@@ -123,10 +123,10 @@ namespace Projek_Tea_Break
             this.buttonCashier.ForeColor = System.Drawing.Color.White;
             this.buttonCashier.Image = global::Projek_Tea_Break.Properties.Resources.shop_icon;
             this.buttonCashier.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.buttonCashier.Location = new System.Drawing.Point(43, 129);
-            this.buttonCashier.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonCashier.Location = new System.Drawing.Point(32, 105);
+            this.buttonCashier.Margin = new System.Windows.Forms.Padding(2);
             this.buttonCashier.Name = "buttonCashier";
-            this.buttonCashier.Size = new System.Drawing.Size(92, 95);
+            this.buttonCashier.Size = new System.Drawing.Size(69, 77);
             this.buttonCashier.TabIndex = 1;
             this.buttonCashier.Text = "Cashier";
             this.buttonCashier.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
@@ -150,18 +150,20 @@ namespace Projek_Tea_Break
             // 
             // dgvMenu
             // 
+            this.dgvMenu.AllowUserToAddRows = false;
+            this.dgvMenu.AllowUserToDeleteRows = false;
             this.dgvMenu.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvMenu.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvMenu.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvMenu.Location = new System.Drawing.Point(235, 15);
-            this.dgvMenu.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.dgvMenu.Location = new System.Drawing.Point(176, 12);
+            this.dgvMenu.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.dgvMenu.MultiSelect = false;
             this.dgvMenu.Name = "dgvMenu";
             this.dgvMenu.ReadOnly = true;
             this.dgvMenu.RowHeadersWidth = 51;
             this.dgvMenu.RowTemplate.Height = 24;
             this.dgvMenu.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvMenu.Size = new System.Drawing.Size(748, 150);
+            this.dgvMenu.Size = new System.Drawing.Size(561, 122);
             this.dgvMenu.TabIndex = 8;
             this.dgvMenu.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMenu_CellContentClick);
             // 
@@ -170,10 +172,10 @@ namespace Projek_Tea_Break
             this.btnEdit.BackColor = System.Drawing.Color.ForestGreen;
             this.btnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEdit.ForeColor = System.Drawing.Color.White;
-            this.btnEdit.Location = new System.Drawing.Point(232, 217);
-            this.btnEdit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnEdit.Location = new System.Drawing.Point(174, 176);
+            this.btnEdit.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(115, 50);
+            this.btnEdit.Size = new System.Drawing.Size(86, 41);
             this.btnEdit.TabIndex = 11;
             this.btnEdit.Text = "Edit";
             this.btnEdit.UseVisualStyleBackColor = false;
@@ -184,10 +186,10 @@ namespace Projek_Tea_Break
             this.btnDelete.BackColor = System.Drawing.Color.ForestGreen;
             this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDelete.ForeColor = System.Drawing.Color.White;
-            this.btnDelete.Location = new System.Drawing.Point(576, 217);
-            this.btnDelete.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnDelete.Location = new System.Drawing.Point(432, 176);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(115, 50);
+            this.btnDelete.Size = new System.Drawing.Size(86, 41);
             this.btnDelete.TabIndex = 13;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = false;
@@ -198,10 +200,10 @@ namespace Projek_Tea_Break
             this.btnAdd.BackColor = System.Drawing.Color.ForestGreen;
             this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAdd.ForeColor = System.Drawing.Color.White;
-            this.btnAdd.Location = new System.Drawing.Point(397, 217);
-            this.btnAdd.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnAdd.Location = new System.Drawing.Point(298, 176);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(120, 50);
+            this.btnAdd.Size = new System.Drawing.Size(90, 41);
             this.btnAdd.TabIndex = 17;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = false;
@@ -209,35 +211,36 @@ namespace Projek_Tea_Break
             // 
             // tboxHarga
             // 
-            this.tboxHarga.Location = new System.Drawing.Point(461, 417);
-            this.tboxHarga.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tboxHarga.Location = new System.Drawing.Point(346, 339);
+            this.tboxHarga.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.tboxHarga.Name = "tboxHarga";
-            this.tboxHarga.Size = new System.Drawing.Size(191, 22);
+            this.tboxHarga.Size = new System.Drawing.Size(144, 20);
             this.tboxHarga.TabIndex = 24;
             // 
             // tboxNama
             // 
-            this.tboxNama.Location = new System.Drawing.Point(461, 374);
-            this.tboxNama.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tboxNama.Location = new System.Drawing.Point(346, 304);
+            this.tboxNama.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.tboxNama.Name = "tboxNama";
-            this.tboxNama.Size = new System.Drawing.Size(191, 22);
+            this.tboxNama.Size = new System.Drawing.Size(144, 20);
             this.tboxNama.TabIndex = 25;
             // 
             // tboxID
             // 
-            this.tboxID.Location = new System.Drawing.Point(461, 332);
-            this.tboxID.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tboxID.Location = new System.Drawing.Point(346, 270);
+            this.tboxID.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.tboxID.Name = "tboxID";
-            this.tboxID.Size = new System.Drawing.Size(191, 22);
+            this.tboxID.Size = new System.Drawing.Size(144, 20);
             this.tboxID.TabIndex = 26;
             // 
             // labelHarga
             // 
             this.labelHarga.AutoSize = true;
             this.labelHarga.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelHarga.Location = new System.Drawing.Point(296, 417);
+            this.labelHarga.Location = new System.Drawing.Point(222, 339);
+            this.labelHarga.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelHarga.Name = "labelHarga";
-            this.labelHarga.Size = new System.Drawing.Size(121, 17);
+            this.labelHarga.Size = new System.Drawing.Size(94, 13);
             this.labelHarga.TabIndex = 21;
             this.labelHarga.Text = "Harga minuman";
             // 
@@ -245,9 +248,10 @@ namespace Projek_Tea_Break
             // 
             this.labelNama.AutoSize = true;
             this.labelNama.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelNama.Location = new System.Drawing.Point(299, 378);
+            this.labelNama.Location = new System.Drawing.Point(224, 307);
+            this.labelNama.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelNama.Name = "labelNama";
-            this.labelNama.Size = new System.Drawing.Size(118, 17);
+            this.labelNama.Size = new System.Drawing.Size(92, 13);
             this.labelNama.TabIndex = 22;
             this.labelNama.Text = "Nama minuman";
             // 
@@ -255,9 +259,10 @@ namespace Projek_Tea_Break
             // 
             this.labelID.AutoSize = true;
             this.labelID.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelID.Location = new System.Drawing.Point(324, 336);
+            this.labelID.Location = new System.Drawing.Point(243, 273);
+            this.labelID.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelID.Name = "labelID";
-            this.labelID.Size = new System.Drawing.Size(92, 17);
+            this.labelID.Size = new System.Drawing.Size(73, 13);
             this.labelID.TabIndex = 23;
             this.labelID.Text = "ID minuman";
             // 
@@ -268,20 +273,20 @@ namespace Projek_Tea_Break
             // 
             // pictureBoxAdd
             // 
-            this.pictureBoxAdd.Location = new System.Drawing.Point(761, 303);
-            this.pictureBoxAdd.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.pictureBoxAdd.Location = new System.Drawing.Point(571, 246);
+            this.pictureBoxAdd.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.pictureBoxAdd.Name = "pictureBoxAdd";
-            this.pictureBoxAdd.Size = new System.Drawing.Size(200, 199);
+            this.pictureBoxAdd.Size = new System.Drawing.Size(150, 162);
             this.pictureBoxAdd.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxAdd.TabIndex = 14;
             this.pictureBoxAdd.TabStop = false;
             // 
-            // formEdit
+            // formMinuman
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.ClientSize = new System.Drawing.Size(1043, 635);
+            this.ClientSize = new System.Drawing.Size(782, 516);
             this.Controls.Add(this.pictureBoxAdd);
             this.Controls.Add(this.tboxHarga);
             this.Controls.Add(this.tboxNama);
@@ -294,10 +299,10 @@ namespace Projek_Tea_Break
             this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.dgvMenu);
             this.Controls.Add(this.panel2);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Name = "formEdit";
+            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Name = "formMinuman";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Order";
+            this.Text = "Edit Minuman";
             this.Load += new System.EventHandler(this.FormOrder_Load);
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbProfil)).EndInit();

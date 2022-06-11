@@ -12,9 +12,9 @@ using System.IO;
 
 namespace Projek_Tea_Break
 {
-    public partial class FormbtnAdd : Form
+    public partial class formMinumanInsert : Form
     {
-        public FormbtnAdd()
+        public formMinumanInsert()
         {
             InitializeComponent();
         }
@@ -45,7 +45,7 @@ namespace Projek_Tea_Break
         }
         private void btnCancelAdd_Click(object sender, EventArgs e)
         {
-            formEdit Fmain = new formEdit();
+            formMinuman Fmain = new formMinuman();
             Fmain.Show();
             this.Hide();
         }
@@ -72,7 +72,7 @@ namespace Projek_Tea_Break
             DataTable menu = new DataTable();
             sqlAdapter.Fill(menu);
             dgvMenu.DataSource = menu;
-            formEdit Fmain = new formEdit();
+            formMinuman Fmain = new formMinuman();
             Fmain.Show();
             this.Hide();
         }

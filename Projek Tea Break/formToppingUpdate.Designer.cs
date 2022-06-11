@@ -1,6 +1,6 @@
 ﻿namespace Projek_Tea_Break
 {
-    partial class FormbtnEdit
+    partial class formToppingUpdate
     {
         /// <summary>
         /// Required designer variable.

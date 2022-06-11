@@ -47,23 +47,53 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FormbtnAdd.cs">
+    <Compile Include="formPromo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormbtnAdd.Designer.cs">
-      <DependentUpon>FormbtnAdd.cs</DependentUpon>
+    <Compile Include="formPromo.designer.cs">
+      <DependentUpon>formPromo.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormbtnEdit.cs">
+    <Compile Include="formPromoInsert.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormbtnEdit.Designer.cs">
-      <DependentUpon>FormbtnEdit.cs</DependentUpon>
+    <Compile Include="formPromoInsert.Designer.cs">
+      <DependentUpon>formPromoInsert.cs</DependentUpon>
     </Compile>
-    <Compile Include="formEditAdmin.cs">
+    <Compile Include="formPromoUpdate.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="formEditAdmin.Designer.cs">
-      <DependentUpon>formEditAdmin.cs</DependentUpon>
+    <Compile Include="formPromoUpdate.Designer.cs">
+      <DependentUpon>formPromoUpdate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="formToppingUpdate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formToppingUpdate.Designer.cs">
+      <DependentUpon>formToppingUpdate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="formToppingInsert.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formToppingInsert.Designer.cs">
+      <DependentUpon>formToppingInsert.cs</DependentUpon>
+    </Compile>
+    <Compile Include="formMinumanInsert.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formMinumanInsert.Designer.cs">
+      <DependentUpon>formMinumanInsert.cs</DependentUpon>
+    </Compile>
+    <Compile Include="formMinumanUpdate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formMinumanUpdate.Designer.cs">
+      <DependentUpon>formMinumanUpdate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="formAdminEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formAdminEdit.Designer.cs">
+      <DependentUpon>formAdminEdit.cs</DependentUpon>
     </Compile>
     <Compile Include="formEditPilih.cs">
       <SubType>Form</SubType>
@@ -71,17 +101,17 @@
     <Compile Include="formEditPilih.designer.cs">
       <DependentUpon>formEditPilih.cs</DependentUpon>
     </Compile>
-    <Compile Include="formEditMenu.cs">
+    <Compile Include="formMinuman.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="formEditMenu.designer.cs">
-      <DependentUpon>formEditMenu.cs</DependentUpon>
+    <Compile Include="formMinuman.designer.cs">
+      <DependentUpon>formMinuman.cs</DependentUpon>
     </Compile>
-    <Compile Include="formEditTopping.cs">
+    <Compile Include="formTopping.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="formEditTopping.Designer.cs">
-      <DependentUpon>formEditTopping.cs</DependentUpon>
+    <Compile Include="formTopping.Designer.cs">
+      <DependentUpon>formTopping.cs</DependentUpon>
     </Compile>
     <Compile Include="formProfile.cs">
       <SubType>Form</SubType>
@@ -115,23 +145,38 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="FormbtnAdd.resx">
-      <DependentUpon>FormbtnAdd.cs</DependentUpon>
+    <EmbeddedResource Include="formPromo.resx">
+      <DependentUpon>formPromo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormbtnEdit.resx">
-      <DependentUpon>FormbtnEdit.cs</DependentUpon>
+    <EmbeddedResource Include="formPromoInsert.resx">
+      <DependentUpon>formPromoInsert.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="formEditAdmin.resx">
-      <DependentUpon>formEditAdmin.cs</DependentUpon>
+    <EmbeddedResource Include="formPromoUpdate.resx">
+      <DependentUpon>formPromoUpdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formToppingUpdate.resx">
+      <DependentUpon>formToppingUpdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formToppingInsert.resx">
+      <DependentUpon>formToppingInsert.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formMinumanInsert.resx">
+      <DependentUpon>formMinumanInsert.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formMinumanUpdate.resx">
+      <DependentUpon>formMinumanUpdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formAdminEdit.resx">
+      <DependentUpon>formAdminEdit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="formEditPilih.resx">
       <DependentUpon>formEditPilih.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="formEditMenu.resx">
-      <DependentUpon>formEditMenu.cs</DependentUpon>
+    <EmbeddedResource Include="formMinuman.resx">
+      <DependentUpon>formMinuman.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="formEditTopping.resx">
-      <DependentUpon>formEditTopping.cs</DependentUpon>
+    <EmbeddedResource Include="formTopping.resx">
+      <DependentUpon>formTopping.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="formProfile.resx">
       <DependentUpon>formProfile.cs</DependentUpon>

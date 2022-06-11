@@ -12,9 +12,9 @@ using System.IO;
 
 namespace Projek_Tea_Break
 {
-    public partial class formEdit : Form
+    public partial class formMinuman : Form
     {
-        public formEdit()
+        public formMinuman()
         {
             InitializeComponent();
         }
@@ -23,12 +23,11 @@ namespace Projek_Tea_Break
         MySqlCommand sqlCommand;
         MySqlDataAdapter sqlAdapter;
         public static string sqlQuery;
-        public static string sqlInsert;
-        public static int nomorMinuman;
-        public static string IDMinumanLama;
         private void InvisText()
         {
-
+            buttonCashier.Text = " ";
+            buttonEditMenu.Text = " ";
+            buttonAdmin.Text = " ";
         }
         private void FormOrder_Load(object sender, EventArgs e)
         {
@@ -42,14 +41,6 @@ namespace Projek_Tea_Break
             tboxID.Text = "";
             tboxNama.Text = "";
             tboxHarga.Text = "";
-            //dgvMenu.ReadOnly = true;
-            //tboxID.Visible = false;
-            //tboxNama.Visible = false;
-            //tboxHarga.Visible = false;
-            //labelID.Visible = false;
-            //labelNama.Visible = false;
-            //labelHarga.Visible = false;
-
 
             tboxID.Enabled = false;
             tboxNama.Enabled = false;
@@ -58,15 +49,6 @@ namespace Projek_Tea_Break
 
         public void LoadData()
         {
-            sqlQuery = "select `ID_MINUMAN`,`NAMA_MINUMAN`,`HARGA_MINUMAN` from MINUMAN WHERE STATUS_DELETE = '0'";
-            sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
-            sqlAdapter = new MySqlDataAdapter(sqlCommand);
-            DataTable dt = new DataTable();
-            sqlAdapter.Fill(dt);
-            tboxID.Text = dt.Rows[0][0].ToString();
-            tboxNama.Text = dt.Rows[0][1].ToString();
-            tboxHarga.Text = dt.Rows[0][2].ToString();
-
             sqlQuery = "select `ID_MINUMAN`,`NAMA_MINUMAN`,`HARGA_MINUMAN` from MINUMAN WHERE STATUS_DELETE = '0'";
             sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
             sqlAdapter = new MySqlDataAdapter(sqlCommand);
@@ -95,6 +77,11 @@ namespace Projek_Tea_Break
             buttonCashier.BackColor = Color.ForestGreen;
             InvisText();
             buttonCashier.Text = "Cashier";
+
+            this.Hide();
+            FormOrder formOrder = new FormOrder();
+            formOrder.ShowDialog();
+            this.Close();
         }
 
 
@@ -105,6 +92,11 @@ namespace Projek_Tea_Break
             buttonEditMenu.BackColor = Color.ForestGreen;
             InvisText();
             buttonEditMenu.Text = "Edit";
+
+            this.Hide();
+            formEditPilih formPilih = new formEditPilih();
+            formPilih.ShowDialog();
+            this.Close();
         }
 
         private void buttonAdmin_Click_1(object sender, EventArgs e)
@@ -115,17 +107,21 @@ namespace Projek_Tea_Break
             InvisText();
             buttonAdmin.Text = "Admin";
 
+            this.Hide();
+            formAdmin formAdmin = new formAdmin();
+            formAdmin.ShowDialog();
+            this.Close();
         }
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            FormbtnEdit F1 = new FormbtnEdit();
+            formMinumanUpdate F1 = new formMinumanUpdate();
             F1.Show();
             this.Hide();
         }
         private void btnadd_Click(object sender, EventArgs e)
         {
-            FormbtnAdd F2 = new FormbtnAdd();
+            formMinumanInsert F2 = new formMinumanInsert();
             F2.Show();
             this.Hide();
         }
@@ -144,13 +140,12 @@ namespace Projek_Tea_Break
         {
             formProfile formProfil = new formProfile();
             formProfil.ShowDialog();
-            this.Close();
         }
 
 
         // Jeffri
         string imgLocation = "";
-        private void buttonAddImage_Click(object sender, EventArgs e)
+        private void buttonAddImage_Click(object sender, EventArgs e) // ini pun
         {
             OpenFileDialog open = new OpenFileDialog();
 
@@ -163,7 +158,7 @@ namespace Projek_Tea_Break
             }
         }
 
-        public void SaveGambar()
+        public void SaveGambar() // ini apa
         {
             byte[] images = null;
             FileStream stream = new FileStream(imgLocation, FileMode.Open, FileAccess.Read);
@@ -194,5 +189,6 @@ namespace Projek_Tea_Break
             pictureBoxAdd.Image = Image.FromStream(mstream);
             sqlConnect.Close();
         }
+
     }
-    }
+}

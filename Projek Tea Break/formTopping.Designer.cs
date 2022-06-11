@@ -1,7 +1,7 @@
 ﻿
 namespace Projek_Tea_Break
 {
-    partial class formEditTopping
+    partial class formTopping
     {
         /// <summary>
         /// Required designer variable.
@@ -30,7 +30,7 @@ namespace Projek_Tea_Break
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formEditTopping));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formTopping));
             this.panel2 = new System.Windows.Forms.Panel();
             this.pbProfil = new System.Windows.Forms.PictureBox();
             this.buttonAdmin = new System.Windows.Forms.Button();

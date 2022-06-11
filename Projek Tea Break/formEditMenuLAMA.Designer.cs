@@ -30,7 +30,7 @@ namespace Projek_Tea_Break
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formEdit));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formMinuman));
             this.panel2 = new System.Windows.Forms.Panel();
             this.buttonAdmin = new System.Windows.Forms.Button();
             this.buttonEditMenu = new System.Windows.Forms.Button();
