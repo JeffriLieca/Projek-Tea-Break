@@ -95,6 +95,7 @@ namespace Projek_Tea_Break
             }
             HitungTopping();
             InsertData();
+            formOrder.LoadOrderMenu();
         }
 
         private void buttonCancel_Click(object sender, EventArgs e)

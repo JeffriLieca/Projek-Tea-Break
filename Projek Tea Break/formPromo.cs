@@ -138,14 +138,17 @@ namespace Projek_Tea_Break
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            sqlConnect.Open();
-            sqlQuery = "update PROMO set STATUS_DELETE = '1' where ID_PROMO = '" + tboxID.Text + "' ";
-            sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
-            sqlCommand.ExecuteNonQuery();
-            sqlConnect.Close();
-            LoadData();
+            DialogResult drDelete = MessageBox.Show("Confirm to delete?", "Delete", MessageBoxButtons.YesNo);
+            if (drDelete == DialogResult.Yes)
+            {
+                sqlConnect.Open();
+                sqlQuery = "update PROMO set STATUS_DELETE = '1' where ID_PROMO = '" + tboxID.Text + "' ";
+                sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
+                sqlCommand.ExecuteNonQuery();
+                sqlConnect.Close();
+                LoadData();
+            }
         }
-
         private void pbProfil_Click(object sender, EventArgs e)
         {
             formProfile formProfil = new formProfile();

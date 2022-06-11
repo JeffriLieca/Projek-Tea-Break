@@ -16,7 +16,7 @@ namespace Projek_Tea_Break
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new formTopping());
+            Application.Run(new FormOrder());
         }
     }
 }

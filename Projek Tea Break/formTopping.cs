@@ -107,16 +107,20 @@ namespace Projek_Tea_Break
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            sqlQuery = "update TOPPING set STATUS_DELETE = 1 where ID_TOPPING = '" + tboxID.Text + "' ";
-            sqlConnect.Open();
-            sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
-            sqlCommand.ExecuteNonQuery();
-            sqlConnect.Close();
+            DialogResult drDelete = MessageBox.Show("Confirm to delete?", "Delete", MessageBoxButtons.YesNo);
+            if (drDelete == DialogResult.Yes)
+            {
+                sqlQuery = "update TOPPING set STATUS_DELETE = 1 where ID_TOPPING = '" + tboxID.Text + "' ";
+                sqlConnect.Open();
+                sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
+                sqlCommand.ExecuteNonQuery();
+                sqlConnect.Close();
 
-            Refresh();
+                Refresh();
+            }
         }
 
-        private void dgvTopping_CellContentClick(object sender, DataGridViewCellEventArgs e)
+            private void dgvTopping_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             tboxID.Text = dgvTopping.Rows[e.RowIndex].Cells[0].Value.ToString();
             tboxNama.Text = dgvTopping.Rows[e.RowIndex].Cells[1].Value.ToString();
@@ -162,7 +166,6 @@ namespace Projek_Tea_Break
         {
             formProfile formProfil = new formProfile();
             formProfil.ShowDialog();
-            this.Close();
         }
     }
 }

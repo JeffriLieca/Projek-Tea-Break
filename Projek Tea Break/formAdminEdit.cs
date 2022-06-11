@@ -20,7 +20,6 @@ namespace Projek_Tea_Break
 
         public static string sqlQuery;
         public static string cekID;
-        public static int nomorMinuman;
 
         DataTable dtPegawai = new DataTable();
         DataTable dtJabatan = new DataTable();
@@ -148,18 +147,18 @@ namespace Projek_Tea_Break
         private void pbProfil_Click(object sender, EventArgs e)
         {
             formProfile formProfil = new formProfile();
-            formProfil.ShowDialog(); 
-            this.Close();
+            formProfil.ShowDialog();
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
             sqlQuery = "insert into PEGAWAI values('"+tbID.Text+"', '"+tbNama.Text+"', '"+dtpTanggalLahir.Value.ToString("yyyyMMdd")+"', '"+tbAlamat.Text+"', '"+tbHP.Text+"', '"+cbJabatan.SelectedValue+"', '0');";
-            MessageBox.Show(sqlQuery);
             sqlConnect.Open();
             sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
             sqlCommand.ExecuteNonQuery();
             sqlConnect.Close();
+
+            MessageBox.Show("Berhasil ditambah");
 
             Refresh();
         }
@@ -175,6 +174,8 @@ namespace Projek_Tea_Break
                 sqlCommand.ExecuteNonQuery();
                 sqlConnect.Close();
 
+                MessageBox.Show("Berhasil diubah");
+
                 Refresh();
             }
             else
@@ -185,6 +186,8 @@ namespace Projek_Tea_Break
                 sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
                 sqlCommand.ExecuteNonQuery();
                 sqlConnect.Close();
+
+                MessageBox.Show("Berhasil diubah");
 
                 Refresh();
             }                      

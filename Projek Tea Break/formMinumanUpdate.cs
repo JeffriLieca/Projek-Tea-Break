@@ -25,29 +25,26 @@ namespace Projek_Tea_Break
         string sqlQuery;
         public static string saveID = "";
 
-        private void FormbtnEdit_Load(object sender, EventArgs e)
+        DataTable menu = new DataTable();
+
+        private void Refresh()
         {
-            tboxID.Text = "";
-            tboxNama.Text = "";
-            tboxHarga.Text = "";
-            dgvMenu.ReadOnly = true;
-
-            sqlQuery = "select `ID_MINUMAN`,`NAMA_MINUMAN`,`HARGA_MINUMAN` from MINUMAN";
-            sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
-            sqlAdapter = new MySqlDataAdapter(sqlCommand);
-            DataTable dt = new DataTable();
-            sqlAdapter.Fill(dt);
-            tboxID.Text = dt.Rows[0][0].ToString();
-            tboxNama.Text = dt.Rows[0][1].ToString();
-            tboxHarga.Text = dt.Rows[0][2].ToString();
-            LoadGambar();
-
-            sqlQuery = "select `ID_MINUMAN` as 'ID',`NAMA_MINUMAN`,`HARGA_MINUMAN` from MINUMAN";
+            sqlQuery = "select `ID_MINUMAN` as 'ID Minuman',`NAMA_MINUMAN` as 'Nama Minuman',`HARGA_MINUMAN` as 'Harga Minuman' from MINUMAN where status_delete = '0';";
             sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
             sqlAdapter = new MySqlDataAdapter(sqlCommand);
             DataTable menu = new DataTable();
             sqlAdapter.Fill(menu);
             dgvMenu.DataSource = menu;
+        }
+
+        private void FormbtnEdit_Load(object sender, EventArgs e)
+        {
+            Refresh();
+            LoadGambar();
+
+            tboxID.Text = menu.Rows[0][0].ToString();
+            tboxNama.Text = menu.Rows[0][1].ToString();
+            tboxHarga.Text = menu.Rows[0][2].ToString();
         }
         private void dgvMenu_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -63,6 +60,7 @@ namespace Projek_Tea_Break
 
         private void btnCancelEdit_Click(object sender, EventArgs e)
         {
+            this.Hide();
             formMinuman Fmain = new formMinuman();
             Fmain.Show();
             this.Close();
@@ -86,7 +84,7 @@ namespace Projek_Tea_Break
             }
 
 
-            if (tboxID.Text != dgvMenu.CurrentRow.Cells["ID"].Value.ToString())
+            if (tboxID.Text != dgvMenu.CurrentRow.Cells["ID Minuman"].Value.ToString())
             {
                 sqlConnect.Open();
                 sqlQuery = "UPDATE MINUMAN SET ID_MINUMAN = '"+tboxID.Text+"',NAMA_MINUMAN = '" + tboxNama.Text + "', HARGA_MINUMAN = '" + tboxHarga.Text + "' WHERE ID_MINUMAN ='" + saveID + "'";
@@ -94,15 +92,13 @@ namespace Projek_Tea_Break
                 sqlCommand.ExecuteNonQuery();
                 sqlConnect.Close();
                 MessageBox.Show("Berhasil Disimpan");
-                sqlQuery = "select `ID_MINUMAN`,`NAMA_MINUMAN`,`HARGA_MINUMAN` from MINUMAN";
-                sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
-                sqlAdapter = new MySqlDataAdapter(sqlCommand);
-                DataTable menu = new DataTable();
-                sqlAdapter.Fill(menu);
-                dgvMenu.DataSource = menu;
+
+                Refresh();
+
+                this.Hide();
                 formMinuman Fmain = new formMinuman();
                 Fmain.Show();
-                this.Hide();
+                this.Close();
             }
             else
             {
@@ -112,15 +108,13 @@ namespace Projek_Tea_Break
                 sqlCommand.ExecuteNonQuery();
                 sqlConnect.Close();
                 MessageBox.Show("Berhasil Disimpan");
-                sqlQuery = "select `ID_MINUMAN`,`NAMA_MINUMAN`,`HARGA_MINUMAN` from MINUMAN";
-                sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
-                sqlAdapter = new MySqlDataAdapter(sqlCommand);
-                DataTable menu = new DataTable();
-                sqlAdapter.Fill(menu);
-                dgvMenu.DataSource = menu;
+
+                Refresh();
+
+                this.Hide();
                 formMinuman Fmain = new formMinuman();
                 Fmain.Show();
-                this.Hide();
+                this.Close();
             }
         }
 

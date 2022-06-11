@@ -23,31 +23,33 @@ namespace Projek_Tea_Break
         MySqlDataAdapter sqlAdapter;
         public static string sqlQuery;
 
-        private void FormbtnAdd_Load(object sender, EventArgs e)
+        DataTable menu = new DataTable();
+
+        private void Refresh()
         {
-            tboxID.Text = "";
-            tboxNama.Text = "";
-            tboxHarga.Text = "";
-            dgvMenu.ReadOnly = true;
-
-            sqlQuery = "select `ID_MINUMAN`,`NAMA_MINUMAN`,`HARGA_MINUMAN` from MINUMAN";
-            sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
-            sqlAdapter = new MySqlDataAdapter(sqlCommand);
-            DataTable dt = new DataTable();
-            sqlAdapter.Fill(dt);
-
-            sqlQuery = "select `ID_MINUMAN`,`NAMA_MINUMAN`,`HARGA_MINUMAN` from MINUMAN";
+            sqlQuery = "select `ID_MINUMAN` as 'ID Minuman',`NAMA_MINUMAN` as 'Nama Minuman',`HARGA_MINUMAN` as 'Harga Minuman' from MINUMAN where status_delete = '0';";
             sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
             sqlAdapter = new MySqlDataAdapter(sqlCommand);
             DataTable menu = new DataTable();
             sqlAdapter.Fill(menu);
             dgvMenu.DataSource = menu;
         }
+
+        private void FormbtnAdd_Load(object sender, EventArgs e)
+        {
+            Refresh();
+            LoadGambar();
+
+            tboxID.Text = menu.Rows[0][0].ToString();
+            tboxNama.Text = menu.Rows[0][1].ToString();
+            tboxHarga.Text = menu.Rows[0][2].ToString();
+        }
         private void btnCancelAdd_Click(object sender, EventArgs e)
         {
+            this.Hide();
             formMinuman Fmain = new formMinuman();
             Fmain.Show();
-            this.Hide();
+            this.Close();
         }
 
         private void btnSaveAdd_Click(object sender, EventArgs e)
@@ -91,6 +93,31 @@ namespace Projek_Tea_Break
                 pictureBoxAdd.ImageLocation = imgLocation;
             }
 
+        }
+
+        private void dgvMenu_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int index = e.RowIndex;
+            DataGridViewRow selectedRow = dgvMenu.Rows[index];
+            tboxID.Text = selectedRow.Cells[0].Value.ToString();
+            tboxNama.Text = selectedRow.Cells[1].Value.ToString();
+            tboxHarga.Text = selectedRow.Cells[2].Value.ToString();
+
+            LoadGambar();
+        }
+        public void LoadGambar()
+        {
+            imgLocation = "";
+            sqlConnect.Open();
+            sqlQuery = "select GAMBAR from MINUMAN where ID_MINUMAN='" + tboxID.Text + "';";
+            sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
+            sqlAdapter = new MySqlDataAdapter(sqlCommand);
+            DataTable dtCoba = new DataTable();
+            sqlAdapter.Fill(dtCoba);
+            byte[] images = ((byte[])dtCoba.Rows[0][0]);
+            MemoryStream mstream = new MemoryStream(images);
+            pictureBoxAdd.Image = Image.FromStream(mstream);
+            sqlConnect.Close();
         }
     }
 }

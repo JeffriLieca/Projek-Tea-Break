@@ -23,12 +23,14 @@ namespace Projek_Tea_Break
         MySqlCommand sqlCommand;
         MySqlDataAdapter sqlAdapter;
         public static string sqlQuery;
+
         private void InvisText()
         {
             buttonCashier.Text = " ";
             buttonEditMenu.Text = " ";
             buttonAdmin.Text = " ";
         }
+
         private void FormOrder_Load(object sender, EventArgs e)
         {
             buttonEditMenu.BackColor = Color.ForestGreen;
@@ -38,9 +40,6 @@ namespace Projek_Tea_Break
             buttonEditMenu.Text = "Edit";
 
             LoadData();
-            tboxID.Text = "";
-            tboxNama.Text = "";
-            tboxHarga.Text = "";
 
             tboxID.Enabled = false;
             tboxNama.Enabled = false;
@@ -128,14 +127,17 @@ namespace Projek_Tea_Break
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            sqlConnect.Open();
-            sqlQuery = "update MINUMAN set STATUS_DELETE = '1' where ID_MINUMAN = '" + tboxID.Text + "' ";
-            sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
-            sqlCommand.ExecuteNonQuery();
-            sqlConnect.Close();
-            LoadData();
+            DialogResult drDelete = MessageBox.Show("Confirm to delete?", "Delete", MessageBoxButtons.YesNo);
+            if (drDelete == DialogResult.Yes)
+            {
+                sqlConnect.Open();
+                sqlQuery = "update MINUMAN set STATUS_DELETE = '1' where ID_MINUMAN = '" + tboxID.Text + "' ";
+                sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
+                sqlCommand.ExecuteNonQuery();
+                sqlConnect.Close();
+                LoadData();
+            }
         }
-
         private void pbProfil_Click(object sender, EventArgs e)
         {
             formProfile formProfil = new formProfile();

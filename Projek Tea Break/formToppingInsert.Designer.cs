@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.labelAdd = new System.Windows.Forms.Label();
-            this.dgvMenu = new System.Windows.Forms.DataGridView();
+            this.dgvTopping = new System.Windows.Forms.DataGridView();
             this.btnCancelAdd = new System.Windows.Forms.Button();
             this.btnSaveAdd = new System.Windows.Forms.Button();
             this.tboxHarga = new System.Windows.Forms.TextBox();
@@ -41,7 +41,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.buttonAddImage = new System.Windows.Forms.Button();
             this.pictureBoxAdd = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvMenu)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTopping)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAdd)).BeginInit();
             this.SuspendLayout();
@@ -56,21 +56,22 @@
             this.labelAdd.TabIndex = 46;
             this.labelAdd.Text = "ADD";
             // 
-            // dgvMenu
+            // dgvTopping
             // 
-            this.dgvMenu.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvMenu.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dgvMenu.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvMenu.Location = new System.Drawing.Point(40, 71);
-            this.dgvMenu.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.dgvMenu.MultiSelect = false;
-            this.dgvMenu.Name = "dgvMenu";
-            this.dgvMenu.ReadOnly = true;
-            this.dgvMenu.RowHeadersWidth = 51;
-            this.dgvMenu.RowTemplate.Height = 24;
-            this.dgvMenu.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvMenu.Size = new System.Drawing.Size(627, 150);
-            this.dgvMenu.TabIndex = 45;
+            this.dgvTopping.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvTopping.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dgvTopping.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvTopping.Location = new System.Drawing.Point(40, 71);
+            this.dgvTopping.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.dgvTopping.MultiSelect = false;
+            this.dgvTopping.Name = "dgvTopping";
+            this.dgvTopping.ReadOnly = true;
+            this.dgvTopping.RowHeadersWidth = 51;
+            this.dgvTopping.RowTemplate.Height = 24;
+            this.dgvTopping.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvTopping.Size = new System.Drawing.Size(627, 150);
+            this.dgvTopping.TabIndex = 45;
+            this.dgvTopping.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTopping_CellContentClick);
             // 
             // btnCancelAdd
             // 
@@ -176,7 +177,6 @@
             this.buttonAddImage.TabIndex = 38;
             this.buttonAddImage.Text = "Add Image";
             this.buttonAddImage.UseVisualStyleBackColor = true;
-            this.buttonAddImage.Click += new System.EventHandler(this.buttonAddImage_Click);
             // 
             // pictureBoxAdd
             // 
@@ -188,14 +188,14 @@
             this.pictureBoxAdd.TabIndex = 37;
             this.pictureBoxAdd.TabStop = false;
             // 
-            // FormbtnAdd
+            // formToppingInsert
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(707, 535);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.labelAdd);
-            this.Controls.Add(this.dgvMenu);
+            this.Controls.Add(this.dgvTopping);
             this.Controls.Add(this.btnCancelAdd);
             this.Controls.Add(this.btnSaveAdd);
             this.Controls.Add(this.tboxHarga);
@@ -205,10 +205,10 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Name = "FormbtnAdd";
+            this.Name = "formToppingInsert";
             this.Text = "FormbtnAdd";
             this.Load += new System.EventHandler(this.FormbtnAdd_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvMenu)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTopping)).EndInit();
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAdd)).EndInit();
             this.ResumeLayout(false);
@@ -219,7 +219,7 @@
         #endregion
 
         private System.Windows.Forms.Label labelAdd;
-        private System.Windows.Forms.DataGridView dgvMenu;
+        private System.Windows.Forms.DataGridView dgvTopping;
         private System.Windows.Forms.Button btnCancelAdd;
         private System.Windows.Forms.Button btnSaveAdd;
         private System.Windows.Forms.TextBox tboxHarga;

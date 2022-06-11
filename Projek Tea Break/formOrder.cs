@@ -27,11 +27,14 @@ namespace Projek_Tea_Break
         public static string sqlInsert;
         public static int nomorMinuman;
         public static string Kategori = "";
+        public static int Total = 0;
 
         public int IndexMinuman { get; set; }
 
         private void FormOrder_Load(object sender, EventArgs e)
         {
+
+            DapatIDNota(); 
 
             //sqlConnect.Open();
             buttonEditMenu.BackColor = Color.Transparent;
@@ -226,7 +229,7 @@ namespace Projek_Tea_Break
             formadd.PassingData = buttonhu.Tag.ToString();
             formadd.PassingImageList = imageListMinuman;
             formadd.PassingIndex = buttonhu.ImageIndex;
-            formadd.Show();
+            formadd.ShowDialog();
         }
 
         private void textBoxCariMinuman_TextChanged(object sender, EventArgs e)
@@ -237,8 +240,10 @@ namespace Projek_Tea_Break
 
         private void buttonOrderNow_Click(object sender, EventArgs e)
         {
-            FormAddMinuman formadd = new FormAddMinuman();
-            formadd.Show();
+            if (textBoxNama.Text == "")
+            {
+                MessageBox.Show("Nama Customer harus diisi");
+            }
         }
 
         private void buttonS_Click(object sender, EventArgs e)
@@ -284,33 +289,121 @@ namespace Projek_Tea_Break
         {
 
             DataTable dtDetail = new DataTable();
-            string sqlQueryDetail = "select DM.INDEX_MINUMAN AS `INDEX`, DM.ID_MINUMAN AS ID, DM.QTY_MINUMAN AS QTY, DM.HARGA_MINUMAN AS HARGA, DM.SUBTOTAL_MINUMAN AS SUBTOTAL, DM.NOTE_MINUMAN AS NOTE, DM.SUGAR_LEVEL AS SUGAR, ICE_LEVEL AS ICE from DETAIL_MINUMAN DM where DM.ID_NOTA='2206020002'; ";
+            string sqlQueryDetail = "select DM.INDEX_MINUMAN AS `INDEX`, DM.ID_MINUMAN AS ID, M.NAMA_MINUMAN as NAMA ,DM.QTY_MINUMAN AS QTY, DM.HARGA_MINUMAN AS HARGA, DM.SUBTOTAL_MINUMAN AS SUBTOTAL, DM.NOTE_MINUMAN AS NOTE, DM.SUGAR_LEVEL AS SUGAR, ICE_LEVEL AS ICE from DETAIL_MINUMAN_SEMENTARA DM, MINUMAN M where  M.ID_MINUMAN=DM.ID_MINUMAN and DM.ID_NOTA='"+labelIDNota.Text+"' order by 1 ;  ";
             sqlCommand = new MySqlCommand(sqlQueryDetail, sqlConnect);
             sqlAdapter = new MySqlDataAdapter(sqlCommand);
             sqlAdapter.Fill(dtDetail);
 
 
             Label[] labelMinuman = new Label[dtDetail.Rows.Count];
+            Label[] labelHargaSubtotal = new Label[dtDetail.Rows.Count];
+            Label[] labelSugar = new Label[dtDetail.Rows.Count];
+            Label[] labelIce = new Label[dtDetail.Rows.Count];
+            int[] Subtotal = new int[dtDetail.Rows.Count];
 
-            int posisiY = 200;
+            int posisiY = 40;
+            int posisiYHarga = 40;
             for (int i = 0; i < dtDetail.Rows.Count; i++)
             {
-                string[] detailTopping = dtDetail.Rows[i][5].ToString().Split(',');
+                posisiY += 10;
+                posisiYHarga = posisiY;
+                string[] detailTopping = dtDetail.Rows[i][6].ToString().Split(',');
                 labelMinuman[i] = new System.Windows.Forms.Label();
                 panelOrderMenu.Controls.Add(labelMinuman[i]);
-                labelMinuman[i].Text = dtDetail.Rows[i][1].ToString();
-                labelMinuman[i].Location = new Point(50, posisiY);
+                labelMinuman[i].Text = dtDetail.Rows[i][2].ToString() + " " + dtDetail.Rows[i][3] + " x @ " + dtDetail.Rows[i][4].ToString();
+                labelMinuman[i].Location = new Point(20, posisiY);
+                labelMinuman[i].UseCompatibleTextRendering = true;
+                labelMinuman[i].Size = new Size(150,15);
                 Label[] labelTopping = new Label[detailTopping.Length];
-                posisiY += 27;
+                posisiY += 15;
+
+                Subtotal[i] = Convert.ToInt32(dtDetail.Rows[i][4])*Convert.ToInt32(dtDetail.Rows[i][3]);
+
+                
                 for (int j = 0; j < detailTopping.Length; j++)
                 {
+                    string[] pisahTopping = detailTopping[j].Split('-');
+
+                    DataTable dtTopping = new DataTable();
+                    string sqlQueryPisahTopping = "select NAMA_TOPPING, HARGA_TOPPING FROM TOPPING WHERE ID_TOPPING='"+pisahTopping[0]+"';";
+                    sqlCommand = new MySqlCommand(sqlQueryPisahTopping, sqlConnect);
+                    sqlAdapter = new MySqlDataAdapter(sqlCommand);
+                    sqlAdapter.Fill(dtTopping);
+
                     labelTopping[j] = new System.Windows.Forms.Label();
                     panelOrderMenu.Controls.Add(labelTopping[j]);
-                    labelTopping[j].Text = detailTopping[j];
-                    labelTopping[j].Location = new Point(70, posisiY);
-                    posisiY += 21;
+                    //labelTopping[j].Text = detailTopping[j];
+                    if (dtTopping.Rows.Count > 0)
+                    {
+
+                        labelTopping[j].Text = dtTopping.Rows[0][0].ToString() + " " + pisahTopping[1] + " x @ " + dtTopping.Rows[0][1].ToString();
+                        labelTopping[j].Font = new Font(labelTopping[j].Font.ToString(), 7);
+                        labelTopping[j].UseCompatibleTextRendering = true;
+                        labelTopping[j].Size = new Size(150, 15);
+                        labelTopping[j].Location = new Point(40, posisiY);
+                        posisiY += 15;
+
+                        Subtotal[i] += Convert.ToInt32(dtTopping.Rows[0][1]) * Convert.ToInt32(pisahTopping[1]);
+                    }
                 }
-                posisiY += 15;
+
+                if (dtDetail.Rows[i][7].ToString() == "L")
+                {
+                    labelSugar[i] = new System.Windows.Forms.Label();
+                    panelOrderMenu.Controls.Add(labelSugar[i]);
+                    labelSugar[i].Text = "(Less Sugar)";
+                    labelSugar[i].Location = new Point(40, posisiY);
+                    labelSugar[i].UseCompatibleTextRendering = true;
+                    labelSugar[i].Font = new Font(labelSugar[i].Font.ToString(), 7);
+                    labelSugar[i].Size = new Size(150, 15);
+                    posisiY += 15;
+                }
+                else if (dtDetail.Rows[i][7].ToString() == "M")
+                {
+                    labelSugar[i] = new System.Windows.Forms.Label();
+                    panelOrderMenu.Controls.Add(labelSugar[i]);
+                    labelSugar[i].Text = "(More Sugar)";
+                    labelSugar[i].Location = new Point(40, posisiY);
+                    labelSugar[i].UseCompatibleTextRendering = true;
+                    labelSugar[i].Font = new Font(labelSugar[i].Font.ToString(), 7);
+                    labelSugar[i].Size = new Size(150, 15);
+                    posisiY += 15;
+                }
+                else { }
+
+                if (dtDetail.Rows[i][8].ToString() == "L")
+                {
+                    labelIce[i] = new System.Windows.Forms.Label();
+                    panelOrderMenu.Controls.Add(labelIce[i]);
+                    labelIce[i].Text = "(Less Ice)";
+                    labelIce[i].Location = new Point(40, posisiY);
+                    labelIce[i].UseCompatibleTextRendering = true;
+                    labelIce[i].Font = new Font(labelIce[i].Font.ToString(), 7);
+                    labelIce[i].Size = new Size(150, 15);
+                    posisiY += 15;
+                }
+                else if (dtDetail.Rows[i][8].ToString() == "M")
+                {
+                    labelIce[i] = new System.Windows.Forms.Label();
+                    panelOrderMenu.Controls.Add(labelIce[i]);
+                    labelIce[i].Text = "(More Ice)";
+                    labelIce[i].Location = new Point(40, posisiY);
+                    labelIce[i].UseCompatibleTextRendering = true;
+                    labelIce[i].Font = new Font(labelIce[i].Font.ToString(), 7);
+                    labelIce[i].Size = new Size(150, 15);
+                    posisiY += 15;
+                }
+                else { }
+
+                labelHargaSubtotal[i] = new System.Windows.Forms.Label();
+                panelOrderMenu.Controls.Add(labelHargaSubtotal[i]);
+                labelHargaSubtotal[i].Text = "Rp. " + Subtotal[i].ToString();
+                labelHargaSubtotal[i].Location = new Point(180, posisiYHarga);
+                labelHargaSubtotal[i].UseCompatibleTextRendering = true;
+                labelHargaSubtotal[i].Size = new Size(60, 15);
+
+                Total += Subtotal[i];
+                labelTotalHarga.Text = "Rp. " + Total.ToString();
             }
 
 
@@ -319,6 +412,45 @@ namespace Projek_Tea_Break
         {
             formProfile formProfil = new formProfile();
             formProfil.ShowDialog();
+        }
+
+        private void panelOrderMenu_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+        public static string idNota = "";
+        public void DapatIDNota()
+        {
+            sqlConnect.Open();
+            sqlQuery = "select right(n.ID_NOTA,4) as urut,left(n.ID_NOTA,6) as tanggal from NOTA n where left(n.ID_NOTA,6)= date_format(now(),\"%y%m%d\") order by 1 desc;";
+            sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
+            sqlAdapter = new MySqlDataAdapter(sqlCommand);
+            DataTable dtidNota = new DataTable();
+            sqlAdapter.Fill(dtidNota);
+
+            sqlQuery = "select date_format(now(),\"%y%m%d\");";
+            sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
+            sqlAdapter = new MySqlDataAdapter(sqlCommand);
+            DataTable dtTanggalNota = new DataTable();
+            sqlAdapter.Fill(dtTanggalNota);
+
+            idNota = "";
+            string nomorNota = "";
+            if (dtidNota.Rows.Count == 0)
+            {
+                idNota = dtTanggalNota.Rows[0][0].ToString() + "0001";
+            }
+            else
+            {
+                nomorNota = (Convert.ToInt32(dtidNota.Rows[0][0].ToString()) + 1).ToString();
+                for (int i = 0; i < nomorNota.Length; i++)
+                {
+                    nomorNota = "0" + nomorNota;
+                }
+                idNota = dtidNota.Rows[0][1].ToString() + nomorNota;
+            }
+            labelIDNota.Text = idNota;
+            sqlConnect.Close();
         }
     }
 }
