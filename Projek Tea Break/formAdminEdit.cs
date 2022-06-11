@@ -20,6 +20,7 @@ namespace Projek_Tea_Break
 
         public static string sqlQuery;
         public static string cekID;
+        public static string idPegawai = "";
 
         DataTable dtPegawai = new DataTable();
         DataTable dtJabatan = new DataTable();
@@ -38,6 +39,29 @@ namespace Projek_Tea_Break
             buttonCashier.Text = " ";
             buttonEditMenu.Text = " ";
             buttonAdmin.Text = " ";
+        }
+        private void IDPegawai()
+        {
+            DataTable cekPegawai = new DataTable();
+            sqlQuery = "select left(id_pegawai,1) as inisial, right(id_pegawai,4) as urut from PEGAWAI where left(id_pegawai,1) = left('" + tbNama.Text.ToUpper() + "',1) and status_delete = '0' order by 2 desc";
+            sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
+            sqlAdapter = new MySqlDataAdapter(sqlCommand);
+            sqlAdapter.Fill(cekPegawai);
+            string noPegawai = "";
+            if (cekPegawai.Rows.Count == 0)
+            {
+                idPegawai = tbNama.Text.Substring(0, 1).ToUpper() + "0001";
+            }
+            else
+            {
+                noPegawai = (Convert.ToInt32(cekPegawai.Rows[0][1].ToString()) + 1).ToString();
+                for (int i = 0; i < 6 - noPegawai.Length; i++)
+                {
+                    noPegawai = "0" + noPegawai;
+                }
+                idPegawai = cekPegawai.Rows[0][0].ToString() + noPegawai;
+            }
+            tbID.Text = idPegawai;
         }
         private void FormOrder_Load(object sender, EventArgs e)
         {
@@ -366,5 +390,10 @@ namespace Projek_Tea_Break
                 btnDelete.Visible = false;
             }
         }// copas dari rbEdit
+
+        private void tbNama_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

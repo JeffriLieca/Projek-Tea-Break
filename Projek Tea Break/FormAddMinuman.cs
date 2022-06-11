@@ -95,7 +95,8 @@ namespace Projek_Tea_Break
             }
             HitungTopping();
             InsertData();
-            formOrder.LoadOrderMenu();
+            RunOrderMenu();
+            this.Close();
         }
 
         private void buttonCancel_Click(object sender, EventArgs e)
@@ -274,5 +275,13 @@ namespace Projek_Tea_Break
             orderform.IndexMinuman++;
             PassingIndexMinuman++;
         }
+
+        public void RunOrderMenu()
+        {
+            var TampilkanOrderMenu = Application.OpenForms.OfType<FormOrder>().FirstOrDefault();
+            TampilkanOrderMenu.LoadOrderMenu();
+            TampilkanOrderMenu.RefreshPencarian();
+        }
+
     }
 }
