@@ -21,6 +21,7 @@ namespace Projek_Tea_Break
         MySqlCommand sqlCommand;
         MySqlDataAdapter sqlAdapter;
         public static string sqlQuery;
+        public static string buatID = "";
 
         private void LoadRefresh()
         {
@@ -30,6 +31,19 @@ namespace Projek_Tea_Break
             DataTable promo = new DataTable();
             sqlAdapter.Fill(promo);
             dgvPromo.DataSource = promo;
+        }
+        private void BuatInsertID()
+        {
+            try
+            {
+                buatID = "PD" + tboxBesar.Text + dtpFrom.Value.ToString("yMMdd");
+            }
+            catch (Exception)
+            {
+
+            }
+            tboxID.Text = buatID;
+
         }
         private void FormbtnAdd_Load(object sender, EventArgs e)
         {
@@ -60,6 +74,16 @@ namespace Projek_Tea_Break
             formPromo Fmain = new formPromo();
             Fmain.ShowDialog();
             this.Close();
+        }
+
+        private void tboxBesar_TextChanged(object sender, EventArgs e)
+        {
+            BuatInsertID();
+        }
+
+        private void dtpFrom_ValueChanged(object sender, EventArgs e)
+        {
+            BuatInsertID();
         }
     }
 }

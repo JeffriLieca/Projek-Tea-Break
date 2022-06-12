@@ -38,7 +38,7 @@ namespace Projek_Tea_Break
         private void BuatInsertID()
         {
             DataTable cekID = new DataTable();
-            sqlQuery = "select right(id_topping,2) as urut from TOPPING where status_delete = '0' order by 1 desc;";
+            sqlQuery = "select right(id_topping,2) as urut from TOPPING order by 1 desc;";
             sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
             sqlAdapter = new MySqlDataAdapter(sqlCommand);
             sqlAdapter.Fill(cekID);

@@ -30,11 +30,18 @@ namespace Projek_Tea_Break
         public static int Total = 0;
         public static int Netto = 0;
         public static int Diskon = 0;
+        public static string IDCustomer = "";
+        public static string IDPromo = "";
+        public static string IDPegawai = "";
+        public static string NamaPegawai = "";
+        public static string nomorNota = "";
 
         public int IndexMinuman { get; set; }
 
         private void FormOrder_Load(object sender, EventArgs e)
         {
+
+            labelNamaPegawai.AutoSize = false;
 
             DapatIDNota();
             GetIDCustomer();
@@ -52,6 +59,11 @@ namespace Projek_Tea_Break
                 buttonAdmin.Enabled = false;
                 buttonEditMenu.Enabled = false;
             }
+            IDPegawai = FormLogin.saveIDPegawai;
+            NamaPegawai = FormLogin.saveNamaDepan;
+            labelNamaPegawai.Text = NamaPegawai;
+            labelNamaPegawai.UseCompatibleTextRendering = true;
+            labelNamaPegawai.Size = new Size(70, 17);
 
 
             LoadMinuman();
@@ -212,10 +224,14 @@ namespace Projek_Tea_Break
             {
                 MessageBox.Show("Nama Customer harus diisi");
             }
-            InsertData();
-            DeleteData();
-            Refresh();
-            Reload();
+            else
+            {
+                InsertData();
+                DeleteData();
+                Refresh();
+                Reload();
+                InsertNota();
+            }
         }
 
         private void buttonS_Click(object sender, EventArgs e)
@@ -278,6 +294,8 @@ namespace Projek_Tea_Break
 
             int posisiY = 5;
             int posisiYHarga = 5;
+
+            Total = 0;
             for (int i = 0; i < dtDetail.Rows.Count; i++)
             {
                 posisiY += 10;
@@ -408,8 +426,7 @@ namespace Projek_Tea_Break
             DataTable dtidNota = new DataTable();
             MessageBox.Show(btnSilang.Tag.ToString());
             sqlConnect.Close();
-
-            LoadOrderMenu();
+            Reload();
         }
 
         private void pbProfil_Click(object sender, EventArgs e)
@@ -439,7 +456,7 @@ namespace Projek_Tea_Break
             sqlAdapter.Fill(dtTanggalNota);
 
             idNota = "";
-            string nomorNota = "";
+            nomorNota = "";
             if (dtidNota.Rows.Count == 0)
             {
                 idNota = dtTanggalNota.Rows[0][0].ToString() + "0001";
@@ -498,6 +515,7 @@ namespace Projek_Tea_Break
             labelPersen.Text = dtPromo.Rows[0][1].ToString() + "%";
             Netto = Total - Diskon;
             labelTotalHargaBersih.Text = "Rp. "+Netto.ToString();
+            IDPromo = dtPromo.Rows[0][0].ToString();
         }
 
         public void Reload()
@@ -529,21 +547,34 @@ namespace Projek_Tea_Break
         public void GetIDCustomer()
         {
             sqlConnect.Open();
-            string sqlQueryDetail = "select left(ID_CUST,1) as abjad, substring(ID_CUST,2,7) as nomor from CUSTOMER order by 1 desc limit 1;  ";
+            string sqlQueryDetail = "select left(ID_CUST,1) as abjad, substring(ID_CUST,2,7) as nomor from CUSTOMER order by 2 desc limit 1;  ";
             sqlCommand = new MySqlCommand(sqlQueryDetail, sqlConnect);
             sqlAdapter = new MySqlDataAdapter(sqlCommand);
             DataTable dtIDCust = new DataTable();
             sqlAdapter.Fill(dtIDCust);
 
             string nomor = dtIDCust.Rows[0][1].ToString();
-            nomor = nomor + 1;
+            nomor = (Convert.ToInt32(nomor) + 1).ToString();
             for (int i = nomor.Length; i < 7; i++)
             {
                 nomor = "0" + nomor;
             }
             string nomorCust = dtIDCust.Rows[0][0].ToString()+nomor;
+            IDCustomer = nomorCust;
+            MessageBox.Show("IDCustomer=" + IDCustomer);
             sqlConnect.Close();
         }
+
+        public void InsertNota()
+        {
+            sqlConnect.Open();
+            string sqlQueryNota = "insert into NOTA values('"+idNota+"', '"+IDCustomer+"', '"+IDPegawai+"', '"+IDPromo+"', date_format(now(),'%Y %m %d'), '"+Total+"', '"+Diskon+"','"+(Total-Diskon)+"', '"+Convert.ToInt32(nomorNota)+"' , '0'); ";
+            sqlCommand = new MySqlCommand(sqlQueryNota, sqlConnect);
+            MessageBox.Show(sqlQueryNota);
+            //sqlCommand.ExecuteNonQuery();
+            sqlConnect.Close();
+        }
+
     }
 }
 

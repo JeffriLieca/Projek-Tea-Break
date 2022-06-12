@@ -27,6 +27,8 @@ namespace Projek_Tea_Break
         public static string saveID = "";
         public static string saveNama = "";
         public static string saveJabatan = "";
+        public static string saveIDPegawai = "";
+        public static string saveNamaDepan = "";
        
 
         private void buttonLogin_Click(object sender, EventArgs e)
@@ -42,6 +44,7 @@ namespace Projek_Tea_Break
                 saveID = dtLogin.Rows[0]["jabatan"].ToString();
                 saveNama = dtLogin.Rows[0]["nama"].ToString();
                 saveJabatan = dtLogin.Rows[0]["saveJabatan"].ToString();
+                saveIDPegawai = dtLogin.Rows[0]["id"].ToString();
                 if (saveID == "1")
                 {
                     MessageBox.Show("Username / Password tidak terdaftar");
@@ -73,7 +76,7 @@ namespace Projek_Tea_Break
             {
                 sqlConnect.Open();
                 DataTable dtLogin = new DataTable();
-                sqlQuery = "select id_pegawai as 'id', nama_pegawai as 'nama', level_jabatan as 'jabatan', if( level_jabatan = 1,'Staff',if(level_jabatan = 2,'Cashier',if(level_jabatan = 3,'Manager',''))) as 'saveJabatan' from PEGAWAI where id_pegawai = '" + textBoxPassword.Text + "' and nama_pegawai = '" + textBoxUsername.Text + "' and status_delete = 0;";
+                sqlQuery = "select id_pegawai as 'id', nama_pegawai as 'nama', level_jabatan as 'jabatan', if( level_jabatan = 1,'Staff',if(level_jabatan = 2,'Cashier',if(level_jabatan = 3,'Manager',''))) as 'saveJabatan',concat(upper(left(substring_index(NAMA_PEGAWAI,' ',1),1)),lower(substring(substring_index(NAMA_PEGAWAI,' ',1),2))) as 'namadepan' from PEGAWAI where id_pegawai = '" + textBoxPassword.Text + "' and nama_pegawai = '" + textBoxUsername.Text + "' and status_delete = 0;";
                 sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
                 sqlAdapter = new MySqlDataAdapter(sqlCommand);
                 sqlAdapter.Fill(dtLogin);
@@ -82,6 +85,8 @@ namespace Projek_Tea_Break
                     saveID = dtLogin.Rows[0]["jabatan"].ToString();
                     saveNama = dtLogin.Rows[0]["nama"].ToString();
                     saveJabatan = dtLogin.Rows[0]["saveJabatan"].ToString();
+                    saveIDPegawai = dtLogin.Rows[0]["id"].ToString();
+                    saveNamaDepan = dtLogin.Rows[0]["namadepan"].ToString();
                     if (saveID == "1")
                     {
                         MessageBox.Show("Username / Password tidak terdaftar");
@@ -114,7 +119,7 @@ namespace Projek_Tea_Break
             {
                 sqlConnect.Open();
                 DataTable dtLogin = new DataTable();
-                sqlQuery = "select id_pegawai as 'id', nama_pegawai as 'nama', level_jabatan as 'jabatan', if( level_jabatan = 1,'Staff',if(level_jabatan = 2,'Cashier',if(level_jabatan = 3,'Manager',''))) as 'saveJabatan' from PEGAWAI where id_pegawai = '" + textBoxPassword.Text + "' and nama_pegawai = '" + textBoxUsername.Text + "' and status_delete = 0;";
+                sqlQuery = "select id_pegawai as 'id', nama_pegawai as 'nama', level_jabatan as 'jabatan', if( level_jabatan = 1,'Staff',if(level_jabatan = 2,'Cashier',if(level_jabatan = 3,'Manager',''))) as 'saveJabatan',concat(upper(left(substring_index(NAMA_PEGAWAI,' ',1),1)),lower(substring(substring_index(NAMA_PEGAWAI,' ',1),2))) as 'namadepan' from PEGAWAI where id_pegawai = '" + textBoxPassword.Text + "' and nama_pegawai = '" + textBoxUsername.Text + "' and status_delete = 0;";
                 sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
                 sqlAdapter = new MySqlDataAdapter(sqlCommand);
                 sqlAdapter.Fill(dtLogin);
@@ -123,6 +128,8 @@ namespace Projek_Tea_Break
                     saveID = dtLogin.Rows[0]["jabatan"].ToString();
                     saveNama = dtLogin.Rows[0]["nama"].ToString();
                     saveJabatan = dtLogin.Rows[0]["saveJabatan"].ToString();
+                    saveIDPegawai = dtLogin.Rows[0]["id"].ToString();
+                    saveNamaDepan = dtLogin.Rows[0]["namadepan"].ToString();
                     if (saveID == "1")
                     {
                         MessageBox.Show("Username / Password tidak terdaftar");
@@ -167,7 +174,7 @@ namespace Projek_Tea_Break
             {
                 sqlConnect.Open();
                 DataTable dtLogin = new DataTable();
-                sqlQuery = "select id_pegawai as 'id', nama_pegawai as 'nama', level_jabatan as 'jabatan', if( level_jabatan = 1,'Staff',if(level_jabatan = 2,'Cashier',if(level_jabatan = 3,'Manager',''))) as 'saveJabatan' from PEGAWAI where id_pegawai = '" + textBoxPassword.Text + "' and nama_pegawai = '" + textBoxUsername.Text + "' and status_delete = 0;";
+                sqlQuery = "select id_pegawai as 'id', nama_pegawai as 'nama', level_jabatan as 'jabatan', if( level_jabatan = 1,'Staff',if(level_jabatan = 2,'Cashier',if(level_jabatan = 3,'Manager',''))) as 'saveJabatan',concat(upper(left(substring_index(NAMA_PEGAWAI,' ',1),1)),lower(substring(substring_index(NAMA_PEGAWAI,' ',1),2))) as 'namadepan' from PEGAWAI where id_pegawai = '" + textBoxPassword.Text + "' and nama_pegawai = '" + textBoxUsername.Text + "' and status_delete = 0;";
                 sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
                 sqlAdapter = new MySqlDataAdapter(sqlCommand);
                 sqlAdapter.Fill(dtLogin);
@@ -176,6 +183,8 @@ namespace Projek_Tea_Break
                     saveID = dtLogin.Rows[0]["jabatan"].ToString();
                     saveNama = dtLogin.Rows[0]["nama"].ToString();
                     saveJabatan = dtLogin.Rows[0]["saveJabatan"].ToString();
+                    saveIDPegawai = dtLogin.Rows[0]["id"].ToString();
+                    saveNamaDepan = dtLogin.Rows[0]["namadepan"].ToString();
                     if (saveID == "1")
                     {
                         MessageBox.Show("Username / Password tidak terdaftar");
@@ -201,6 +210,11 @@ namespace Projek_Tea_Break
                 sqlConnect.Close();
             }
 
+        }
+
+        private void FormLogin_Load(object sender, EventArgs e)
+        {
+            textBoxUsername.Focus();
         }
     }
 }

@@ -40,9 +40,16 @@ namespace Projek_Tea_Break
         {
             Refresh();
 
-            tboxID.Text = dtTopping.Rows[0]["ID Topping"].ToString();
-            tboxNama.Text = dtTopping.Rows[0]["Nama Topping"].ToString();
-            tboxHarga.Text = dtTopping.Rows[0]["Harga Topping"].ToString();            
+            try
+            {
+                tboxID.Text = dtTopping.Rows[0]["ID Topping"].ToString();
+                tboxNama.Text = dtTopping.Rows[0]["Nama Topping"].ToString();
+                tboxHarga.Text = dtTopping.Rows[0]["Harga Topping"].ToString();
+            }
+            catch (Exception)
+            {
+
+            }           
         }
         private void dgvMenu_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -58,7 +65,7 @@ namespace Projek_Tea_Break
         {
             this.Hide();
             formTopping Fmain = new formTopping();
-            Fmain.Show();
+            Fmain.ShowDialog();
             this.Close();
         }
 
@@ -77,7 +84,7 @@ namespace Projek_Tea_Break
 
                 this.Hide();
                 formTopping Fmain = new formTopping();
-                Fmain.Show();
+                Fmain.ShowDialog();
                 this.Close();
             }
             else
@@ -93,7 +100,7 @@ namespace Projek_Tea_Break
 
                 this.Hide();
                 formTopping Fmain = new formTopping();
-                Fmain.Show();
+                Fmain.ShowDialog();
                 this.Close();
             }
         }

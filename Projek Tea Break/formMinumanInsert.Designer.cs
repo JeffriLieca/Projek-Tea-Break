@@ -41,6 +41,8 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.buttonAddImage = new System.Windows.Forms.Button();
             this.pictureBoxAdd = new System.Windows.Forms.PictureBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.cbKategori = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMenu)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAdd)).BeginInit();
@@ -107,7 +109,7 @@
             // 
             // tboxHarga
             // 
-            this.tboxHarga.Location = new System.Drawing.Point(203, 346);
+            this.tboxHarga.Location = new System.Drawing.Point(204, 363);
             this.tboxHarga.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tboxHarga.Name = "tboxHarga";
             this.tboxHarga.Size = new System.Drawing.Size(191, 22);
@@ -115,7 +117,7 @@
             // 
             // tboxNama
             // 
-            this.tboxNama.Location = new System.Drawing.Point(203, 306);
+            this.tboxNama.Location = new System.Drawing.Point(204, 323);
             this.tboxNama.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tboxNama.Name = "tboxNama";
             this.tboxNama.Size = new System.Drawing.Size(191, 22);
@@ -123,7 +125,7 @@
             // 
             // tboxID
             // 
-            this.tboxID.Location = new System.Drawing.Point(203, 262);
+            this.tboxID.Location = new System.Drawing.Point(204, 279);
             this.tboxID.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tboxID.Name = "tboxID";
             this.tboxID.Size = new System.Drawing.Size(191, 22);
@@ -133,7 +135,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(37, 346);
+            this.label3.Location = new System.Drawing.Point(38, 363);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(121, 17);
             this.label3.TabIndex = 37;
@@ -143,7 +145,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(37, 306);
+            this.label2.Location = new System.Drawing.Point(38, 323);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(118, 17);
             this.label2.TabIndex = 38;
@@ -153,7 +155,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(61, 262);
+            this.label1.Location = new System.Drawing.Point(62, 279);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(92, 17);
             this.label1.TabIndex = 39;
@@ -165,7 +167,7 @@
             this.panel1.Controls.Add(this.buttonAddImage);
             this.panel1.Controls.Add(this.pictureBoxAdd);
             this.panel1.Location = new System.Drawing.Point(427, 229);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(267, 294);
             this.panel1.TabIndex = 47;
@@ -191,11 +193,31 @@
             this.pictureBoxAdd.TabIndex = 37;
             this.pictureBoxAdd.TabStop = false;
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(62, 246);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(92, 17);
+            this.label4.TabIndex = 48;
+            this.label4.Text = "ID minuman";
+            // 
+            // cbKategori
+            // 
+            this.cbKategori.FormattingEnabled = true;
+            this.cbKategori.Location = new System.Drawing.Point(204, 239);
+            this.cbKategori.Name = "cbKategori";
+            this.cbKategori.Size = new System.Drawing.Size(191, 24);
+            this.cbKategori.TabIndex = 49;
+            // 
             // formMinumanInsert
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(707, 535);
+            this.Controls.Add(this.cbKategori);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.labelAdd);
             this.Controls.Add(this.dgvMenu);
@@ -235,5 +257,7 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button buttonAddImage;
         private System.Windows.Forms.PictureBox pictureBoxAdd;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ComboBox cbKategori;
     }
 }

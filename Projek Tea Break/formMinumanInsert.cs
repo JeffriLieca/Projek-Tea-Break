@@ -22,6 +22,7 @@ namespace Projek_Tea_Break
         MySqlCommand sqlCommand;
         MySqlDataAdapter sqlAdapter;
         public static string sqlQuery;
+        public static string buatID = "";
 
         DataTable menu = new DataTable();
 
@@ -35,6 +36,41 @@ namespace Projek_Tea_Break
             dgvMenu.DataSource = menu;
         }
 
+        private void BuatInsertID()
+        {
+            DataTable cekID = new DataTable();
+            sqlQuery = "select left(id_minuman,1) as id, right(id_minuman,3) as urut from MINUMAN where left(id_minuman,1) = '"+cbKategori.SelectedValue.ToString()+"';";
+            sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
+            sqlAdapter = new MySqlDataAdapter(sqlCommand);
+            sqlAdapter.Fill(cekID);
+            string noID = "";
+            if (cekID.Rows.Count == 0)
+            {
+                buatID = cbKategori.SelectedValue.ToString() + "001";
+            }
+            else
+            {
+                noID = (Convert.ToInt32(cekID.Rows[0][1].ToString()) + 1).ToString();
+                for (int i = 0; i < 2 - noID.Length; i++)
+                {
+                    noID = "0" + noID;
+                }
+                buatID = cbKategori.SelectedValue.ToString() + noID;
+            }
+            tboxID.Text = buatID;
+        }
+
+        private void IsicbKategori()
+        {
+            sqlQuery = "select distinct if(left(id_minuman,1)='F','Fantastic',if(left(id_minuman,1)='S','Signature','The Special')) as id from MINUMAN where status_delete = '0';";
+            sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
+            sqlAdapter = new MySqlDataAdapter(sqlCommand);
+            DataTable dtKategori = new DataTable();
+            sqlAdapter.Fill(dtKategori);
+            cbKategori.DataSource = dtKategori;
+            cbKategori.DisplayMember = "ID";
+            cbKategori.ValueMember = "ID";
+        }
         private void FormbtnAdd_Load(object sender, EventArgs e)
         {
             Refresh();
@@ -119,5 +155,6 @@ namespace Projek_Tea_Break
             pictureBoxAdd.Image = Image.FromStream(mstream);
             sqlConnect.Close();
         }
+
     }
 }

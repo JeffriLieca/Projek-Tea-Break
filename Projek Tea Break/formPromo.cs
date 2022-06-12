@@ -132,8 +132,9 @@ namespace Projek_Tea_Break
         private void btnadd_Click(object sender, EventArgs e)
         {
             formPromoInsert F2 = new formPromoInsert();
-            F2.Show();
+
             this.Hide();
+            F2.ShowDialog();
         }
 
         private void btnDelete_Click(object sender, EventArgs e)

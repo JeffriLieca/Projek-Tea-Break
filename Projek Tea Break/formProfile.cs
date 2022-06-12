@@ -40,6 +40,10 @@ namespace Projek_Tea_Break
         {
             lbNama.Text = FormLogin.saveNama;
             lbJabatan.Text = FormLogin.saveJabatan;
+            lbNama.Size = new Size(385, 20);
+            lbJabatan.Size = new Size(385, 20);
+            lbNama.AutoSize = false;
+            lbJabatan.AutoSize = false;
         }
     }
 }

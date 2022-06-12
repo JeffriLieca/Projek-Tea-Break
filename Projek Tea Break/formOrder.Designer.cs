@@ -62,6 +62,8 @@ namespace Projek_Tea_Break
             this.labelDiskon = new System.Windows.Forms.Label();
             this.labelTotalHarga = new System.Windows.Forms.Label();
             this.labelPersen = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.labelNamaPegawai = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbProfil)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
@@ -85,7 +87,7 @@ namespace Projek_Tea_Break
             this.pbProfil.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pbProfil.Image = global::Projek_Tea_Break.Properties.Resources.logo;
             this.pbProfil.Location = new System.Drawing.Point(0, 27);
-            this.pbProfil.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pbProfil.Margin = new System.Windows.Forms.Padding(4);
             this.pbProfil.Name = "pbProfil";
             this.pbProfil.Size = new System.Drawing.Size(133, 39);
             this.pbProfil.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -149,7 +151,7 @@ namespace Projek_Tea_Break
             this.panelOrderMenu.AutoScroll = true;
             this.panelOrderMenu.BackColor = System.Drawing.Color.White;
             this.panelOrderMenu.Location = new System.Drawing.Point(680, 70);
-            this.panelOrderMenu.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelOrderMenu.Margin = new System.Windows.Forms.Padding(4);
             this.panelOrderMenu.Name = "panelOrderMenu";
             this.panelOrderMenu.Size = new System.Drawing.Size(364, 393);
             this.panelOrderMenu.TabIndex = 8;
@@ -180,7 +182,7 @@ namespace Projek_Tea_Break
             this.buttonOrderNow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonOrderNow.ForeColor = System.Drawing.Color.White;
             this.buttonOrderNow.Location = new System.Drawing.Point(745, 538);
-            this.buttonOrderNow.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonOrderNow.Margin = new System.Windows.Forms.Padding(4);
             this.buttonOrderNow.Name = "buttonOrderNow";
             this.buttonOrderNow.Size = new System.Drawing.Size(244, 59);
             this.buttonOrderNow.TabIndex = 1;
@@ -237,7 +239,7 @@ namespace Projek_Tea_Break
             // 
             this.panelMinuman.AutoScroll = true;
             this.panelMinuman.Location = new System.Drawing.Point(147, 234);
-            this.panelMinuman.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelMinuman.Margin = new System.Windows.Forms.Padding(4);
             this.panelMinuman.Name = "panelMinuman";
             this.panelMinuman.Size = new System.Drawing.Size(525, 363);
             this.panelMinuman.TabIndex = 12;
@@ -257,7 +259,7 @@ namespace Projek_Tea_Break
             this.buttonA.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.buttonA.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonA.Location = new System.Drawing.Point(549, 70);
-            this.buttonA.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonA.Margin = new System.Windows.Forms.Padding(4);
             this.buttonA.Name = "buttonA";
             this.buttonA.Size = new System.Drawing.Size(80, 80);
             this.buttonA.TabIndex = 17;
@@ -271,7 +273,7 @@ namespace Projek_Tea_Break
             this.buttonT.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.buttonT.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonT.Location = new System.Drawing.Point(425, 70);
-            this.buttonT.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonT.Margin = new System.Windows.Forms.Padding(4);
             this.buttonT.Name = "buttonT";
             this.buttonT.Size = new System.Drawing.Size(80, 80);
             this.buttonT.TabIndex = 16;
@@ -285,7 +287,7 @@ namespace Projek_Tea_Break
             this.buttonF.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.buttonF.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonF.Location = new System.Drawing.Point(300, 70);
-            this.buttonF.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonF.Margin = new System.Windows.Forms.Padding(4);
             this.buttonF.Name = "buttonF";
             this.buttonF.Size = new System.Drawing.Size(80, 80);
             this.buttonF.TabIndex = 15;
@@ -300,7 +302,7 @@ namespace Projek_Tea_Break
             this.buttonS.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonS.ForeColor = System.Drawing.SystemColors.ControlText;
             this.buttonS.Location = new System.Drawing.Point(175, 70);
-            this.buttonS.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonS.Margin = new System.Windows.Forms.Padding(4);
             this.buttonS.Name = "buttonS";
             this.buttonS.Size = new System.Drawing.Size(80, 80);
             this.buttonS.TabIndex = 10;
@@ -404,12 +406,32 @@ namespace Projek_Tea_Break
             this.labelPersen.TabIndex = 28;
             this.labelPersen.Text = "Disc";
             // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(883, 39);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(48, 17);
+            this.label10.TabIndex = 29;
+            this.label10.Text = "Kasir :";
+            // 
+            // labelNamaPegawai
+            // 
+            this.labelNamaPegawai.AutoSize = true;
+            this.labelNamaPegawai.Location = new System.Drawing.Point(937, 39);
+            this.labelNamaPegawai.Name = "labelNamaPegawai";
+            this.labelNamaPegawai.Size = new System.Drawing.Size(98, 17);
+            this.labelNamaPegawai.TabIndex = 30;
+            this.labelNamaPegawai.Text = "NamaPegawai";
+            // 
             // FormOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLight;
             this.ClientSize = new System.Drawing.Size(1043, 635);
+            this.Controls.Add(this.labelNamaPegawai);
+            this.Controls.Add(this.label10);
             this.Controls.Add(this.labelPersen);
             this.Controls.Add(this.labelTotalHarga);
             this.Controls.Add(this.labelDiskon);
@@ -480,5 +502,7 @@ namespace Projek_Tea_Break
         private System.Windows.Forms.Label labelDiskon;
         private System.Windows.Forms.Label labelTotalHarga;
         private System.Windows.Forms.Label labelPersen;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label labelNamaPegawai;
     }
 }
