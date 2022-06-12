@@ -210,6 +210,7 @@
             this.cbKategori.Name = "cbKategori";
             this.cbKategori.Size = new System.Drawing.Size(191, 24);
             this.cbKategori.TabIndex = 49;
+            this.cbKategori.SelectedIndexChanged += new System.EventHandler(this.cbKategori_SelectedIndexChanged);
             // 
             // formMinumanInsert
             // 

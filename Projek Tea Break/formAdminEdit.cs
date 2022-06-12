@@ -43,7 +43,7 @@ namespace Projek_Tea_Break
         private void AddIDPegawai()
         {
             DataTable cekPegawai = new DataTable();
-            sqlQuery = "select left(id_pegawai,1) as inisial, right(id_pegawai,4) as urut from PEGAWAI where left(id_pegawai,1) = left('" + tbNama.Text.ToUpper() + "',1) and status_delete = '0' order by 2 desc";
+            sqlQuery = "select left(id_pegawai,1) as inisial, right(id_pegawai,4) as urut from PEGAWAI where left(id_pegawai,1) = left('" + tbNama.Text.ToUpper() + "',1) order by 2 desc";
             sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
             sqlAdapter = new MySqlDataAdapter(sqlCommand);
             sqlAdapter.Fill(cekPegawai);

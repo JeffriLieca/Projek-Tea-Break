@@ -42,9 +42,16 @@ namespace Projek_Tea_Break
             Refresh();
             LoadGambar();
 
-            tboxID.Text = menu.Rows[0][0].ToString();
-            tboxNama.Text = menu.Rows[0][1].ToString();
-            tboxHarga.Text = menu.Rows[0][2].ToString();
+            try
+            {
+                tboxID.Text = menu.Rows[0][0].ToString();
+                tboxNama.Text = menu.Rows[0][1].ToString();
+                tboxHarga.Text = menu.Rows[0][2].ToString();
+            }
+            catch (Exception)
+            {
+
+            }
         }
         private void dgvMenu_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -138,17 +145,24 @@ namespace Projek_Tea_Break
         }
          public void LoadGambar()
         {
-            imgLocation = "";
-            sqlConnect.Open();
-            sqlQuery = "select GAMBAR from MINUMAN where ID_MINUMAN='" + tboxID.Text + "';";
-            sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
-            sqlAdapter = new MySqlDataAdapter(sqlCommand);
-            DataTable dtCoba = new DataTable();
-            sqlAdapter.Fill(dtCoba);
-            byte[] images = ((byte[])dtCoba.Rows[0][0]);
-            MemoryStream mstream = new MemoryStream(images);
-            pictureBoxAdd.Image = Image.FromStream(mstream);
-            sqlConnect.Close();
+            try
+            {
+                imgLocation = "";
+                sqlConnect.Open();
+                sqlQuery = "select GAMBAR from MINUMAN where ID_MINUMAN='" + tboxID.Text + "';";
+                sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
+                sqlAdapter = new MySqlDataAdapter(sqlCommand);
+                DataTable dtCoba = new DataTable();
+                sqlAdapter.Fill(dtCoba);
+                byte[] images = ((byte[])dtCoba.Rows[0][0]);
+                MemoryStream mstream = new MemoryStream(images);
+                pictureBoxAdd.Image = Image.FromStream(mstream);
+                sqlConnect.Close();
+            }
+            catch (Exception)
+            {
+
+            }
         }
     }
 }

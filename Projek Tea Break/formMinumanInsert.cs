@@ -39,7 +39,7 @@ namespace Projek_Tea_Break
         private void BuatInsertID()
         {
             DataTable cekID = new DataTable();
-            sqlQuery = "select left(id_minuman,1) as id, right(id_minuman,3) as urut from MINUMAN where left(id_minuman,1) = '"+cbKategori.SelectedValue.ToString()+"';";
+            sqlQuery = "select left(id_minuman,1) as id, right(id_minuman,3) as urut from MINUMAN where left(id_minuman,1) = '"+cbKategori.SelectedValue.ToString()+"' order by 2 desc;";
             sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
             sqlAdapter = new MySqlDataAdapter(sqlCommand);
             sqlAdapter.Fill(cekID);
@@ -51,7 +51,7 @@ namespace Projek_Tea_Break
             else
             {
                 noID = (Convert.ToInt32(cekID.Rows[0][1].ToString()) + 1).ToString();
-                for (int i = 0; i < 2 - noID.Length; i++)
+                for (int i = 0; i < 4 - noID.Length; i++)
                 {
                     noID = "0" + noID;
                 }
@@ -62,19 +62,21 @@ namespace Projek_Tea_Break
 
         private void IsicbKategori()
         {
-            sqlQuery = "select distinct if(left(id_minuman,1)='F','Fantastic',if(left(id_minuman,1)='S','Signature','The Special')) as id from MINUMAN where status_delete = '0';";
+            sqlQuery = "select distinct if(left(id_minuman,1)='F','Fantastic',if(left(id_minuman,1)='S','Signature','The Special')) as ID, left(id_minuman,1) as inisial from MINUMAN where status_delete = '0';";
             sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
             sqlAdapter = new MySqlDataAdapter(sqlCommand);
             DataTable dtKategori = new DataTable();
             sqlAdapter.Fill(dtKategori);
             cbKategori.DataSource = dtKategori;
             cbKategori.DisplayMember = "ID";
-            cbKategori.ValueMember = "ID";
+            cbKategori.ValueMember = "inisial";
         }
         private void FormbtnAdd_Load(object sender, EventArgs e)
         {
             Refresh();
             LoadGambar();
+            IsicbKategori();
+            BuatInsertID();
 
             tboxID.ReadOnly = true;
         }
@@ -94,20 +96,22 @@ namespace Projek_Tea_Break
             BinaryReader brs = new BinaryReader(stream);
             images = brs.ReadBytes((int)stream.Length);
 
-
+            sqlConnect.Close();
             sqlConnect.Open();
             sqlQuery = "INSERT INTO `MINUMAN`VALUES('" + tboxID.Text + "','" + tboxNama.Text + "','" + tboxHarga.Text + "',@images,'" + '0' + "')";
             sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
             sqlCommand.Parameters.Add(new MySqlParameter("@images", images));
             sqlCommand.ExecuteNonQuery();
-            sqlConnect.Close();
             MessageBox.Show("Berhasil Disimpan");
+
             sqlQuery = "select `ID_MINUMAN`,`NAMA_MINUMAN`,`HARGA_MINUMAN` from MINUMAN";
             sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
             sqlAdapter = new MySqlDataAdapter(sqlCommand);
             DataTable menu = new DataTable();
             sqlAdapter.Fill(menu);
             dgvMenu.DataSource = menu;
+
+            sqlConnect.Close();
 
             this.Hide();
             formMinuman Fmain = new formMinuman();
@@ -143,18 +147,29 @@ namespace Projek_Tea_Break
         }
         public void LoadGambar()
         {
-            imgLocation = "";
-            sqlConnect.Open();
-            sqlQuery = "select GAMBAR from MINUMAN where ID_MINUMAN='" + tboxID.Text + "';";
-            sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
-            sqlAdapter = new MySqlDataAdapter(sqlCommand);
-            DataTable dtCoba = new DataTable();
-            sqlAdapter.Fill(dtCoba);
-            byte[] images = ((byte[])dtCoba.Rows[0][0]);
-            MemoryStream mstream = new MemoryStream(images);
-            pictureBoxAdd.Image = Image.FromStream(mstream);
-            sqlConnect.Close();
+            try
+            {
+                imgLocation = "";
+                sqlConnect.Open();
+                sqlQuery = "select GAMBAR from MINUMAN where ID_MINUMAN='" + tboxID.Text + "';";
+                sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
+                sqlAdapter = new MySqlDataAdapter(sqlCommand);
+                DataTable dtCoba = new DataTable();
+                sqlAdapter.Fill(dtCoba);
+                byte[] images = ((byte[])dtCoba.Rows[0][0]);
+                MemoryStream mstream = new MemoryStream(images);
+                pictureBoxAdd.Image = Image.FromStream(mstream);
+                sqlConnect.Close();
+            }
+            catch (Exception)
+            {
+
+            }
         }
 
+        private void cbKategori_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            BuatInsertID();
+        }
     }
 }

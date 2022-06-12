@@ -35,6 +35,7 @@ namespace Projek_Tea_Break
         public static string IDPegawai = "";
         public static string NamaPegawai = "";
         public static string nomorNota = "";
+        public static string urutan = "";
 
         public int IndexMinuman { get; set; }
 
@@ -226,11 +227,11 @@ namespace Projek_Tea_Break
             }
             else
             {
+                InsertNota();
                 InsertData();
                 DeleteData();
                 Refresh();
                 Reload();
-                InsertNota();
             }
         }
 
@@ -460,10 +461,12 @@ namespace Projek_Tea_Break
             if (dtidNota.Rows.Count == 0)
             {
                 idNota = dtTanggalNota.Rows[0][0].ToString() + "0001";
+                urutan = "1";
             }
             else
             {
                 nomorNota = (Convert.ToInt32(dtidNota.Rows[0][0].ToString()) + 1).ToString();
+                urutan = nomorNota;
                 for (int i = 0; i < nomorNota.Length; i++)
                 {
                     nomorNota = "0" + nomorNota;
@@ -568,10 +571,10 @@ namespace Projek_Tea_Break
         public void InsertNota()
         {
             sqlConnect.Open();
-            string sqlQueryNota = "insert into NOTA values('"+idNota+"', '"+IDCustomer+"', '"+IDPegawai+"', '"+IDPromo+"', date_format(now(),'%Y %m %d'), '"+Total+"', '"+Diskon+"','"+(Total-Diskon)+"', '"+Convert.ToInt32(nomorNota)+"' , '0'); ";
+            string sqlQueryNota = "insert into NOTA values('"+idNota+"', '"+IDCustomer+"', '"+IDPegawai+"', '"+IDPromo+"', now(), '"+Total+"', '"+Diskon+"','"+(Total-Diskon)+"', '"+urutan+"' , '0'); ";
             sqlCommand = new MySqlCommand(sqlQueryNota, sqlConnect);
-            MessageBox.Show(sqlQueryNota);
-            //sqlCommand.ExecuteNonQuery();
+            MessageBox.Show($"{idNota},{IDCustomer},{IDPegawai},{IDPromo},now(),{Total},{Diskon},{Total-Diskon},{urutan},'0'");
+            sqlCommand.ExecuteNonQuery();
             sqlConnect.Close();
         }
 

@@ -115,13 +115,13 @@ namespace Projek_Tea_Break
         private void btnEdit_Click(object sender, EventArgs e)
         {
             formMinumanUpdate F1 = new formMinumanUpdate();
-            F1.Show();
+            F1.ShowDialog();
             this.Hide();
         }
         private void btnadd_Click(object sender, EventArgs e)
         {
             formMinumanInsert F2 = new formMinumanInsert();
-            F2.Show();
+            F2.ShowDialog();
             this.Hide();
         }
 
@@ -147,7 +147,7 @@ namespace Projek_Tea_Break
 
         // Jeffri
         string imgLocation = "";
-        private void buttonAddImage_Click(object sender, EventArgs e) // ini pun
+        private void buttonAddImage_Click(object sender, EventArgs e) 
         {
             OpenFileDialog open = new OpenFileDialog();
 
