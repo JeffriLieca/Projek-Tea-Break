@@ -64,6 +64,8 @@ namespace Projek_Tea_Break
             this.labelPersen = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.labelNamaPegawai = new System.Windows.Forms.Label();
+            this.buttonCanClose = new System.Windows.Forms.Button();
+            this.buttonCanOpen = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbProfil)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
@@ -155,7 +157,6 @@ namespace Projek_Tea_Break
             this.panelOrderMenu.Name = "panelOrderMenu";
             this.panelOrderMenu.Size = new System.Drawing.Size(364, 393);
             this.panelOrderMenu.TabIndex = 8;
-            this.panelOrderMenu.Paint += new System.Windows.Forms.PaintEventHandler(this.panelOrderMenu_Paint);
             // 
             // labelIDNota
             // 
@@ -181,10 +182,10 @@ namespace Projek_Tea_Break
             this.buttonOrderNow.BackColor = System.Drawing.Color.ForestGreen;
             this.buttonOrderNow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonOrderNow.ForeColor = System.Drawing.Color.White;
-            this.buttonOrderNow.Location = new System.Drawing.Point(745, 538);
+            this.buttonOrderNow.Location = new System.Drawing.Point(763, 537);
             this.buttonOrderNow.Margin = new System.Windows.Forms.Padding(4);
             this.buttonOrderNow.Name = "buttonOrderNow";
-            this.buttonOrderNow.Size = new System.Drawing.Size(244, 59);
+            this.buttonOrderNow.Size = new System.Drawing.Size(244, 60);
             this.buttonOrderNow.TabIndex = 1;
             this.buttonOrderNow.Text = "Order Now!!";
             this.buttonOrderNow.UseVisualStyleBackColor = false;
@@ -424,13 +425,38 @@ namespace Projek_Tea_Break
             this.labelNamaPegawai.TabIndex = 30;
             this.labelNamaPegawai.Text = "NamaPegawai";
             // 
+            // buttonCanClose
+            // 
+            this.buttonCanClose.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonCanClose.BackgroundImage")));
+            this.buttonCanClose.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonCanClose.Location = new System.Drawing.Point(688, 537);
+            this.buttonCanClose.Name = "buttonCanClose";
+            this.buttonCanClose.Size = new System.Drawing.Size(60, 60);
+            this.buttonCanClose.TabIndex = 31;
+            this.buttonCanClose.UseVisualStyleBackColor = true;
+            this.buttonCanClose.MouseEnter += new System.EventHandler(this.buttonCanClose_MouseEnter);
+            // 
+            // buttonCanOpen
+            // 
+            this.buttonCanOpen.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonCanOpen.BackgroundImage")));
+            this.buttonCanOpen.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonCanOpen.Location = new System.Drawing.Point(688, 537);
+            this.buttonCanOpen.Name = "buttonCanOpen";
+            this.buttonCanOpen.Size = new System.Drawing.Size(60, 60);
+            this.buttonCanOpen.TabIndex = 33;
+            this.buttonCanOpen.UseVisualStyleBackColor = true;
+            this.buttonCanOpen.Click += new System.EventHandler(this.buttonCanOpen_Click);
+            this.buttonCanOpen.MouseLeave += new System.EventHandler(this.buttonCanOpen_MouseLeave);
+            // 
             // FormOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLight;
             this.ClientSize = new System.Drawing.Size(1043, 635);
+            this.Controls.Add(this.buttonCanOpen);
             this.Controls.Add(this.labelNamaPegawai);
+            this.Controls.Add(this.buttonCanClose);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.labelPersen);
             this.Controls.Add(this.labelTotalHarga);
@@ -504,5 +530,7 @@ namespace Projek_Tea_Break
         private System.Windows.Forms.Label labelPersen;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label labelNamaPegawai;
+        private System.Windows.Forms.Button buttonCanClose;
+        private System.Windows.Forms.Button buttonCanOpen;
     }
 }

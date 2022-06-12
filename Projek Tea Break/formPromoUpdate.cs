@@ -51,60 +51,85 @@ namespace Projek_Tea_Break
         }
         private void dgvPromo_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            int index = e.RowIndex;
-            DataGridViewRow selectedRow = dgvPromo.Rows[index];
-            tboxID.Text = selectedRow.Cells[0].Value.ToString();
-            tboxNama.Text = selectedRow.Cells[1].Value.ToString();
-            tboxBesar.Text = selectedRow.Cells[2].Value.ToString();
-            dtpFrom.Text = selectedRow.Cells[3].Value.ToString();
-            dtpTo.Text = selectedRow.Cells[4].Value.ToString();
-            saveID = selectedRow.Cells["ID Promo"].Value.ToString();
+            try
+            {
+                int index = e.RowIndex;
+                DataGridViewRow selectedRow = dgvPromo.Rows[index];
+                tboxID.Text = selectedRow.Cells[0].Value.ToString();
+                tboxNama.Text = selectedRow.Cells[1].Value.ToString();
+                tboxBesar.Text = selectedRow.Cells[2].Value.ToString();
+                dtpFrom.Text = selectedRow.Cells[3].Value.ToString();
+                dtpTo.Text = selectedRow.Cells[4].Value.ToString();
+                saveID = selectedRow.Cells["ID Promo"].Value.ToString();
+            }
+            catch (Exception ex)
+            {
+
+            }
         }
 
         private void btnCancelEdit_Click(object sender, EventArgs e)
         {
             this.Hide();
             formPromo Fmain = new formPromo();
-            Fmain.Show();
+            Fmain.ShowDialog();
             this.Close();
         }
 
         private void btnSaveEdit_Click(object sender, EventArgs e)
         {
-            if (tboxID.Text != dgvPromo.CurrentRow.Cells["ID Promo"].Value.ToString())
+            try
             {
-                sqlConnect.Open();
-                sqlQuery = "UPDATE PROMO SET ID_PROMO = '" + tboxID.Text + "', NAMA_PROMO ='" + tboxNama.Text + "', BESAR_PROMO = '" + tboxBesar.Text + "', tgl_promo = '" + dtpFrom.Value.ToString("yyyyMMdd") + "', end_promo = '" + dtpTo.Value.ToString("yyyyMMdd") + "' WHERE ID_PROMO ='" + saveID + "'";
+                if (tboxID.Text != dgvPromo.CurrentRow.Cells["ID Promo"].Value.ToString())
+                {
+                    sqlConnect.Open();
+                    sqlQuery = "UPDATE PROMO SET ID_PROMO = '" + tboxID.Text + "', NAMA_PROMO ='" + tboxNama.Text + "', BESAR_PROMO = '" + tboxBesar.Text + "', tgl_promo = '" + dtpFrom.Value.ToString("yyyyMMdd") + "', end_promo = '" + dtpTo.Value.ToString("yyyyMMdd") + "' WHERE ID_PROMO ='" + saveID + "'";
 
-                sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
-                sqlCommand.ExecuteNonQuery();
-                sqlConnect.Close();
-                MessageBox.Show("Berhasil Disimpan");
+                    sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
+                    sqlCommand.ExecuteNonQuery();
+                    sqlConnect.Close();
+                    MessageBox.Show("Berhasil Disimpan");
 
-                LoadRefresh();
+                    LoadRefresh();
 
-                this.Hide();
-                formPromo Fmain = new formPromo();
-                Fmain.Show();
-                this.Close();
+                    this.Hide();
+                    formPromo Fmain = new formPromo();
+                    Fmain.ShowDialog();
+                    this.Close();
+                }
+                else
+                {
+                    sqlConnect.Open();
+                    sqlQuery = "UPDATE PROMO SET NAMA_PROMO ='" + tboxNama.Text + "', BESAR_PROMO = '" + tboxBesar.Text + "', tgl_promo = '" + dtpFrom.Value.ToString("yyyyMMdd") + "', end_promo = '" + dtpTo.Value.ToString("yyyyMMdd") + "' WHERE ID_PROMO ='" + tboxID.Text + "'";
+
+                    sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
+                    sqlCommand.ExecuteNonQuery();
+                    sqlConnect.Close();
+                    MessageBox.Show("Berhasil Disimpan");
+
+                    LoadRefresh();
+
+                    this.Hide();
+                    formPromo Fmain = new formPromo();
+                    Fmain.ShowDialog();
+                    this.Close();
+                }
             }
-            else
+            catch (Exception)
             {
-                sqlConnect.Open();
-                sqlQuery = "UPDATE PROMO SET NAMA_PROMO ='" + tboxNama.Text + "', BESAR_PROMO = '" + tboxBesar.Text + "', tgl_promo = '" + dtpFrom.Value.ToString("yyyyMMdd") + "', end_promo = '" + dtpTo.Value.ToString("yyyyMMdd") + "' WHERE ID_PROMO ='" + tboxID.Text + "'";
-
-                sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
-                sqlCommand.ExecuteNonQuery();
-                sqlConnect.Close();
-                MessageBox.Show("Berhasil Disimpan");
-
-                LoadRefresh();
-
-                this.Hide();
-                formPromo Fmain = new formPromo();
-                Fmain.Show();
-                this.Close();
+                MessageBox.Show("Input gagal");
             }
+            
+        }
+
+        private void tboxBesar_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tboxBesar_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
         }
     }
 }

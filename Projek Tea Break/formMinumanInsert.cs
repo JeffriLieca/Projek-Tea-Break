@@ -26,7 +26,7 @@ namespace Projek_Tea_Break
 
         DataTable menu = new DataTable();
 
-        private void Refresh()
+        private void Refreshs()
         {
             sqlQuery = "select `ID_MINUMAN` as 'ID Minuman',`NAMA_MINUMAN` as 'Nama Minuman',`HARGA_MINUMAN` as 'Harga Minuman' from MINUMAN where status_delete = '0';";
             sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
@@ -73,7 +73,7 @@ namespace Projek_Tea_Break
         }
         private void FormbtnAdd_Load(object sender, EventArgs e)
         {
-            Refresh();
+            Refreshs();
             LoadGambar();
             IsicbKategori();
             BuatInsertID();
@@ -82,40 +82,36 @@ namespace Projek_Tea_Break
         }
         private void btnCancelAdd_Click(object sender, EventArgs e)
         {
-            this.Hide();
             formMinuman Fmain = new formMinuman();
-            Fmain.ShowDialog();
             this.Close();
         }
 
         private void btnSaveAdd_Click(object sender, EventArgs e)
         {
-            // Gambar
-            byte[] images = null;
-            FileStream stream = new FileStream(imgLocation, FileMode.Open, FileAccess.Read);
-            BinaryReader brs = new BinaryReader(stream);
-            images = brs.ReadBytes((int)stream.Length);
+            try
+            {
+                // Gambar
+                byte[] images = null;
+                FileStream stream = new FileStream(imgLocation, FileMode.Open, FileAccess.Read);
+                BinaryReader brs = new BinaryReader(stream);
+                images = brs.ReadBytes((int)stream.Length);
 
-            sqlConnect.Close();
-            sqlConnect.Open();
-            sqlQuery = "INSERT INTO `MINUMAN`VALUES('" + tboxID.Text + "','" + tboxNama.Text + "','" + tboxHarga.Text + "',@images,'" + '0' + "')";
-            sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
-            sqlCommand.Parameters.Add(new MySqlParameter("@images", images));
-            sqlCommand.ExecuteNonQuery();
-            MessageBox.Show("Berhasil Disimpan");
+                sqlConnect.Close();
+                sqlConnect.Open();
+                sqlQuery = "INSERT INTO `MINUMAN`VALUES('" + tboxID.Text + "','" + tboxNama.Text + "','" + tboxHarga.Text + "',@images,'" + '0' + "')";
+                sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
+                sqlCommand.Parameters.Add(new MySqlParameter("@images", images));
+                sqlCommand.ExecuteNonQuery();
+                MessageBox.Show("Berhasil Disimpan");
 
-            sqlQuery = "select `ID_MINUMAN`,`NAMA_MINUMAN`,`HARGA_MINUMAN` from MINUMAN";
-            sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
-            sqlAdapter = new MySqlDataAdapter(sqlCommand);
-            DataTable menu = new DataTable();
-            sqlAdapter.Fill(menu);
-            dgvMenu.DataSource = menu;
+                Refreshs();
 
-            sqlConnect.Close();
-
-            this.Hide();
-            formMinuman Fmain = new formMinuman();
-            Fmain.ShowDialog();
+                sqlConnect.Close();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Gagal");
+            }
             this.Close();
         }
 
@@ -135,16 +131,6 @@ namespace Projek_Tea_Break
 
         }
 
-        private void dgvMenu_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            //int index = e.RowIndex;
-            //DataGridViewRow selectedRow = dgvMenu.Rows[index];
-            //tboxID.Text = selectedRow.Cells[0].Value.ToString();
-            //tboxNama.Text = selectedRow.Cells[1].Value.ToString();
-            //tboxHarga.Text = selectedRow.Cells[2].Value.ToString();
-
-            //LoadGambar();
-        }
         public void LoadGambar()
         {
             try

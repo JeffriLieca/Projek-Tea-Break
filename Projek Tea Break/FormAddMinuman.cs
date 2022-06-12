@@ -117,7 +117,7 @@ namespace Projek_Tea_Break
 
 
             DataTable dtTopping = new DataTable();
-            sqlQuery = "select t.ID_TOPPING as id, t.NAMA_TOPPING as nama, concat('Rp. ',t.HARGA_TOPPING) as harga from TOPPING t;";
+            sqlQuery = "select t.ID_TOPPING as id, t.NAMA_TOPPING as nama, concat('Rp. ',t.HARGA_TOPPING) as harga from TOPPING t where t.STATUS_DELETE=0;";
             sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
             sqlAdapter = new MySqlDataAdapter(sqlCommand);
             sqlAdapter.Fill(dtTopping);
@@ -250,7 +250,7 @@ namespace Projek_Tea_Break
             else
             {
                 nomorNota = (Convert.ToInt32(dtidNota.Rows[0][0].ToString()) + 1).ToString();
-                for (int i = 0; i < nomorNota.Length; i++)
+                for (int i = 0; i < 6-nomorNota.Length; i++)
                 {
                     nomorNota = "0" + nomorNota;
                 }

@@ -32,7 +32,6 @@
             this.dgvPromo = new System.Windows.Forms.DataGridView();
             this.btnCancelAdd = new System.Windows.Forms.Button();
             this.btnSaveAdd = new System.Windows.Forms.Button();
-            this.tboxBesar = new System.Windows.Forms.TextBox();
             this.tboxNama = new System.Windows.Forms.TextBox();
             this.tboxID = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -43,6 +42,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.dtpFrom = new System.Windows.Forms.DateTimePicker();
             this.dtpTo = new System.Windows.Forms.DateTimePicker();
+            this.comboBoxBesarPromo = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPromo)).BeginInit();
             this.SuspendLayout();
             // 
@@ -101,15 +101,6 @@
             this.btnSaveAdd.Text = "Add";
             this.btnSaveAdd.UseVisualStyleBackColor = false;
             this.btnSaveAdd.Click += new System.EventHandler(this.btnSaveAdd_Click);
-            // 
-            // tboxBesar
-            // 
-            this.tboxBesar.Location = new System.Drawing.Point(161, 386);
-            this.tboxBesar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.tboxBesar.Name = "tboxBesar";
-            this.tboxBesar.Size = new System.Drawing.Size(191, 22);
-            this.tboxBesar.TabIndex = 3;
-            this.tboxBesar.TextChanged += new System.EventHandler(this.tboxBesar_TextChanged);
             // 
             // tboxNama
             // 
@@ -190,7 +181,7 @@
             // dtpFrom
             // 
             this.dtpFrom.Location = new System.Drawing.Point(133, 468);
-            this.dtpFrom.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dtpFrom.Margin = new System.Windows.Forms.Padding(4);
             this.dtpFrom.Name = "dtpFrom";
             this.dtpFrom.Size = new System.Drawing.Size(171, 22);
             this.dtpFrom.TabIndex = 50;
@@ -199,10 +190,25 @@
             // dtpTo
             // 
             this.dtpTo.Location = new System.Drawing.Point(133, 517);
-            this.dtpTo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dtpTo.Margin = new System.Windows.Forms.Padding(4);
             this.dtpTo.Name = "dtpTo";
             this.dtpTo.Size = new System.Drawing.Size(171, 22);
             this.dtpTo.TabIndex = 51;
+            // 
+            // comboBoxBesarPromo
+            // 
+            this.comboBoxBesarPromo.FormattingEnabled = true;
+            this.comboBoxBesarPromo.Items.AddRange(new object[] {
+            "10",
+            "20",
+            "30",
+            "40",
+            "50"});
+            this.comboBoxBesarPromo.Location = new System.Drawing.Point(161, 390);
+            this.comboBoxBesarPromo.Name = "comboBoxBesarPromo";
+            this.comboBoxBesarPromo.Size = new System.Drawing.Size(191, 24);
+            this.comboBoxBesarPromo.TabIndex = 52;
+            this.comboBoxBesarPromo.SelectedIndexChanged += new System.EventHandler(this.comboBoxBesarPromo_SelectedIndexChanged);
             // 
             // formPromoInsert
             // 
@@ -210,6 +216,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.OldLace;
             this.ClientSize = new System.Drawing.Size(652, 585);
+            this.Controls.Add(this.comboBoxBesarPromo);
             this.Controls.Add(this.dtpTo);
             this.Controls.Add(this.dtpFrom);
             this.Controls.Add(this.label6);
@@ -219,7 +226,6 @@
             this.Controls.Add(this.dgvPromo);
             this.Controls.Add(this.btnCancelAdd);
             this.Controls.Add(this.btnSaveAdd);
-            this.Controls.Add(this.tboxBesar);
             this.Controls.Add(this.tboxNama);
             this.Controls.Add(this.tboxID);
             this.Controls.Add(this.label3);
@@ -242,7 +248,6 @@
         private System.Windows.Forms.DataGridView dgvPromo;
         private System.Windows.Forms.Button btnCancelAdd;
         private System.Windows.Forms.Button btnSaveAdd;
-        private System.Windows.Forms.TextBox tboxBesar;
         private System.Windows.Forms.TextBox tboxNama;
         private System.Windows.Forms.TextBox tboxID;
         private System.Windows.Forms.Label label3;
@@ -253,5 +258,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.DateTimePicker dtpFrom;
         private System.Windows.Forms.DateTimePicker dtpTo;
+        private System.Windows.Forms.ComboBox comboBoxBesarPromo;
     }
 }

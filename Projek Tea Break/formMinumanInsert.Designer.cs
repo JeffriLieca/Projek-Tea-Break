@@ -75,7 +75,6 @@
             this.dgvMenu.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvMenu.Size = new System.Drawing.Size(627, 150);
             this.dgvMenu.TabIndex = 45;
-            this.dgvMenu.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMenu_CellContentClick);
             // 
             // btnCancelAdd
             // 

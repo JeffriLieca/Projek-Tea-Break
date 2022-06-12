@@ -38,27 +38,32 @@ namespace Projek_Tea_Break
 
         private void FormbtnEdit_Load(object sender, EventArgs e)
         {
-            Refresh();
-
+            DataTable dtTopping = new DataTable();
+            sqlQuery = "select id_topping as 'ID Topping', nama_topping as 'Nama Topping', harga_topping as 'Harga Topping' from TOPPING where STATUS_DELETE = '0';";
+            sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
+            sqlAdapter = new MySqlDataAdapter(sqlCommand);
+            sqlAdapter.Fill(dtTopping);
+            dgvTopping.DataSource = dtTopping;
+            tboxID.Text = dtTopping.Rows[0]["ID Topping"].ToString();
+            tboxNama.Text = dtTopping.Rows[0]["Nama Topping"].ToString();
+            tboxHarga.Text = dtTopping.Rows[0]["Harga Topping"].ToString();
+                  
+        }
+        private void dgvMenu_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
             try
             {
-                tboxID.Text = dtTopping.Rows[0]["ID Topping"].ToString();
-                tboxNama.Text = dtTopping.Rows[0]["Nama Topping"].ToString();
-                tboxHarga.Text = dtTopping.Rows[0]["Harga Topping"].ToString();
+                int index = e.RowIndex;
+                DataGridViewRow selectedRow = dgvTopping.Rows[index];
+                tboxID.Text = selectedRow.Cells[0].Value.ToString();
+                tboxNama.Text = selectedRow.Cells[1].Value.ToString();
+                tboxHarga.Text = selectedRow.Cells[2].Value.ToString();
+                saveID = selectedRow.Cells["ID Topping"].Value.ToString();
             }
             catch (Exception)
             {
 
-            }           
-        }
-        private void dgvMenu_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            int index = e.RowIndex;
-            DataGridViewRow selectedRow = dgvTopping.Rows[index];
-            tboxID.Text = selectedRow.Cells[0].Value.ToString();
-            tboxNama.Text = selectedRow.Cells[1].Value.ToString();
-            tboxHarga.Text = selectedRow.Cells[2].Value.ToString();
-            saveID = selectedRow.Cells["ID Topping"].Value.ToString();
+            }
         }
 
         private void btnCancelEdit_Click(object sender, EventArgs e)
@@ -71,13 +76,25 @@ namespace Projek_Tea_Break
 
         private void btnSaveEdit_Click(object sender, EventArgs e)
         {
-            if (tboxID.Text != dgvTopping.CurrentRow.Cells["ID Topping"].Value.ToString())
+            try
             {
-                sqlConnect.Open();
-                sqlQuery = "UPDATE TOPPING SET ID_TOPPING = '"+tboxID.Text+"',NAMA_TOPPING = '" + tboxNama.Text + "', HARGA_TOPPING = '" + tboxHarga.Text + "' WHERE ID_TOPPING ='" + saveID + "'";
-                sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
-                sqlCommand.ExecuteNonQuery();
-                sqlConnect.Close();
+                if (tboxID.Text != dgvTopping.CurrentRow.Cells["ID Topping"].Value.ToString())
+                {
+                    sqlConnect.Open();
+                    sqlQuery = "UPDATE TOPPING SET ID_TOPPING = '" + tboxID.Text + "',NAMA_TOPPING = '" + tboxNama.Text + "', HARGA_TOPPING = '" + tboxHarga.Text + "' WHERE ID_TOPPING ='" + saveID + "'";
+                    sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
+                    sqlCommand.ExecuteNonQuery();
+                    sqlConnect.Close();
+                }
+                else
+                {
+                    sqlConnect.Open();
+                    sqlQuery = "UPDATE TOPPING SET NAMA_TOPPING = '" + tboxNama.Text + "', HARGA_TOPPING = '" + tboxHarga.Text + "' WHERE ID_TOPPING ='" + tboxID.Text + "'";
+                    sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
+                    sqlCommand.ExecuteNonQuery();
+                    sqlConnect.Close();
+                }
+
                 MessageBox.Show("Berhasil Disimpan");
 
                 Refresh();
@@ -87,15 +104,9 @@ namespace Projek_Tea_Break
                 Fmain.ShowDialog();
                 this.Close();
             }
-            else
+            catch (Exception)
             {
-                sqlConnect.Open();
-                sqlQuery = "UPDATE TOPPING SET NAMA_TOPPING = '" + tboxNama.Text + "', HARGA_TOPPING = '" + tboxHarga.Text + "' WHERE ID_TOPPING ='" + tboxID.Text + "'";
-                sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
-                sqlCommand.ExecuteNonQuery();
-                sqlConnect.Close();
-                MessageBox.Show("Berhasil Disimpan");
-
+                MessageBox.Show("Input gagal");
                 Refresh();
 
                 this.Hide();
@@ -103,6 +114,7 @@ namespace Projek_Tea_Break
                 Fmain.ShowDialog();
                 this.Close();
             }
+        
         }
     }
 }

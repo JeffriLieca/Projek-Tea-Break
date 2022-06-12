@@ -55,74 +55,91 @@ namespace Projek_Tea_Break
         }
         private void dgvMenu_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            int index = e.RowIndex;
-            DataGridViewRow selectedRow = dgvMenu.Rows[index];
-            tboxID.Text = selectedRow.Cells[0].Value.ToString();
-            tboxNama.Text = selectedRow.Cells[1].Value.ToString();
-            tboxHarga.Text = selectedRow.Cells[2].Value.ToString();
-            saveID = selectedRow.Cells[2].Value.ToString();
+            try
+            {
+                int index = e.RowIndex;
+                DataGridViewRow selectedRow = dgvMenu.Rows[index];
+                tboxID.Text = selectedRow.Cells[0].Value.ToString();
+                tboxNama.Text = selectedRow.Cells[1].Value.ToString();
+                tboxHarga.Text = selectedRow.Cells[2].Value.ToString();
+                saveID = selectedRow.Cells[2].Value.ToString();
 
-            LoadGambar();
+                sqlQuery = "select GAMBAR from MINUMAN where ID_MINUMAN='" + tboxID.Text + "';";
+                sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
+                sqlAdapter = new MySqlDataAdapter(sqlCommand);
+                DataTable dtCoba = new DataTable();
+                sqlAdapter.Fill(dtCoba);
+                byte[] images = ((byte[])dtCoba.Rows[0][0]);
+                MemoryStream mstream = new MemoryStream(images);
+                pictureBoxAdd.Image = Image.FromStream(mstream);
+            }
+            catch (Exception)
+            {
+
+            }
         }
 
         private void btnCancelEdit_Click(object sender, EventArgs e)
         {
-            this.Hide();
             formMinuman Fmain = new formMinuman();
-            Fmain.Show();
             this.Close();
         }
 
         private void btnSaveEdit_Click(object sender, EventArgs e)
         {
             // Gambar
-            byte[] images = null;
-            FileStream stream = new FileStream(imgLocation, FileMode.Open, FileAccess.Read);
-            BinaryReader brs = new BinaryReader(stream);
-            images = brs.ReadBytes((int)stream.Length);
-
-            if (imgLocation != "")
+            try
             {
-                sqlConnect.Open();
-                sqlQuery = "update MINUMAN set GAMBAR=@images where ID_MINUMAN='"+tboxID.Text+"'";
-                sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
-                sqlCommand.Parameters.Add(new MySqlParameter("@images", images));
-                sqlConnect.Close();
+                byte[] images = null;
+                FileStream stream = new FileStream(imgLocation, FileMode.Open, FileAccess.Read);
+                BinaryReader brs = new BinaryReader(stream);
+                images = brs.ReadBytes((int)stream.Length);
+
+                if (imgLocation != "")
+                {
+                    sqlConnect.Open();
+                    sqlQuery = "update MINUMAN set GAMBAR=@images where ID_MINUMAN='" + tboxID.Text + "'";
+                    sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
+                    sqlCommand.Parameters.Add(new MySqlParameter("@images", images));
+                    sqlConnect.Close();
+                }
+                if (tboxID.Text != dgvMenu.CurrentRow.Cells["ID Minuman"].Value.ToString())
+                {
+                    sqlConnect.Close();
+                    sqlConnect.Open();
+                    sqlQuery = "UPDATE MINUMAN SET ID_MINUMAN = '" + tboxID.Text + "',NAMA_MINUMAN = '" + tboxNama.Text + "', HARGA_MINUMAN = '" + tboxHarga.Text + "' WHERE ID_MINUMAN ='" + saveID + "'";
+                    sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
+                    sqlCommand.ExecuteNonQuery();
+                    sqlConnect.Close();
+                    MessageBox.Show("Berhasil Disimpan");
+
+                    Refresh();
+
+                    formMinuman Fmain = new formMinuman();
+                    this.Close();
+                }
+                else
+                {
+                    sqlConnect.Open();
+                    sqlQuery = "UPDATE MINUMAN SET NAMA_MINUMAN = '" + tboxNama.Text + "', HARGA_MINUMAN = '" + tboxHarga.Text + "' WHERE ID_MINUMAN ='" + tboxID.Text + "'";
+                    sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
+                    sqlCommand.ExecuteNonQuery();
+                    sqlConnect.Close();
+                    MessageBox.Show("Berhasil Disimpan");
+
+                    Refresh();
+
+                    formMinuman Fmain = new formMinuman();
+                    this.Close();
+                }
             }
-
-
-            if (tboxID.Text != dgvMenu.CurrentRow.Cells["ID Minuman"].Value.ToString())
+            catch (Exception)
             {
-                sqlConnect.Open();
-                sqlQuery = "UPDATE MINUMAN SET ID_MINUMAN = '"+tboxID.Text+"',NAMA_MINUMAN = '" + tboxNama.Text + "', HARGA_MINUMAN = '" + tboxHarga.Text + "' WHERE ID_MINUMAN ='" + saveID + "'";
-                sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
-                sqlCommand.ExecuteNonQuery();
-                sqlConnect.Close();
-                MessageBox.Show("Berhasil Disimpan");
-
-                Refresh();
-
-                this.Hide();
-                formMinuman Fmain = new formMinuman();
-                Fmain.Show();
+                MessageBox.Show("Tidak ada data yang disimpan");
                 this.Close();
             }
-            else
-            {
-                sqlConnect.Open();
-                sqlQuery = "UPDATE MINUMAN SET NAMA_MINUMAN = '" + tboxNama.Text + "', HARGA_MINUMAN = '" + tboxHarga.Text + "' WHERE ID_MINUMAN ='" + tboxID.Text + "'";
-                sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
-                sqlCommand.ExecuteNonQuery();
-                sqlConnect.Close();
-                MessageBox.Show("Berhasil Disimpan");
 
-                Refresh();
-
-                this.Hide();
-                formMinuman Fmain = new formMinuman();
-                Fmain.Show();
-                this.Close();
-            }
+            
         }
 
 

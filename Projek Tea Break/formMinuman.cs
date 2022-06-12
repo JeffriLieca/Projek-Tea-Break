@@ -24,6 +24,8 @@ namespace Projek_Tea_Break
         MySqlDataAdapter sqlAdapter;
         public static string sqlQuery;
 
+        DataTable menu = new DataTable();
+
         private void InvisText()
         {
             buttonCashier.Text = " ";
@@ -38,8 +40,18 @@ namespace Projek_Tea_Break
             buttonCashier.BackColor = Color.Transparent;
             InvisText();
             buttonEditMenu.Text = "Edit";
-
-            LoadData();
+           
+            sqlQuery = "select `ID_MINUMAN`,`NAMA_MINUMAN`,`HARGA_MINUMAN` from MINUMAN WHERE STATUS_DELETE = '0'";
+            sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
+            sqlAdapter = new MySqlDataAdapter(sqlCommand);
+            DataTable menu = new DataTable();
+            sqlAdapter.Fill(menu);
+            dgvMenu.DataSource = menu;
+            tboxID.Text = menu.Rows[0][0].ToString();
+            tboxHarga.Text = menu.Rows[0][2].ToString();
+            tboxNama.Text = menu.Rows[0][1].ToString();
+            
+            LoadGambar();
 
             tboxID.Enabled = false;
             tboxNama.Enabled = false;
@@ -59,14 +71,19 @@ namespace Projek_Tea_Break
 
         private void dgvMenu_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            int index = e.RowIndex;
-            DataGridViewRow selectedRow = dgvMenu.Rows[index];
-            tboxID.Text = selectedRow.Cells[0].Value.ToString();
-            tboxNama.Text = selectedRow.Cells[1].Value.ToString();
-            tboxHarga.Text = selectedRow.Cells[2].Value.ToString();
+            try
+            {
+                int index = e.RowIndex;
+                DataGridViewRow selectedRow = dgvMenu.Rows[index];
+                tboxID.Text = selectedRow.Cells[0].Value.ToString();
+                tboxNama.Text = selectedRow.Cells[1].Value.ToString();
+                tboxHarga.Text = selectedRow.Cells[2].Value.ToString();
 
-            LoadGambar();
-
+                LoadGambar();
+            }
+            catch(Exception)
+            {
+            }
         }
 
         private void buttonCashier_Click(object sender, EventArgs e)
@@ -116,13 +133,11 @@ namespace Projek_Tea_Break
         {
             formMinumanUpdate F1 = new formMinumanUpdate();
             F1.ShowDialog();
-            this.Hide();
         }
         private void btnadd_Click(object sender, EventArgs e)
         {
             formMinumanInsert F2 = new formMinumanInsert();
             F2.ShowDialog();
-            this.Hide();
         }
 
         private void btnDelete_Click(object sender, EventArgs e)

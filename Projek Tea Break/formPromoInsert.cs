@@ -36,7 +36,7 @@ namespace Projek_Tea_Break
         {
             try
             {
-                buatID = "PD" + tboxBesar.Text + dtpFrom.Value.ToString("yMMdd");
+                buatID = "PD" + comboBoxBesarPromo.Text + dtpFrom.Value.ToString("yMMdd");
             }
             catch (Exception)
             {
@@ -47,8 +47,10 @@ namespace Projek_Tea_Break
         }
         private void FormbtnAdd_Load(object sender, EventArgs e)
         {
+            
+            comboBoxBesarPromo.Text = "10";
+            BuatInsertID();
             LoadRefresh();
-
             tboxID.ReadOnly = true;
         }
         private void btnCancelAdd_Click(object sender, EventArgs e)
@@ -61,14 +63,28 @@ namespace Projek_Tea_Break
 
         private void btnSaveAdd_Click(object sender, EventArgs e)
         {
-            sqlConnect.Open();
-            sqlQuery = "INSERT INTO `PROMO` VALUES('" + tboxID.Text + "','" + tboxNama.Text + "', '" + tboxBesar.Text + "','" + dtpFrom.Value.ToString("yyyyMMdd") + "','" + dtpTo.Value.ToString("yyyyMMdd") + "','" + '0' + "')";
-            sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
-            sqlCommand.ExecuteNonQuery();
-            sqlConnect.Close();
-            MessageBox.Show("Berhasil Disimpan");
+            if (tboxNama.Text == "")
+            {
+                MessageBox.Show("Nama tidak boleh kosong");
+            }
+            else
+            {
+                try
+                {
+                    sqlConnect.Open();
+                    sqlQuery = "INSERT INTO `PROMO` VALUES('" + tboxID.Text + "','" + tboxNama.Text + "', '" + comboBoxBesarPromo.Text + "','" + dtpFrom.Value.ToString("yyyyMMdd") + "','" + dtpTo.Value.ToString("yyyyMMdd") + "','" + '0' + "')";
+                    sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
+                    sqlCommand.ExecuteNonQuery();
+                    sqlConnect.Close();
+                    MessageBox.Show("Berhasil Disimpan");
 
-            LoadRefresh();
+                    LoadRefresh();
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Input gagal");
+                }
+            }
 
             this.Hide();
             formPromo Fmain = new formPromo();
@@ -76,12 +92,18 @@ namespace Projek_Tea_Break
             this.Close();
         }
 
-        private void tboxBesar_TextChanged(object sender, EventArgs e)
+
+        private void dtpFrom_ValueChanged(object sender, EventArgs e)
         {
             BuatInsertID();
         }
 
-        private void dtpFrom_ValueChanged(object sender, EventArgs e)
+        private void tboxBesar_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+        }
+
+        private void comboBoxBesarPromo_SelectedIndexChanged(object sender, EventArgs e)
         {
             BuatInsertID();
         }

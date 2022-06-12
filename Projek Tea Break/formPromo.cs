@@ -71,13 +71,19 @@ namespace Projek_Tea_Break
 
         private void dgvPromo_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            int index = e.RowIndex;
-            DataGridViewRow selectedRow = dgvPromo.Rows[index];
-            tboxID.Text = selectedRow.Cells[0].Value.ToString();
-            tboxNama.Text = selectedRow.Cells[1].Value.ToString();
-            tboxBesar.Text = selectedRow.Cells[2].Value.ToString();
-            dtpFrom.Text = selectedRow.Cells[3].Value.ToString();
-            dtpTo.Text = selectedRow.Cells[4].Value.ToString();
+            try
+            {
+                int index = e.RowIndex;
+                DataGridViewRow selectedRow = dgvPromo.Rows[index];
+                tboxID.Text = selectedRow.Cells[0].Value.ToString();
+                tboxNama.Text = selectedRow.Cells[1].Value.ToString();
+                tboxBesar.Text = selectedRow.Cells[2].Value.ToString();
+                dtpFrom.Text = selectedRow.Cells[3].Value.ToString();
+                dtpTo.Text = selectedRow.Cells[4].Value.ToString();
+            }
+            catch (Exception)
+            {
+            }
         }
 
         private void buttonCashier_Click(object sender, EventArgs e)
@@ -125,16 +131,17 @@ namespace Projek_Tea_Break
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            formPromoUpdate F3 = new formPromoUpdate();
-            F3.Show();
             this.Hide();
+            formPromoUpdate F3 = new formPromoUpdate();
+            F3.ShowDialog();
+            this.Close();
         }
         private void btnadd_Click(object sender, EventArgs e)
         {
-            formPromoInsert F2 = new formPromoInsert();
-
             this.Hide();
+            formPromoInsert F2 = new formPromoInsert();
             F2.ShowDialog();
+            this.Close();
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -154,6 +161,11 @@ namespace Projek_Tea_Break
         {
             formProfile formProfil = new formProfile();
             formProfil.ShowDialog();
+        }
+
+        private void tboxBesar_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
         }
     }
 }

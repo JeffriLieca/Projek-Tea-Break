@@ -125,12 +125,6 @@
     <Compile Include="formLogin.Designer.cs">
       <DependentUpon>formLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="formEditMenuLAMA.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="formEditMenuLAMA.Designer.cs">
-      <DependentUpon>formEditMenuLAMA.cs</DependentUpon>
-    </Compile>
     <Compile Include="formOrder.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -183,9 +177,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="formLogin.resx">
       <DependentUpon>formLogin.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="formEditMenuLAMA.resx">
-      <DependentUpon>formEditMenuLAMA.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="formOrder.resx">
       <DependentUpon>formOrder.cs</DependentUpon>

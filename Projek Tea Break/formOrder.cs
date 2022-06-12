@@ -41,19 +41,18 @@ namespace Projek_Tea_Break
 
         private void FormOrder_Load(object sender, EventArgs e)
         {
-
+            buttonCanOpen.Visible = false;
+            this.FormClosed += FormOrder_FormClosed;
             labelNamaPegawai.AutoSize = false;
 
             DapatIDNota();
             GetIDCustomer();
-
-            //sqlConnect.Open();
+            
             buttonEditMenu.BackColor = Color.Transparent;
             buttonAdmin.BackColor = Color.Transparent;
             buttonCashier.BackColor = Color.ForestGreen;
             InvisText();
             buttonCashier.Text = "Cashier";
-            //sqlConnect.Close();
 
             if (FormLogin.saveID == "2")
             {
@@ -76,6 +75,14 @@ namespace Projek_Tea_Break
             buttonT.FlatAppearance.BorderSize = 0;
 
         }
+
+        private void FormOrder_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Reload();
+            RefreshPencarian();
+            DeleteData();
+        }
+
         private void buttonCashier_Click(object sender, EventArgs e)
         {
             buttonEditMenu.BackColor = Color.Transparent;
@@ -95,10 +102,27 @@ namespace Projek_Tea_Break
             InvisText();
             buttonEditMenu.Text = "Edit Menu";
 
-            this.Hide();
-            formEditPilih formPilih = new formEditPilih();
-            formPilih.ShowDialog();
-            this.Close();
+            DataTable dtCekNotaSementara = new DataTable();
+            sqlQuery = "select * from DETAIL_MINUMAN_SEMENTARA where status_delete = '0'";
+            sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
+            sqlAdapter = new MySqlDataAdapter(sqlCommand);
+            sqlAdapter.Fill(dtCekNotaSementara);
+            if (dtCekNotaSementara.Rows.Count > 0)
+            {
+                buttonEditMenu.BackColor = Color.Transparent;
+                buttonAdmin.BackColor = Color.Transparent;
+                buttonCashier.BackColor = Color.ForestGreen;
+                InvisText();
+                buttonCashier.Text = "Cashier";
+                MessageBox.Show("Order sedang berlangsung");
+            }
+            else
+            {
+                this.Hide();
+                formEditPilih formPilih = new formEditPilih();
+                formPilih.ShowDialog();
+                this.Close();
+            }
         }
 
         private void buttonAdmin_Click_1(object sender, EventArgs e)
@@ -109,10 +133,27 @@ namespace Projek_Tea_Break
             InvisText();
             buttonAdmin.Text = "Admin";
 
-            this.Hide();
-            formAdmin formAdmin = new formAdmin();
-            formAdmin.ShowDialog();
-            this.Close();
+            DataTable dtCekNotaSementara = new DataTable();
+            sqlQuery = "select * from DETAIL_MINUMAN_SEMENTARA where status_delete = '0'";
+            sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
+            sqlAdapter = new MySqlDataAdapter(sqlCommand);
+            sqlAdapter.Fill(dtCekNotaSementara);
+            if (dtCekNotaSementara.Rows.Count > 0)
+            {
+                buttonEditMenu.BackColor = Color.Transparent;
+                buttonAdmin.BackColor = Color.Transparent;
+                buttonCashier.BackColor = Color.ForestGreen;
+                InvisText();
+                buttonCashier.Text = "Cashier";
+                MessageBox.Show("Order sedang berlangsung");
+            }
+            else
+            {
+                this.Hide();
+                formAdmin formAdmin = new formAdmin();
+                formAdmin.ShowDialog();
+                this.Close();
+            }
         }
 
         public void InvisText()
@@ -211,6 +252,7 @@ namespace Projek_Tea_Break
             formadd.PassingImageList = imageListMinuman;
             formadd.PassingIndex = buttonhu.ImageIndex;
             formadd.ShowDialog();
+            LoadOrderMenu();
         }
 
         private void textBoxCariMinuman_TextChanged(object sender, EventArgs e)
@@ -229,8 +271,9 @@ namespace Projek_Tea_Break
             {
                 InsertNota();
                 InsertData();
+                InsertNota_Topping();
+                InsertCustomer();
                 DeleteData();
-                Refresh();
                 Reload();
             }
         }
@@ -316,6 +359,9 @@ namespace Projek_Tea_Break
                 
                 for (int j = 0; j < detailTopping.Length; j++)
                 {
+                    
+
+
                     string[] pisahTopping = detailTopping[j].Split('-');
 
                     DataTable dtTopping = new DataTable();
@@ -338,7 +384,11 @@ namespace Projek_Tea_Break
                         posisiY += 15;
 
                         Subtotal[i] += Convert.ToInt32(dtTopping.Rows[0][1]) * Convert.ToInt32(pisahTopping[1]);
+
                     }
+
+
+
                 }
 
                 if (dtDetail.Rows[i][7].ToString() == "L")
@@ -436,10 +486,6 @@ namespace Projek_Tea_Break
             formProfil.ShowDialog();
         }
 
-        private void panelOrderMenu_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
         public static string idNota = "";
         public void DapatIDNota()
         {
@@ -467,7 +513,7 @@ namespace Projek_Tea_Break
             {
                 nomorNota = (Convert.ToInt32(dtidNota.Rows[0][0].ToString()) + 1).ToString();
                 urutan = nomorNota;
-                for (int i = 0; i < nomorNota.Length; i++)
+                for (int i = 0; i < 6-nomorNota.Length; i++)
                 {
                     nomorNota = "0" + nomorNota;
                 }
@@ -505,20 +551,28 @@ namespace Projek_Tea_Break
 
         public void GetDiscount()
         {
-            sqlConnect.Open();
-            DataTable dtPromo = new DataTable();
-            string sqlQuery = "select ID_PROMO,BESAR_PROMO from PROMO where TGL_PROMO<now() and END_PROMO>now() order by 2 desc;";
-            sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
-            sqlAdapter = new MySqlDataAdapter(sqlCommand);
-            sqlAdapter.Fill(dtPromo);
-            sqlConnect.Close();
+            try
+            {
 
-            Diskon = Convert.ToInt32(dtPromo.Rows[0][1]) * Total / 100;
-            labelDiskon.Text = "-Rp. "+Diskon.ToString();
-            labelPersen.Text = dtPromo.Rows[0][1].ToString() + "%";
-            Netto = Total - Diskon;
-            labelTotalHargaBersih.Text = "Rp. "+Netto.ToString();
-            IDPromo = dtPromo.Rows[0][0].ToString();
+                sqlConnect.Open();
+                DataTable dtPromo = new DataTable();
+                string sqlQuery = "select ID_PROMO,BESAR_PROMO from PROMO where TGL_PROMO<now() and END_PROMO>now() order by 2 desc;";
+                sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
+                sqlAdapter = new MySqlDataAdapter(sqlCommand);
+                sqlAdapter.Fill(dtPromo);
+                sqlConnect.Close();
+
+                Diskon = Convert.ToInt32(dtPromo.Rows[0][1]) * Total / 100;
+                labelDiskon.Text = "-Rp. " + Diskon.ToString();
+                labelPersen.Text = dtPromo.Rows[0][1].ToString() + "%";
+                Netto = Total - Diskon;
+                labelTotalHargaBersih.Text = "Rp. " + Netto.ToString();
+                IDPromo = dtPromo.Rows[0][0].ToString();
+            }
+            catch (Exception)
+            {
+                labelPersen.Text = "0%";
+            }
         }
 
         public void Reload()
@@ -564,7 +618,7 @@ namespace Projek_Tea_Break
             }
             string nomorCust = dtIDCust.Rows[0][0].ToString()+nomor;
             IDCustomer = nomorCust;
-            MessageBox.Show("IDCustomer=" + IDCustomer);
+            //MessageBox.Show("IDCustomer=" + IDCustomer);
             sqlConnect.Close();
         }
 
@@ -573,11 +627,76 @@ namespace Projek_Tea_Break
             sqlConnect.Open();
             string sqlQueryNota = "insert into NOTA values('"+idNota+"', '"+IDCustomer+"', '"+IDPegawai+"', '"+IDPromo+"', now(), '"+Total+"', '"+Diskon+"','"+(Total-Diskon)+"', '"+urutan+"' , '0'); ";
             sqlCommand = new MySqlCommand(sqlQueryNota, sqlConnect);
-            MessageBox.Show($"{idNota},{IDCustomer},{IDPegawai},{IDPromo},now(),{Total},{Diskon},{Total-Diskon},{urutan},'0'");
+           // MessageBox.Show($"{idNota},{IDCustomer},{IDPegawai},{IDPromo},now(),{Total},{Diskon},{Total-Diskon},{urutan},'0'");
             sqlCommand.ExecuteNonQuery();
             sqlConnect.Close();
         }
 
+        public void InsertNota_Topping()
+        {
+            sqlConnect.Open();
+            DataTable dtDetail = new DataTable();
+            string sqlQueryDetail = "select DM.INDEX_MINUMAN AS `INDEX`, DM.ID_MINUMAN AS ID, M.NAMA_MINUMAN as NAMA ,DM.QTY_MINUMAN AS QTY, DM.HARGA_MINUMAN AS HARGA, DM.SUBTOTAL_MINUMAN AS SUBTOTAL, DM.NOTE_MINUMAN AS NOTE, DM.SUGAR_LEVEL AS SUGAR, ICE_LEVEL AS ICE from DETAIL_MINUMAN_SEMENTARA DM, MINUMAN M where  M.ID_MINUMAN=DM.ID_MINUMAN and DM.ID_NOTA='" + labelIDNota.Text + "' and DM.STATUS_DELETE=0 order by 1 ;  ";
+            sqlCommand = new MySqlCommand(sqlQueryDetail, sqlConnect);
+            sqlAdapter = new MySqlDataAdapter(sqlCommand);
+            sqlAdapter.Fill(dtDetail);
+            sqlConnect.Close();
+
+
+            for (int i = 0; i < dtDetail.Rows.Count; i++)
+            {
+                string[] detailTopping = dtDetail.Rows[i][6].ToString().Split(',');
+               
+                for (int j = 0; j < detailTopping.Length; j++)
+                {
+
+
+                    sqlConnect.Open();
+                    string[] pisahTopping = detailTopping[j].Split('-');
+
+                    DataTable dtTopping = new DataTable();
+                    string sqlQueryPisahTopping = "select NAMA_TOPPING, HARGA_TOPPING FROM TOPPING WHERE ID_TOPPING='" + pisahTopping[0] + "';";
+                    sqlCommand = new MySqlCommand(sqlQueryPisahTopping, sqlConnect);
+                    sqlAdapter = new MySqlDataAdapter(sqlCommand);
+                    sqlAdapter.Fill(dtTopping);
+
+
+                    // Insert
+                    string sqlInserNota_Topping = "insert into NOTA_TOPPING values('" + idNota + "'," + i + ",'" + pisahTopping[0].ToString() + "',"+pisahTopping[1]+","+dtTopping.Rows[0][1]+","+Convert.ToInt32(pisahTopping[1])*Convert.ToInt32(dtTopping.Rows[0][1])+",'0');";
+                    sqlCommand = new MySqlCommand(sqlInserNota_Topping, sqlConnect);
+                    //MessageBox.Show(sqlInserNota_Topping);
+                    sqlCommand.ExecuteNonQuery();
+                    sqlConnect.Close();
+                }
+            }
+        }
+
+        public void InsertCustomer()
+        {
+            sqlConnect.Open();
+            string sqlInsertCustomer = "insert into CUSTOMER values('"+IDCustomer+"','"+textBoxNama.Text+"','"+textBoxNoHP.Text+"','0');";
+            sqlCommand = new MySqlCommand(sqlInsertCustomer, sqlConnect);
+            //MessageBox.Show(sqlInsertCustomer);
+            sqlCommand.ExecuteNonQuery();
+            sqlConnect.Close();
+        }
+
+        private void buttonCanClose_MouseEnter(object sender, EventArgs e)
+        {
+            buttonCanOpen.Visible = true;
+        }
+
+        private void buttonCanOpen_MouseLeave(object sender, EventArgs e)
+        {
+            buttonCanOpen.Visible = false;
+        }
+
+        private void buttonCanOpen_Click(object sender, EventArgs e)
+        {
+            DeleteData();
+            LoadOrderMenu();
+            Reload();
+        }
     }
 }
 

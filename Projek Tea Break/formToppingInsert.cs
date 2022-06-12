@@ -74,13 +74,20 @@ namespace Projek_Tea_Break
 
         private void btnSaveAdd_Click(object sender, EventArgs e)
         {
-            sqlConnect.Open();
-            sqlQuery = "INSERT INTO `TOPPING`VALUES('" + tboxID.Text + "','" + tboxNama.Text + "','" + tboxHarga.Text + "','0')";
-            sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
-            sqlCommand.ExecuteNonQuery();
-            sqlConnect.Close();
-            MessageBox.Show($"{tboxID.Text} Berhasil Disimpan");
-            Refresh();
+            try
+            {
+                sqlConnect.Open();
+                sqlQuery = "INSERT INTO `TOPPING`VALUES('" + tboxID.Text + "','" + tboxNama.Text + "','" + tboxHarga.Text + "','0')";
+                sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
+                sqlCommand.ExecuteNonQuery();
+                sqlConnect.Close();
+                MessageBox.Show($"{tboxID.Text} Berhasil Disimpan");
+                Refresh();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Input gagal");
+            }
 
             this.Hide();
             formTopping Fmain = new formTopping();

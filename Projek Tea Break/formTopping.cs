@@ -54,8 +54,16 @@ namespace Projek_Tea_Break
             tboxHarga.Enabled = false;
             tboxNama.Enabled = false;
 
-            Refresh();
-            
+            DataTable dtTopping = new DataTable();
+            sqlQuery = "select id_topping as 'ID Topping', nama_topping as 'Nama Topping', harga_topping as 'Harga Topping' from TOPPING where STATUS_DELETE = '0';";
+            sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
+            sqlAdapter = new MySqlDataAdapter(sqlCommand);
+            sqlAdapter.Fill(dtTopping);
+            dgvTopping.DataSource = dtTopping;
+            tboxHarga.Text = dtTopping.Rows[0]["Harga Topping"].ToString();
+            tboxID.Text = dtTopping.Rows[0]["ID Topping"].ToString();
+            tboxNama.Text = dtTopping.Rows[0]["Nama Topping"].ToString();
+
         }
         private void buttonCashier_Click(object sender, EventArgs e)
         {
@@ -117,23 +125,31 @@ namespace Projek_Tea_Break
 
         private void dgvTopping_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            tboxID.Text = dgvTopping.Rows[e.RowIndex].Cells[0].Value.ToString();
-            tboxNama.Text = dgvTopping.Rows[e.RowIndex].Cells[1].Value.ToString();
-            tboxHarga.Text = dgvTopping.Rows[e.RowIndex].Cells[2].Value.ToString();
+            try
+            {
+                tboxID.Text = dgvTopping.Rows[e.RowIndex].Cells[0].Value.ToString();
+                tboxNama.Text = dgvTopping.Rows[e.RowIndex].Cells[1].Value.ToString();
+                tboxHarga.Text = dgvTopping.Rows[e.RowIndex].Cells[2].Value.ToString();
+            }
+            catch (Exception)
+            {
+            }
         }
 
         private void btnadd_Click(object sender, EventArgs e)
         {
+            this.Hide();
             formToppingInsert ftInsert = new formToppingInsert();
             ftInsert.ShowDialog();
-            this.Hide();
+            this.Close();
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
+            this.Hide();
             formToppingUpdate ftUpdate = new formToppingUpdate();
             ftUpdate.ShowDialog();
-            this.Hide();
+            this.Close();
         }
 
         private void pbProfil_Click(object sender, EventArgs e)

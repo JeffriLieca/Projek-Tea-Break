@@ -89,7 +89,7 @@ namespace Projek_Tea_Break
             // 
             this.cbShow.AutoSize = true;
             this.cbShow.Location = new System.Drawing.Point(87, 425);
-            this.cbShow.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbShow.Margin = new System.Windows.Forms.Padding(4);
             this.cbShow.Name = "cbShow";
             this.cbShow.Size = new System.Drawing.Size(129, 21);
             this.cbShow.TabIndex = 8;
@@ -112,7 +112,7 @@ namespace Projek_Tea_Break
             // 
             this.pictureBox5.BackColor = System.Drawing.Color.ForestGreen;
             this.pictureBox5.Location = new System.Drawing.Point(339, 252);
-            this.pictureBox5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox5.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(176, 4);
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -123,7 +123,7 @@ namespace Projek_Tea_Break
             // 
             this.pictureBox4.BackColor = System.Drawing.Color.ForestGreen;
             this.pictureBox4.Location = new System.Drawing.Point(-20, 252);
-            this.pictureBox4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox4.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(176, 4);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -134,7 +134,7 @@ namespace Projek_Tea_Break
             // 
             this.pictureBox3.BackColor = System.Drawing.Color.ForestGreen;
             this.pictureBox3.Location = new System.Drawing.Point(-13, 580);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(536, 62);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -145,7 +145,7 @@ namespace Projek_Tea_Break
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
             this.pictureBox2.Location = new System.Drawing.Point(11, 382);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(72, 48);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -156,7 +156,7 @@ namespace Projek_Tea_Break
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(8, 324);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(72, 52);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -168,7 +168,7 @@ namespace Projek_Tea_Break
             this.pictureBox6.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox6.Image = global::Projek_Tea_Break.Properties.Resources.logoteaBreak;
             this.pictureBox6.Location = new System.Drawing.Point(53, 44);
-            this.pictureBox6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox6.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox6.Name = "pictureBox6";
             this.pictureBox6.Size = new System.Drawing.Size(411, 212);
             this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
