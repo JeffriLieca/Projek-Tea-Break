@@ -98,11 +98,6 @@ namespace Projek_Tea_Break
             BuatInsertID();
         }
 
-        private void tboxBesar_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
-        }
-
         private void comboBoxBesarPromo_SelectedIndexChanged(object sender, EventArgs e)
         {
             BuatInsertID();

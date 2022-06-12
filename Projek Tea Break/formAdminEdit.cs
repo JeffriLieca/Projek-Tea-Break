@@ -156,8 +156,7 @@ namespace Projek_Tea_Break
                     cekID = selectedRow.Cells["ID"].Value.ToString();
                 }
                 catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
+                {                   
                 }
             }
         }

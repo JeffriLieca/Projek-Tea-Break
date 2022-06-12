@@ -54,10 +54,10 @@ namespace Projek_Tea_Break
             this.buttonLogin.BackColor = System.Drawing.Color.Black;
             this.buttonLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonLogin.ForeColor = System.Drawing.Color.White;
-            this.buttonLogin.Location = new System.Drawing.Point(87, 469);
-            this.buttonLogin.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonLogin.Location = new System.Drawing.Point(65, 381);
+            this.buttonLogin.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonLogin.Name = "buttonLogin";
-            this.buttonLogin.Size = new System.Drawing.Size(377, 48);
+            this.buttonLogin.Size = new System.Drawing.Size(283, 39);
             this.buttonLogin.TabIndex = 2;
             this.buttonLogin.Text = "Login";
             this.buttonLogin.UseVisualStyleBackColor = false;
@@ -67,20 +67,20 @@ namespace Projek_Tea_Break
             // textBoxUsername
             // 
             this.textBoxUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.textBoxUsername.Location = new System.Drawing.Point(87, 335);
-            this.textBoxUsername.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBoxUsername.Location = new System.Drawing.Point(65, 272);
+            this.textBoxUsername.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBoxUsername.Name = "textBoxUsername";
-            this.textBoxUsername.Size = new System.Drawing.Size(376, 30);
+            this.textBoxUsername.Size = new System.Drawing.Size(283, 26);
             this.textBoxUsername.TabIndex = 0;
             this.textBoxUsername.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxUsername_KeyPress);
             // 
             // textBoxPassword
             // 
             this.textBoxPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.textBoxPassword.Location = new System.Drawing.Point(87, 386);
-            this.textBoxPassword.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBoxPassword.Location = new System.Drawing.Point(65, 314);
+            this.textBoxPassword.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBoxPassword.Name = "textBoxPassword";
-            this.textBoxPassword.Size = new System.Drawing.Size(376, 30);
+            this.textBoxPassword.Size = new System.Drawing.Size(283, 26);
             this.textBoxPassword.TabIndex = 1;
             this.textBoxPassword.UseSystemPasswordChar = true;
             this.textBoxPassword.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxPassword_KeyPress);
@@ -88,10 +88,9 @@ namespace Projek_Tea_Break
             // cbShow
             // 
             this.cbShow.AutoSize = true;
-            this.cbShow.Location = new System.Drawing.Point(87, 425);
-            this.cbShow.Margin = new System.Windows.Forms.Padding(4);
+            this.cbShow.Location = new System.Drawing.Point(65, 345);
             this.cbShow.Name = "cbShow";
-            this.cbShow.Size = new System.Drawing.Size(129, 21);
+            this.cbShow.Size = new System.Drawing.Size(102, 17);
             this.cbShow.TabIndex = 8;
             this.cbShow.Text = "Show Password";
             this.cbShow.UseVisualStyleBackColor = true;
@@ -101,20 +100,18 @@ namespace Projek_Tea_Break
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
-            this.label1.Location = new System.Drawing.Point(197, 242);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(148, 197);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(102, 25);
+            this.label1.Size = new System.Drawing.Size(82, 20);
             this.label1.TabIndex = 11;
             this.label1.Text = "Welcome";
             // 
             // pictureBox5
             // 
             this.pictureBox5.BackColor = System.Drawing.Color.ForestGreen;
-            this.pictureBox5.Location = new System.Drawing.Point(339, 252);
-            this.pictureBox5.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox5.Location = new System.Drawing.Point(254, 205);
             this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(176, 4);
+            this.pictureBox5.Size = new System.Drawing.Size(132, 3);
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox5.TabIndex = 10;
             this.pictureBox5.TabStop = false;
@@ -122,10 +119,9 @@ namespace Projek_Tea_Break
             // pictureBox4
             // 
             this.pictureBox4.BackColor = System.Drawing.Color.ForestGreen;
-            this.pictureBox4.Location = new System.Drawing.Point(-20, 252);
-            this.pictureBox4.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox4.Location = new System.Drawing.Point(-15, 205);
             this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(176, 4);
+            this.pictureBox4.Size = new System.Drawing.Size(132, 3);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox4.TabIndex = 9;
             this.pictureBox4.TabStop = false;
@@ -133,10 +129,9 @@ namespace Projek_Tea_Break
             // pictureBox3
             // 
             this.pictureBox3.BackColor = System.Drawing.Color.ForestGreen;
-            this.pictureBox3.Location = new System.Drawing.Point(-13, 580);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox3.Location = new System.Drawing.Point(-10, 471);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(536, 62);
+            this.pictureBox3.Size = new System.Drawing.Size(402, 50);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox3.TabIndex = 7;
             this.pictureBox3.TabStop = false;
@@ -144,10 +139,9 @@ namespace Projek_Tea_Break
             // pictureBox2
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(11, 382);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox2.Location = new System.Drawing.Point(9, 310);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(72, 48);
+            this.pictureBox2.Size = new System.Drawing.Size(48, 38);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 6;
             this.pictureBox2.TabStop = false;
@@ -155,10 +149,9 @@ namespace Projek_Tea_Break
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(8, 324);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox1.Location = new System.Drawing.Point(6, 263);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(72, 52);
+            this.pictureBox1.Size = new System.Drawing.Size(54, 42);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 5;
             this.pictureBox1.TabStop = false;
@@ -167,19 +160,18 @@ namespace Projek_Tea_Break
             // 
             this.pictureBox6.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox6.Image = global::Projek_Tea_Break.Properties.Resources.logoteaBreak;
-            this.pictureBox6.Location = new System.Drawing.Point(53, 44);
-            this.pictureBox6.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox6.Location = new System.Drawing.Point(40, 36);
             this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(411, 212);
+            this.pictureBox6.Size = new System.Drawing.Size(308, 172);
             this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox6.TabIndex = 12;
             this.pictureBox6.TabStop = false;
             // 
             // FormLogin
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(512, 635);
+            this.ClientSize = new System.Drawing.Size(384, 516);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox5);
             this.Controls.Add(this.pictureBox4);
@@ -191,7 +183,7 @@ namespace Projek_Tea_Break
             this.Controls.Add(this.textBoxUsername);
             this.Controls.Add(this.buttonLogin);
             this.Controls.Add(this.pictureBox6);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "FormLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
