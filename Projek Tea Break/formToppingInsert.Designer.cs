@@ -35,24 +35,20 @@
             this.tboxHarga = new System.Windows.Forms.TextBox();
             this.tboxNama = new System.Windows.Forms.TextBox();
             this.tboxID = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.buttonAddImage = new System.Windows.Forms.Button();
-            this.pictureBoxAdd = new System.Windows.Forms.PictureBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTopping)).BeginInit();
-            this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAdd)).BeginInit();
             this.SuspendLayout();
             // 
             // labelAdd
             // 
             this.labelAdd.AutoSize = true;
             this.labelAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelAdd.Location = new System.Drawing.Point(299, 18);
+            this.labelAdd.Location = new System.Drawing.Point(224, 15);
+            this.labelAdd.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelAdd.Name = "labelAdd";
-            this.labelAdd.Size = new System.Drawing.Size(78, 36);
+            this.labelAdd.Size = new System.Drawing.Size(62, 29);
             this.labelAdd.TabIndex = 46;
             this.labelAdd.Text = "ADD";
             // 
@@ -60,18 +56,18 @@
             // 
             this.dgvTopping.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvTopping.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dgvTopping.BackgroundColor = System.Drawing.Color.White;
             this.dgvTopping.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvTopping.Location = new System.Drawing.Point(40, 71);
-            this.dgvTopping.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.dgvTopping.Location = new System.Drawing.Point(30, 58);
+            this.dgvTopping.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.dgvTopping.MultiSelect = false;
             this.dgvTopping.Name = "dgvTopping";
             this.dgvTopping.ReadOnly = true;
             this.dgvTopping.RowHeadersWidth = 51;
             this.dgvTopping.RowTemplate.Height = 24;
             this.dgvTopping.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvTopping.Size = new System.Drawing.Size(627, 150);
+            this.dgvTopping.Size = new System.Drawing.Size(470, 122);
             this.dgvTopping.TabIndex = 45;
-            this.dgvTopping.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTopping_CellContentClick);
             // 
             // btnCancelAdd
             // 
@@ -79,10 +75,10 @@
             this.btnCancelAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancelAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelAdd.ForeColor = System.Drawing.Color.White;
-            this.btnCancelAdd.Location = new System.Drawing.Point(279, 410);
-            this.btnCancelAdd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnCancelAdd.Location = new System.Drawing.Point(314, 343);
+            this.btnCancelAdd.Margin = new System.Windows.Forms.Padding(2);
             this.btnCancelAdd.Name = "btnCancelAdd";
-            this.btnCancelAdd.Size = new System.Drawing.Size(112, 42);
+            this.btnCancelAdd.Size = new System.Drawing.Size(84, 34);
             this.btnCancelAdd.TabIndex = 44;
             this.btnCancelAdd.Text = "Cancel";
             this.btnCancelAdd.UseVisualStyleBackColor = false;
@@ -94,106 +90,82 @@
             this.btnSaveAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSaveAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSaveAdd.ForeColor = System.Drawing.Color.White;
-            this.btnSaveAdd.Location = new System.Drawing.Point(65, 410);
-            this.btnSaveAdd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnSaveAdd.Location = new System.Drawing.Point(152, 343);
+            this.btnSaveAdd.Margin = new System.Windows.Forms.Padding(2);
             this.btnSaveAdd.Name = "btnSaveAdd";
-            this.btnSaveAdd.Size = new System.Drawing.Size(104, 42);
+            this.btnSaveAdd.Size = new System.Drawing.Size(78, 34);
             this.btnSaveAdd.TabIndex = 43;
-            this.btnSaveAdd.Text = "SAVE";
+            this.btnSaveAdd.Text = "Add";
             this.btnSaveAdd.UseVisualStyleBackColor = false;
             this.btnSaveAdd.Click += new System.EventHandler(this.btnSaveAdd_Click);
             // 
             // tboxHarga
             // 
-            this.tboxHarga.Location = new System.Drawing.Point(202, 346);
-            this.tboxHarga.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tboxHarga.Location = new System.Drawing.Point(214, 286);
+            this.tboxHarga.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.tboxHarga.Name = "tboxHarga";
-            this.tboxHarga.Size = new System.Drawing.Size(191, 22);
+            this.tboxHarga.Size = new System.Drawing.Size(144, 20);
             this.tboxHarga.TabIndex = 3;
             // 
             // tboxNama
             // 
-            this.tboxNama.Location = new System.Drawing.Point(202, 307);
-            this.tboxNama.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tboxNama.Location = new System.Drawing.Point(214, 252);
+            this.tboxNama.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.tboxNama.Name = "tboxNama";
-            this.tboxNama.Size = new System.Drawing.Size(191, 22);
+            this.tboxNama.Size = new System.Drawing.Size(144, 20);
             this.tboxNama.TabIndex = 2;
             // 
             // tboxID
             // 
-            this.tboxID.Location = new System.Drawing.Point(202, 262);
-            this.tboxID.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tboxID.Location = new System.Drawing.Point(214, 217);
+            this.tboxID.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.tboxID.Name = "tboxID";
-            this.tboxID.Size = new System.Drawing.Size(191, 22);
+            this.tboxID.Size = new System.Drawing.Size(144, 20);
             this.tboxID.TabIndex = 1;
             // 
-            // label3
+            // label4
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(37, 346);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(121, 17);
-            this.label3.TabIndex = 37;
-            this.label3.Text = "Harga minuman";
+            this.label4.AutoSize = true;
+            this.label4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(112, 289);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(91, 13);
+            this.label4.TabIndex = 47;
+            this.label4.Text = "Harga Topping";
             // 
-            // label2
+            // label5
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(37, 307);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(118, 17);
-            this.label2.TabIndex = 38;
-            this.label2.Text = "Nama minuman";
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(114, 255);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(89, 13);
+            this.label5.TabIndex = 48;
+            this.label5.Text = "Nama Topping";
             // 
-            // label1
+            // label6
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(61, 262);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(92, 17);
-            this.label1.TabIndex = 39;
-            this.label1.Text = "ID minuman";
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.Silver;
-            this.panel1.Controls.Add(this.buttonAddImage);
-            this.panel1.Controls.Add(this.pictureBoxAdd);
-            this.panel1.Location = new System.Drawing.Point(427, 229);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(267, 294);
-            this.panel1.TabIndex = 47;
-            // 
-            // buttonAddImage
-            // 
-            this.buttonAddImage.Location = new System.Drawing.Point(71, 224);
-            this.buttonAddImage.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.buttonAddImage.Name = "buttonAddImage";
-            this.buttonAddImage.Size = new System.Drawing.Size(133, 42);
-            this.buttonAddImage.TabIndex = 38;
-            this.buttonAddImage.Text = "Add Image";
-            this.buttonAddImage.UseVisualStyleBackColor = true;
-            // 
-            // pictureBoxAdd
-            // 
-            this.pictureBoxAdd.Location = new System.Drawing.Point(36, 17);
-            this.pictureBoxAdd.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.pictureBoxAdd.Name = "pictureBoxAdd";
-            this.pictureBoxAdd.Size = new System.Drawing.Size(200, 199);
-            this.pictureBoxAdd.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxAdd.TabIndex = 37;
-            this.pictureBoxAdd.TabStop = false;
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(133, 220);
+            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(70, 13);
+            this.label6.TabIndex = 49;
+            this.label6.Text = "ID Topping";
             // 
             // formToppingInsert
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(707, 535);
-            this.Controls.Add(this.panel1);
+            this.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.ClientSize = new System.Drawing.Size(532, 436);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.labelAdd);
             this.Controls.Add(this.dgvTopping);
             this.Controls.Add(this.btnCancelAdd);
@@ -201,16 +173,12 @@
             this.Controls.Add(this.tboxHarga);
             this.Controls.Add(this.tboxNama);
             this.Controls.Add(this.tboxID);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "formToppingInsert";
-            this.Text = "FormbtnAdd";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Add Topping";
             this.Load += new System.EventHandler(this.FormbtnAdd_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvTopping)).EndInit();
-            this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAdd)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -225,11 +193,8 @@
         private System.Windows.Forms.TextBox tboxHarga;
         private System.Windows.Forms.TextBox tboxNama;
         private System.Windows.Forms.TextBox tboxID;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button buttonAddImage;
-        private System.Windows.Forms.PictureBox pictureBoxAdd;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
     }
 }

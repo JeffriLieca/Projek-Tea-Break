@@ -40,15 +40,13 @@ namespace Projek_Tea_Break
             Refresh();
             LoadGambar();
 
-            tboxID.Text = menu.Rows[0][0].ToString();
-            tboxNama.Text = menu.Rows[0][1].ToString();
-            tboxHarga.Text = menu.Rows[0][2].ToString();
+            tboxID.ReadOnly = true;
         }
         private void btnCancelAdd_Click(object sender, EventArgs e)
         {
             this.Hide();
             formMinuman Fmain = new formMinuman();
-            Fmain.Show();
+            Fmain.ShowDialog();
             this.Close();
         }
 
@@ -74,9 +72,11 @@ namespace Projek_Tea_Break
             DataTable menu = new DataTable();
             sqlAdapter.Fill(menu);
             dgvMenu.DataSource = menu;
-            formMinuman Fmain = new formMinuman();
-            Fmain.Show();
+
             this.Hide();
+            formMinuman Fmain = new formMinuman();
+            Fmain.ShowDialog();
+            this.Close();
         }
 
 
@@ -97,13 +97,13 @@ namespace Projek_Tea_Break
 
         private void dgvMenu_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            int index = e.RowIndex;
-            DataGridViewRow selectedRow = dgvMenu.Rows[index];
-            tboxID.Text = selectedRow.Cells[0].Value.ToString();
-            tboxNama.Text = selectedRow.Cells[1].Value.ToString();
-            tboxHarga.Text = selectedRow.Cells[2].Value.ToString();
+            //int index = e.RowIndex;
+            //DataGridViewRow selectedRow = dgvMenu.Rows[index];
+            //tboxID.Text = selectedRow.Cells[0].Value.ToString();
+            //tboxNama.Text = selectedRow.Cells[1].Value.ToString();
+            //tboxHarga.Text = selectedRow.Cells[2].Value.ToString();
 
-            LoadGambar();
+            //LoadGambar();
         }
         public void LoadGambar()
         {

@@ -40,7 +40,7 @@ namespace Projek_Tea_Break
             buttonEditMenu.Text = " ";
             buttonAdmin.Text = " ";
         }
-        private void IDPegawai()
+        private void AddIDPegawai()
         {
             DataTable cekPegawai = new DataTable();
             sqlQuery = "select left(id_pegawai,1) as inisial, right(id_pegawai,4) as urut from PEGAWAI where left(id_pegawai,1) = left('" + tbNama.Text.ToUpper() + "',1) and status_delete = '0' order by 2 desc";
@@ -141,17 +141,26 @@ namespace Projek_Tea_Break
 
         private void dgvMenu_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            int index = e.RowIndex;
-            DataGridViewRow selectedRow = dgvPegawai.Rows[index];
-            tbID.Text = selectedRow.Cells[0].Value.ToString();
-            tbNama.Text = selectedRow.Cells[1].Value.ToString();
-            dtpTanggalLahir.Text = selectedRow.Cells[2].Value.ToString();
-            tbAlamat.Text = selectedRow.Cells[3].Value.ToString();
-            tbHP.Text = selectedRow.Cells[4].Value.ToString();
-            cbJabatan.Text = selectedRow.Cells[5].Value.ToString();
-            cekID = selectedRow.Cells["ID"].Value.ToString();
+            if (rbAdd.Checked == false)
+            {
+                try
+                {
+                    int index = e.RowIndex;
+                    DataGridViewRow selectedRow = dgvPegawai.Rows[index];
+                    tbID.Text = selectedRow.Cells[0].Value.ToString();
+                    tbNama.Text = selectedRow.Cells[1].Value.ToString();
+                    dtpTanggalLahir.Text = selectedRow.Cells[2].Value.ToString();
+                    tbAlamat.Text = selectedRow.Cells[3].Value.ToString();
+                    tbHP.Text = selectedRow.Cells[4].Value.ToString();
+                    cbJabatan.Text = selectedRow.Cells[5].Value.ToString();
+                    cekID = selectedRow.Cells["ID"].Value.ToString();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
         }
-
         private void btnDelete_Click(object sender, EventArgs e)
         {
             DialogResult drDelete = MessageBox.Show("Confirm to delete?", "Delete", MessageBoxButtons.YesNo);
@@ -176,17 +185,34 @@ namespace Projek_Tea_Break
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            sqlQuery = "insert into PEGAWAI values('"+tbID.Text+"', '"+tbNama.Text+"', '"+dtpTanggalLahir.Value.ToString("yyyyMMdd")+"', '"+tbAlamat.Text+"', '"+tbHP.Text+"', '"+cbJabatan.SelectedValue+"', '0');";
-            sqlConnect.Open();
-            sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
-            sqlCommand.ExecuteNonQuery();
-            sqlConnect.Close();
+            try
+            {
 
-            MessageBox.Show("Berhasil ditambah");
 
-            Refresh();
+                sqlQuery = "insert into PEGAWAI values('" + tbID.Text + "', '" + tbNama.Text + "', '" + dtpTanggalLahir.Value.ToString("yyyyMMdd") + "', '" + tbAlamat.Text + "', '" + tbHP.Text + "', '" + cbJabatan.SelectedValue + "', '0');";
+                sqlConnect.Open();
+                sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
+                sqlCommand.ExecuteNonQuery();
+                sqlConnect.Close();
+
+                MessageBox.Show($"{tbID.Text} Berhasil ditambah");
+
+                Refresh();
+
+
+
+                tbID.Text = "";
+                tbNama.Text = "";
+                tbAlamat.Text = "";
+                tbHP.Text = "";
+                cbJabatan.Text = "";
+                dtpTanggalLahir.Text = "";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
-
         private void btnSave_Click(object sender, EventArgs e)
         {
             if (tbID.Text != dgvPegawai.CurrentRow.Cells["ID"].Value.ToString())
@@ -238,6 +264,7 @@ namespace Projek_Tea_Break
             else if (rbAdd.Checked == true)
             {
                 tbID.Enabled = true;
+                tbID.ReadOnly = true;
                 tbNama.Enabled = true;
                 dtpTanggalLahir.Enabled = true;
                 tbAlamat.Enabled = true;
@@ -247,7 +274,7 @@ namespace Projek_Tea_Break
                 btnSave.Visible = false;
                 btnAdd.Visible = true;
                 btnDelete.Visible = false;
-                
+
                 btnAdd.Location = new Point(301, 407);
 
                 tbID.Text = "";
@@ -296,6 +323,7 @@ namespace Projek_Tea_Break
             else if (rbAdd.Checked == true)
             {
                 tbID.Enabled = true;
+                tbID.ReadOnly = true;
                 tbNama.Enabled = true;
                 dtpTanggalLahir.Enabled = true;
                 tbAlamat.Enabled = true;
@@ -354,7 +382,8 @@ namespace Projek_Tea_Break
             else if (rbAdd.Checked == true)
             {
                 tbID.Enabled = true;
-                tbNama.Enabled = true;
+                tbID.ReadOnly = true;
+                tbNama.Enabled = true;                
                 dtpTanggalLahir.Enabled = true;
                 tbAlamat.Enabled = true;
                 tbHP.Enabled = true;
@@ -393,7 +422,22 @@ namespace Projek_Tea_Break
 
         private void tbNama_TextChanged(object sender, EventArgs e)
         {
+            if (rbAdd.Checked == true)
+            {
+                if (tbNama.Text != "")
+                {
+                    AddIDPegawai();
+                }
+                else
+                {
+                    tbID.Text =  "";
+                }
+            }
+        }
 
+        private void tbHP_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
         }
     }
 }

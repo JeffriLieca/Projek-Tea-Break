@@ -72,7 +72,6 @@
             this.dgvPromo.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvPromo.Size = new System.Drawing.Size(432, 150);
             this.dgvPromo.TabIndex = 45;
-            this.dgvPromo.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPromo_CellContentClick);
             // 
             // btnCancelAdd
             // 

@@ -33,24 +33,15 @@ namespace Projek_Tea_Break
         }
         private void FormbtnAdd_Load(object sender, EventArgs e)
         {
-            sqlQuery = "select `ID_PROMO`,`NAMA_PROMO`,`BESAR_PROMO`,`tgl_promo` , `end_promo` from PROMO where status_delete ='0'";
-            sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
-            sqlAdapter = new MySqlDataAdapter(sqlCommand);
-            DataTable dt = new DataTable();
-            sqlAdapter.Fill(dt);
-            tboxID.Text = dt.Rows[0][0].ToString();
-            tboxNama.Text = dt.Rows[0][1].ToString();
-            tboxBesar.Text = dt.Rows[0][2].ToString();
-            dtpFrom.Text = dt.Rows[0][3].ToString();
-            dtpTo.Text = dt.Rows[0][4].ToString();
-
             LoadRefresh();
+
+            tboxID.ReadOnly = true;
         }
         private void btnCancelAdd_Click(object sender, EventArgs e)
         {
             this.Hide();
             formPromo Fmain = new formPromo();
-            Fmain.Show();
+            Fmain.ShowDialog();
             this.Close();
         }
 
@@ -67,19 +58,8 @@ namespace Projek_Tea_Break
 
             this.Hide();
             formPromo Fmain = new formPromo();
-            Fmain.Show();
+            Fmain.ShowDialog();
             this.Close();
-        }
-
-        private void dgvPromo_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            int index = e.RowIndex;
-            DataGridViewRow selectedRow = dgvPromo.Rows[index];
-            tboxID.Text = selectedRow.Cells[0].Value.ToString();
-            tboxNama.Text = selectedRow.Cells[1].Value.ToString();
-            tboxBesar.Text = selectedRow.Cells[2].Value.ToString();
-            dtpFrom.Text = selectedRow.Cells[3].Value.ToString();
-            dtpTo.Text = selectedRow.Cells[4].Value.ToString();
         }
     }
 }

@@ -22,6 +22,7 @@ namespace Projek_Tea_Break
         MySqlCommand sqlCommand;
         MySqlDataAdapter sqlAdapter;
         public static string sqlQuery;
+        public static string buatID = "";
 
         DataTable dtTopping = new DataTable();
 
@@ -34,20 +35,40 @@ namespace Projek_Tea_Break
             sqlAdapter.Fill(dtTopping);
             dgvTopping.DataSource = dtTopping;
         }
-
+        private void BuatInsertID()
+        {
+            DataTable cekID = new DataTable();
+            sqlQuery = "select right(id_topping,2) as urut from TOPPING where status_delete = '0' order by 1 desc;";
+            sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
+            sqlAdapter = new MySqlDataAdapter(sqlCommand);
+            sqlAdapter.Fill(cekID);
+            string noID = "";
+            if (cekID.Rows.Count == 0)
+            {
+                buatID = "TOP01";
+            }
+            else
+            {
+                noID = (Convert.ToInt32(cekID.Rows[0][0].ToString()) + 1).ToString();
+                for (int i = 0; i < 2-noID.Length; i++)
+                {
+                    noID = "0" + noID;
+                }
+                buatID = "TOP" + noID;
+            }
+            tboxID.Text = buatID;
+        }
         private void FormbtnAdd_Load(object sender, EventArgs e)
         {
             Refresh();
-
-            tboxID.Text = dtTopping.Rows[0]["ID Topping"].ToString();
-            tboxNama.Text = dtTopping.Rows[0]["Nama Topping"].ToString();
-            tboxHarga.Text = dtTopping.Rows[0]["Harga Topping"].ToString();
+            BuatInsertID();
+            tboxID.ReadOnly = true;
         }
         private void btnCancelAdd_Click(object sender, EventArgs e)
         {
             this.Hide();
             formTopping Fmain = new formTopping();
-            Fmain.Show();
+            Fmain.ShowDialog();
             this.Close();
         }
 
@@ -58,22 +79,13 @@ namespace Projek_Tea_Break
             sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
             sqlCommand.ExecuteNonQuery();
             sqlConnect.Close();
-            MessageBox.Show("Berhasil Disimpan");
+            MessageBox.Show($"{tboxID.Text} Berhasil Disimpan");
             Refresh();
 
             this.Hide();
             formTopping Fmain = new formTopping();
-            Fmain.Show();
+            Fmain.ShowDialog();
             this.Close();
-        }
-
-        private void dgvTopping_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            int index = e.RowIndex;
-            DataGridViewRow selectedRow = dgvTopping.Rows[index];
-            tboxID.Text = selectedRow.Cells[0].Value.ToString();
-            tboxNama.Text = selectedRow.Cells[1].Value.ToString();
-            tboxHarga.Text = selectedRow.Cells[2].Value.ToString();
         }
     }
 }

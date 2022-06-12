@@ -44,7 +44,6 @@ namespace Projek_Tea_Break
             this.tboxID = new System.Windows.Forms.TextBox();
             this.tboxNama = new System.Windows.Forms.TextBox();
             this.tboxHarga = new System.Windows.Forms.TextBox();
-            this.btnEdit = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
@@ -152,7 +151,7 @@ namespace Projek_Tea_Break
             this.dgvTopping.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvTopping.BackgroundColor = System.Drawing.Color.White;
             this.dgvTopping.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvTopping.Location = new System.Drawing.Point(159, 20);
+            this.dgvTopping.Location = new System.Drawing.Point(159, 37);
             this.dgvTopping.Margin = new System.Windows.Forms.Padding(2);
             this.dgvTopping.MultiSelect = false;
             this.dgvTopping.Name = "dgvTopping";
@@ -160,43 +159,43 @@ namespace Projek_Tea_Break
             this.dgvTopping.RowHeadersWidth = 51;
             this.dgvTopping.RowTemplate.Height = 24;
             this.dgvTopping.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvTopping.Size = new System.Drawing.Size(597, 122);
+            this.dgvTopping.Size = new System.Drawing.Size(597, 145);
             this.dgvTopping.TabIndex = 8;
             this.dgvTopping.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTopping_CellContentClick);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(210, 164);
+            this.label1.Location = new System.Drawing.Point(315, 302);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(63, 13);
+            this.label1.Size = new System.Drawing.Size(60, 13);
             this.label1.TabIndex = 9;
-            this.label1.Text = "ID minuman";
+            this.label1.Text = "ID Topping";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(192, 202);
+            this.label2.Location = new System.Drawing.Point(298, 337);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(80, 13);
+            this.label2.Size = new System.Drawing.Size(77, 13);
             this.label2.TabIndex = 9;
-            this.label2.Text = "Nama minuman";
+            this.label2.Text = "Nama Topping";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(192, 233);
+            this.label3.Location = new System.Drawing.Point(297, 368);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(81, 13);
+            this.label3.Size = new System.Drawing.Size(78, 13);
             this.label3.TabIndex = 9;
-            this.label3.Text = "Harga minuman";
+            this.label3.Text = "Harga Topping";
             // 
             // tboxID
             // 
-            this.tboxID.Location = new System.Drawing.Point(316, 164);
+            this.tboxID.Location = new System.Drawing.Point(399, 299);
             this.tboxID.Margin = new System.Windows.Forms.Padding(2);
             this.tboxID.Name = "tboxID";
             this.tboxID.Size = new System.Drawing.Size(144, 20);
@@ -204,7 +203,7 @@ namespace Projek_Tea_Break
             // 
             // tboxNama
             // 
-            this.tboxNama.Location = new System.Drawing.Point(316, 202);
+            this.tboxNama.Location = new System.Drawing.Point(399, 334);
             this.tboxNama.Margin = new System.Windows.Forms.Padding(2);
             this.tboxNama.Name = "tboxNama";
             this.tboxNama.Size = new System.Drawing.Size(144, 20);
@@ -212,57 +211,55 @@ namespace Projek_Tea_Break
             // 
             // tboxHarga
             // 
-            this.tboxHarga.Location = new System.Drawing.Point(316, 233);
+            this.tboxHarga.Location = new System.Drawing.Point(399, 366);
             this.tboxHarga.Margin = new System.Windows.Forms.Padding(2);
             this.tboxHarga.Name = "tboxHarga";
             this.tboxHarga.Size = new System.Drawing.Size(144, 20);
             this.tboxHarga.TabIndex = 10;
             // 
-            // btnEdit
-            // 
-            this.btnEdit.Location = new System.Drawing.Point(242, 275);
-            this.btnEdit.Margin = new System.Windows.Forms.Padding(2);
-            this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(61, 26);
-            this.btnEdit.TabIndex = 11;
-            this.btnEdit.Text = "Edit";
-            this.btnEdit.UseVisualStyleBackColor = true;
-            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
-            // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(458, 275);
+            this.btnDelete.BackColor = System.Drawing.Color.ForestGreen;
+            this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDelete.ForeColor = System.Drawing.Color.White;
+            this.btnDelete.Location = new System.Drawing.Point(496, 202);
             this.btnDelete.Margin = new System.Windows.Forms.Padding(2);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(73, 26);
+            this.btnDelete.Size = new System.Drawing.Size(86, 41);
             this.btnDelete.TabIndex = 13;
             this.btnDelete.Text = "Delete";
-            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.UseVisualStyleBackColor = false;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(334, 275);
+            this.btnAdd.BackColor = System.Drawing.Color.ForestGreen;
+            this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAdd.ForeColor = System.Drawing.Color.White;
+            this.btnAdd.Location = new System.Drawing.Point(363, 202);
             this.btnAdd.Margin = new System.Windows.Forms.Padding(2);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(80, 26);
+            this.btnAdd.Size = new System.Drawing.Size(86, 41);
             this.btnAdd.TabIndex = 17;
             this.btnAdd.Text = "Add";
-            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.UseVisualStyleBackColor = false;
             this.btnAdd.Click += new System.EventHandler(this.btnadd_Click);
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(298, 329);
+            this.btnSave.BackColor = System.Drawing.Color.ForestGreen;
+            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSave.ForeColor = System.Drawing.Color.White;
+            this.btnSave.Location = new System.Drawing.Point(230, 202);
             this.btnSave.Margin = new System.Windows.Forms.Padding(2);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(56, 19);
+            this.btnSave.Size = new System.Drawing.Size(86, 41);
             this.btnSave.TabIndex = 18;
-            this.btnSave.Text = "SAVE";
-            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Text = "Edit";
+            this.btnSave.UseVisualStyleBackColor = false;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
-            // formEditTopping
+            // formTopping
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -271,7 +268,6 @@ namespace Projek_Tea_Break
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.btnDelete);
-            this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.tboxHarga);
             this.Controls.Add(this.tboxNama);
             this.Controls.Add(this.tboxID);
@@ -281,7 +277,7 @@ namespace Projek_Tea_Break
             this.Controls.Add(this.dgvTopping);
             this.Controls.Add(this.panel2);
             this.Margin = new System.Windows.Forms.Padding(2);
-            this.Name = "formEditTopping";
+            this.Name = "formTopping";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Order";
             this.Load += new System.EventHandler(this.FormOrder_Load);
@@ -306,7 +302,6 @@ namespace Projek_Tea_Break
         private System.Windows.Forms.TextBox tboxID;
         private System.Windows.Forms.TextBox tboxNama;
         private System.Windows.Forms.TextBox tboxHarga;
-        private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button btnSave;
