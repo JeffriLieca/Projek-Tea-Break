@@ -297,6 +297,7 @@ namespace Projek_Tea_Break
             this.tbNama.Name = "tbNama";
             this.tbNama.Size = new System.Drawing.Size(336, 21);
             this.tbNama.TabIndex = 32;
+            this.tbNama.TextChanged += new System.EventHandler(this.tbNama_TextChanged);
             // 
             // tbID
             // 
