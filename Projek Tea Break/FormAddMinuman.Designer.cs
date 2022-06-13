@@ -60,7 +60,7 @@ namespace Projek_Tea_Break
             // 
             this.buttonOk.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonOk.Location = new System.Drawing.Point(310, 306);
-            this.buttonOk.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonOk.Margin = new System.Windows.Forms.Padding(2);
             this.buttonOk.Name = "buttonOk";
             this.buttonOk.Size = new System.Drawing.Size(148, 80);
             this.buttonOk.TabIndex = 1;
@@ -84,7 +84,7 @@ namespace Projek_Tea_Break
             this.buttonCancel.BackColor = System.Drawing.Color.Red;
             this.buttonCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonCancel.Location = new System.Drawing.Point(310, 401);
-            this.buttonCancel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonCancel.Margin = new System.Windows.Forms.Padding(2);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(148, 80);
             this.buttonCancel.TabIndex = 6;
@@ -97,7 +97,7 @@ namespace Projek_Tea_Break
             this.panelTopping.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.panelTopping.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.panelTopping.Location = new System.Drawing.Point(10, 172);
-            this.panelTopping.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelTopping.Margin = new System.Windows.Forms.Padding(2);
             this.panelTopping.Name = "panelTopping";
             this.panelTopping.Size = new System.Drawing.Size(285, 308);
             this.panelTopping.TabIndex = 7;
@@ -134,7 +134,7 @@ namespace Projek_Tea_Break
             this.buttonGambar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.buttonGambar.Enabled = false;
             this.buttonGambar.Location = new System.Drawing.Point(308, 10);
-            this.buttonGambar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonGambar.Margin = new System.Windows.Forms.Padding(2);
             this.buttonGambar.Name = "buttonGambar";
             this.buttonGambar.Size = new System.Drawing.Size(150, 162);
             this.buttonGambar.TabIndex = 13;
@@ -144,7 +144,7 @@ namespace Projek_Tea_Break
             // buttonPlusQty
             // 
             this.buttonPlusQty.Location = new System.Drawing.Point(420, 205);
-            this.buttonPlusQty.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonPlusQty.Margin = new System.Windows.Forms.Padding(2);
             this.buttonPlusQty.Name = "buttonPlusQty";
             this.buttonPlusQty.Size = new System.Drawing.Size(19, 20);
             this.buttonPlusQty.TabIndex = 14;
@@ -156,7 +156,7 @@ namespace Projek_Tea_Break
             // buttonMinQty
             // 
             this.buttonMinQty.Location = new System.Drawing.Point(374, 205);
-            this.buttonMinQty.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonMinQty.Margin = new System.Windows.Forms.Padding(2);
             this.buttonMinQty.Name = "buttonMinQty";
             this.buttonMinQty.Size = new System.Drawing.Size(19, 20);
             this.buttonMinQty.TabIndex = 15;
@@ -168,7 +168,7 @@ namespace Projek_Tea_Break
             // textBoxQty
             // 
             this.textBoxQty.Location = new System.Drawing.Point(397, 205);
-            this.textBoxQty.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxQty.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxQty.Name = "textBoxQty";
             this.textBoxQty.Size = new System.Drawing.Size(20, 20);
             this.textBoxQty.TabIndex = 16;
@@ -179,7 +179,7 @@ namespace Projek_Tea_Break
             // 
             this.rBSugarLess.AutoSize = true;
             this.rBSugarLess.Location = new System.Drawing.Point(10, 7);
-            this.rBSugarLess.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rBSugarLess.Margin = new System.Windows.Forms.Padding(2);
             this.rBSugarLess.Name = "rBSugarLess";
             this.rBSugarLess.Size = new System.Drawing.Size(47, 17);
             this.rBSugarLess.TabIndex = 17;
@@ -192,7 +192,7 @@ namespace Projek_Tea_Break
             this.rBSugarNormal.AutoSize = true;
             this.rBSugarNormal.Checked = true;
             this.rBSugarNormal.Location = new System.Drawing.Point(10, 40);
-            this.rBSugarNormal.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rBSugarNormal.Margin = new System.Windows.Forms.Padding(2);
             this.rBSugarNormal.Name = "rBSugarNormal";
             this.rBSugarNormal.Size = new System.Drawing.Size(58, 17);
             this.rBSugarNormal.TabIndex = 18;
@@ -205,7 +205,7 @@ namespace Projek_Tea_Break
             // 
             this.rBSugarMore.AutoSize = true;
             this.rBSugarMore.Location = new System.Drawing.Point(10, 72);
-            this.rBSugarMore.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rBSugarMore.Margin = new System.Windows.Forms.Padding(2);
             this.rBSugarMore.Name = "rBSugarMore";
             this.rBSugarMore.Size = new System.Drawing.Size(49, 17);
             this.rBSugarMore.TabIndex = 19;
@@ -217,7 +217,7 @@ namespace Projek_Tea_Break
             // 
             this.rBIceLess.AutoSize = true;
             this.rBIceLess.Location = new System.Drawing.Point(8, 7);
-            this.rBIceLess.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rBIceLess.Margin = new System.Windows.Forms.Padding(2);
             this.rBIceLess.Name = "rBIceLess";
             this.rBIceLess.Size = new System.Drawing.Size(47, 17);
             this.rBIceLess.TabIndex = 20;
@@ -230,7 +230,7 @@ namespace Projek_Tea_Break
             this.rBIceNormal.AutoSize = true;
             this.rBIceNormal.Checked = true;
             this.rBIceNormal.Location = new System.Drawing.Point(8, 40);
-            this.rBIceNormal.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rBIceNormal.Margin = new System.Windows.Forms.Padding(2);
             this.rBIceNormal.Name = "rBIceNormal";
             this.rBIceNormal.Size = new System.Drawing.Size(58, 17);
             this.rBIceNormal.TabIndex = 21;
@@ -243,7 +243,7 @@ namespace Projek_Tea_Break
             // 
             this.rBIceMore.AutoSize = true;
             this.rBIceMore.Location = new System.Drawing.Point(8, 72);
-            this.rBIceMore.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rBIceMore.Margin = new System.Windows.Forms.Padding(2);
             this.rBIceMore.Name = "rBIceMore";
             this.rBIceMore.Size = new System.Drawing.Size(49, 17);
             this.rBIceMore.TabIndex = 22;
@@ -279,7 +279,7 @@ namespace Projek_Tea_Break
             this.panel1.Controls.Add(this.rBSugarNormal);
             this.panel1.Controls.Add(this.rBSugarMore);
             this.panel1.Location = new System.Drawing.Point(16, 33);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(81, 105);
             this.panel1.TabIndex = 25;
@@ -290,7 +290,7 @@ namespace Projek_Tea_Break
             this.panel2.Controls.Add(this.rBIceMore);
             this.panel2.Controls.Add(this.rBIceLess);
             this.panel2.Location = new System.Drawing.Point(176, 33);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(81, 105);
             this.panel2.TabIndex = 26;
@@ -326,10 +326,9 @@ namespace Projek_Tea_Break
             this.Controls.Add(this.buttonOk);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormAddMinuman";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FormAddMinuman";
             this.Load += new System.EventHandler(this.FormAddMinuman_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

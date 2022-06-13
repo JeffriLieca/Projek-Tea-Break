@@ -54,7 +54,7 @@ namespace Projek_Tea_Break
             this.panel2.Controls.Add(this.buttonEditMenu);
             this.panel2.Controls.Add(this.buttonCashier);
             this.panel2.Location = new System.Drawing.Point(-1, 0);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(134, 524);
             this.panel2.TabIndex = 7;
@@ -63,7 +63,7 @@ namespace Projek_Tea_Break
             // 
             this.pictureBox1.Image = global::Projek_Tea_Break.Properties.Resources.logo;
             this.pictureBox1.Location = new System.Drawing.Point(7, 37);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(124, 41);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -78,7 +78,7 @@ namespace Projek_Tea_Break
             this.buttonAdmin.Image = ((System.Drawing.Image)(resources.GetObject("buttonAdmin.Image")));
             this.buttonAdmin.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.buttonAdmin.Location = new System.Drawing.Point(32, 299);
-            this.buttonAdmin.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonAdmin.Margin = new System.Windows.Forms.Padding(2);
             this.buttonAdmin.Name = "buttonAdmin";
             this.buttonAdmin.Size = new System.Drawing.Size(69, 77);
             this.buttonAdmin.TabIndex = 5;
@@ -95,7 +95,7 @@ namespace Projek_Tea_Break
             this.buttonEditMenu.Image = ((System.Drawing.Image)(resources.GetObject("buttonEditMenu.Image")));
             this.buttonEditMenu.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.buttonEditMenu.Location = new System.Drawing.Point(32, 202);
-            this.buttonEditMenu.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonEditMenu.Margin = new System.Windows.Forms.Padding(2);
             this.buttonEditMenu.Name = "buttonEditMenu";
             this.buttonEditMenu.Size = new System.Drawing.Size(69, 77);
             this.buttonEditMenu.TabIndex = 4;
@@ -112,7 +112,7 @@ namespace Projek_Tea_Break
             this.buttonCashier.Image = global::Projek_Tea_Break.Properties.Resources.shop_icon;
             this.buttonCashier.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.buttonCashier.Location = new System.Drawing.Point(32, 105);
-            this.buttonCashier.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonCashier.Margin = new System.Windows.Forms.Padding(2);
             this.buttonCashier.Name = "buttonCashier";
             this.buttonCashier.Size = new System.Drawing.Size(69, 77);
             this.buttonCashier.TabIndex = 1;
@@ -196,10 +196,9 @@ namespace Projek_Tea_Break
             this.Controls.Add(this.btnPromo);
             this.Controls.Add(this.btnMinuman);
             this.Controls.Add(this.panel2);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "formEditPilih";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Order";
             this.Load += new System.EventHandler(this.FormOrder_Load);
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

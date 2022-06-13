@@ -240,7 +240,6 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "formPromoInsert";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Add Promo";
             this.Load += new System.EventHandler(this.FormbtnAdd_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPromo)).EndInit();
             this.ResumeLayout(false);

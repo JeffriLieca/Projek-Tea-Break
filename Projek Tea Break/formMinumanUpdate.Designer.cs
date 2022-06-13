@@ -109,7 +109,7 @@
             this.btnSaveEdit.BackColor = System.Drawing.Color.ForestGreen;
             this.btnSaveEdit.ForeColor = System.Drawing.Color.White;
             this.btnSaveEdit.Location = new System.Drawing.Point(52, 330);
-            this.btnSaveEdit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSaveEdit.Margin = new System.Windows.Forms.Padding(2);
             this.btnSaveEdit.Name = "btnSaveEdit";
             this.btnSaveEdit.Size = new System.Drawing.Size(78, 34);
             this.btnSaveEdit.TabIndex = 33;
@@ -123,7 +123,7 @@
             this.btnCancelEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancelEdit.ForeColor = System.Drawing.Color.White;
             this.btnCancelEdit.Location = new System.Drawing.Point(214, 330);
-            this.btnCancelEdit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnCancelEdit.Margin = new System.Windows.Forms.Padding(2);
             this.btnCancelEdit.Name = "btnCancelEdit";
             this.btnCancelEdit.Size = new System.Drawing.Size(84, 34);
             this.btnCancelEdit.TabIndex = 34;
@@ -208,10 +208,9 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "formMinumanUpdate";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FormbtnEdit";
             this.Load += new System.EventHandler(this.FormbtnEdit_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvMenu)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAdd)).EndInit();

@@ -67,19 +67,19 @@ namespace Projek_Tea_Break
             this.panel2.Controls.Add(this.buttonEditMenu);
             this.panel2.Controls.Add(this.buttonCashier);
             this.panel2.Location = new System.Drawing.Point(-1, 0);
-            this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(179, 645);
+            this.panel2.Size = new System.Drawing.Size(134, 524);
             this.panel2.TabIndex = 7;
             // 
             // pbProfil
             // 
             this.pbProfil.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pbProfil.Image = global::Projek_Tea_Break.Properties.Resources.logo;
-            this.pbProfil.Location = new System.Drawing.Point(9, 46);
-            this.pbProfil.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pbProfil.Location = new System.Drawing.Point(7, 37);
+            this.pbProfil.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pbProfil.Name = "pbProfil";
-            this.pbProfil.Size = new System.Drawing.Size(165, 50);
+            this.pbProfil.Size = new System.Drawing.Size(124, 41);
             this.pbProfil.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbProfil.TabIndex = 6;
             this.pbProfil.TabStop = false;
@@ -92,10 +92,10 @@ namespace Projek_Tea_Break
             this.buttonAdmin.ForeColor = System.Drawing.Color.White;
             this.buttonAdmin.Image = ((System.Drawing.Image)(resources.GetObject("buttonAdmin.Image")));
             this.buttonAdmin.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.buttonAdmin.Location = new System.Drawing.Point(43, 368);
-            this.buttonAdmin.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonAdmin.Location = new System.Drawing.Point(32, 299);
+            this.buttonAdmin.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonAdmin.Name = "buttonAdmin";
-            this.buttonAdmin.Size = new System.Drawing.Size(92, 95);
+            this.buttonAdmin.Size = new System.Drawing.Size(69, 77);
             this.buttonAdmin.TabIndex = 5;
             this.buttonAdmin.Text = "Admin";
             this.buttonAdmin.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
@@ -109,10 +109,10 @@ namespace Projek_Tea_Break
             this.buttonEditMenu.ForeColor = System.Drawing.Color.White;
             this.buttonEditMenu.Image = ((System.Drawing.Image)(resources.GetObject("buttonEditMenu.Image")));
             this.buttonEditMenu.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.buttonEditMenu.Location = new System.Drawing.Point(43, 249);
-            this.buttonEditMenu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonEditMenu.Location = new System.Drawing.Point(32, 202);
+            this.buttonEditMenu.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonEditMenu.Name = "buttonEditMenu";
-            this.buttonEditMenu.Size = new System.Drawing.Size(92, 95);
+            this.buttonEditMenu.Size = new System.Drawing.Size(69, 77);
             this.buttonEditMenu.TabIndex = 4;
             this.buttonEditMenu.Text = "Edit";
             this.buttonEditMenu.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
@@ -126,10 +126,10 @@ namespace Projek_Tea_Break
             this.buttonCashier.ForeColor = System.Drawing.Color.White;
             this.buttonCashier.Image = global::Projek_Tea_Break.Properties.Resources.shop_icon;
             this.buttonCashier.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.buttonCashier.Location = new System.Drawing.Point(43, 129);
-            this.buttonCashier.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonCashier.Location = new System.Drawing.Point(32, 105);
+            this.buttonCashier.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonCashier.Name = "buttonCashier";
-            this.buttonCashier.Size = new System.Drawing.Size(92, 95);
+            this.buttonCashier.Size = new System.Drawing.Size(69, 77);
             this.buttonCashier.TabIndex = 1;
             this.buttonCashier.Text = "Cashier";
             this.buttonCashier.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
@@ -158,15 +158,15 @@ namespace Projek_Tea_Break
             this.dgvPromo.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvPromo.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvPromo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvPromo.Location = new System.Drawing.Point(232, 46);
-            this.dgvPromo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.dgvPromo.Location = new System.Drawing.Point(174, 37);
+            this.dgvPromo.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.dgvPromo.MultiSelect = false;
             this.dgvPromo.Name = "dgvPromo";
             this.dgvPromo.ReadOnly = true;
             this.dgvPromo.RowHeadersWidth = 51;
             this.dgvPromo.RowTemplate.Height = 24;
             this.dgvPromo.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvPromo.Size = new System.Drawing.Size(748, 160);
+            this.dgvPromo.Size = new System.Drawing.Size(561, 130);
             this.dgvPromo.TabIndex = 8;
             this.dgvPromo.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPromo_CellContentClick);
             // 
@@ -175,10 +175,10 @@ namespace Projek_Tea_Break
             this.btnEdit.BackColor = System.Drawing.Color.ForestGreen;
             this.btnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEdit.ForeColor = System.Drawing.Color.White;
-            this.btnEdit.Location = new System.Drawing.Point(232, 249);
-            this.btnEdit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnEdit.Location = new System.Drawing.Point(174, 202);
+            this.btnEdit.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(115, 50);
+            this.btnEdit.Size = new System.Drawing.Size(86, 41);
             this.btnEdit.TabIndex = 11;
             this.btnEdit.Text = "Edit";
             this.btnEdit.UseVisualStyleBackColor = false;
@@ -189,10 +189,10 @@ namespace Projek_Tea_Break
             this.btnDelete.BackColor = System.Drawing.Color.ForestGreen;
             this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDelete.ForeColor = System.Drawing.Color.White;
-            this.btnDelete.Location = new System.Drawing.Point(576, 249);
-            this.btnDelete.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnDelete.Location = new System.Drawing.Point(432, 202);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(115, 50);
+            this.btnDelete.Size = new System.Drawing.Size(86, 41);
             this.btnDelete.TabIndex = 13;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = false;
@@ -203,10 +203,10 @@ namespace Projek_Tea_Break
             this.btnAdd.BackColor = System.Drawing.Color.ForestGreen;
             this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAdd.ForeColor = System.Drawing.Color.White;
-            this.btnAdd.Location = new System.Drawing.Point(397, 249);
-            this.btnAdd.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnAdd.Location = new System.Drawing.Point(298, 202);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(120, 50);
+            this.btnAdd.Size = new System.Drawing.Size(90, 41);
             this.btnAdd.TabIndex = 17;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = false;
@@ -214,36 +214,37 @@ namespace Projek_Tea_Break
             // 
             // tboxBesar
             // 
-            this.tboxBesar.Location = new System.Drawing.Point(499, 455);
-            this.tboxBesar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tboxBesar.Location = new System.Drawing.Point(374, 370);
+            this.tboxBesar.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.tboxBesar.Name = "tboxBesar";
-            this.tboxBesar.Size = new System.Drawing.Size(227, 22);
+            this.tboxBesar.Size = new System.Drawing.Size(171, 20);
             this.tboxBesar.TabIndex = 24;
             this.tboxBesar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tboxBesar_KeyPress);
             // 
             // tboxNama
             // 
-            this.tboxNama.Location = new System.Drawing.Point(499, 410);
-            this.tboxNama.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tboxNama.Location = new System.Drawing.Point(374, 333);
+            this.tboxNama.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.tboxNama.Name = "tboxNama";
-            this.tboxNama.Size = new System.Drawing.Size(227, 22);
+            this.tboxNama.Size = new System.Drawing.Size(171, 20);
             this.tboxNama.TabIndex = 25;
             // 
             // tboxID
             // 
-            this.tboxID.Location = new System.Drawing.Point(499, 368);
-            this.tboxID.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tboxID.Location = new System.Drawing.Point(374, 299);
+            this.tboxID.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.tboxID.Name = "tboxID";
-            this.tboxID.Size = new System.Drawing.Size(227, 22);
+            this.tboxID.Size = new System.Drawing.Size(171, 20);
             this.tboxID.TabIndex = 26;
             // 
             // labelHarga
             // 
             this.labelHarga.AutoSize = true;
             this.labelHarga.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelHarga.Location = new System.Drawing.Point(360, 455);
+            this.labelHarga.Location = new System.Drawing.Point(270, 370);
+            this.labelHarga.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelHarga.Name = "labelHarga";
-            this.labelHarga.Size = new System.Drawing.Size(101, 17);
+            this.labelHarga.Size = new System.Drawing.Size(78, 13);
             this.labelHarga.TabIndex = 21;
             this.labelHarga.Text = "Besar Promo";
             // 
@@ -251,9 +252,10 @@ namespace Projek_Tea_Break
             // 
             this.labelNama.AutoSize = true;
             this.labelNama.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelNama.Location = new System.Drawing.Point(363, 416);
+            this.labelNama.Location = new System.Drawing.Point(272, 338);
+            this.labelNama.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelNama.Name = "labelNama";
-            this.labelNama.Size = new System.Drawing.Size(100, 17);
+            this.labelNama.Size = new System.Drawing.Size(78, 13);
             this.labelNama.TabIndex = 22;
             this.labelNama.Text = "Nama Promo";
             // 
@@ -261,9 +263,10 @@ namespace Projek_Tea_Break
             // 
             this.labelID.AutoSize = true;
             this.labelID.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelID.Location = new System.Drawing.Point(388, 374);
+            this.labelID.Location = new System.Drawing.Point(291, 304);
+            this.labelID.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelID.Name = "labelID";
-            this.labelID.Size = new System.Drawing.Size(74, 17);
+            this.labelID.Size = new System.Drawing.Size(59, 13);
             this.labelID.TabIndex = 23;
             this.labelID.Text = "ID Promo";
             // 
@@ -274,27 +277,26 @@ namespace Projek_Tea_Break
             // 
             // dtpFrom
             // 
-            this.dtpFrom.Location = new System.Drawing.Point(463, 522);
-            this.dtpFrom.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dtpFrom.Location = new System.Drawing.Point(347, 424);
             this.dtpFrom.Name = "dtpFrom";
-            this.dtpFrom.Size = new System.Drawing.Size(188, 22);
+            this.dtpFrom.Size = new System.Drawing.Size(142, 20);
             this.dtpFrom.TabIndex = 27;
             // 
             // dtpTo
             // 
-            this.dtpTo.Location = new System.Drawing.Point(463, 558);
-            this.dtpTo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dtpTo.Location = new System.Drawing.Point(347, 453);
             this.dtpTo.Name = "dtpTo";
-            this.dtpTo.Size = new System.Drawing.Size(188, 22);
+            this.dtpTo.Size = new System.Drawing.Size(142, 20);
             this.dtpTo.TabIndex = 28;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(409, 561);
+            this.label1.Location = new System.Drawing.Point(307, 456);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(27, 17);
+            this.label1.Size = new System.Drawing.Size(22, 13);
             this.label1.TabIndex = 29;
             this.label1.Text = "To";
             // 
@@ -302,9 +304,10 @@ namespace Projek_Tea_Break
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(393, 529);
+            this.label2.Location = new System.Drawing.Point(295, 430);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(44, 17);
+            this.label2.Size = new System.Drawing.Size(34, 13);
             this.label2.TabIndex = 30;
             this.label2.Text = "From";
             // 
@@ -312,18 +315,19 @@ namespace Projek_Tea_Break
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(355, 494);
+            this.label3.Location = new System.Drawing.Point(266, 401);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(106, 17);
+            this.label3.Size = new System.Drawing.Size(82, 13);
             this.label3.TabIndex = 31;
             this.label3.Text = "Period Promo";
             // 
             // formPromo
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.ClientSize = new System.Drawing.Size(1043, 635);
+            this.ClientSize = new System.Drawing.Size(782, 516);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -340,10 +344,9 @@ namespace Projek_Tea_Break
             this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.dgvPromo);
             this.Controls.Add(this.panel2);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "formPromo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Promo";
             this.Load += new System.EventHandler(this.FormOrder_Load);
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbProfil)).EndInit();

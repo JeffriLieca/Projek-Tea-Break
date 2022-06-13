@@ -167,14 +167,21 @@ namespace Projek_Tea_Break
                 DialogResult drDelete = MessageBox.Show("Confirm to delete?", "Delete", MessageBoxButtons.YesNo);
                 if (drDelete == DialogResult.Yes)
                 {
-                    sqlQuery = "update PEGAWAI set STATUS_DELETE = 1 where ID_PEGAWAI = '" + tbID.Text + "'";
-                    //MessageBox.Show(sqlQuery);
-                    sqlConnect.Open();
-                    sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
-                    sqlCommand.ExecuteNonQuery();
-                    sqlConnect.Close();
+                    if (FormLogin.saveIDPegawai == tbID.Text)
+                    {
+                        MessageBox.Show($"{FormLogin.saveNama} sedang aktif");
+                    }
+                    else
+                    {
+                        sqlQuery = "update PEGAWAI set STATUS_DELETE = 1 where ID_PEGAWAI = '" + tbID.Text + "'";
+                        //MessageBox.Show(sqlQuery);
+                        sqlConnect.Open();
+                        sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
+                        sqlCommand.ExecuteNonQuery();
+                        sqlConnect.Close();
 
-                    Refresh();
+                        Refresh();
+                    }
                 }
             }
             catch (Exception)
@@ -193,8 +200,6 @@ namespace Projek_Tea_Break
         {
             try
             {
-
-
                 sqlQuery = "insert into PEGAWAI values('" + tbID.Text + "', '" + tbNama.Text + "', '" + dtpTanggalLahir.Value.ToString("yyyyMMdd") + "', '" + tbAlamat.Text + "', '" + tbHP.Text + "', '" + cbJabatan.SelectedValue + "', '0');";
                 sqlConnect.Open();
                 sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
@@ -223,31 +228,38 @@ namespace Projek_Tea_Break
         {
             try
             {
-                if (tbID.Text != dgvPegawai.CurrentRow.Cells["ID"].Value.ToString())
+                if (FormLogin.saveIDPegawai == tbID.Text)
                 {
-                    sqlQuery = "UPDATE PEGAWAI SET ID_PEGAWAI = '" + tbID.Text + "', NAMA_PEGAWAI = '" + tbNama.Text + "', TGL_LAHIR_PEGAWAI = '" + dtpTanggalLahir.Value.ToString("yyyyMMdd") + "', alamat_pegawai = '" + tbAlamat.Text + "',no_hp_pegawai = '" + tbHP.Text + "',level_jabatan ='" + cbJabatan.SelectedValue + "' WHERE id_pegawai = '" + cekID + "';";
-                    //MessageBox.Show(sqlQuery);
-                    sqlConnect.Open();
-                    sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
-                    sqlCommand.ExecuteNonQuery();
-                    sqlConnect.Close();
-
-                    MessageBox.Show("Berhasil diubah");
-
-                    Refresh();
+                    MessageBox.Show($"{FormLogin.saveNama} sedang aktif");
                 }
                 else
                 {
-                    sqlQuery = "UPDATE PEGAWAI SET NAMA_PEGAWAI = '" + tbNama.Text + "', TGL_LAHIR_PEGAWAI = '" + dtpTanggalLahir.Value.ToString("yyyyMMdd") + "', alamat_pegawai = '" + tbAlamat.Text + "',no_hp_pegawai = '" + tbHP.Text + "',level_jabatan ='" + cbJabatan.SelectedValue + "' WHERE id_pegawai = '" + tbID.Text + "';";
-                    //MessageBox.Show(sqlQuery);
-                    sqlConnect.Open();
-                    sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
-                    sqlCommand.ExecuteNonQuery();
-                    sqlConnect.Close();
+                    if (tbID.Text != dgvPegawai.CurrentRow.Cells["ID"].Value.ToString())
+                    {
+                        sqlQuery = "UPDATE PEGAWAI SET ID_PEGAWAI = '" + tbID.Text + "', NAMA_PEGAWAI = '" + tbNama.Text + "', TGL_LAHIR_PEGAWAI = '" + dtpTanggalLahir.Value.ToString("yyyyMMdd") + "', alamat_pegawai = '" + tbAlamat.Text + "',no_hp_pegawai = '" + tbHP.Text + "',level_jabatan ='" + cbJabatan.SelectedValue + "' WHERE id_pegawai = '" + cekID + "';";
+                        //MessageBox.Show(sqlQuery);
+                        sqlConnect.Open();
+                        sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
+                        sqlCommand.ExecuteNonQuery();
+                        sqlConnect.Close();
 
-                    MessageBox.Show("Berhasil diubah");
+                        MessageBox.Show("Berhasil diubah");
 
-                    Refresh();
+                        Refresh();
+                    }
+                    else
+                    {
+                        sqlQuery = "UPDATE PEGAWAI SET NAMA_PEGAWAI = '" + tbNama.Text + "', TGL_LAHIR_PEGAWAI = '" + dtpTanggalLahir.Value.ToString("yyyyMMdd") + "', alamat_pegawai = '" + tbAlamat.Text + "',no_hp_pegawai = '" + tbHP.Text + "',level_jabatan ='" + cbJabatan.SelectedValue + "' WHERE id_pegawai = '" + tbID.Text + "';";
+                        //MessageBox.Show(sqlQuery);
+                        sqlConnect.Open();
+                        sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
+                        sqlCommand.ExecuteNonQuery();
+                        sqlConnect.Close();
+
+                        MessageBox.Show("Berhasil diubah");
+
+                        Refresh();
+                    }
                 }
             }
             catch (Exception)

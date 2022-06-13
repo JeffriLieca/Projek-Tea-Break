@@ -175,7 +175,6 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "formToppingUpdate";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Edit Topping";
             this.Load += new System.EventHandler(this.FormbtnEdit_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvTopping)).EndInit();
             this.ResumeLayout(false);

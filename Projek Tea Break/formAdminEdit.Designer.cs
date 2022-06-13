@@ -383,7 +383,6 @@ namespace Projek_Tea_Break
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "formAdmin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Order";
             this.Load += new System.EventHandler(this.FormOrder_Load);
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbProfil)).EndInit();

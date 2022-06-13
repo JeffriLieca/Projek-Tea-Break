@@ -84,7 +84,7 @@
             this.btnCancelAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelAdd.ForeColor = System.Drawing.Color.White;
             this.btnCancelAdd.Location = new System.Drawing.Point(209, 333);
-            this.btnCancelAdd.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnCancelAdd.Margin = new System.Windows.Forms.Padding(2);
             this.btnCancelAdd.Name = "btnCancelAdd";
             this.btnCancelAdd.Size = new System.Drawing.Size(84, 34);
             this.btnCancelAdd.TabIndex = 44;
@@ -99,7 +99,7 @@
             this.btnSaveAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSaveAdd.ForeColor = System.Drawing.Color.White;
             this.btnSaveAdd.Location = new System.Drawing.Point(49, 333);
-            this.btnSaveAdd.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSaveAdd.Margin = new System.Windows.Forms.Padding(2);
             this.btnSaveAdd.Name = "btnSaveAdd";
             this.btnSaveAdd.Size = new System.Drawing.Size(78, 34);
             this.btnSaveAdd.TabIndex = 43;
@@ -210,7 +210,7 @@
             // 
             this.cbKategori.FormattingEnabled = true;
             this.cbKategori.Location = new System.Drawing.Point(153, 194);
-            this.cbKategori.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbKategori.Margin = new System.Windows.Forms.Padding(2);
             this.cbKategori.Name = "cbKategori";
             this.cbKategori.Size = new System.Drawing.Size(144, 21);
             this.cbKategori.TabIndex = 49;
@@ -234,10 +234,9 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "formMinumanInsert";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FormbtnAdd";
             this.Load += new System.EventHandler(this.FormbtnAdd_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvMenu)).EndInit();
             this.panel1.ResumeLayout(false);
