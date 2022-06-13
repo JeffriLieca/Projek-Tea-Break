@@ -562,16 +562,27 @@ namespace Projek_Tea_Break
                 sqlAdapter.Fill(dtPromo);
                 sqlConnect.Close();
 
-                Diskon = Convert.ToInt32(dtPromo.Rows[0][1]) * Total / 100;
-                labelDiskon.Text = "-Rp. " + Diskon.ToString();
-                labelPersen.Text = dtPromo.Rows[0][1].ToString() + "%";
-                Netto = Total - Diskon;
-                labelTotalHargaBersih.Text = "Rp. " + Netto.ToString();
-                IDPromo = dtPromo.Rows[0][0].ToString();
+                if (dtPromo.Rows.Count > 0)
+                {
+                    Diskon = Convert.ToInt32(dtPromo.Rows[0][1]) * Total / 100;
+                    labelDiskon.Text = "-Rp. " + Diskon.ToString();
+                    labelPersen.Text = dtPromo.Rows[0][1].ToString() + "%";
+                    Netto = Total - Diskon;
+                    labelTotalHargaBersih.Text = "Rp. " + Netto.ToString();
+                    IDPromo = dtPromo.Rows[0][0].ToString();
+                }
+                else
+                {
+                    Diskon = 0;
+                    labelDiskon.Text = "-Rp. " + Diskon.ToString();
+                    labelPersen.Text = "0%";
+                    Netto = Total - Diskon;
+                    labelTotalHargaBersih.Text = "Rp. " + Netto.ToString();
+                    IDPromo = "";
+                }
             }
             catch (Exception)
             {
-                labelPersen.Text = "0%";
             }
         }
 
