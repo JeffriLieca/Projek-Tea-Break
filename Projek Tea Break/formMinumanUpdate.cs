@@ -135,7 +135,7 @@ namespace Projek_Tea_Break
             }
             catch (Exception)
             {
-                MessageBox.Show("Tidak ada data yang disimpan");
+                MessageBox.Show("Input gagal");
                 this.Close();
             }
 

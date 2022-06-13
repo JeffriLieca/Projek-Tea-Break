@@ -76,13 +76,13 @@ namespace Projek_Tea_Break
                     sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
                     sqlCommand.ExecuteNonQuery();
                     sqlConnect.Close();
-                    MessageBox.Show("Berhasil Disimpan");
+                    MessageBox.Show($"{tboxID.Text} Berhasil Disimpan");
 
                     LoadRefresh();
                 }
                 catch (Exception)
                 {
-                    MessageBox.Show("Input gagal");
+                    MessageBox.Show($"{tboxID.Text} gagal ditambahkan");
                 }
             }
 

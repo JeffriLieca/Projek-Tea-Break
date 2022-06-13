@@ -223,7 +223,7 @@ namespace Projek_Tea_Break
             {
                 GabunganTopping = null;
             }
-            MessageBox.Show(GabunganTopping);
+            //MessageBox.Show(GabunganTopping);
         }
 
         public void DapatIDNota()
@@ -271,7 +271,7 @@ namespace Projek_Tea_Break
             sqlCommand = new MySqlCommand(sqlInsert, sqlConnect);
             sqlCommand.ExecuteNonQuery();
             sqlConnect.Close();
-            MessageBox.Show(sqlInsert);
+            //MessageBox.Show(sqlInsert);
             orderform.IndexMinuman++;
             PassingIndexMinuman++;
         }

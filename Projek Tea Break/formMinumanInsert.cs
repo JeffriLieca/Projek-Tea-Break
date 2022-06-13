@@ -102,7 +102,7 @@ namespace Projek_Tea_Break
                 sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
                 sqlCommand.Parameters.Add(new MySqlParameter("@images", images));
                 sqlCommand.ExecuteNonQuery();
-                MessageBox.Show("Berhasil Disimpan");
+                MessageBox.Show($"{ tboxID.Text} Berhasil Disimpan");
 
                 Refreshs();
 
@@ -110,7 +110,7 @@ namespace Projek_Tea_Break
             }
             catch (Exception)
             {
-                MessageBox.Show("Gagal");
+                MessageBox.Show($"{tboxID.Text} gagal ditambahkan");
             }
             this.Close();
         }

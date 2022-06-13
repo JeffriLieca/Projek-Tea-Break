@@ -86,7 +86,7 @@ namespace Projek_Tea_Break
             }
             catch (Exception)
             {
-                MessageBox.Show("Input gagal");
+                MessageBox.Show($"{tboxID.Text} gagal ditambahkan");
             }
 
             this.Hide();
