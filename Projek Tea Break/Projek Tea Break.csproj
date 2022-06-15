@@ -65,6 +65,12 @@
     <Compile Include="formPromoUpdate.Designer.cs">
       <DependentUpon>formPromoUpdate.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormStruk.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormStruk.Designer.cs">
+      <DependentUpon>FormStruk.cs</DependentUpon>
+    </Compile>
     <Compile Include="formToppingUpdate.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -147,6 +153,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="formPromoUpdate.resx">
       <DependentUpon>formPromoUpdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormStruk.resx">
+      <DependentUpon>FormStruk.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="formToppingUpdate.resx">
       <DependentUpon>formToppingUpdate.cs</DependentUpon>
