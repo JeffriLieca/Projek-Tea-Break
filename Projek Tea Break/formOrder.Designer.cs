@@ -161,7 +161,7 @@ namespace Projek_Tea_Break
             // labelIDNota
             // 
             this.labelIDNota.AutoSize = true;
-            this.labelIDNota.Location = new System.Drawing.Point(762, 52);
+            this.labelIDNota.Location = new System.Drawing.Point(765, 49);
             this.labelIDNota.Name = "labelIDNota";
             this.labelIDNota.Size = new System.Drawing.Size(50, 20);
             this.labelIDNota.TabIndex = 3;
@@ -171,7 +171,7 @@ namespace Projek_Tea_Break
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(693, 52);
+            this.label4.Location = new System.Drawing.Point(696, 49);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(63, 17);
             this.label4.TabIndex = 2;
@@ -195,11 +195,11 @@ namespace Projek_Tea_Break
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Modern No. 20", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(677, 18);
+            this.label1.Font = new System.Drawing.Font("Sitka Small", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(685, 27);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(86, 16);
+            this.label1.Size = new System.Drawing.Size(97, 20);
             this.label1.TabIndex = 0;
             this.label1.Text = "Order Menu";
             // 
@@ -221,37 +221,39 @@ namespace Projek_Tea_Break
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Modern No. 20", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Sitka Small", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(143, 27);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(104, 16);
+            this.label2.Size = new System.Drawing.Size(122, 20);
             this.label2.TabIndex = 0;
             this.label2.Text = "Menu Category";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Modern No. 20", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(143, 206);
+            this.label3.Font = new System.Drawing.Font("Sitka Small", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(144, 191);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(94, 16);
+            this.label3.Size = new System.Drawing.Size(109, 20);
             this.label3.TabIndex = 0;
             this.label3.Text = "Choose Order";
             // 
             // panelMinuman
             // 
             this.panelMinuman.AutoScroll = true;
-            this.panelMinuman.Location = new System.Drawing.Point(147, 234);
+            this.panelMinuman.BackColor = System.Drawing.Color.LightGreen;
+            this.panelMinuman.Location = new System.Drawing.Point(147, 219);
             this.panelMinuman.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panelMinuman.Name = "panelMinuman";
-            this.panelMinuman.Size = new System.Drawing.Size(525, 388);
+            this.panelMinuman.Size = new System.Drawing.Size(525, 403);
             this.panelMinuman.TabIndex = 12;
             // 
             // textBoxCariMinuman
             // 
-            this.textBoxCariMinuman.Location = new System.Drawing.Point(261, 202);
+            this.textBoxCariMinuman.BackColor = System.Drawing.SystemColors.Window;
+            this.textBoxCariMinuman.Location = new System.Drawing.Point(262, 187);
             this.textBoxCariMinuman.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxCariMinuman.Name = "textBoxCariMinuman";
             this.textBoxCariMinuman.Size = new System.Drawing.Size(100, 22);
@@ -263,7 +265,7 @@ namespace Projek_Tea_Break
             this.buttonA.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonA.BackgroundImage")));
             this.buttonA.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.buttonA.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonA.Location = new System.Drawing.Point(549, 70);
+            this.buttonA.Location = new System.Drawing.Point(559, 60);
             this.buttonA.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonA.Name = "buttonA";
             this.buttonA.Size = new System.Drawing.Size(80, 80);
@@ -277,7 +279,7 @@ namespace Projek_Tea_Break
             this.buttonT.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonT.BackgroundImage")));
             this.buttonT.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.buttonT.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonT.Location = new System.Drawing.Point(425, 70);
+            this.buttonT.Location = new System.Drawing.Point(435, 60);
             this.buttonT.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonT.Name = "buttonT";
             this.buttonT.Size = new System.Drawing.Size(80, 80);
@@ -291,7 +293,7 @@ namespace Projek_Tea_Break
             this.buttonF.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonF.BackgroundImage")));
             this.buttonF.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.buttonF.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonF.Location = new System.Drawing.Point(300, 70);
+            this.buttonF.Location = new System.Drawing.Point(310, 60);
             this.buttonF.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonF.Name = "buttonF";
             this.buttonF.Size = new System.Drawing.Size(80, 80);
@@ -306,7 +308,7 @@ namespace Projek_Tea_Break
             this.buttonS.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.buttonS.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonS.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.buttonS.Location = new System.Drawing.Point(175, 70);
+            this.buttonS.Location = new System.Drawing.Point(185, 60);
             this.buttonS.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonS.Name = "buttonS";
             this.buttonS.Size = new System.Drawing.Size(80, 80);
@@ -317,7 +319,7 @@ namespace Projek_Tea_Break
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(421, 174);
+            this.label5.Location = new System.Drawing.Point(422, 159);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(53, 17);
             this.label5.TabIndex = 18;
@@ -326,7 +328,7 @@ namespace Projek_Tea_Break
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(419, 206);
+            this.label6.Location = new System.Drawing.Point(420, 191);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(56, 17);
             this.label6.TabIndex = 19;
@@ -334,7 +336,7 @@ namespace Projek_Tea_Break
             // 
             // textBoxNama
             // 
-            this.textBoxNama.Location = new System.Drawing.Point(481, 174);
+            this.textBoxNama.Location = new System.Drawing.Point(482, 159);
             this.textBoxNama.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxNama.Name = "textBoxNama";
             this.textBoxNama.Size = new System.Drawing.Size(100, 22);
@@ -342,7 +344,7 @@ namespace Projek_Tea_Break
             // 
             // textBoxNoHP
             // 
-            this.textBoxNoHP.Location = new System.Drawing.Point(481, 206);
+            this.textBoxNoHP.Location = new System.Drawing.Point(482, 191);
             this.textBoxNoHP.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxNoHP.Name = "textBoxNoHP";
             this.textBoxNoHP.Size = new System.Drawing.Size(100, 22);
@@ -414,7 +416,7 @@ namespace Projek_Tea_Break
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(708, 74);
+            this.label10.Location = new System.Drawing.Point(711, 71);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(48, 17);
             this.label10.TabIndex = 29;
@@ -423,7 +425,7 @@ namespace Projek_Tea_Break
             // labelNamaPegawai
             // 
             this.labelNamaPegawai.AutoSize = true;
-            this.labelNamaPegawai.Location = new System.Drawing.Point(762, 72);
+            this.labelNamaPegawai.Location = new System.Drawing.Point(762, 71);
             this.labelNamaPegawai.Name = "labelNamaPegawai";
             this.labelNamaPegawai.Size = new System.Drawing.Size(98, 17);
             this.labelNamaPegawai.TabIndex = 30;
