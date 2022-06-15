@@ -37,6 +37,8 @@ namespace Projek_Tea_Break
         public static string nomorNota = "";
         public static string urutan = "";
 
+        public static string PassingIDNota = "";
+
         public int IndexMinuman { get; set; }
 
         private void FormOrder_Load(object sender, EventArgs e)
@@ -195,6 +197,9 @@ namespace Projek_Tea_Break
 
             }
             nomorMinuman = 0;
+
+            posisiX = 13;
+            posisiY = 15;
             imageListMinuman.Images.Clear();
             for (int j = 0; j < dtMinuman.Rows.Count / 3 + 1; j++)
             {
@@ -214,9 +219,9 @@ namespace Projek_Tea_Break
 
                         Button buttonhu = new Button();
                         panelMinuman.Controls.Add(buttonhu);
-                        buttonhu.Size = new Size(110, 140);
+                        buttonhu.Size = new Size(110, 150);
                         buttonhu.Location = new Point(posisiX, posisiY);
-                        buttonhu.Text = $"{dtMinuman.Rows[nomorMinuman][1].ToString()}\n{dtMinuman.Rows[nomorMinuman][2].ToString()}";
+                        buttonhu.Text = $"\n{dtMinuman.Rows[nomorMinuman][1].ToString()}\n{dtMinuman.Rows[nomorMinuman][2].ToString()}";
                         buttonhu.Visible = true;
                         buttonhu.BringToFront();
                         buttonhu.Tag = dtMinuman.Rows[nomorMinuman][0].ToString();
@@ -226,21 +231,20 @@ namespace Projek_Tea_Break
                         buttonhu.TextImageRelation = TextImageRelation.ImageAboveText;
                         buttonhu.TextAlign = ContentAlignment.MiddleRight;
                         buttonhu.ImageAlign = ContentAlignment.MiddleCenter;
+                        buttonhu.BackColor = Color.White;
                         buttonhu.Click += Buttonhu_Click;
                         buttonhu.FlatStyle = FlatStyle.Flat;
                         buttonhu.ForeColor = Color.Black;
                         posisiX += 120;
                         if (posisiX > 300)
                         {
-                            posisiX = 0;
+                            posisiX = 13;
                         }
                         nomorMinuman++;
                     }
                 }
-                posisiY += 150;
+                posisiY += 160;
             }
-            posisiX = 0;
-            posisiY = 0;
             sqlConnect.Close();
         }
 
@@ -269,12 +273,22 @@ namespace Projek_Tea_Break
             }
             else
             {
-                InsertNota();
-                InsertData();
-                InsertNota_Topping();
-                InsertCustomer();
-                DeleteData();
-                Reload();
+                //try
+                {
+                    InsertNota();
+                    InsertData();
+                    InsertNota_Topping();
+                    InsertCustomer();
+                    DeleteData();
+                    Reload();
+
+                    FormStruk struk = new FormStruk();
+                    struk.ShowDialog();
+                }
+                //catch (Exception)
+                {
+                    //MessageBox.Show("Order gagal");
+                }
             }
         }
 
@@ -551,6 +565,7 @@ namespace Projek_Tea_Break
 
         public void GetDiscount()
         {
+            
             try
             {
 
@@ -562,16 +577,28 @@ namespace Projek_Tea_Break
                 sqlAdapter.Fill(dtPromo);
                 sqlConnect.Close();
 
-                Diskon = Convert.ToInt32(dtPromo.Rows[0][1]) * Total / 100;
-                labelDiskon.Text = "-Rp. " + Diskon.ToString();
-                labelPersen.Text = dtPromo.Rows[0][1].ToString() + "%";
-                Netto = Total - Diskon;
-                labelTotalHargaBersih.Text = "Rp. " + Netto.ToString();
-                IDPromo = dtPromo.Rows[0][0].ToString();
+                if (dtPromo.Rows.Count > 0)
+                {
+                    Diskon = Convert.ToInt32(dtPromo.Rows[0][1]) * Total / 100;
+                    labelDiskon.Text = "-Rp. " + Diskon.ToString();
+                    labelPersen.Text = dtPromo.Rows[0][1].ToString() + "%";
+                    Netto = Total - Diskon;
+                    labelTotalHargaBersih.Text = "Rp. " + Netto.ToString();
+                    IDPromo = dtPromo.Rows[0][0].ToString();
+                }
+                else
+                {
+                    Diskon = 0;
+                    labelDiskon.Text = "-Rp. " + Diskon.ToString();
+                    labelPersen.Text = "0%";
+                    Netto = Total - Diskon;
+                    labelTotalHargaBersih.Text = "Rp. " + Netto.ToString();
+                    IDPromo = "";
+                }
             }
             catch (Exception)
             {
-                labelPersen.Text = "0%";
+                
             }
         }
 

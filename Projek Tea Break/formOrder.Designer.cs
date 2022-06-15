@@ -204,7 +204,7 @@ namespace Projek_Tea_Break
             // imageListMinuman
             // 
             this.imageListMinuman.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageListMinuman.ImageStream")));
-            this.imageListMinuman.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageListMinuman.TransparentColor = System.Drawing.Color.Black;
             this.imageListMinuman.Images.SetKeyName(0, "47-banana-milk.jpg");
             this.imageListMinuman.Images.SetKeyName(1, "25-taro2.jpg");
             this.imageListMinuman.Images.SetKeyName(2, "26-matcha-milk2.jpg");
@@ -239,6 +239,7 @@ namespace Projek_Tea_Break
             // panelMinuman
             // 
             this.panelMinuman.AutoScroll = true;
+            this.panelMinuman.BackColor = System.Drawing.Color.GreenYellow;
             this.panelMinuman.Location = new System.Drawing.Point(147, 234);
             this.panelMinuman.Margin = new System.Windows.Forms.Padding(4);
             this.panelMinuman.Name = "panelMinuman";
@@ -347,7 +348,7 @@ namespace Projek_Tea_Break
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(697, 513);
+            this.label7.Location = new System.Drawing.Point(708, 513);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(48, 17);
             this.label7.TabIndex = 22;
@@ -365,7 +366,7 @@ namespace Projek_Tea_Break
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(685, 490);
+            this.label8.Location = new System.Drawing.Point(697, 490);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(59, 17);
             this.label8.TabIndex = 24;
@@ -374,11 +375,11 @@ namespace Projek_Tea_Break
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(696, 467);
+            this.label9.Location = new System.Drawing.Point(685, 467);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(48, 17);
+            this.label9.Size = new System.Drawing.Size(73, 17);
             this.label9.TabIndex = 25;
-            this.label9.Text = "Total :";
+            this.label9.Text = "SubTotal :";
             // 
             // labelDiskon
             // 
@@ -401,7 +402,7 @@ namespace Projek_Tea_Break
             // labelPersen
             // 
             this.labelPersen.AutoSize = true;
-            this.labelPersen.Location = new System.Drawing.Point(751, 490);
+            this.labelPersen.Location = new System.Drawing.Point(759, 490);
             this.labelPersen.Name = "labelPersen";
             this.labelPersen.Size = new System.Drawing.Size(35, 17);
             this.labelPersen.TabIndex = 28;
