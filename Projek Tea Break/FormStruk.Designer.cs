@@ -52,6 +52,8 @@ namespace Projek_Tea_Break
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.labelInvis = new System.Windows.Forms.Label();
+            this.buttonback = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -232,7 +234,7 @@ namespace Projek_Tea_Break
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(128, 98);
+            this.label2.Location = new System.Drawing.Point(142, 98);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(141, 17);
             this.label2.TabIndex = 26;
@@ -241,7 +243,7 @@ namespace Projek_Tea_Break
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(125, 81);
+            this.label1.Location = new System.Drawing.Point(139, 81);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(144, 17);
             this.label1.TabIndex = 25;
@@ -251,17 +253,42 @@ namespace Projek_Tea_Break
             // 
             this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox1.Location = new System.Drawing.Point(91, 12);
+            this.pictureBox1.Location = new System.Drawing.Point(105, 12);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(213, 65);
             this.pictureBox1.TabIndex = 46;
             this.pictureBox1.TabStop = false;
             // 
+            // labelInvis
+            // 
+            this.labelInvis.AutoSize = true;
+            this.labelInvis.Location = new System.Drawing.Point(195, 612);
+            this.labelInvis.Name = "labelInvis";
+            this.labelInvis.Size = new System.Drawing.Size(0, 17);
+            this.labelInvis.TabIndex = 47;
+            // 
+            // buttonback
+            // 
+            this.buttonback.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonback.BackgroundImage")));
+            this.buttonback.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.buttonback.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonback.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonback.ForeColor = System.Drawing.Color.Transparent;
+            this.buttonback.Location = new System.Drawing.Point(1, 0);
+            this.buttonback.Name = "buttonback";
+            this.buttonback.Size = new System.Drawing.Size(30, 33);
+            this.buttonback.TabIndex = 48;
+            this.buttonback.UseVisualStyleBackColor = true;
+            this.buttonback.Click += new System.EventHandler(this.buttonback_Click);
+            // 
             // FormStruk
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(426, 767);
+            this.AutoScroll = true;
+            this.ClientSize = new System.Drawing.Size(432, 753);
+            this.Controls.Add(this.buttonback);
+            this.Controls.Add(this.labelInvis);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.labelNetto);
             this.Controls.Add(this.labelBruto);
@@ -286,6 +313,7 @@ namespace Projek_Tea_Break
             this.Controls.Add(this.label1);
             this.Name = "FormStruk";
             this.Text = "FormStruk";
+            this.Load += new System.EventHandler(this.FormStruk_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -316,5 +344,7 @@ namespace Projek_Tea_Break
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label labelInvis;
+        private System.Windows.Forms.Button buttonback;
     }
 }

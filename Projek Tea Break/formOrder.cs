@@ -275,6 +275,9 @@ namespace Projek_Tea_Break
                 InsertCustomer();
                 DeleteData();
                 Reload();
+
+                FormStruk cetakStruk = new FormStruk();
+                cetakStruk.ShowDialog();
             }
         }
 
