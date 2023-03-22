@@ -19,7 +19,8 @@ namespace Projek_Tea_Break
             InitializeComponent();
         }
 
-        public static string sqlConnection = "server=139.255.11.84;uid=student;pwd=isbmantap;database=DBD_11_TEABREAK";
+        //public static string sqlConnection = "server=139.255.11.84;uid=student;pwd=isbmantap;database=DBD_11_TEABREAK";
+        public static string sqlConnection = "server=127.0.0.1;uid=root;pwd=;database=db_tea_break";
         public MySqlConnection sqlConnect = new MySqlConnection(sqlConnection);
         public MySqlCommand sqlCommand;
         public MySqlDataAdapter sqlAdapter;

@@ -19,7 +19,7 @@ namespace Projek_Tea_Break
             InitializeComponent();
         }
 
-        public static string sqlConnection = "server=139.255.11.84;uid=student;pwd=isbmantap;database=DBD_11_TEABREAK";
+        public static string sqlConnection = "server=127.0.0.1;uid=root;pwd=;database=db_tea_break";
         public MySqlConnection sqlConnect = new MySqlConnection(sqlConnection);
         public MySqlCommand sqlCommand;
         public MySqlDataAdapter sqlAdapter;
@@ -55,7 +55,6 @@ namespace Projek_Tea_Break
 
             posisiX = 13;
             posisiY = 10;
-            sqlConnect.Open();
             panelMinuman.Controls.OfType<Button>().ToList().ForEach(btn => btn.Dispose());
             DataTable dtMinuman = new DataTable();
             try
@@ -129,7 +128,7 @@ namespace Projek_Tea_Break
         {
             panelOrderMenu.Controls.Clear();
 
-            sqlConnect.Open();
+            
             DataTable dtDetail = new DataTable();
             string sqlQueryDetail = "select DM.INDEX_MINUMAN AS `INDEX`, DM.ID_MINUMAN AS ID, M.NAMA_MINUMAN as NAMA ,DM.QTY_MINUMAN AS QTY, DM.HARGA_MINUMAN AS HARGA, DM.SUBTOTAL_MINUMAN AS SUBTOTAL, DM.NOTE_MINUMAN AS NOTE, DM.SUGAR_LEVEL AS SUGAR, ICE_LEVEL AS ICE from DETAIL_MINUMAN_SEMENTARA DM, MINUMAN M where  M.ID_MINUMAN=DM.ID_MINUMAN and DM.ID_NOTA='" + labelIDNota.Text + "' and DM.STATUS_DELETE=0 order by 1 ;  ";
             sqlCommand = new MySqlCommand(sqlQueryDetail, sqlConnect);
@@ -331,7 +330,6 @@ namespace Projek_Tea_Break
 
         public void DeleteData()
         {
-            sqlConnect.Open();
             string sqlDelete = "delete from DETAIL_MINUMAN_SEMENTARA;";
             sqlCommand = new MySqlCommand(sqlDelete, sqlConnect);
             sqlCommand.ExecuteNonQuery();
@@ -424,8 +422,9 @@ namespace Projek_Tea_Break
 
         public void InsertNota()
         {
+            sqlConnect.Close();
             sqlConnect.Open();
-            string sqlQueryNota = "insert into NOTA values('" + idNota + "', '" + IDCustomer + "', '" + IDPegawai + "', '" + IDPromo + "', now(), '" + Total + "', '" + Diskon + "','" + (Total - Diskon) + "', '" + urutan + "' , '0'); ";
+            string sqlQueryNota = "insert into NOTA values('" + idNota + "', '" + IDCustomer + "', '" + IDPegawai + "', '" + IDPromo + "', now(), '"+ textBoxNama.Text+"','" + Total + "', '" + Diskon + "','" + (Total - Diskon) + "', '" + urutan + "' , '0'); ";
             sqlCommand = new MySqlCommand(sqlQueryNota, sqlConnect);
             // MessageBox.Show($"{idNota},{IDCustomer},{IDPegawai},{IDPromo},now(),{Total},{Diskon},{Total-Diskon},{urutan},'0'");
             sqlCommand.ExecuteNonQuery();
@@ -473,6 +472,7 @@ namespace Projek_Tea_Break
 
         public void InsertCustomer()
         {
+            sqlConnect.Close();
             sqlConnect.Open();
             string sqlInsertCustomer = "insert into CUSTOMER values('" + IDCustomer + "','" + textBoxNama.Text + "','" + textBoxNoHP.Text + "','0');";
             sqlCommand = new MySqlCommand(sqlInsertCustomer, sqlConnect);
@@ -624,10 +624,10 @@ namespace Projek_Tea_Break
             }
             else
             {
+                InsertCustomer();
                 InsertNota();
                 InsertData();
                 InsertNota_Topping();
-                InsertCustomer();
                 DeleteData();
                 Reload();
 
